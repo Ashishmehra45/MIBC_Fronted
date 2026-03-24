@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#F8FAFC] pt-20 pb-10 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <footer className="w-full bg-[#F8FAFC] pt-5  border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 ">
         
         {/* Top Header Part */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-8">
           <div className="space-y-4">
             {/* Logo Placeholder */}
             <div className="flex flex-col">
@@ -32,7 +32,7 @@ const Footer = () => {
         <hr className="border-gray-200 mb-16" />
 
         {/* Middle Content Part */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-4">
           
           {/* Column 1: Council */}
           <div className="space-y-6">
@@ -104,7 +104,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-10 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6 mb-4">
           <div className="flex gap-6 text-xs text-slate-500 font-medium">
             <Link to="/privacy" className="hover:text-black">Privacy Policy</Link>
             <span className="text-gray-300">|</span>

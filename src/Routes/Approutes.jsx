@@ -3,6 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from '../components/Header'; 
 import Footer from '../components/Footer'; 
 import Home from '../pages/Home';
+import About from '../pages/About';
+import InvestmentFacilitation from '../pages/Investment_Facilitation';
+import TradePromotion from '../pages/TradePromotion';
+import DelegationFacilitation from '../pages/Delegation';
+import IntelligenceAdvocacy from '../pages/Intelligance_Advocy';
+import TequilaAccelerator from '../pages/TequilaAccelerator';
+import Launchpad from '../pages/Launchpad';
 
 function App() {
   return (
@@ -13,8 +20,13 @@ function App() {
       <main className="min-h-screen"> 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<div className="p-10">About Page Coming Soon</div>} />
-          {/* Baaki routes bhi yahan aayenge */}
+          <Route path="/about" element={<About /> } />
+          <Route path="/services/investment-facilitation" element={<InvestmentFacilitation />} />
+          <Route path="/services/trade-promotion" element={<TradePromotion />} />
+          <Route path="/services/delegation-facilitation" element={<DelegationFacilitation />} />
+          <Route path="/services/intelligence-advocacy" element={<IntelligenceAdvocacy />} />
+          <Route path="/initiatives/tequila-accelerator" element={<TequilaAccelerator />} />
+          <Route path="/initiatives/launchpad" element={<Launchpad />} />
         </Routes>
       </main>
 
