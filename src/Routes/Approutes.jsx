@@ -10,6 +10,13 @@ import DelegationFacilitation from '../pages/Delegation';
 import IntelligenceAdvocacy from '../pages/Intelligance_Advocy';
 import TequilaAccelerator from '../pages/TequilaAccelerator';
 import Launchpad from '../pages/Launchpad';
+import Events from '../pages/Events';
+import Sectors from '../pages/Sectors';
+import Membership from '../pages/Membership'; 
+import Contact from '../pages/Contact';
+import Services from '../pages/Services';
+import Initiatives from '../pages/Initatives';
+import MembershipPlans from '../pages/Membership_Plan';
 
 function App() {
   return (
@@ -27,6 +34,17 @@ function App() {
           <Route path="/services/intelligence-advocacy" element={<IntelligenceAdvocacy />} />
           <Route path="/initiatives/tequila-accelerator" element={<TequilaAccelerator />} />
           <Route path="/initiatives/launchpad" element={<Launchpad />} />
+          <Route path="/initiatives/events" element={<Events />} />
+          <Route path="/sectors" element={<Sectors />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/initiatives" element={<Initiatives />} />
+          <Route path="/membership-plans" element={<MembershipPlans />} />
+          
+          
+          
+          
         </Routes>
       </main>
 

@@ -18,7 +18,8 @@ const Header = () => {
   }, [theme]);
 
   const getLinkStyle = (path) => {
-    const isActive = location.pathname.startsWith(path);
+    // path exact match ya sub-path match check karne ke liye startsWith use kiya hai
+    const isActive = path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
     return `text-[16px] font-bold tracking-tight transition-colors duration-300 ${
       isActive 
       ? "!text-[#b38e44]" 
@@ -43,14 +44,19 @@ const Header = () => {
             <Link to="/" className={getLinkStyle("/")}>Home</Link>
             <Link to="/about" className={getLinkStyle("/about")}>About</Link>
 
-            {/* Services Dropdown */}
+            {/* Services - Ab ye Link hai, click karne par page redirect hoga */}
             <div className="relative group">
-              <button className={`${getLinkStyle("/services")} flex items-center gap-1`}>
+              <Link 
+                to="/services" 
+                className={`${getLinkStyle("/services")} flex items-center gap-1`}
+              >
                 Services
                 <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                 </svg>
-              </button>
+              </Link>
+              
+              {/* Dropdown Menu */}
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-2xl rounded-sm border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                 {[
                   { to: "/services/investment-facilitation", label: "Investment Facilitation" },
@@ -65,14 +71,18 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Initiatives Dropdown (NEW ADDITION) */}
+            {/* Initiatives - Click par redirection, hover par dropdown */}
             <div className="relative group">
-              <button className={`${getLinkStyle("/initiatives")} flex items-center gap-1`}>
+              <Link 
+                to="/initiatives" 
+                className={`${getLinkStyle("/initiatives")} flex items-center gap-1`}
+              >
                 Initiatives
                 <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                 </svg>
-              </button>
+              </Link>
+              
               <div className="absolute left-0 mt-2 w-64 bg-white shadow-2xl rounded-sm border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                 {[
                   { to: "/initiatives/tequila-accelerator", label: "Tequila Accelerator" },
@@ -97,6 +107,7 @@ const Header = () => {
               JOIN MIBC
             </Link>
 
+            {/* Theme Toggle */}
             <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b38e44]/10 text-[#b38e44] hover:bg-[#b38e44] hover:text-white transition-all duration-500">
               {theme === "dark" ? (
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" /></svg>
@@ -105,6 +116,7 @@ const Header = () => {
               )}
             </button>
 
+            {/* Burger Menu Button */}
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 !text-black">
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMobileMenuOpen ? "M6 18L18 6" : "M4 6h16M4 12h16M4 18h16"} />
@@ -117,7 +129,12 @@ const Header = () => {
         <div className={`lg:hidden transition-all duration-500 overflow-hidden ${isMobileMenuOpen ? "max-h-screen pb-10" : "max-h-0"}`}>
           <nav className="flex flex-col space-y-5 pt-6 border-t border-gray-50 bg-white">
             {["Home", "About", "Services", "Initiatives", "Sectors", "Membership", "Contact"].map((item) => (
-              <Link key={item} onClick={() => setIsMobileMenuOpen(false)} to={item === "Home" ? "/" : `/${item.toLowerCase()}`} className="text-base font-bold !text-black hover:!text-[#b38e44]">
+              <Link 
+                key={item} 
+                onClick={() => setIsMobileMenuOpen(false)} 
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+                className="text-base font-bold !text-black hover:!text-[#b38e44]"
+              >
                 {item}
               </Link>
             ))}
