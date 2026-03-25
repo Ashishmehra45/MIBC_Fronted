@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Check } from 'lucide-react';
-import DelegationHero from '../assets/images/blog/delegation.png'; // Path check kar lena bhai
+import DelegationHero from '../assets/images/blog/Delegation.png'; // Path check kar lena bhai
 
 const DelegationFacilitation = () => {
   
