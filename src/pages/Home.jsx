@@ -16,7 +16,7 @@ import img12 from "../assets/images/blog-grid/automotive.jpg";
 import img13 from "../assets/images/blog-grid/E&M.png";
 import img14 from "../assets/images/blog-grid/food.jpg";
 
-import memberImg1 from "../assets/images/services/corporate.jpeg";
+import memberImg1 from "../assets/images/services/Corporate.jpeg";
 import memberImg2 from "../assets/images/services/Founding.jpeg";
 import memberImg3 from "../assets/images/services/Associate.jpeg";
 
