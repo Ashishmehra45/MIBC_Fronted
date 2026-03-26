@@ -19,10 +19,12 @@ import Initiatives from '../pages/Initatives';
 import MembershipPlans from '../pages/Membership_Plan';
 import Preloader from '../pages/Preloader';
 import MembershipForm from '../pages/MembershipForm';
+import ScrollToTop from '../components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Preloader />
       <Header />
 
