@@ -23,6 +23,7 @@ import IntelImg from "../assets/images/membership/intelligance.jpeg";
 import AccessImg from "../assets/images/membership/rountable.jpg";
 import InfluenceImg from "../assets/images/membership/Policy.jpeg";
 import SupportImg from "../assets/images/membership/support.jpeg";
+import { Link } from "react-router-dom";
 
 const Membership = () => {
   const content = {
@@ -147,7 +148,9 @@ const Membership = () => {
             {content.hero.desc}
           </p>
           <button className="bg-[#A98842] hover:bg-[#b38e44] text-white px-12 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all transform hover:scale-105 shadow-[0_20px_50px_rgba(179,142,68,0.4)] active:scale-95">
-            Apply for Membership →
+            <Link to="/membership-plans" className="text-white no-underline">
+              Apply for Membership →
+            </Link>
           </button>
         </div>
       </section>

@@ -17,11 +17,15 @@ import Contact from '../pages/Contact';
 import Services from '../pages/Services';
 import Initiatives from '../pages/Initatives';
 import MembershipPlans from '../pages/Membership_Plan';
+import Preloader from '../pages/Preloader';
+import MembershipForm from '../pages/MembershipForm';
 
 function App() {
   return (
     <Router>
+      <Preloader />
       <Header />
+
       
       {/* min-h-screen taaki footer hamesha bottom par rahe agar content kam ho */}
       <main className="min-h-screen"> 
@@ -41,6 +45,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/membership-plans" element={<MembershipPlans />} />
+          <Route path="/membership-form" element={<MembershipForm />} />
           
           
           
