@@ -20,6 +20,7 @@ import MembershipPlans from '../pages/Membership_Plan';
 import Preloader from '../pages/Preloader';
 import MembershipForm from '../pages/MembershipForm';
 import ScrollToTop from '../components/ScrollToTop';
+import EventsGallery from '../pages/Event_Gallary';
 
 function App() {
   return (
@@ -48,7 +49,8 @@ function App() {
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/membership-plans" element={<MembershipPlans />} />
           <Route path="/membership-form" element={<MembershipForm />} />
-          
+          <Route path="/events-gallery" element={<EventsGallery />} />
+         
           
           
           

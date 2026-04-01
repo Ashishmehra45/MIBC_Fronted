@@ -5,6 +5,7 @@ import Event1 from "../assets/images/banner/it-events.jpg";
 import Event2 from "../assets/images/banner/pharma-events.jpg";
 import Event3 from "../assets/images/banner/automotive-events.jpg";
 import CalendarImg from "../assets/images/banner/annualeventcalendar.jpg";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const eventsContent = {
@@ -112,7 +113,7 @@ const Events = () => {
                     </p>
 
                     <button className="bg-[#A98842]/90 hover:bg-[#A98842] text-white px-8 py-3 rounded-xl text-[11px] font-black tracking-widest uppercase transition-all w-fit shadow-lg active:scale-95">
-                      View Events Images
+                     <Link to="/events-gallery">  View Events Images</Link>
                     </button>
                   </>
                 ) : (
