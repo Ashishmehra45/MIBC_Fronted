@@ -8,12 +8,15 @@ const Header = () => {
   const location = useLocation();
 
   // Theme Sync
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+ useEffect(() => {
+    const root = window.document.documentElement;
+    
     if (theme === "dark") {
-      document.body.classList.add("dark", "bg-slate-900");
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.body.classList.remove("dark", "bg-slate-900");
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [theme]);
 
@@ -28,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white dark:bg-[#F7F4EE] border-b border-gray-100 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-[#000000] border-b border-gray-100 transition-all">
       <div className="container mx-auto px-4 lg:px-10">
         <div className="flex items-center justify-between h-20 md:h-24">
           
