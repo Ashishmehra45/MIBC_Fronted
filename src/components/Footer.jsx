@@ -94,10 +94,10 @@ const Footer = () => {
             {/* SOCIAL ICONS */}
             <div className="flex gap-3 pt-2">
               {[
-                { icon: <Linkedin size={18} />, link: "#", label: "LinkedIn" },
-                { icon: <Facebook size={18} />, link: "#", label: "Facebook" },
-                { icon: <Twitter size={18} />, link: "#", label: "X" },
-                { icon: <Instagram size={18} />, link: "#", label: "Instagram" }
+                { icon: <Linkedin size={18} />, link: "https://www.linkedin.com/company/mibcorg/", label: "LinkedIn" },
+                { icon: <Facebook size={18} />, link: "https://www.facebook.com/profile.php?id=61585155789482&mibextid=wwXIfr&rdid=utlTtLC5yBxzHktj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1M59t97zvS%2F%3Fmibextid%3DwwXIfr#", label: "Facebook" },
+                { icon: <Twitter size={18} />, link: "https://x.com/InfoMexicoindia?t=Lq6NKCydqXHSH-U5oqnMcw&s=09", label: "X" },
+                { icon: <Instagram size={18} />, link: "https://www.instagram.com/official_mibc", label: "Instagram" }
               ].map((social, idx) => (
                 <a 
                   key={idx} 
