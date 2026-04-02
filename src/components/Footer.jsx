@@ -38,7 +38,7 @@ const Footer = () => {
             <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">Council</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-gray-400">
               <li><Link to="/about" className="hover:text-[#b38e44] transition-colors">About Us</Link></li>
-              <li><Link to="/leadership" className="hover:text-[#b38e44] transition-colors">Leadership</Link></li>
+              <li><Link to="/about" className="hover:text-[#b38e44] transition-colors">Leadership</Link></li>
               <li><Link to="/sectors" className="hover:text-[#b38e44] transition-colors"> Sectors</Link></li>
               <li><Link to="/membership" className="hover:text-[#b38e44] transition-colors">Membership</Link></li>
             </ul>
@@ -48,10 +48,10 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">Services</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-gray-400">
-              <li><Link to="/services" className="hover:text-[#b38e44] transition-colors">Investment Facilitation</Link></li>
-              <li><Link to="/services" className="hover:text-[#b38e44] transition-colors">Trade Promotion</Link></li>
-              <li><Link to="/services" className="hover:text-[#b38e44] transition-colors">Delegation Facilitation</Link></li>
-              <li><Link to="/services" className="hover:text-[#b38e44] transition-colors">Intelligence & Advocacy</Link></li>
+              <li><Link to="/services/investment-facilitation" className="hover:text-[#b38e44] transition-colors">Investment Facilitation</Link></li>
+              <li><Link to="/services/trade-promotion" className="hover:text-[#b38e44] transition-colors">Trade Promotion</Link></li>
+              <li><Link to="/services/delegation-facilitation" className="hover:text-[#b38e44] transition-colors">Delegation Facilitation</Link></li>
+              <li><Link to="/services/intelligence-advocacy" className="hover:text-[#b38e44] transition-colors">Intelligence & Advocacy</Link></li>
             </ul>
           </div>
 
@@ -59,8 +59,8 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">Initiatives</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-gray-400">
-              <li><Link to="#" className="hover:text-[#b38e44] transition-colors">Tequila Accelerator</Link></li>
-              <li><Link to="#" className="hover:text-[#b38e44] transition-colors">India–México Launchpad</Link></li>
+              <li><Link to="/initiatives/tequila" className="hover:text-[#b38e44] transition-colors">Tequila Accelerator</Link></li>
+              <li><Link to="/initiatives/launchpad" className="hover:text-[#b38e44] transition-colors">India–México Launchpad</Link></li>
               <li><Link to="/initiatives/events" className="hover:text-[#b38e44] transition-colors">Events & Summits</Link></li>
             </ul>
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
             <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">Connect</h4>
             <ul className="space-y-4 text-sm text-slate-600 dark:text-gray-400">
               <li><Link to="/contact" className="hover:text-[#b38e44] transition-colors">Contact</Link></li>
-              <li><Link to="/newsletter" className="hover:text-[#b38e44] transition-colors">Corridor Intelligence</Link></li>
+              <li><Link to="/newsletter" className="hover:text-[#b38e44] transition-colors">Newslatter</Link></li>
             </ul>
           </div>
 

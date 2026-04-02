@@ -16,14 +16,14 @@ const About = () => {
       name: "Ravi K. Tiwari",
       title: "CHIEF EXECUTIVE OFFICER",
       quote:
-        "“The Indo-Mexican economic partnership continues to evolve as businesses from both countries explore new opportunities in trade, investment, and innovation.”",
+        "“he Indo-Mexican economic partnership continues to evolve as businesses from both countries explore new opportunities in trade, investment, and innovation.”",
       image: CEOImg,
     },
     {
-      name: "Board Member Name",
-      title: "STRATEGIC ADVISOR",
+      name: "Rodrigo Pérez",
+      title: "Director",
       quote:
-        "“MIBC is bridging the gap between two of the world's most dynamic emerging economies through structured institutional engagement.”",
+        "“Our mission is to provide world-class business solutions and foster international collaboration to drive sustainable growth across diverse industries.”",
       image: ndLeaderImg,
     },
   ];
