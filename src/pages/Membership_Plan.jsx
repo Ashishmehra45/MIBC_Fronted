@@ -41,9 +41,9 @@ const MembershipPlans = () => {
   };
 
   return (
-    <section className="py-24 bg-[#faf9f6] relative font-sans overflow-hidden">
+    <section className="py-24 bg-[#faf9f6] dark:bg-slate-950 relative font-sans overflow-hidden transition-colors duration-500 min-h-screen">
       {/* Soft Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#A98842]/5 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#A98842]/5 dark:bg-[#A98842]/10 rounded-full blur-[120px] -z-10 transition-colors"></div>
 
       <div className="container mx-auto px-4 max-w-7xl">
         {/* --- HEADER --- */}
@@ -52,7 +52,7 @@ const MembershipPlans = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white text-[#A98842] px-6 py-2 rounded-lg text-[11px] font-black uppercase tracking-[0.15em] shadow-sm inline-block mb-6 border border-[#A98842]/20"
+            className="bg-white dark:bg-[#A98842]/10 text-[#A98842] px-6 py-2 rounded-lg text-[11px] font-black uppercase tracking-[0.15em] shadow-sm inline-block mb-6 border border-[#A98842]/20 transition-colors"
           >
             Membership Plans
           </motion.span>
@@ -61,7 +61,7 @@ const MembershipPlans = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 dark:text-white tracking-tight transition-colors"
           >
             Choose Your Membership Tier
           </motion.h2>
@@ -84,11 +84,11 @@ const MembershipPlans = () => {
                 scale: plan.isHighlighted ? 1.04 : 1.02,
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
-              className={`relative flex flex-col w-full rounded-[24px] transition-all duration-300 
+              className={`relative flex flex-col w-full rounded-[24px] transition-all duration-500 
                 ${
                   plan.isHighlighted
                     ? "bg-[#151515] border-2 border-[#A98842] shadow-2xl z-10 lg:scale-105 p-10 lg:p-12"
-                    : "bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.05)] p-10 lg:p-10 z-0"
+                    : "bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-[0_15px_40px_rgba(0,0,0,0.05)] dark:shadow-none p-10 lg:p-10 z-0"
                 }`}
             >
               <div className="text-center flex flex-col h-full justify-between items-center">
@@ -111,7 +111,11 @@ const MembershipPlans = () => {
 
                   {/* Description */}
                   <p
-                    className={`text-[14px] leading-relaxed font-semibold mt-2 ${plan.isHighlighted ? "text-gray-100" : "text-gray-900"}`}
+                    className={`text-[14px] leading-relaxed font-semibold mt-2 transition-colors ${
+                      plan.isHighlighted 
+                        ? "text-gray-100" 
+                        : "text-gray-900 dark:text-gray-300"
+                    }`}
                   >
                     {plan.desc}
                   </p>
@@ -133,11 +137,11 @@ const MembershipPlans = () => {
                           damping: 15,
                         },
                       }}
-                      className={`w-[180px] py-3.5 rounded-lg font-bold text-[14px] transition-colors
+                      className={`w-[180px] py-3.5 rounded-lg font-bold text-[14px] transition-colors duration-300
                         ${
                           plan.isHighlighted
                             ? "bg-white text-[#A98842] shadow-[0_10px_20px_rgba(169,136,66,0.2)] hover:bg-gray-100"
-                            : "bg-transparent border border-gray-200 text-gray-950 hover:border-[#A98842] hover:text-[#A98842]"
+                            : "bg-transparent border border-gray-200 dark:border-slate-700 text-gray-950 dark:text-white hover:border-[#A98842] dark:hover:border-[#A98842] hover:text-[#A98842] dark:hover:text-[#A98842]"
                         }`}
                     >
                       Apply Now

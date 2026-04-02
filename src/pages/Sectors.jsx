@@ -99,7 +99,7 @@ const Sectors = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] font-sans">
+    <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans transition-colors duration-500">
       
       {/* --- HERO SECTION --- */}
       <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
@@ -108,7 +108,7 @@ const Sectors = () => {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <span className="bg-white text-[#A98842] px-5 py-1.5 rounded-sm text-[11px] font-black uppercase tracking-[0.3em] mb-8 inline-block shadow-lg">
+          <span className="bg-white dark:bg-[#A98842]/10 text-[#A98842] px-5 py-1.5 rounded-sm text-[11px] font-black uppercase tracking-[0.3em] mb-8 inline-block shadow-lg transition-colors">
             {sectorsData.hero.badge}
           </span>
           <h1 className="text-white text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">
@@ -121,13 +121,13 @@ const Sectors = () => {
       </section>
 
       {/* --- CATEGORY 1: INDIAN INVESTMENT --- */}
-      <section className="py-24">
+      <section className="py-24 transition-colors duration-500">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
-            <span className="bg-[#f2f2f2] text-[#A98842] px-4 py-1 rounded text-[11px] font-bold uppercase tracking-[0.2em] mb-4 inline-block">
+            <span className="bg-[#f2f2f2] dark:bg-slate-900 text-[#A98842] px-4 py-1 rounded text-[11px] font-bold uppercase tracking-[0.2em] mb-4 inline-block transition-colors">
               {sectorsData.category1.badge}
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] dark:text-white tracking-tight transition-colors">
               {sectorsData.category1.title}
             </h2>
           </div>
@@ -141,13 +141,13 @@ const Sectors = () => {
       </section>
 
       {/* --- CATEGORY 2: MEXICAN EXPORTS --- */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto px-4 max-w-[90rem]">
           <div className="text-center mb-16">
-            <span className="bg-[#f2f2f2] text-[#A98842] px-4 py-1 rounded text-[11px] font-bold uppercase tracking-[0.2em] mb-4 inline-block">
+            <span className="bg-[#f2f2f2] dark:bg-slate-900 text-[#A98842] px-4 py-1 rounded text-[11px] font-bold uppercase tracking-[0.2em] mb-4 inline-block transition-colors">
               {sectorsData.category2.badge}
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] dark:text-white tracking-tight transition-colors">
               {sectorsData.category2.title}
             </h2>
           </div>
@@ -163,14 +163,14 @@ const Sectors = () => {
   );
 };
 
-// Reusable Card Component to keep code clean
+// Reusable Card Component
 const SectorCard = ({ card }) => (
-  <div className="bg-white rounded-[32px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+  <div className="bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] dark:shadow-none border border-gray-100 dark:border-slate-800 hover:shadow-2xl dark:hover:border-[#A98842]/30 transition-all duration-500 hover:-translate-y-2 group">
     <div className="h-56 overflow-hidden">
       <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
     </div>
     <div className="p-8">
-      <h3 className="text-xl font-black text-[#1a1a1a] mb-4 tracking-tight border-b-2 border-[#A98842]/20 pb-4">
+      <h3 className="text-xl font-black text-[#1a1a1a] dark:text-white mb-4 tracking-tight border-b-2 border-[#A98842]/20 pb-4 transition-colors">
         {card.title}
       </h3>
       <div className="space-y-4">
@@ -182,7 +182,7 @@ const SectorCard = ({ card }) => (
                  {detail.label}:
                </span>
             </div>
-            <p className="text-gray-700 text-[13px] font-bold leading-relaxed pl-4">
+            <p className="text-gray-700 dark:text-gray-300 text-[13px] font-bold leading-relaxed pl-4 transition-colors">
               {detail.value}
             </p>
           </div>

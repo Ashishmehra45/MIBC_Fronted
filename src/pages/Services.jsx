@@ -39,7 +39,7 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans overflow-x-hidden transition-colors duration-500">
       
       {/* --- SECTION 1: HERO --- */}
       <section className="relative h-[600px] flex items-center justify-center text-center overflow-hidden">
@@ -86,11 +86,11 @@ const Services = () => {
       </section>
 
       {/* --- SECTION 2: WHAT WE DELIVER (Flip Cards) --- */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-24 px-4 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight">What We Deliver</h2>
-            <p className="max-w-2xl mx-auto text-gray-500 font-medium leading-relaxed">
+            <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">What We Deliver</h2>
+            <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 font-medium leading-relaxed transition-colors">
               MIBC goes beyond traditional chamber services. We provide institutional-grade trade promotion, investment facilitation, and market entry support—from initial assessment through operational launch.
             </p>
           </motion.div>
@@ -119,11 +119,11 @@ const Services = () => {
                     </div>
                   </div>
                   {/* BACK */}
-                  <div className="absolute inset-0 h-full w-full rounded-[32px] bg-[#1a1a1a] p-10 flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden] border-2 border-[#A98842]/30">
+                  <div className="absolute inset-0 h-full w-full rounded-[32px] bg-[#1a1a1a] dark:bg-slate-900 p-10 flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden] border-2 border-[#A98842]/30 transition-colors">
                     <h3 className="text-[#A98842] text-xl font-black mb-8 border-b border-[#A98842]/20 pb-4">{card.title}</h3>
                     <ul className="space-y-4">
                       {card.backContent.map((point, i) => (
-                        <li key={i} className="flex items-start gap-3 text-gray-300 text-sm font-bold">
+                        <li key={i} className="flex items-start gap-3 text-gray-300 dark:text-gray-400 text-sm font-bold transition-colors">
                           <ChevronRight size={16} className="text-[#A98842] shrink-0 mt-0.5" /> 
                           <span className="leading-snug">{point}</span>
                         </li>
@@ -138,16 +138,16 @@ const Services = () => {
       </section>
 
       {/* --- SECTION 3: OUR PROCESS (Animated Timeline) --- */}
-      <section className="py-24 bg-[#faf9f6] relative overflow-hidden font-sans">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#A98842]/5 rounded-full blur-[100px] -z-0"></div>
+      <section className="py-24 bg-[#faf9f6] dark:bg-slate-900 relative overflow-hidden font-sans transition-colors duration-500">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#A98842]/5 dark:bg-[#A98842]/10 rounded-full blur-[100px] -z-0 transition-colors"></div>
         
         <div className="container mx-auto max-w-6xl px-4 relative z-10">
           <motion.div {...fadeInUp} className="text-center mb-24">
             <span className="text-[#A98842] text-[11px] font-black tracking-[0.3em] uppercase mb-4 block">Our Process</span>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter mb-8 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tighter mb-8 leading-tight transition-colors">
               How We <span className="text-[#A98842]">Work</span>
             </h2>
-            <p className="max-w-2xl mx-auto text-gray-500 font-medium text-lg opacity-80 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 font-medium text-lg opacity-80 leading-relaxed transition-colors">
               A structured engagement model designed for cross-border success—from assessment through scale.
             </p>
           </motion.div>
@@ -173,14 +173,14 @@ const Services = () => {
                   className={`flex flex-col md:flex-row items-center justify-between w-full ${step.align === 'right' ? 'md:flex-row-reverse' : ''}`}
                 >
                   <div className="w-full md:w-[45%] group">
-                    <div className={`bg-white p-10 rounded-[35px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-[#A98842]/20 transition-all duration-500 hover:shadow-2xl relative ${step.align === 'left' ? 'md:text-right' : 'md:text-left'}`}>
-                      <span className={`absolute top-6 font-black text-7xl text-gray-400/5 select-none ${step.align === 'left' ? 'left-8' : 'right-8'}`}>
+                    <div className={`bg-white dark:bg-slate-800 p-10 rounded-[35px] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-100 dark:border-slate-700 hover:border-[#A98842]/20 transition-all duration-500 hover:shadow-2xl relative ${step.align === 'left' ? 'md:text-right' : 'md:text-left'}`}>
+                      <span className={`absolute top-6 font-black text-7xl text-gray-400/5 dark:text-white/5 select-none transition-colors ${step.align === 'left' ? 'left-8' : 'right-8'}`}>
                         {step.step}
                       </span>
-                      <h4 className="text-2xl font-black text-gray-950 mb-4 tracking-tight group-hover:text-[#A98842] transition-colors">
+                      <h4 className="text-2xl font-black text-gray-950 dark:text-white mb-4 tracking-tight group-hover:text-[#A98842] transition-colors">
                         {step.title}
                       </h4>
-                      <p className="text-gray-500 text-[15px] md:text-[16px] leading-relaxed font-medium">
+                      <p className="text-gray-500 dark:text-gray-400 text-[15px] md:text-[16px] leading-relaxed font-medium transition-colors">
                         {step.desc}
                       </p>
                     </div>
@@ -192,7 +192,7 @@ const Services = () => {
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 200, delay: 0.5 }}
-                      className="w-14 h-14 rounded-full bg-white border-[6px] border-[#faf9f6] shadow-xl flex items-center justify-center relative group-hover:scale-110 transition-transform"
+                      className="w-14 h-14 rounded-full bg-white dark:bg-slate-800 border-[6px] border-[#faf9f6] dark:border-slate-900 shadow-xl flex items-center justify-center relative group-hover:scale-110 transition-transform"
                     >
                       <div className="w-8 h-8 rounded-full bg-[#A98842] flex items-center justify-center text-white font-black text-[10px] shadow-inner">
                         {step.step}
@@ -209,12 +209,12 @@ const Services = () => {
       </section>
 
       {/* --- SECTION 4: TABLE AND ADVANTAGES --- */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto max-w-6xl px-4">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-[#A98842] text-[11px] font-black tracking-widest uppercase mb-4 block">Competitive Differentiation</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mt-4 tracking-tighter">Why MIBC vs. Others</h2>
-            <p className="text-gray-500 mt-4 font-medium">What sets us apart from traditional chambers and consultants.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mt-4 tracking-tighter transition-colors">Why MIBC vs. Others</h2>
+            <p className="text-gray-500 dark:text-gray-400 mt-4 font-medium transition-colors">What sets us apart from traditional chambers and consultants.</p>
           </motion.div>
 
           <motion.div 
@@ -222,18 +222,18 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="overflow-x-auto rounded-[32px] shadow-2xl mb-24 border border-gray-100"
+            className="overflow-x-auto rounded-[32px] shadow-2xl mb-24 border border-gray-100 dark:border-slate-800 transition-colors"
           >
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="bg-[#1a1a1a] text-white">
+                <tr className="bg-[#1a1a1a] dark:bg-slate-900 text-white transition-colors">
                   <th className="p-8 font-black uppercase text-xs tracking-widest">Capability</th>
                   <th className="p-8 font-black uppercase text-xs tracking-widest">Traditional Chambers</th>
                   <th className="p-8 font-black uppercase text-xs tracking-widest">Consultants</th>
                   <th className="p-8 font-black uppercase text-xs tracking-widest bg-[#A98842]">MIBC</th>
                 </tr>
               </thead>
-              <tbody className="bg-white">
+              <tbody className="bg-white dark:bg-slate-900 transition-colors">
                 {[
                   ["Primary Focus", "Networking events", "Generic advice", "Government-coordinated facilitation"],
                   ["Engagement Model", "Membership directories", "One-time projects", "Long-term institutional partnerships"],
@@ -246,12 +246,12 @@ const Services = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: i * 0.1 }}
-                    className="border-b border-gray-50 last:border-0"
+                    className="border-b border-gray-50 dark:border-slate-800 last:border-0 transition-colors"
                   >
-                    <td className="p-8 font-black text-gray-950 text-sm">{row[0]}</td>
-                    <td className="p-8 text-gray-500 text-sm font-medium">{row[1]}</td>
-                    <td className="p-8 text-gray-500 text-sm font-medium">{row[2]}</td>
-                    <td className="p-8 font-black text-gray-900 text-sm bg-[#A98842]/5">{row[3]}</td>
+                    <td className="p-8 font-black text-gray-950 dark:text-white text-sm transition-colors">{row[0]}</td>
+                    <td className="p-8 text-gray-500 dark:text-gray-400 text-sm font-medium transition-colors">{row[1]}</td>
+                    <td className="p-8 text-gray-500 dark:text-gray-400 text-sm font-medium transition-colors">{row[2]}</td>
+                    <td className="p-8 font-black text-gray-900 dark:text-[#A98842] text-sm bg-[#A98842]/5 dark:bg-[#A98842]/10 transition-colors">{row[3]}</td>
                   </motion.tr>
                 ))}
               </tbody>
@@ -260,7 +260,7 @@ const Services = () => {
 
           {/* ADVANTAGES GRID */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900">Our Institutional Advantages</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white transition-colors">Our Institutional Advantages</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -277,12 +277,12 @@ const Services = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-4 p-4 rounded-xl hover:bg-[#faf9f6] transition-colors"
+                className="flex items-start gap-4 p-4 rounded-xl hover:bg-[#faf9f6] dark:hover:bg-slate-800 transition-colors"
               >
                 <div className="bg-[#A98842] rounded-md p-1 mt-1 shrink-0">
                   <Check className="text-white" size={16} strokeWidth={4} />
                 </div>
-                <p className="text-gray-600 text-[14px] font-medium leading-relaxed">{text}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-[14px] font-medium leading-relaxed transition-colors">{text}</p>
               </motion.div>
             ))}
           </div>

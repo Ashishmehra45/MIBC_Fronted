@@ -62,12 +62,12 @@ const Initiatives = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans overflow-x-hidden transition-colors duration-500">
       
       {/* --- HEADER SECTION --- */}
       <section className="pt-24 pb-16 px-4 relative overflow-hidden">
          {/* Subtle Radial Gradient Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(169,136,66,0.05)_0%,transparent_50%)] -z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(169,136,66,0.05)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_center,rgba(169,136,66,0.1)_0%,transparent_50%)] -z-10 transition-colors"></div>
         
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div 
@@ -75,13 +75,13 @@ const Initiatives = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="bg-white/60 text-[#A98842] px-6 py-2 rounded-xl text-[12px] font-black uppercase tracking-widest shadow-sm border border-[#A98842]/10 inline-block mb-6">
+            <span className="bg-white/60 dark:bg-[#A98842]/10 text-[#A98842] px-6 py-2 rounded-xl text-[12px] font-black uppercase tracking-widest shadow-sm border border-[#A98842]/10 inline-block mb-6 transition-colors">
               Driving Growth
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#A98842] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#A98842] mb-6 tracking-tight transition-colors">
               Strategic Initiatives
             </h1>
-            <p className="text-gray-800 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-gray-800 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium transition-colors">
               MIBC is committed to transforming bilateral potential into tangible outcomes. Explore our flagship programs designed to provide structured market entry, foster startup growth, and create high-level engagements across the India-México corridor.
             </p>
           </motion.div>
@@ -113,7 +113,7 @@ const Initiatives = () => {
                   
                   {/* IMAGE SIDE */}
                   <div className="w-full md:w-1/2">
-                    <div className="rounded-[32px] overflow-hidden shadow-2xl relative group">
+                    <div className="rounded-[32px] overflow-hidden shadow-2xl dark:shadow-black/50 relative group transition-shadow">
                       <div className="absolute inset-0 bg-[#A98842]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                       <img 
                         src={item.image} 
@@ -126,15 +126,15 @@ const Initiatives = () => {
                   {/* CONTENT SIDE */}
                   <div className="w-full md:w-1/2 flex flex-col items-start text-left">
                     
-                    <span className="text-[#A98842] font-bold text-[11px] tracking-widest uppercase mb-3 block">
+                    <span className="text-[#A98842] font-bold text-[11px] tracking-widest uppercase mb-3 block transition-colors">
                       {item.step}
                     </span>
                     
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 tracking-tight transition-colors">
                       {item.title}
                     </h2>
                     
-                    <p className="text-gray-800 text-[14px] md:text-[15px] font-medium leading-relaxed mb-8">
+                    <p className="text-gray-800 dark:text-gray-400 text-[14px] md:text-[15px] font-medium leading-relaxed mb-8 transition-colors">
                       {item.desc}
                     </p>
 
@@ -142,7 +142,7 @@ const Initiatives = () => {
                       {item.features.map((feature, fIndex) => (
                         <div key={fIndex} className="flex items-start gap-3">
                           <Check className="text-[#A98842] shrink-0 mt-0.5" size={18} strokeWidth={3} />
-                          <p className="text-gray-600 text-[13px] md:text-[14px] leading-relaxed">
+                          <p className="text-gray-600 dark:text-gray-400 text-[13px] md:text-[14px] leading-relaxed transition-colors">
                             <span className="font-bold text-[#A98842]">{feature.title}: </span>
                             <span className="font-medium">{feature.desc}</span>
                           </p>

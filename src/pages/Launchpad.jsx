@@ -45,16 +45,18 @@ const Launchpad = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] font-sans pb-24">
+    <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans pb-24 transition-colors duration-500">
       
       {/* --- HEADER SECTION --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
-          <span className="text-[#A98842] font-bold text-[10px] tracking-[0.3em] uppercase mb-2 block">Soft Landing Program</span>
-          <h1 className="text-4xl md:text-6xl font-black text-[#A98842] mb-4 tracking-tight">
+          <span className="text-[#A98842] font-bold text-[10px] tracking-[0.3em] uppercase mb-2 block transition-colors">
+            Soft Landing Program
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black text-[#A98842] mb-4 tracking-tight transition-colors">
             {content.title}
           </h1>
-          <p className="max-w-3xl mx-auto text-gray-900 font-bold text-[10px] md:text-xs leading-relaxed uppercase tracking-widest opacity-80">
+          <p className="max-w-3xl mx-auto text-gray-900 dark:text-gray-300 font-bold text-[10px] md:text-xs leading-relaxed uppercase tracking-widest opacity-80 transition-colors">
             {content.subtitle}
           </p>
         </div>
@@ -62,7 +64,7 @@ const Launchpad = () => {
 
       {/* --- HERO IMAGE --- */}
       <section className="container mx-auto px-4 mb-16">
-        <div className="rounded-[30px] overflow-hidden shadow-2xl border-4 border-white max-w-7xl mx-auto">
+        <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 max-w-7xl mx-auto transition-colors">
           <img 
             src={LaunchpadHero} 
             alt="Economic Forum India Mexico" 
@@ -73,23 +75,25 @@ const Launchpad = () => {
 
       {/* --- OVERVIEW CARD --- */}
       <section className="container mx-auto px-4 max-w-7xl mb-12">
-        <div className="bg-white rounded-[40px] p-8 md:p-14 shadow-sm border border-gray-50 relative overflow-hidden">
+        <div className="bg-white dark:bg-slate-900 rounded-[40px] p-8 md:p-14 shadow-sm border border-gray-50 dark:border-slate-800 relative overflow-hidden transition-colors duration-500">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
             <div className="flex flex-col gap-6 max-w-4xl">
-              <div className="w-12 h-12 bg-[#A98842] text-white rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-[#A98842] text-white rounded-xl flex items-center justify-center shadow-lg dark:shadow-none transition-colors">
                 <Rocket size={24} />
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900">{content.overview.title}</h2>
-              <p className="text-gray-500 text-lg leading-relaxed font-medium">
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white transition-colors">
+                {content.overview.title}
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed font-medium transition-colors">
                 {content.overview.desc}
               </p>
             </div>
-            <span className="bg-[#FFF9E6] text-[#A98842] px-4 py-1.5 rounded-md text-[9px] font-black tracking-widest uppercase">
+            <span className="bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842] px-4 py-1.5 rounded-md text-[9px] font-black tracking-widest uppercase transition-colors">
               {content.overview.badge}
             </span>
           </div>
           {/* Subtle Bottom Accent Line like Image */}
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#A98842]/20"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-[#A98842]/20 transition-colors"></div>
         </div>
       </section>
 
@@ -97,32 +101,44 @@ const Launchpad = () => {
       <section className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {content.sections.map((section, idx) => (
-            <div key={idx} className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-50 transition-all hover:shadow-xl flex flex-col">
+            <div 
+              key={idx} 
+              className="bg-white dark:bg-slate-900 rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-50 dark:border-slate-800 transition-all duration-500 hover:shadow-xl dark:hover:shadow-lg dark:hover:border-[#A98842]/30 flex flex-col group"
+            >
               
               {/* Card Header */}
               <div className="flex justify-between items-start mb-8">
-                <div className="w-12 h-12 bg-[#A98842] text-white rounded-xl flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 bg-[#A98842] text-white rounded-xl flex items-center justify-center shadow-md dark:shadow-none transition-colors">
                   {section.icon}
                 </div>
-                <span className={`px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest ${idx === 1 ? 'bg-[#1a1a1a] text-white' : 'bg-[#FFF9E6] text-[#A98842]'}`}>
+                <span 
+                  className={`px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest transition-colors ${
+                    idx === 1 
+                      ? 'bg-[#1a1a1a] dark:bg-slate-800 text-white dark:text-gray-200' 
+                      : 'bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842]'
+                  }`}
+                >
                   {section.badge}
                 </span>
               </div>
 
-              <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6 tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">
                 {section.type}
               </h3>
               
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-10 font-medium min-h-[60px]">
+              <p className="text-gray-600 dark:text-gray-400 text-[15px] leading-relaxed mb-10 font-medium min-h-[60px] transition-colors">
                 {section.desc}
               </p>
 
               {/* Checklist Points */}
               <div className="space-y-3 flex-grow">
                 {section.points.map((point, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-[#faf9f6]/60 p-4 rounded-2xl border border-gray-50 hover:bg-white transition-all">
+                  <div 
+                    key={i} 
+                    className="flex items-center gap-4 bg-[#faf9f6]/60 dark:bg-slate-800/50 p-4 rounded-2xl border border-gray-50 dark:border-slate-700/50 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-300"
+                  >
                     <Check size={16} className="text-[#A98842] mt-1 shrink-0" strokeWidth={3} />
-                    <span className="text-gray-700 text-sm font-bold tracking-tight leading-snug">
+                    <span className="text-gray-700 dark:text-gray-200 text-sm font-bold tracking-tight leading-snug transition-colors">
                       {point}
                     </span>
                   </div>

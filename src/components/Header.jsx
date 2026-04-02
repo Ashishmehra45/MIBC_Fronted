@@ -3,14 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/images/logo/logo-dark.png";
 
 const Header = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   // Theme Sync
- useEffect(() => {
+  useEffect(() => {
     const root = window.document.documentElement;
-    
     if (theme === "dark") {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -21,24 +20,27 @@ const Header = () => {
   }, [theme]);
 
   const getLinkStyle = (path) => {
-    // path exact match ya sub-path match check karne ke liye startsWith use kiya hai
     const isActive = path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
     return `text-[16px] font-bold tracking-tight transition-colors duration-300 ${
       isActive 
-      ? "!text-[#b38e44]" 
-      : "!text-black hover:!text-[#b38e44]"
+      ? "text-[#b38e44]" 
+      : "text-slate-900 dark:text-gray-200 hover:text-[#b38e44] dark:hover:text-[#b38e44]"
     }`;
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white dark:bg-[#000000] border-b border-gray-100 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-slate-950 border-b border-gray-100 dark:border-slate-800 transition-colors duration-500">
       <div className="container mx-auto px-4 lg:px-10">
         <div className="flex items-center justify-between h-20 md:h-24">
           
           {/* 1. LOGO SECTION */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <img className="h-10 md:h-12 w-auto transition-all" src={logo} alt="MIBC Logo" />
+              <img 
+                className={`h-10 md:h-12 w-auto transition-all duration-500 ${theme === 'dark' ? 'brightness-200 invert' : ''}`} 
+                src={logo} 
+                alt="MIBC Logo" 
+              />
             </Link>
           </div>
 
@@ -47,7 +49,7 @@ const Header = () => {
             <Link to="/" className={getLinkStyle("/")}>Home</Link>
             <Link to="/about" className={getLinkStyle("/about")}>About</Link>
 
-            {/* Services - Ab ye Link hai, click karne par page redirect hoga */}
+            {/* Services Dropdown */}
             <div className="relative group">
               <Link 
                 to="/services" 
@@ -59,22 +61,21 @@ const Header = () => {
                 </svg>
               </Link>
               
-              {/* Dropdown Menu */}
-              <div className="absolute left-0 mt-2 w-64 bg-white shadow-2xl rounded-sm border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-900 shadow-2xl rounded-sm border border-gray-100 dark:border-slate-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                 {[
                   { to: "/services/investment-facilitation", label: "Investment Facilitation" },
                   { to: "/services/trade-promotion", label: "Trade Promotion" },
                   { to: "/services/delegation-facilitation", label: "Delegation Facilitation" },
                   { to: "/services/intelligence-advocacy", label: "Intelligence & Advocacy" }
                 ].map((item) => (
-                  <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold !text-black hover:bg-gray-50 hover:!text-[#b38e44] transition-colors">
+                  <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold text-slate-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-[#b38e44] dark:hover:text-[#b38e44] transition-colors">
                     {item.label}
                   </Link>
                 ))}
               </div>
             </div>
 
-            {/* Initiatives - Click par redirection, hover par dropdown */}
+            {/* Initiatives Dropdown */}
             <div className="relative group">
               <Link 
                 to="/initiatives" 
@@ -86,13 +87,13 @@ const Header = () => {
                 </svg>
               </Link>
               
-              <div className="absolute left-0 mt-2 w-64 bg-white shadow-2xl rounded-sm border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+              <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-900 shadow-2xl rounded-sm border border-gray-100 dark:border-slate-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                 {[
                   { to: "/initiatives/tequila-accelerator", label: "Tequila Accelerator" },
                   { to: "/initiatives/launchpad", label: "India–México Launchpad" },
                   { to: "/initiatives/events", label: "Events" }
                 ].map((item) => (
-                  <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold !text-black hover:bg-gray-50 hover:!text-[#b38e44] transition-colors">
+                  <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold text-slate-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-[#b38e44] dark:hover:text-[#b38e44] transition-colors">
                     {item.label}
                   </Link>
                 ))}
@@ -110,17 +111,27 @@ const Header = () => {
               JOIN MIBC
             </Link>
 
-            {/* Theme Toggle */}
-            <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b38e44]/10 text-[#b38e44] hover:bg-[#b38e44] hover:text-white transition-all duration-500">
-              {theme === "dark" ? (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" /></svg>
+            {/* THEME TOGGLE BUTTON (UPDATED) */}
+            <button 
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b38e44]/10 dark:bg-slate-800 text-[#b38e44] hover:bg-[#b38e44] hover:text-white transition-all duration-500"
+              title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {theme === "light" ? (
+                // ☀️ Light Mode mein SUN dikhega (Click karne par dark hoga)
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
               ) : (
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
+                // 🌙 Dark Mode mein MOON dikhega (Click karne par light hoga)
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
               )}
             </button>
 
             {/* Burger Menu Button */}
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 !text-black">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 text-slate-900 dark:text-white">
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMobileMenuOpen ? "M6 18L18 6" : "M4 6h16M4 12h16M4 18h16"} />
               </svg>
@@ -130,20 +141,17 @@ const Header = () => {
 
         {/* MOBILE MENU */}
         <div className={`lg:hidden transition-all duration-500 overflow-hidden ${isMobileMenuOpen ? "max-h-screen pb-10" : "max-h-0"}`}>
-          <nav className="flex flex-col space-y-5 pt-6 border-t border-gray-50 bg-white">
+          <nav className="flex flex-col space-y-5 pt-6 border-t border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-2">
             {["Home", "About", "Services", "Initiatives", "Sectors", "Membership", "Contact"].map((item) => (
               <Link 
                 key={item} 
                 onClick={() => setIsMobileMenuOpen(false)} 
                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
-                className="text-base font-bold !text-black hover:!text-[#b38e44]"
+                className="text-base font-bold text-slate-900 dark:text-gray-200 hover:text-[#b38e44] dark:hover:text-[#b38e44]"
               >
                 {item}
               </Link>
             ))}
-            <Link onClick={() => setIsMobileMenuOpen(false)} to="/membership" className="bg-[#b38e44] text-white text-center py-4 rounded-sm font-bold tracking-widest uppercase text-xs">
-              JOIN MIBC
-            </Link>
           </nav>
         </div>
       </div>

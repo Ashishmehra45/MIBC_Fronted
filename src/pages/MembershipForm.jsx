@@ -67,6 +67,8 @@ const MembershipForm = () => {
           text: "Your membership application has been submitted. Please check your email for a confirmation message.",
           icon: "success",
           confirmButtonColor: "#A98842",
+          background: document.documentElement.classList.contains('dark') ? '#111111' : '#ffffff',
+          color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
         });
 
         // Form Reset
@@ -89,6 +91,8 @@ const MembershipForm = () => {
         text: errorMsg,
         icon: "error",
         confirmButtonColor: "#d33",
+        background: document.documentElement.classList.contains('dark') ? '#111111' : '#ffffff',
+        color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
       });
     } finally {
       setIsLoading(false);
@@ -96,14 +100,14 @@ const MembershipForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans pb-24">
+    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans pb-24 transition-colors duration-500">
       {/* --- HEADER --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
-          <span className="bg-[#FFF9E6] text-[#A98842] px-4 py-1.5 rounded-md text-[11px] font-bold tracking-widest uppercase mb-4 inline-block">
+          <span className="bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842] px-4 py-1.5 rounded-md text-[11px] font-bold tracking-widest uppercase mb-4 inline-block transition-colors">
             Membership Application
           </span>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mt-2">
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight mt-2 transition-colors">
             Apply for MIBC Membership
           </h1>
         </div>
@@ -112,32 +116,32 @@ const MembershipForm = () => {
       {/* --- 3 INFO CARDS --- */}
       <section className="container mx-auto px-4 max-w-7xl mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#f8fbff] p-8 rounded-2xl border border-gray-50 shadow-sm">
+          <div className="bg-[#f8fbff] dark:bg-slate-900 p-8 rounded-2xl border border-gray-50 dark:border-slate-800 shadow-sm transition-colors duration-500">
             <Edit3 className="text-[#A98842] mb-4" size={28} />
-            <h3 className="text-lg font-black text-gray-900 mb-3">
+            <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 transition-colors">
               Choose Your Membership Tier
             </h3>
-            <p className="text-gray-600 text-sm font-medium leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed transition-colors">
               Select your plan on the previous page — it will auto-fill here.
             </p>
           </div>
 
-          <div className="bg-[#f8fbff] p-8 rounded-2xl border border-gray-50 shadow-sm">
+          <div className="bg-[#f8fbff] dark:bg-slate-900 p-8 rounded-2xl border border-gray-50 dark:border-slate-800 shadow-sm transition-colors duration-500">
             <FileText className="text-[#A98842] mb-4" size={28} />
-            <h3 className="text-lg font-black text-gray-900 mb-3">
+            <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 transition-colors">
               Application Requirements
             </h3>
-            <p className="text-gray-600 text-sm font-medium leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed transition-colors">
               Provide basic company info, contact details & intended engagement.
             </p>
           </div>
 
-          <div className="bg-[#f8fbff] p-8 rounded-2xl border border-gray-50 shadow-sm">
+          <div className="bg-[#f8fbff] dark:bg-slate-900 p-8 rounded-2xl border border-gray-50 dark:border-slate-800 shadow-sm transition-colors duration-500">
             <CheckCircle className="text-[#A98842] mb-4" size={28} />
-            <h3 className="text-lg font-black text-gray-900 mb-3">
+            <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 transition-colors">
               Post-Submission
             </h3>
-            <p className="text-gray-600 text-sm font-medium leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed transition-colors">
               Your application is reviewed within 3-5 working days.
             </p>
           </div>
@@ -157,7 +161,7 @@ const MembershipForm = () => {
                   value={formData.tier}
                   readOnly
                   placeholder="Select Membership Tier"
-                  className="w-full p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 font-bold text-sm focus:outline-none cursor-not-allowed"
+                  className="w-full p-4 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg text-gray-700 dark:text-gray-400 font-bold text-sm focus:outline-none cursor-not-allowed transition-colors"
                 />
               </div>
 
@@ -168,7 +172,7 @@ const MembershipForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#A98842] font-medium text-sm transition-colors"
+                  className="w-full p-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-[#A98842] dark:focus:border-[#A98842] font-medium text-sm transition-colors dark:text-white"
                   required
                 />
               </div>
@@ -180,7 +184,7 @@ const MembershipForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Phone Number (e.g. +91...)"
-                  className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#A98842] font-medium text-sm transition-colors"
+                  className="w-full p-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-[#A98842] dark:focus:border-[#A98842] font-medium text-sm transition-colors dark:text-white"
                   required
                 />
               </div>
@@ -192,7 +196,7 @@ const MembershipForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#A98842] font-medium text-sm transition-colors"
+                  className="w-full p-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-[#A98842] dark:focus:border-[#A98842] font-medium text-sm transition-colors dark:text-white"
                   required
                 />
               </div>
@@ -204,7 +208,7 @@ const MembershipForm = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Company Name"
-                  className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#A98842] font-medium text-sm transition-colors"
+                  className="w-full p-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-[#A98842] dark:focus:border-[#A98842] font-medium text-sm transition-colors dark:text-white"
                   required
                 />
               </div>
@@ -216,7 +220,7 @@ const MembershipForm = () => {
                   onChange={handleChange}
                   rows="5"
                   placeholder="Tell us about your business objectives"
-                  className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#A98842] font-medium text-sm transition-colors resize-none"
+                  className="w-full p-4 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg focus:outline-none focus:border-[#A98842] dark:focus:border-[#A98842] font-medium text-sm transition-colors resize-none dark:text-white"
                   required
                 ></textarea>
               </div>
@@ -232,7 +236,7 @@ const MembershipForm = () => {
           </div>
 
           {/* RIGHT SIDE: IMAGE */}
-          <div className="lg:w-1/2 rounded-[24px] overflow-hidden shadow-xl border border-gray-100 min-h-[500px] relative">
+          <div className="lg:w-1/2 rounded-[24px] overflow-hidden shadow-xl dark:shadow-black/50 border border-gray-100 dark:border-slate-800 min-h-[500px] relative transition-colors duration-500">
             <img
               src={FormImage}
               alt="MIBC Meeting"
