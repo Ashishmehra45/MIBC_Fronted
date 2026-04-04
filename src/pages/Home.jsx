@@ -24,6 +24,13 @@ import MIBCpdf from "../assets/pdf/MIBC_Membership_plans.pdf";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("investment");
+  // 🔄 Mobile Flip Handle karne ke liye State (Yahan add karo)
+  const [flippedCard, setFlippedCard] = useState(null);
+
+  const toggleFlip = (id) => {
+    // Agar mobile pe touch ho toh toggle flip kare
+    setFlippedCard(flippedCard === id ? null : id);
+  };
 
   // --- Return ke Upar ye Counter Component daal do ---
   const Counter = ({ value, duration = 2 }) => {
@@ -62,7 +69,6 @@ const Home = () => {
 
   return (
     <div className="w-full bg-[#f4faff] dark:bg-slate-950 min-h-screen font-sans transition-colors duration-500">
-      
       {/* 1. HERO SECTION */}
       <section className="md:h-[40vw] w-full flex flex-col items-center overflow-hidden">
         {/* Video Background */}
@@ -375,10 +381,18 @@ const Home = () => {
                 title: "Information Technology",
                 subtitle: "Indian Investment",
                 img: img10,
-                link: "/sectors/it",
                 isLarge: true,
                 icon: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <rect width="20" height="14" x="2" y="3" rx="2" />
                     <line x1="8" y1="21" x2="16" y2="21" />
                     <line x1="12" y1="17" x2="12" y2="21" />
@@ -389,9 +403,17 @@ const Home = () => {
                 id: "pharma",
                 title: "Pharmaceuticals",
                 img: img11,
-                link: "/sectors/pharma",
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                     <path d="m8.5 8.5 7 7" />
                   </svg>
@@ -401,9 +423,17 @@ const Home = () => {
                 id: "logistics",
                 title: "Logistics",
                 img: img12,
-                link: "/sectors/logistics",
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M10 17h4V2" />
                     <path d="M10 17v-5h4v5" />
                     <path d="M8 22h8" />
@@ -415,9 +445,17 @@ const Home = () => {
                 id: "manufacturing",
                 title: "Manufacturing",
                 img: img13,
-                link: "/sectors/manufacturing",
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8" />
                     <path d="M5 20h14" />
                     <path d="M15 7V4a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2v3" />
@@ -428,9 +466,17 @@ const Home = () => {
                 id: "food",
                 title: "Food & Agri",
                 img: img14,
-                link: "/sectors/food",
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
                     <line x1="6" y1="17" x2="18" y2="17" />
                   </svg>
@@ -439,10 +485,10 @@ const Home = () => {
             ].map((sector) => (
               <Link
                 key={sector.id}
-                to={sector.link}
+                to="/sectors" // ✅ Fixed: Sabhi cards ab sirf /sectors par navigate karenge
                 className={`${
                   sector.isLarge ? "md:col-span-2 md:row-span-2" : ""
-                } relative group overflow-hidden rounded-xl shadow-md bg-slate-200 dark:bg-slate-800 transition-colors`}
+                } relative group overflow-hidden rounded-xl shadow-md bg-slate-200 dark:bg-slate-800 transition-colors cursor-pointer`}
               >
                 <img
                   src={sector.img}
@@ -450,10 +496,14 @@ const Home = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px]">
-                  <div className={`mb-4 text-[#b38e44] transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ${sector.isLarge ? "scale-125" : ""}`}>
+                  <div
+                    className={`mb-4 text-[#b38e44] transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ${sector.isLarge ? "scale-125" : ""}`}
+                  >
                     {sector.icon}
                   </div>
-                  <h3 className={`text-white font-bold uppercase tracking-widest transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75 ${sector.isLarge ? "text-2xl md:text-3xl" : "text-lg"}`}>
+                  <h3
+                    className={`text-white font-bold uppercase tracking-widest transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75 ${sector.isLarge ? "text-2xl md:text-3xl" : "text-lg"}`}
+                  >
                     {sector.title}
                   </h3>
                   {sector.subtitle && (
@@ -461,6 +511,10 @@ const Home = () => {
                       {sector.subtitle}
                     </p>
                   )}
+                  {/* Explore Button Indicator */}
+                  <span className="mt-6 text-[10px] text-white/70 uppercase font-black tracking-widest border border-white/20 px-4 py-1.5 rounded-full group-hover:bg-[#b38e44] group-hover:text-white group-hover:border-[#b38e44] transition-all duration-300">
+                    Explore Sector
+                  </span>
                 </div>
               </Link>
             ))}
@@ -478,6 +532,7 @@ const Home = () => {
       </section>
 
       {/* --- JOIN THE NETWORK SECTION --- */}
+
       <section className="py-24 bg-white dark:bg-slate-950 px-4 overflow-hidden transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -500,7 +555,14 @@ const Home = () => {
                 pdfpath: MIBCpdf,
                 isDownload: true,
                 icon: (
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
                     <rect width="20" height="14" x="2" y="7" rx="2" />
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                   </svg>
@@ -514,8 +576,16 @@ const Home = () => {
                 desc: "Designed for industry leaders seeking strategic influence. Founding Members receive white-glove facilitation, including exclusive site selection support, and direct engagement with senior policy stakeholders.",
                 buttonText: "Learn More",
                 isDownload: false,
+                pdfpath: "/contact", // "Learn More" ke liye contact ya about link
                 icon: (
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 ),
@@ -529,20 +599,36 @@ const Home = () => {
                 pdfpath: MIBCpdf,
                 isDownload: true,
                 icon: (
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
                     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                   </svg>
                 ),
               },
             ].map((item) => (
-              <div key={item.id} className={`group h-[480px] [perspective:1500px] ${item.isExclusive ? "md:z-20" : "z-10"}`}>
-                <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transform-gpu">
+              <div
+                key={item.id}
+                onClick={() => toggleFlip(item.id)} // 👈 Mobile Touch Trigger
+                className={`group h-[480px] [perspective:1500px] cursor-pointer ${item.isExclusive ? "md:z-20" : "z-10"}`}
+              >
+                <div
+                  className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] transform-gpu 
+                  ${flippedCard === item.id ? "[transform:rotateY(180deg)]" : ""} 
+                  md:group-hover:[transform:rotateY(180deg)]`}
+                >
                   {/* FRONT SIDE */}
-                  <div
-                    className={`absolute inset-0 h-full w-full rounded-2xl overflow-hidden shadow-xl dark:shadow-black/50 border border-gray-100 dark:border-slate-800 transition-colors [backface-visibility:hidden] -webkit-backface-visibility-hidden`}
-                    style={{ transform: "rotateY(0deg) translateZ(0)" }}
-                  >
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 h-full w-full rounded-2xl overflow-hidden shadow-xl dark:shadow-black/50 border border-gray-100 dark:border-slate-800 transition-colors [backface-visibility:hidden]">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-6">
                       {item.isExclusive && (
                         <span className="mb-4 px-3 py-1 bg-[#b38e44] text-white text-[9px] font-black uppercase tracking-widest rounded-full">
@@ -554,35 +640,49 @@ const Home = () => {
                         {item.title}
                       </h3>
                       <div className="mt-4 w-12 h-1 bg-[#b38e44]"></div>
+                      <p className="text-white/60 text-[10px] mt-4 uppercase font-black tracking-widest md:hidden animate-pulse">
+                        Tap to reveal
+                      </p>
                     </div>
                   </div>
 
                   {/* BACK SIDE */}
                   <div
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-[#fdfaf5] dark:bg-slate-900 p-10 border border-[#b38e44]/20 shadow-2xl flex flex-col items-center justify-center text-center transition-colors duration-500 [backface-visibility:hidden] -webkit-backface-visibility-hidden"
-                    style={{ transform: "rotateY(180deg) translateZ(1px)" }}
+                    className="absolute inset-0 h-full w-full rounded-2xl bg-[#fdfaf5] dark:bg-slate-900 p-10 border border-[#b38e44]/20 shadow-2xl flex flex-col items-center justify-center text-center transition-colors duration-500 [backface-visibility:hidden]"
+                    style={{ transform: "rotateY(180deg)" }}
                   >
-                    <div className="text-[#b38e44] mb-4 opacity-50">{item.icon}</div>
-                    <h3 className="text-[#b38e44] text-2xl font-bold mb-6">{item.title}</h3>
-                    <p className="text-slate-800 dark:text-gray-200 font-bold leading-relaxed mb-8 text-[17px] antialiased transition-colors">
+                    <div className="text-[#b38e44] mb-4 opacity-50">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-[#b38e44] text-2xl font-bold mb-6">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-800 dark:text-gray-200 font-bold leading-relaxed mb-8 text-[15px] md:text-[17px] transition-colors">
                       {item.desc}
                     </p>
-                    {item.isDownload ? (
-                      <a
-                        href={item.pdfpath}
-                        download="MIBC-Brochure.pdf"
-                        className="mt-auto bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg text-center"
-                      >
-                        {item.buttonText}
-                      </a>
-                    ) : (
-                      <Link
-                        to={item.pdfpath}
-                        className="mt-auto bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg text-center"
-                      >
-                        {item.buttonText}
-                      </Link>
-                    )}
+
+                    {/* Button Link: stopPropagation prevents double flip */}
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-full"
+                    >
+                      {item.isDownload ? (
+                        <a
+                          href={item.pdfpath}
+                          download="MIBC-Brochure.pdf"
+                          className="w-full bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg inline-block"
+                        >
+                          {item.buttonText}
+                        </a>
+                      ) : (
+                        <Link
+                          to={item.pdfpath}
+                          className="w-full bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg inline-block"
+                        >
+                          {item.buttonText}
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -610,14 +710,16 @@ const Home = () => {
               {
                 id: 1,
                 date: "10 Dec 2021",
-                title: "The Nearshoring Opportunity: Indian IT in the USMCA Corridor",
+                title:
+                  "The Nearshoring Opportunity: Indian IT in the USMCA Corridor",
                 img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600",
                 link: "/news/nearshoring-opportunity",
               },
               {
                 id: 2,
                 date: "30 Nov 2021",
-                title: "From Tequila to Tech: Driving the México–India Partnership",
+                title:
+                  "From Tequila to Tech: Driving the México–India Partnership",
                 img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600",
                 link: "/news/tequila-to-tech",
               },
@@ -659,7 +761,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };
