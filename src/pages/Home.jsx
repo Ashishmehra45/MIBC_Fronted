@@ -15,6 +15,8 @@ import img11 from "../assets/images/blog-grid/pharma-Picsart-AiImageEnhancer.jpg
 import img12 from "../assets/images/blog-grid/automotive.jpg";
 import img13 from "../assets/images/blog-grid/E&M.png";
 import img14 from "../assets/images/blog-grid/food.jpg";
+import img15 from "../assets/images/split/split-01.jpg";
+import img16 from "../assets/images/split/split-03.jpg";
 
 import memberImg1 from "../assets/images/services/Corporate.jpeg";
 import memberImg2 from "../assets/images/services/Founding.jpeg";
@@ -146,19 +148,19 @@ const Home = () => {
               ? [
                   {
                     title: "End-to-End Investment Support",
-                    desc: "We help companies enter Mexico or India through a structured investment pathway. Our team manages everything from incorporation to Launch execution.",
+                    desc: "We help companies enter Mexico or India through a structured investment pathway. Our team manages everything from incorporation to Launch execution ensuring smooth market entry.",
                     img: img1,
                     path: "/services/investment",
                   },
                   {
                     title: "Feasibility & Site Selection",
-                    desc: "We provide location analysis, incentive mapping, and cost modelling to help companies identify the most competitive site.",
+                    desc: "We provide location analysis, incentive mapping, and cost modelling to help companies identify the most competitive   site and make confident investment decisions.",
                     img: img2,
                     path: "/services/investment",
                   },
                   {
                     title: "Entity Setup & Launch",
-                    desc: "We support your regulatory compliance, talent acquisition & onboarding, and early operational setup for success.",
+                    desc: "We support your regulatory compliance, talent acquisition & onboarding, and early operational setup to ensure a seamless and successful launch in the target market.",
                     img: img3,
                     path: "/services/investment",
                   },
@@ -217,10 +219,10 @@ const Home = () => {
                   />
                 </div>
                 <div className="p-8 flex flex-col flex-grow">
-                  <h4 className="text-xl font-extrabold text-black dark:text-white mb-4 leading-tight min-h-[56px] transition-colors">
+                  <h4 className="text-xl font-extrabold text-black dark:text-white  leading-tight min-h-[56px] transition-colors">
                     {card.title}
                   </h4>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8 flex-grow transition-colors">
+                  <p className="text-gray-800 dark:text-gray-400 text-[16px] leading-relaxed mb-6 flex-grow transition-colors">
                     {card.desc}
                   </p>
                   <div>
@@ -246,7 +248,7 @@ const Home = () => {
             <div className="w-full lg:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-2xl dark:shadow-black/50 transition-transform duration-500 hover:scale-[1.01]">
                 <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000"
+                  src={img15}
                   alt="MIBC Meeting"
                   className="w-full h-auto object-cover"
                 />
@@ -265,14 +267,13 @@ const Home = () => {
                   in India. Established with the support of the Government of
                   México & recognised by the Government of India, the Council
                   serves as the institutional platform for commercial engagement
-                  between the two nations.
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed text-justify transition-colors">
-                  MIBC operates at the intersection of government policy and
-                  private enterprise, providing intelligence, introductions, and
-                  institutional support to navigate cross-border transactions.
-                  Our mandate extends beyond trade promotion to encompass
-                  investment facilitation and market entry support.
+                  between the two nations. MIBC operates at the intersection of
+                  government policy and private enterprise, providing
+                  intelligence, introductions, and institutional support to
+                  navigate cross-border transactions. Our mandate extends beyond
+                  trade promotion to encompass investment facilitation, market
+                  entry support, Intelligence & Advocacy, and delegation
+                  coordination.
                 </p>
               </div>
               <Link
@@ -298,11 +299,19 @@ const Home = () => {
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed text-justify transition-colors">
                   The México–India economic corridor currently stands at $12
-                  billion in bilateral trade, with projected potential to cross
-                  $50 billion by 2030. India brings scale, technology
-                  leadership, and a 1.4 billion-consumer domestic market. MIBC
-                  exists to transform this complementarity into commercial
-                  outcomes.
+                  billion in bilateral trade, with over $4 billion in Indian FDI
+                  and 250+ Indian companies operating. Yet this represents a
+                  fraction of the corridor's potential, projected to cross $50
+                  billion by 2030. India brings scale, technology leadership,
+                  and a 1.4 billion-consumer domestic market growing at 6–7%
+                  annually. Despite 75+ years of diplomatic relations, no
+                  dedicated bilateral business council existed to provide
+                  institutional infrastructure, government coordination, and
+                  structured market access facilitation, until now. MIBC exists
+                  to transform this complementarity into commercial outcomes
+                  through intelligence-driven deal facilitation, regulatory
+                  navigation, and institutional credibility that traditional
+                  consultants and distributors cannot replicate.
                 </p>
               </div>
 
@@ -550,7 +559,7 @@ const Home = () => {
                 id: "corporate",
                 title: "Corporate Member",
                 img: memberImg1,
-                desc: "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, and structured introductions.",
+                desc: "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions.",
                 buttonText: "Download Brochure",
                 pdfpath: MIBCpdf,
                 isDownload: true,
@@ -573,7 +582,7 @@ const Home = () => {
                 title: "Founding Member",
                 img: memberImg2,
                 isExclusive: true,
-                desc: "Designed for industry leaders seeking strategic influence. Founding Members receive white-glove facilitation, including exclusive site selection support, and direct engagement with senior policy stakeholders.",
+                desc: "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders.",
                 buttonText: "Learn More",
                 isDownload: false,
                 pdfpath: "/contact", // "Learn More" ke liye contact ya about link
@@ -594,7 +603,7 @@ const Home = () => {
                 id: "associate",
                 title: "Associate Member",
                 img: memberImg3,
-                desc: "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, and inclusion in the MIBC network.",
+                desc: "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory.",
                 buttonText: "Download Brochure",
                 pdfpath: MIBCpdf,
                 isDownload: true,

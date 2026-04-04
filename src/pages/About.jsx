@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import { Activity, Tv, Map, Landmark, Users, BarChart3 } from "lucide-react"; 
+import { Activity, Tv, Map, Landmark, Users, BarChart3 } from "lucide-react";
 
 import Bgimg from "../assets/images/bg/about.jpg";
 import CEOImg from "../assets/images/team/raviSir.png";
@@ -16,7 +16,7 @@ const About = () => {
       name: "Ravi K. Tiwari",
       title: "CHIEF EXECUTIVE OFFICER",
       quote:
-        "“he Indo-Mexican economic partnership continues to evolve as businesses from both countries explore new opportunities in trade, investment, and innovation.”",
+        "“The Indo-Mexican economic partnership continues to evolve as businesses from both countries explore new opportunities in trade, investment, and innovation.”",
       image: CEOImg,
     },
     {
@@ -88,35 +88,36 @@ const About = () => {
   const corridorData = {
     title: "WHY THIS CORRIDOR MATTERS",
     highlight: "NOW?",
-    subtext: "Global supply chains are restructuring. India is pursuing China+1 diversification, while México captures nearshoring investments. The timing for México–India collaboration has never been stronger.",
+    subtext:
+      "Global supply chains are restructuring. India is pursuing China+1 diversification, while México captures nearshoring investments. The timing for México–India collaboration has never been stronger.",
     cards: [
       {
         title: "Nearshoring Boom",
-        icon: "🏗️", 
-        desc: "Global manufacturers relocating to México for seamless USMCA market access."
+        icon: "🏗️",
+        desc: "Global manufacturers relocating to México for seamless USMCA market access.",
       },
       {
         title: "India's Ambition",
         icon: "🚀",
-        desc: "Targeting the USD 30T North American market via México's strategic location."
+        desc: "Targeting the USD 30T North American market via México's strategic location.",
       },
       {
         title: "Policy Alignment",
         icon: "⚖️",
         desc: "Both governments actively promoting and securing bilateral engagement",
-        isHighlighted: true
+        isHighlighted: true,
       },
       {
         title: "Untapped Potential",
         icon: "📈",
-        desc: "Growing from USD 12B trade today to USD 50B+ potential by 2030."
-      }
+        desc: "Growing from USD 12B trade today to USD 50B+ potential by 2030.",
+      },
     ],
     footer: {
       brand: "MIBC",
       text: "exists to transform this moment into",
-      outcome: "SUSTAINED COMMERCIAL OUTCOMES."
-    }
+      outcome: "SUSTAINED COMMERCIAL OUTCOMES.",
+    },
   };
 
   return (
@@ -148,13 +149,19 @@ const About = () => {
       <div className="pt-24 pb-10">
         <div className="container mx-auto px-4 max-w-6xl">
           <div
-            className="text-center max-w-5xl mx-auto mb-10"
+            className="text-center max-w-5xl mx-auto "
             data-sal="slide-up"
           >
             <p className="text-gray-800 dark:text-gray-200 text-xl md:text-2xl leading-relaxed font-medium transition-colors">
               Established with the support of the Government of México and
               recognised by the Government of India, MIBC serves as the
               institutional platform for México–India commercial engagement.
+              Operating at the intersection of policy and enterprise, the
+              Council provides investment facilitation, market entry navigation,
+              trade promotion, and government-coordinated delegation
+              support—delivering the institutional infrastructure, commercial
+              intelligence, and stakeholder access that define success in the
+              bilateral corridor.
             </p>
           </div>
           <div className="border-t border-gray-200 dark:border-slate-800 w-24 mx-auto transition-colors"></div>
@@ -162,7 +169,7 @@ const About = () => {
       </div>
 
       {/* LEADERSHIP SECTION */}
-      <div className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
+      <div className="py-10 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight transition-colors">
@@ -347,15 +354,15 @@ const About = () => {
           </div>
         </div>
       </section>
-    
+
       {/* CORRIDOR MATTERS SECTION */}
       <section className="py-14 bg-[#faf9f6] dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto px-6 max-w-7xl">
-          
           {/* Header */}
           <div className="text-center mb-16" data-sal="slide-up">
             <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] dark:text-white tracking-tight uppercase transition-colors">
-              {corridorData.title} <span className="text-[#A98842]">{corridorData.highlight}</span>
+              {corridorData.title}{" "}
+              <span className="text-[#A98842]">{corridorData.highlight}</span>
             </h2>
             <p className="mt-6 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg leading-relaxed font-medium opacity-80 transition-colors">
               {corridorData.subtext}
@@ -365,7 +372,7 @@ const About = () => {
           {/* 4-Column Grid - All with Border Line */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {corridorData.cards.map((card, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-white dark:bg-slate-900 p-8 rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-none border-b-4 border-b-[#A98842]/30 dark:border-slate-800 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:border-b-[#A98842]"
               >
@@ -373,11 +380,11 @@ const About = () => {
                 <div className="text-5xl mb-6 transition-transform duration-300 group-hover:scale-110 inline-block">
                   {card.icon}
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-[#1a1a1a] dark:text-white mb-4 transition-colors">
                   {card.title}
                 </h3>
-                
+
                 <p className="text-gray-500 dark:text-gray-400 text-[15px] leading-relaxed font-medium transition-colors">
                   {card.desc}
                 </p>
@@ -397,7 +404,6 @@ const About = () => {
               {corridorData.footer.outcome}
             </h2>
           </div>
-
         </div>
       </section>
     </div>
