@@ -58,15 +58,15 @@ const EventsGallery = () => {
   };
 
   return (
-    <section className="py-24 bg-white font-sans min-h-screen relative">
+    <section className="py-24 bg-white dark:bg-slate-950 font-sans min-h-screen relative transition-colors duration-500">
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* --- HEADER SECTION --- */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 tracking-tight transition-colors">
             Events Gallery
           </h1>
-          <p className="text-gray-500 text-[14px] leading-relaxed mb-8">
+          <p className="text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed mb-8 transition-colors">
             A visual journey through MIBC's dynamic events, showcasing moments of collaboration, innovation, and bilateral engagement between México and India.
           </p>
           
@@ -74,7 +74,7 @@ const EventsGallery = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-50 text-[#A98842] px-6 py-1.5 rounded-lg text-[12px] font-bold tracking-widest uppercase mb-4 inline-block border border-gray-100"
+            className="bg-gray-50 dark:bg-slate-900 text-[#A98842] px-6 py-1.5 rounded-lg text-[12px] font-bold tracking-widest uppercase mb-4 inline-block border border-gray-100 dark:border-slate-800 transition-colors"
           >
             Events Gallery
           </motion.span>
@@ -83,7 +83,7 @@ const EventsGallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-black text-gray-950 tracking-tight"
+            className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white tracking-tight transition-colors"
           >
             Explore Our Event Highlights
           </motion.h2>
@@ -99,7 +99,7 @@ const EventsGallery = () => {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               onClick={() => openModal(index)}
-              className="relative group rounded-[16px] overflow-hidden cursor-pointer aspect-[4/3] bg-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="relative group rounded-[16px] overflow-hidden cursor-pointer aspect-[4/3] bg-gray-100 dark:bg-slate-800 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:shadow-black/50 transition-all duration-300"
             >
               {/* Image */}
               <img 
