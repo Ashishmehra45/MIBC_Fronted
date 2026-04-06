@@ -116,7 +116,7 @@ const Footer = () => {
         <div className="py-4 border-t border-gray-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-6 text-[13px] text-slate-800 dark:text-gray-500 font-semibold uppercase tracking-wider">
             <Link to="/privacy" className="hover:text-[#b38e44]">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-[#b38e44]">Terms & Conditions</Link>
+            <Link to="/terms-and-conditions" className="hover:text-[#b38e44]">Terms & Conditions</Link>
             <Link to="/contact" className="hover:text-[#b38e44]">Contact Us</Link>
           </div>
           <p className="text-[13px] text-slate-800 dark:text-gray-500 font-medium">

@@ -21,6 +21,7 @@ import Preloader from '../pages/Preloader';
 import MembershipForm from '../pages/MembershipForm';
 import ScrollToTop from '../components/ScrollToTop';
 import EventsGallery from '../pages/Event_Gallary';
+import TermsAndConditions from '../pages/Terms&conditions';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/membership-plans" element={<MembershipPlans />} />
           <Route path="/membership-form" element={<MembershipForm />} />
           <Route path="/events-gallery" element={<EventsGallery />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} /> {/* Terms and Conditions page ke liye route add karna na bhoolna */}
          
           
           
