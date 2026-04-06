@@ -31,10 +31,7 @@ const TermsAndConditions = () => {
           
           <div className="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 transition-colors">
             
-            <p className="text-lg leading-relaxed mb-10 font-medium">
-              Welcome to the <strong>México–India Business Council ("MIBC", "we", "our", or "us")</strong>. These Terms and Conditions govern your use of our website and the services, programs, and memberships provided by MIBC. By accessing our website or engaging with our services, you agree to be bound by these Terms.
-            </p>
-
+            
             {/* SECTION 1 */}
             <div className="mb-10">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 transition-colors">
@@ -83,20 +80,12 @@ const TermsAndConditions = () => {
               </p>
             </div>
 
-            {/* SECTION 5 */}
-            <div className="mb-10">
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 transition-colors">
-                5. Third-Party Links and Partnerships
-              </h2>
-              <p className="leading-relaxed">
-                Our website and communications may contain links to third-party websites, government portals, or partner organizations (e.g., consulates, trade chambers). MIBC is not responsible for the content, privacy practices, or accuracy of these external sites.
-              </p>
-            </div>
+           
 
             {/* SECTION 6 */}
             <div className="mb-10">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 transition-colors">
-                6. Limitation of Liability
+                5. Limitation of Liability
               </h2>
               <p className="leading-relaxed">
                 MIBC acts as a facilitator for bilateral trade and investment. While we strive to provide accurate intelligence and valuable introductions, we do not guarantee specific business outcomes, financial returns, or regulatory approvals. MIBC, its directors, and employees shall not be liable for any direct, indirect, incidental, or consequential damages arising from your business decisions based on our services or introductions.
@@ -106,7 +95,7 @@ const TermsAndConditions = () => {
             {/* SECTION 7 */}
             <div className="mb-10">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 transition-colors">
-                7. Governing Law and Dispute Resolution
+                6. Governing Law and Dispute Resolution
               </h2>
               <p className="leading-relaxed">
                 These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these Terms or MIBC services shall be subject to the exclusive jurisdiction of the courts located in Mumbai/New Delhi, India.
@@ -116,7 +105,7 @@ const TermsAndConditions = () => {
             {/* SECTION 8 */}
             <div className="mb-10">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 transition-colors">
-                8. Changes to Terms
+                7. Changes to Terms
               </h2>
               <p className="leading-relaxed">
                 MIBC reserves the right to update or modify these Terms at any time. Changes will be effective immediately upon posting to the website. Continued use of the website or services constitutes your acceptance of the revised Terms.
