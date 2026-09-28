@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../api/api'; // <-- Aapka axios instance yahan import kiya hai
 import logo from "../assets/images/logo/logo-dark.png";
+import { Link } from 'react-router-dom';
 
 const CohortRegister = () => {
     // Form States
