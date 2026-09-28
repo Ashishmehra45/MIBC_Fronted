@@ -650,9 +650,9 @@ const StrategicConnectSection = () => {
 
   // Aap yahan apni 3-4 images ke URLs daal sakte hain
   const images = [
-    "https://images.unsplash.com/photo-1609832785678-831e67e3740e?q=80&w=1000&auto=format&fit=crop", // Placeholder 1
-    "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop", // Placeholder 2
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop", // Placeholder 3
+    "public/Tequila_img/rubi martin 1.PNG", // Placeholder 2
+    "public/Tequila_img/new pic 1.PNG", // Placeholder 1
+    "public/Tequila_img/dianaa.PNG", // Placeholder 3
   ];
 
   // Auto-slide logic for 2 seconds (2000 ms)
@@ -814,7 +814,7 @@ const InteractiveSessionsSection = () => {
 
           {/* Main image - group-hover:scale-110 se image badi hogi */}
           <img
-            src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?q=80&w=2070&auto=format&fit=crop"
+            src="public/Tequila_img/c5f6c971-7df3-418f-af50-79af8e979393.jpg"
             alt="Interactive Group Sessions"
             className="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110"
           />
