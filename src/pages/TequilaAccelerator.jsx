@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../api/api"; // <-- Aapka axios instance yahan import kiya hai
 import logo from "../assets/images/logo/logo-dark.png";
 
 const Navbar = () => {
@@ -885,9 +886,74 @@ const InteractiveSessionsSection = () => {
 };
 
 const ContactFormSection = () => {
+  // Form ke inputs ka state
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  // Loading, Success, aur Error ka state
+  const [status, setStatus] = useState({
+    loading: false,
+    success: "",
+    error: "",
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Form Submit Handler
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Reset status & set loading
+    setStatus({ loading: true, success: "", error: "" });
+
+    try {
+      // Axios instance ka use karke POST request
+      const response = await api.post('/api/Membership_Query', formData);
+      const result = response.data;
+
+      if (result.success) {
+        // Success state aur form clear karna
+        setStatus({
+          loading: false,
+          success: "✅ " + result.message,
+          error: "",
+        });
+        setFormData({ name: "", phone: "", email: "", company: "", message: "" });
+        
+        // 5 second baad success message hata dena
+        setTimeout(() => {
+          setStatus((prev) => ({ ...prev, success: "" }));
+        }, 5000);
+      } else {
+        setStatus({
+          loading: false,
+          success: "",
+          error: "❌ " + (result.error || "Something went wrong."),
+        });
+      }
+    } catch (err) {
+      console.error("Submission Error:", err);
+      const errorMsg = err.response?.data?.error || "Network error. Please try again later.";
+      setStatus({
+        loading: false,
+        success: "",
+        error: "❌ " + errorMsg,
+      });
+    }
+  };
+
   return (
     <section className="bg-white py-24 px-4 md:px-8 font-sans">
       <div className="max-w-3xl mx-auto">
+        
         {/* Header Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -915,52 +981,87 @@ const ContactFormSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
-          <form className="space-y-6">
+          {/* Status Messages Show Karne Ke Liye */}
+          {status.success && (
+            <div className="mb-6 p-4 bg-green-50 text-green-700 text-sm font-semibold rounded-xl text-center border border-green-200">
+              {status.success}
+            </div>
+          )}
+          {status.error && (
+            <div className="mb-6 p-4 bg-red-50 text-red-700 text-sm font-semibold rounded-xl text-center border border-red-200">
+              {status.error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="w-full">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your Name"
+                required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
             </div>
             <div className="w-full">
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Phone Number"
+                required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
             </div>
             <div className="w-full">
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your Email"
+                required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
                 placeholder="Brand / Company Name"
+                required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
             </div>
             <div className="w-full">
               <textarea
                 rows="5"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your Message"
+                required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white resize-none"
               ></textarea>
             </div>
+            
             <div className="pt-2">
               <button
-                type="button"
-                className="bg-[#A48655] hover:bg-[#8f6d35] text-white px-8 py-3.5 rounded-md text-base font-semibold transition-all shadow-md hover:shadow-lg"
+                type="submit"
+                disabled={status.loading}
+                className="bg-[#A48655] hover:bg-[#8f6d35] text-white px-8 py-3.5 rounded-md text-base font-semibold transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Submit Now
+                {status.loading ? "Submitting... ⏳" : "Submit Now"}
               </button>
             </div>
           </form>
         </motion.div>
+        
       </div>
     </section>
   );
