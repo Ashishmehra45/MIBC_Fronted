@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo/logo-dark.png";
 
 // ==========================================
 // DATA ARRAYS
@@ -256,29 +257,15 @@ const Dashboard = () => {
         className={`fixed inset-y-0 left-0 z-50 w-[260px] bg-white border-r border-[#eaedf1] flex flex-col transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-[#eaedf1] flex items-center justify-between">
-          <h1 className="text-xl font-serif font-semibold tracking-wider text-gray-900">
-            MÉXICO-INDIA
-          </h1>
-          <button
-            className="lg:hidden text-gray-500"
-            onClick={() => setIsSidebarOpen(false)}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+       <div className="flex-shrink-0">
+                     <Link to="/" className="flex items-center">
+                       <img 
+                         className={`h-10 md:h-12 w-auto transition-all duration-500 `} 
+                         src={logo} 
+                         alt="MIBC Logo" 
+                       />
+                     </Link>
+                   </div>
 
         {/* Navigation */}
         <div className="flex-grow p-4 overflow-y-auto">

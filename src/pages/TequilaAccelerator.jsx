@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo/logo-dark.png";
 
 const Navbar = () => {
   return (
     <nav className="bg-white w-full px-6 md:px-12 py-4 flex justify-between items-center z-50 relative shadow-sm">
-      <div className="flex flex-col items-center justify-center cursor-pointer">
-        <h1 className="text-2xl md:text-3xl font-serif text-gray-900 tracking-wide font-semibold">
-          MÉXICO-INDIA
-        </h1>
-        <div className="w-full flex items-center justify-center mt-0.5">
-          <div className="h-[1px] w-6 bg-gray-300"></div>
-          <span className="text-[9px] md:text-[10px] tracking-[0.35em] text-gray-500 uppercase mx-2 whitespace-nowrap">
-            Business Council
-          </span>
-          <div className="h-[1px] w-6 bg-gray-300"></div>
-        </div>
+      <div className="flex-shrink-0">
+        <Link to="/" className="flex items-center">
+          <img
+            className={`h-10 md:h-12 w-auto transition-all duration-500`}
+            src={logo}
+            alt="MIBC Logo"
+          />
+        </Link>
       </div>
       <div className="hidden lg:flex items-center gap-10">
         <Link
@@ -74,13 +72,20 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <main className="relative w-full h-[calc(100vh-84px)] min-h-[600px] flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1590059379109-080c35e40b3c?q=80&w=2070&auto=format&fit=crop')",
-        }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/TEQUILA (1).mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark Overlay */}
+        {/* <div className="absolute inset-0 bg-black/40" /> */}
+      </div>
       <div className="absolute inset-0 bg-black/60 z-0" />
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-5xl mx-auto">
         <div className="border border-[#a8813f] text-[#a8813f] text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 bg-[#a8813f]/10 backdrop-blur-sm">

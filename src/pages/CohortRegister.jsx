@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api/api'; // <-- Aapka axios instance yahan import kiya hai
+import logo from "../assets/images/logo/logo-dark.png";
 
 const CohortRegister = () => {
     // Form States
@@ -104,19 +105,15 @@ const CohortRegister = () => {
             {/* SECURE BULLETPROOF NAVBAR */}
             <nav className="sticky top-0 z-50 flex justify-between items-center px-5 lg:px-[5%] py-4 bg-white border-b border-[#e0e0e0] shadow-[0_4px_15px_rgba(0,0,0,0.02)] relative">
                 
-                {/* Logo */}
-                <a href="/tequila-accelerator" className="flex flex-col items-center justify-center cursor-pointer no-underline">
-                    <h1 className="text-xl md:text-2xl font-serif text-gray-900 tracking-wide font-semibold m-0">
-                        MÉXICO-INDIA
-                    </h1>
-                    <div className="w-full flex items-center justify-center mt-0.5">
-                        <div className="h-[1px] w-4 bg-gray-300"></div>
-                        <span className="text-[7px] md:text-[8px] tracking-[0.35em] text-gray-500 uppercase mx-2 whitespace-nowrap">
-                            Business Council
-                        </span>
-                        <div className="h-[1px] w-4 bg-gray-300"></div>
-                    </div>
-                </a>
+               <div className="flex-shrink-0">
+              <Link to="/" className="flex items-center">
+                <img 
+                  className={`h-10 md:h-12 w-auto transition-all duration-500`} 
+                  src={logo} 
+                  alt="MIBC Logo" 
+                />
+              </Link>
+            </div>
 
                 {/* Desktop Center Links */}
                 <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
