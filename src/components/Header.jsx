@@ -30,7 +30,7 @@ const Header = () => {
 
   const getLinkStyle = (path) => {
     const isActive = path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
-    return `text-[16px] font-bold tracking-tight transition-colors duration-300 ${
+    return `text-[16px] font-medium tracking-tight transition-colors duration-300 ${
       isActive 
       ? "text-[#b38e44]" 
       : "text-slate-900 dark:text-gray-200 hover:text-[#b38e44] dark:hover:text-[#b38e44]"
@@ -99,7 +99,7 @@ const Header = () => {
                 
                 <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-900 shadow-2xl rounded-sm border border-gray-100 dark:border-slate-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                   {[
-                    { to: "/initiatives/tequila-accelerator", label: "Tequila Accelerator" },
+                    { to: "/tequila-accelerator", label: "Tequila Accelerator" },
                     { to: "/initiatives/launchpad", label: "India–México Launchpad" },
                     { to: "/initiatives/events", label: "Events" }
                   ].map((item) => (
@@ -122,7 +122,7 @@ const Header = () => {
               </Link>
 
               {/* THEME TOGGLE BUTTON */}
-              <button 
+              {/* <button 
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b38e44]/10 dark:bg-slate-800 text-[#b38e44] hover:bg-[#b38e44] hover:text-white transition-all duration-500"
                 title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
@@ -136,7 +136,7 @@ const Header = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
-              </button>
+              </button> */}
 
               {/* Burger Menu Button (Open) */}
               <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 text-slate-900 dark:text-white transition-colors">

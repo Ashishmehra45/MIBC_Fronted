@@ -1,25 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 @theme {
-  /* v4 mein direct font family define karna */
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-montserrat: "Montserrat", sans-serif;
+  /* Poppins font */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: "Poppins", sans-serif;
 }
 
 @layer base {
-  /* Ye line sabse important hai v4 ke liye */
   :root {
     --background: #ffffff;
     --foreground: #000000;
   }
 
   .dark {
-    --background: #020617; /* Slate 950 */
+    --background: #020617;
     --foreground: #ffffff;
   }
 
   body {
-    /* font-family: "Montserrat", sans-serif ; */
+    font-family: "Poppins", sans-serif;
     background-color: var(--background);
     color: var(--foreground);
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -28,6 +29,8 @@
 
 /* Custom dark variant manual toggle ke liye */
 @variant dark (&:where(.dark, .dark *));
+
+/* Puri website par Poppins */
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
