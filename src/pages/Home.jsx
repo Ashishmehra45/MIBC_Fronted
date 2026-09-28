@@ -700,76 +700,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- LATEST NEWS SECTION --- */}
-      <section className="py-24 bg-white dark:bg-slate-950 px-4 md:px-8 transition-colors duration-500">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 bg-[#fdf8ec] dark:bg-[#A98842]/10 text-[#b38e44] text-[10px] font-bold uppercase tracking-[0.2em] rounded mb-3 transition-colors">
-              Latest News
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight transition-colors">
-              Latest News From The Digital World
-            </h2>
-          </div>
-
-          {/* Blog Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                id: 1,
-                date: "10 Dec 2021",
-                title:
-                  "The Nearshoring Opportunity: Indian IT in the USMCA Corridor",
-                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600",
-                link: "/news/nearshoring-opportunity",
-              },
-              {
-                id: 2,
-                date: "30 Nov 2021",
-                title:
-                  "From Tequila to Tech: Driving the México–India Partnership",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600",
-                link: "/news/tequila-to-tech",
-              },
-              {
-                id: 3,
-                date: "12 Oct 2021",
-                title: "Why México is India's Gateway to North America",
-                img: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=600",
-                link: "/news/mexico-gateway",
-              },
-            ].map((post) => (
-              <Link
-                key={post.id}
-                to={post.link}
-                className="group bg-[#f8faff] dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl dark:shadow-none transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full border border-gray-100 dark:border-slate-800"
-              >
-                {/* Image Container with Hover Zoom */}
-                <div className="h-64 overflow-hidden relative">
-                  <img
-                    src={post.img}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
-
-                {/* Content Body */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <p className="text-[#0056b3] dark:text-[#A98842] text-xs font-medium mb-4 uppercase tracking-wider transition-colors">
-                    {post.date}
-                  </p>
-                  <h3 className="text-xl font-bold text-[#001f3f] dark:text-white leading-snug mb-6 flex-grow transition-colors group-hover:text-[#b38e44] dark:group-hover:text-[#b38e44]">
-                    {post.title}
-                  </h3>
-                  <div className="w-10 h-0.5 bg-[#b38e44] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+    
     </div>
   );
 };
