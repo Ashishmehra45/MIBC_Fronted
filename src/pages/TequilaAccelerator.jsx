@@ -814,7 +814,7 @@ const InteractiveSessionsSection = () => {
 
           {/* Main image - group-hover:scale-110 se image badi hogi */}
           <img
-            src="public/Tequila_img/c5f6c971-7df3-418f-af50-79af8e979393.jpg"
+            src="/Tequila_img/c5f6c971-7df3-418f-af50-79af8e979393.jpg"
             alt="Interactive Group Sessions"
             className="w-full h-auto object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110"
           />
