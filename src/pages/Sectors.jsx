@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
 
 // Images Import (Apne folder ke hisaab se path check kar lena)
 import SectorHeroBg from '../assets/images/bg/sector-bg.jpeg';
@@ -11,87 +12,88 @@ import ElectroImg from '../assets/images/blog-grid/electronic.jpg';
 import AgriImg from '../assets/images/blog-grid/F&B.jpg';
 
 const Sectors = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
 
   const sectorsData = {
     hero: {
-      badge: "Sectors",
-      title: "Focus Sectors",
-      desc: "MIBC delivers strategic support in sectors where bilateral trade is growing, investment is accelerating, and collaboration is poised to scale."
+      badge: t('sec_hero_badge', "Sectors"),
+      title: t('sec_hero_title', "Focus Sectors"),
+      desc: t('sec_hero_desc', "MIBC delivers strategic support in sectors where bilateral trade is growing, investment is accelerating, and collaboration is poised to scale.")
     },
     category1: {
-      badge: "Category 1",
-      title: "Indian Investment into México",
+      badge: t('sec_c1_badge', "Category 1"),
+      title: t('sec_c1_title', "Indian Investment into México"),
       cards: [
         {
-          title: "Information Technology",
+          title: t('sec_c1_card1_title', "Information Technology"),
           image: ITImg,
           details: [
-            { label: "OPPORTUNITY", value: "Nearshore delivery for North America via USMCA" },
-            { label: "KEY ACTIVITIES", value: "Software, IT Services, BPO, Engineering R&D" },
-            { label: "WHY MÉXICO", value: "US time zones, lower costs, USMCA access" },
-            { label: "INDIAN PLAYERS", value: "TCS, Infosys, Wipro, HCL, Tech Mahindra" }
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card1_opp', "Nearshore delivery for North America via USMCA") },
+            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card1_act', "Software, IT Services, BPO, Engineering R&D") },
+            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card1_why', "US time zones, lower costs, USMCA access") },
+            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card1_ind', "TCS, Infosys, Wipro, HCL, Tech Mahindra") }
           ]
         },
         {
-          title: "Pharmaceuticals",
+          title: t('sec_c1_card2_title', "Pharmaceuticals"),
           image: PharmaImg,
           details: [
-            { label: "OPPORTUNITY", value: "Generic manufacturing & LATAM access" },
-            { label: "KEY ACTIVITIES", value: "APIs, generics, clinical research, vaccines" },
-            { label: "WHY MÉXICO", value: "LATAM gateway, strong regulation, rising healthcare" },
-            { label: "INDIAN PLAYERS", value: "Sun Pharma, Dr. Reddy’s, Lupin, Cipla" }
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card2_opp', "Generic manufacturing & LATAM access") },
+            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card2_act', "APIs, generics, clinical research, vaccines") },
+            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card2_why', "LATAM gateway, strong regulation, rising healthcare") },
+            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card2_ind', "Sun Pharma, Dr. Reddy’s, Lupin, Cipla") }
           ]
         },
         {
-          title: "Automotive & Components",
+          title: t('sec_c1_card3_title', "Automotive & Components"),
           image: AutoImg,
           details: [
-            { label: "OPPORTUNITY", value: "EV supply chain & Tier-1 operations" },
-            { label: "KEY ACTIVITIES", value: "EV parts, wiring harnesses, castings" },
-            { label: "WHY MÉXICO", value: "Detroit OEM access, auto cluster, USMCA rules" },
-            { label: "INDIAN PLAYERS", value: "Motherson Sumi, Tata AutoComp, Bharat Forge" }
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card3_opp', "EV supply chain & Tier-1 operations") },
+            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card3_act', "EV parts, wiring harnesses, castings") },
+            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card3_why', "Detroit OEM access, auto cluster, USMCA rules") },
+            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card3_ind', "Motherson Sumi, Tata AutoComp, Bharat Forge") }
           ]
         }
       ]
     },
     category2: {
-      badge: "Category 2",
-      title: "Mexican Exports to India",
+      badge: t('sec_c2_badge', "Category 2"),
+      title: t('sec_c2_title', "Mexican Exports to India"),
       cards: [
         {
-          title: "Energy & Minerals",
+          title: t('sec_c2_card1_title', "Energy & Minerals"),
           image: EnergyImg,
           details: [
-            { label: "PRODUCTS", value: "Crude oil, refined fuels, critical minerals" },
-            { label: "TRADE VALUE", value: "Largest México → India export segment" },
-            { label: "OPPORTUNITY", value: "Energy diversification & manufacturing" }
+            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card1_prod', "Crude oil, refined fuels, critical minerals") },
+            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card1_trade', "Largest México → India export segment") },
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card1_opp', "Energy diversification & manufacturing") }
           ]
         },
         {
-          title: "Aerospace & Defense",
+          title: t('sec_c2_card2_title', "Aerospace & Defense"),
           image: AeroImg,
           details: [
-            { label: "PRODUCTS", value: "Aircraft parts, avionics, defense equipment" },
-            { label: "TRADE VALUE", value: "Fastest growing export segment" },
-            { label: "OPPORTUNITY", value: "Make in India, offsets, MRO expansion" }
+            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card2_prod', "Aircraft parts, avionics, defense equipment") },
+            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card2_trade', "Fastest growing export segment") },
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card2_opp', "Make in India, offsets, MRO expansion") }
           ]
         },
         {
-          title: "Electronics & Telecom",
+          title: t('sec_c2_card3_title', "Electronics & Telecom"),
           image: ElectroImg,
           details: [
-            { label: "PRODUCTS", value: "Telecom hardware, components, semiconductors" },
-            { label: "OPPORTUNITY", value: "India manufacturing push, 5G rollout" },
-            { label: "FOCUS", value: "Semiconductor mission & supply chains" }
+            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card3_prod', "Telecom hardware, components, semiconductors") },
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card3_opp', "India manufacturing push, 5G rollout") },
+            { label: t('sec_lbl_focus', "FOCUS"), value: t('sec_c2_card3_focus', "Semiconductor mission & supply chains") }
           ]
         },
         {
-          title: "Agri-Food & Beverages",
+          title: t('sec_c2_card4_title', "Agri-Food & Beverages"),
           image: AgriImg,
           details: [
-            { label: "PRODUCTS", value: "Tequila, mezcal, beer, processed foods" },
-            { label: "TRADE VALUE", value: "High-growth premium category" },
-            { label: "OPPORTUNITY", value: "India's premium spirits & retail expansion" }
+            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card4_prod', "Tequila, mezcal, beer, processed foods") },
+            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card4_trade', "High-growth premium category") },
+            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card4_opp', "India's premium spirits & retail expansion") }
           ]
         }
       ]

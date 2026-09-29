@@ -10,9 +10,10 @@ import {
   Flag,
   Link as LinkIcon,
 } from "lucide-react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Link } from "react-router-dom";
 
 // Assets Import
-// NOTE: Make sure MembershipHero is a video file path now
 import MembershipHero from "../assets/videos/membership_video.mp4";
 import IndianCo from "../assets/images/membership/import-export.jpeg";
 import MexicanCo from "../assets/images/membership/Mexican-compony.jpeg";
@@ -23,68 +24,69 @@ import IntelImg from "../assets/images/membership/intelligance.jpeg";
 import AccessImg from "../assets/images/membership/rountable.jpg";
 import InfluenceImg from "../assets/images/membership/Policy.jpeg";
 import SupportImg from "../assets/images/membership/support.jpeg";
-import { Link } from "react-router-dom";
 
 const Membership = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const content = {
     hero: {
-      title: "Join The Network",
-      desc: "MIBC membership connects you with institutional infrastructure, commercial intelligence, and government relationships that define success in the México–India corridor.",
+      title: t("mem_page_hero_title", "Join The Network"),
+      desc: t("mem_page_hero_desc", "MIBC membership connects you with institutional infrastructure, commercial intelligence, and government relationships that define success in the México–India corridor."),
     },
     targetAudience: [
       {
-        title: "Indian Companies",
-        desc: "With México operations or expansion interest",
+        title: t("mem_page_aud1_title", "Indian Companies"),
+        desc: t("mem_page_aud1_desc", "With México operations or expansion interest"),
         img: IndianCo,
         icon: <Briefcase size={32} />,
       },
       {
-        title: "Mexican Companies",
-        desc: "With India operations or expansion plans",
+        title: t("mem_page_aud2_title", "Mexican Companies"),
+        desc: t("mem_page_aud2_desc", "With India operations or expansion plans"),
         img: MexicanCo,
         icon: <Globe size={32} />,
       },
       {
-        title: "Exporters & Importers",
-        desc: "Actively engaged in bilateral trade",
+        title: t("mem_page_aud3_title", "Exporters & Importers"),
+        desc: t("mem_page_aud3_desc", "Actively engaged in bilateral trade"),
         img: Exporters,
         icon: <Truck size={32} />,
       },
       {
-        title: "Professional Firms",
-        desc: "Legal, accounting, logistics, banking & compliance",
+        title: t("mem_page_aud4_title", "Professional Firms"),
+        desc: t("mem_page_aud4_desc", "Legal, accounting, logistics, banking & compliance"),
         img: ProfFirms,
         icon: <Scale size={32} />,
       },
       {
-        title: "Trade Ecosystem Players",
-        desc: "Organizations supporting corridor commerce",
+        title: t("mem_page_aud5_title", "Trade Ecosystem Players"),
+        desc: t("mem_page_aud5_desc", "Organizations supporting corridor commerce"),
         img: EcoPlayers,
         icon: <Users size={32} />,
       },
     ],
     benefits: [
       {
-        title: "Intelligence",
-        desc: "Market research, trade analysis, quarterly briefings, regulatory updates",
+        title: t("mem_page_ben1_title", "Intelligence"),
+        desc: t("mem_page_ben1_desc", "Market research, trade analysis, quarterly briefings, regulatory updates"),
         img: IntelImg,
         icon: <LineChart size={36} />,
       },
       {
-        title: "Access",
-        desc: "CEO roundtables, ministerial meetings & trade delegations",
+        title: t("mem_page_ben2_title", "Access"),
+        desc: t("mem_page_ben2_desc", "CEO roundtables, ministerial meetings & trade delegations"),
         img: AccessImg,
         icon: <Award size={36} />,
       },
       {
-        title: "Influence",
-        desc: "Policy advocacy & government representation",
+        title: t("mem_page_ben3_title", "Influence"),
+        desc: t("mem_page_ben3_desc", "Policy advocacy & government representation"),
         img: InfluenceImg,
         icon: <Flag size={36} />,
       },
       {
-        title: "Support",
-        desc: "Matchmaking, introductions, trade documentation & discounts",
+        title: t("mem_page_ben4_title", "Support"),
+        desc: t("mem_page_ben4_desc", "Matchmaking, introductions, trade documentation & discounts"),
         img: SupportImg,
         icon: <LinkIcon size={36} />,
       },
@@ -92,26 +94,26 @@ const Membership = () => {
     journey: [
       {
         step: "1",
-        title: "Submit Inquiry",
-        desc: "Complete the membership inquiry form",
+        title: t("mem_page_jou1_title", "Submit Inquiry"),
+        desc: t("mem_page_jou1_desc", "Complete the membership inquiry form"),
         color: "bg-blue-50 dark:bg-blue-900/30",
       },
       {
         step: "2",
-        title: "Intro Call",
-        desc: "Introductory call with MIBC team",
+        title: t("mem_page_jou2_title", "Intro Call"),
+        desc: t("mem_page_jou2_desc", "Introductory call with MIBC team"),
         color: "bg-red-50 dark:bg-red-900/30",
       },
       {
         step: "3",
-        title: "Committee Review",
-        desc: "Membership committee evaluation",
+        title: t("mem_page_jou3_title", "Committee Review"),
+        desc: t("mem_page_jou3_desc", "Membership committee evaluation"),
         color: "bg-purple-50 dark:bg-purple-900/30",
       },
       {
         step: "4",
-        title: "Welcome",
-        desc: "Onboarding & activation",
+        title: t("mem_page_jou4_title", "Welcome"),
+        desc: t("mem_page_jou4_desc", "Onboarding & activation"),
         color: "bg-pink-50 dark:bg-pink-900/30",
       },
     ],
@@ -139,7 +141,7 @@ const Membership = () => {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4">
           <span className="bg-white dark:bg-slate-900 text-[#A98842] px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.3em] mb-8 inline-block shadow-2xl animate-fade-in transition-colors">
-            Membership
+            {t("mem_page_hero_badge", "Membership")}
           </span>
           <h1 className="text-white text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight drop-shadow-2xl transition-colors">
             {content.hero.title}
@@ -149,7 +151,7 @@ const Membership = () => {
           </p>
           <button className="bg-[#A98842] hover:bg-[#b38e44] text-white px-12 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all transform hover:scale-105 shadow-[0_20px_50px_rgba(179,142,68,0.4)] active:scale-95">
             <Link to="/membership-plans" className="text-white no-underline">
-              Apply for Membership →
+              {t("mem_page_hero_btn", "Apply for Membership →")}
             </Link>
           </button>
         </div>
@@ -161,10 +163,10 @@ const Membership = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="text-[#A98842] text-[11px] font-black tracking-widest uppercase bg-[#FFF9E6] dark:bg-[#A98842]/20 px-4 py-1 rounded-md transition-colors">
-              Who Should Join
+              {t("mem_page_aud_badge", "Who Should Join")}
             </span>
             <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mt-4 tracking-tight transition-colors">
-              This Membership Is Built For
+              {t("mem_page_aud_title", "This Membership Is Built For")}
             </h2>
           </div>
 
@@ -229,10 +231,10 @@ const Membership = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <span className="text-[#A98842] text-[11px] font-black tracking-widest uppercase bg-[#FFF9E6] dark:bg-[#A98842]/20 px-4 py-1 rounded-md transition-colors">
-              Member Benefits
+              {t("mem_page_ben_badge", "Member Benefits")}
             </span>
             <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mt-4 tracking-tight transition-colors">
-              What You Gain
+              {t("mem_page_ben_title", "What You Gain")}
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -271,10 +273,10 @@ const Membership = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-24">
             <span className="bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842] px-6 py-2 rounded-xl text-[11px] font-black uppercase tracking-[0.2em] shadow-sm transition-colors">
-              How To Apply
+              {t("mem_page_jou_badge", "How To Apply")}
             </span>
             <h2 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mt-8 tracking-tighter transition-colors">
-              Your Membership Journey
+              {t("mem_page_jou_title", "Your Membership Journey")}
             </h2>
           </div>
 
@@ -312,7 +314,7 @@ const Membership = () => {
           <div className="text-center mt-24">
             <Link to="/membership-plans">
               <button className="bg-[#A98842] hover:bg-[#b38e44] text-white px-16 py-5 rounded-[20px] font-black text-base uppercase tracking-widest shadow-[0_30px_60px_rgba(179,142,68,0.3)] transition-all hover:-translate-y-2 active:scale-95">
-                Apply for Membership →
+                {t("mem_page_jou_btn", "Apply for Membership →")}
               </button>
             </Link>
           </div>

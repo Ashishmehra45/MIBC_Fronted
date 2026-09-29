@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import axios from 'axios';
-import Swal from 'sweetalert2'; // 1. Swal Import kiya
+import Swal from 'sweetalert2'; 
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
 
 const Contact = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -14,20 +17,21 @@ const Contact = () => {
 
   const [status, setStatus] = useState({ loading: false });
 
+  // contactInfo array mein t() function lagaya gaya hai
   const contactInfo = [
     {
       icon: <Phone size={24} />,
-      title: "Contact Phone Number",
+      title: t('contact_phone_title', 'Contact Phone Number'),
       details: ["+91 90391 39953", "+91 97551 78432"]
     },
     {
       icon: <Mail size={24} />,
-      title: "Our Email Address",
+      title: t('contact_email_title', 'Our Email Address'),
       details: ["office.ceo@mexicoindia.org", "info@mexicoindia.org"]
     },
     {
       icon: <MapPin size={24} />,
-      title: "Our Location",
+      title: t('contact_location_title', 'Our Location'),
       details: ["C06 At, Chhatrapati Shivaji Maharaj", "International Airport Mumbai,", "Maharashtra 400099"]
     }
   ];
@@ -50,10 +54,10 @@ const Contact = () => {
       if (response.data.success) {
         setStatus({ loading: false });
         
-        // 2. Success SweetAlert
+        // Success SweetAlert with Translation
         Swal.fire({
-          title: 'Success!',
-          text: response.data.message || "Your inquiry has been submitted successfully.",
+          title: t('contact_swal_success_title', 'Success!'),
+          text: response.data.message || t('contact_swal_success_text', 'Your inquiry has been submitted successfully.'),
           icon: 'success',
           confirmButtonColor: '#A98842',
           background: document.documentElement.classList.contains('dark') ? '#111111' : '#ffffff',
@@ -66,11 +70,11 @@ const Contact = () => {
       console.error("Submission Error:", error);
       setStatus({ loading: false });
 
-      const errorMsg = error.response?.data?.error || "Connection failed. Please try again.";
+      const errorMsg = error.response?.data?.error || t('contact_swal_error_text', 'Connection failed. Please try again.');
       
-      // 3. Error SweetAlert
+      // Error SweetAlert with Translation
       Swal.fire({
-        title: 'Error!',
+        title: t('contact_swal_error_title', 'Error!'),
         text: errorMsg,
         icon: 'error',
         confirmButtonColor: '#d33',
@@ -86,9 +90,11 @@ const Contact = () => {
       {/* --- HEADER SECTION --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
-          <span className="text-[#A98842] font-bold text-[10px] tracking-[0.3em] uppercase mb-2 block">Contact Form</span>
+          <span className="text-[#A98842] font-bold text-[10px] tracking-[0.3em] uppercase mb-2 block">
+            {t('contact_form_badge', 'Contact Form')}
+          </span>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
-            Our Contact Address Here.
+            {t('contact_main_heading', 'Our Contact Address Here.')}
           </h1>
         </div>
       </section>
@@ -127,7 +133,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="Your Name" 
+                placeholder={t('contact_ph_name', 'Your Name')} 
                 className="w-full p-4 bg-[#faf9f6] dark:bg-slate-900 border border-gray-100 dark:border-gray-800 dark:text-white rounded-xl focus:outline-none focus:border-[#A98842]/50 font-medium text-sm transition-all"
               />
               <input 
@@ -135,7 +141,7 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Phone Number" 
+                placeholder={t('contact_ph_phone', 'Phone Number')} 
                 className="w-full p-4 bg-[#faf9f6] dark:bg-slate-900 border border-gray-100 dark:border-gray-800 dark:text-white rounded-xl focus:outline-none focus:border-[#A98842]/50 font-medium text-sm transition-all"
               />
               <input 
@@ -144,7 +150,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="Your Email" 
+                placeholder={t('contact_ph_email', 'Your Email')} 
                 className="w-full p-4 bg-[#faf9f6] dark:bg-slate-900 border border-gray-100 dark:border-gray-800 dark:text-white rounded-xl focus:outline-none focus:border-[#A98842]/50 font-medium text-sm transition-all"
               />
               <input 
@@ -152,7 +158,7 @@ const Contact = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Your Subject" 
+                placeholder={t('contact_ph_subject', 'Your Subject')} 
                 className="w-full p-4 bg-[#faf9f6] dark:bg-slate-900 border border-gray-100 dark:border-gray-800 dark:text-white rounded-xl focus:outline-none focus:border-[#A98842]/50 font-medium text-sm transition-all"
               />
               <textarea 
@@ -161,7 +167,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows="6" 
-                placeholder="Your Message" 
+                placeholder={t('contact_ph_message', 'Your Message')} 
                 className="w-full p-4 bg-[#faf9f6] dark:bg-slate-900 border border-gray-100 dark:border-gray-800 dark:text-white rounded-xl focus:outline-none focus:border-[#A98842]/50 font-medium text-sm resize-none transition-all"
               ></textarea>
               
@@ -170,7 +176,7 @@ const Contact = () => {
                 disabled={status.loading}
                 className="w-full md:w-auto bg-[#A98842] hover:bg-[#b38e44] text-white px-10 py-4 rounded-xl font-bold text-sm transition-all shadow-lg active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {status.loading ? 'Sending...' : 'Submit Now'}
+                {status.loading ? t('contact_btn_sending', 'Sending...') : t('contact_btn_submit', 'Submit Now')}
                 <Send size={16} />
               </button>
             </form>

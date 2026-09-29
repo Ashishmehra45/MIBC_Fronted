@@ -1,36 +1,38 @@
 import React from 'react';
 import { Package, Globe, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
 import TradeHeroImg from '../assets/images/blog/trade.png';
 
 const TradePromotion = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
 
   const tradeContent = {
-    title: "Trade Promotion",
-    subtitle: "Connecting exporters with buyers, navigating regulations, and coordinating missions that deliver results.",
+    title: t("trade_pro_title", "Trade Promotion"),
+    subtitle: t("trade_pro_subtitle", "Connecting exporters with buyers, navigating regulations, and coordinating missions that deliver results."),
     sections: [
       {
-        type: "Mexican Exports to India",
-        badge: "EXPORTS TO INDIA",
+        type: t("trade_pro_s1_type", "Mexican Exports to India"),
+        badge: t("trade_pro_s1_badge", "EXPORTS TO INDIA"),
         icon: "Package",
-        desc: "MIBC supports Mexican exporters with tailored intelligence, matchmaking, and on-ground execution to unlock opportunities in India's high-growth markets.",
+        desc: t("trade_pro_s1_desc", "MIBC supports Mexican exporters with tailored intelligence, matchmaking, and on-ground execution to unlock opportunities in India's high-growth markets."),
         points: [
-          "Buyer identification and market intelligence",
-          "Trade mission coordination and B2B matchmaking",
-          "Participation support for Indian exhibitions",
-          "Regulatory and certification guidance",
-          "Distributor and channel partner mapping"
+          t("trade_pro_s1_p1", "Buyer identification and market intelligence"),
+          t("trade_pro_s1_p2", "Trade mission coordination and B2B matchmaking"),
+          t("trade_pro_s1_p3", "Participation support for Indian exhibitions"),
+          t("trade_pro_s1_p4", "Regulatory and certification guidance"),
+          t("trade_pro_s1_p5", "Distributor and channel partner mapping")
         ]
       },
       {
-        type: "Indian Exports to México",
-        badge: "EXPORTS TO MÉXICO",
+        type: t("trade_pro_s2_type", "Indian Exports to México"),
+        badge: t("trade_pro_s2_badge", "EXPORTS TO MÉXICO"),
         icon: "Globe",
-        desc: "MIBC enables Indian exporters to navigate Mexican market requirements and build trusted importer relationships.",
+        desc: t("trade_pro_s2_desc", "MIBC enables Indian exporters to navigate Mexican market requirements and build trusted importer relationships."),
         points: [
-          "Market access advisory and tariff analysis",
-          "Importer identification and introductions",
-          "Compliance and documentation support",
-          "Logistics and customs navigation"
+          t("trade_pro_s2_p1", "Market access advisory and tariff analysis"),
+          t("trade_pro_s2_p2", "Importer identification and introductions"),
+          t("trade_pro_s2_p3", "Compliance and documentation support"),
+          t("trade_pro_s2_p4", "Logistics and customs navigation")
         ]
       }
     ]
@@ -43,7 +45,7 @@ const TradePromotion = () => {
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 uppercase tracking-tight transition-colors">
-            Trade Promotion
+            {tradeContent.title}
           </h1>
           <p className="max-w-3xl mx-auto text-gray-900 dark:text-gray-300 font-bold text-[11px] md:text-xs leading-relaxed uppercase tracking-widest opacity-80 transition-colors">
             {tradeContent.subtitle}
@@ -56,7 +58,7 @@ const TradePromotion = () => {
         <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 transition-colors">
           <img 
             src={TradeHeroImg} 
-            alt="Trade Promotion Bilateral" 
+            alt={t("trade_pro_img_alt", "Trade Promotion Bilateral")} 
             className="w-full h-auto md:max-h-[600px] object-cover"
           />
         </div>
@@ -90,7 +92,7 @@ const TradePromotion = () => {
                 </div>
 
                 <h2 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-6 transition-colors">
-                  For {section.type}
+                  {t("trade_pro_for", "For")} {section.type}
                 </h2>
                 
                 {/* Fixed Description Alignment */}

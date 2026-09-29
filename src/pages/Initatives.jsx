@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
 
 // Images Import (Apne hisaab se paths check kar lena)
 import TequilaImg from '../assets/images/blog/tachila.png';
@@ -8,47 +9,48 @@ import LaunchpadImg from '../assets/images/blog/connect.png';
 import EventsImg from '../assets/images/banner/annualeventcalendar.jpg';
 
 const Initiatives = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
 
   const initiativesList = [
     {
-      step: "01. Flagship Program",
-      title: "Tequila Accelerator",
-      desc: "A comprehensive market entry program dedicated to helping Mexican Tequila and Spirits brands establish a dominant presence in India's rapidly growing premium beverage market.",
+      step: t('init_i1_step', "01. Flagship Program"),
+      title: t('init_i1_title', "Tequila Accelerator"),
+      desc: t('init_i1_desc', "A comprehensive market entry program dedicated to helping Mexican Tequila and Spirits brands establish a dominant presence in India's rapidly growing premium beverage market."),
       image: TequilaImg,
       align: "left", // Image left, text right
       features: [
-        { title: "Market Intelligence", desc: "In-depth consumer segmentation, pricing strategy, and competitive positioning." },
-        { title: "Regulatory Navigation", desc: "State-by-state excise licensing, FSSAI compliance, and import customs handling." },
-        { title: "Distribution Development", desc: "Direct introductions to India's leading spirits importers and HoReCa partners." },
-        { title: "Brand Launch", desc: "End-to-end event coordination, B2B trade outreach and influencer campaigns." }
+        { title: t('init_i1_f1_t', "Market Intelligence"), desc: t('init_i1_f1_d', "In-depth consumer segmentation, pricing strategy, and competitive positioning.") },
+        { title: t('init_i1_f2_t', "Regulatory Navigation"), desc: t('init_i1_f2_d', "State-by-state excise licensing, FSSAI compliance, and import customs handling.") },
+        { title: t('init_i1_f3_t', "Distribution Development"), desc: t('init_i1_f3_d', "Direct introductions to India's leading spirits importers and HoReCa partners.") },
+        { title: t('init_i1_f4_t', "Brand Launch"), desc: t('init_i1_f4_d', "End-to-end event coordination, B2B trade outreach and influencer campaigns.") }
       ],
       buttonLink: "/initiatives/tequila-accelerator"
     },
     {
-      step: "02. Soft Landing Platform",
-      title: "India–México Launchpad",
-      desc: "A structured soft-landing ecosystem enabling startups and growth stage companies to seamlessly establish cross-border operations without the typical market-entry risks.",
+      step: t('init_i2_step', "02. Soft Landing Platform"),
+      title: t('init_i2_title', "India–México Launchpad"),
+      desc: t('init_i2_desc', "A structured soft-landing ecosystem enabling startups and growth stage companies to seamlessly establish cross-border operations without the typical market-entry risks."),
       image: LaunchpadImg,
       align: "right", // Text left, image right
       features: [
-        { title: "For Mexican Startups", desc: "Market validation, physical/virtual office setup in India, and introductions to local banking & VC networks." },
-        { title: "For Indian Startups", desc: "USMCA market access strategy, soft-landing infrastructure in México, and local talent acquisition." },
-        { title: "Legal & Tax Structuring", desc: "End-to-end support for entity incorporation and regulatory compliance in both nations." },
-        { title: "Ecosystem Access", desc: "Direct integration with top incubators, government grants, and B2B customer networks." }
+        { title: t('init_i2_f1_t', "For Mexican Startups"), desc: t('init_i2_f1_d', "Market validation, physical/virtual office setup in India, and introductions to local banking & VC networks.") },
+        { title: t('init_i2_f2_t', "For Indian Startups"), desc: t('init_i2_f2_d', "USMCA market access strategy, soft-landing infrastructure in México, and local talent acquisition.") },
+        { title: t('init_i2_f3_t', "Legal & Tax Structuring"), desc: t('init_i2_f3_d', "End-to-end support for entity incorporation and regulatory compliance in both nations.") },
+        { title: t('init_i2_f4_t', "Ecosystem Access"), desc: t('init_i2_f4_d', "Direct integration with top incubators, government grants, and B2B customer networks.") }
       ],
       buttonLink: "/initiatives/launchpad"
     },
     {
-      step: "03. B2B & G2G Engagements",
-      title: "High-Impact Events & Roundtables",
-      desc: "Our events serve as a critical bridge for cross-border collaboration, focusing on actionable dialogue and ensuring that every interaction translates into a tangible business outcome.",
+      step: t('init_i3_step', "03. B2B & G2G Engagements"),
+      title: t('init_i3_title', "High-Impact Events & Roundtables"),
+      desc: t('init_i3_desc', "Our events serve as a critical bridge for cross-border collaboration, focusing on actionable dialogue and ensuring that every interaction translates into a tangible business outcome."),
       image: EventsImg,
       align: "left", // Image left, text right
       features: [
-        { title: "Sector-Specific CEO Dialogues", desc: "Focused roundtables across IT, Pharmaceuticals, Automotive, and Food & Beverages." },
-        { title: "Economic Partnership Forum", desc: "Our annual flagship summit celebrating and advancing India-México trade relations." },
-        { title: "Curated Trade Delegations", desc: "Strategic inbound and outbound missions for direct B2B matchmaking and site visits." },
-        { title: "Policy Briefings", desc: "Closed-door sessions with government officials to navigate bilateral compliance and frameworks." }
+        { title: t('init_i3_f1_t', "Sector-Specific CEO Dialogues"), desc: t('init_i3_f1_d', "Focused roundtables across IT, Pharmaceuticals, Automotive, and Food & Beverages.") },
+        { title: t('init_i3_f2_t', "Economic Partnership Forum"), desc: t('init_i3_f2_d', "Our annual flagship summit celebrating and advancing India-México trade relations.") },
+        { title: t('init_i3_f3_t', "Curated Trade Delegations"), desc: t('init_i3_f3_d', "Strategic inbound and outbound missions for direct B2B matchmaking and site visits.") },
+        { title: t('init_i3_f4_t', "Policy Briefings"), desc: t('init_i3_f4_d', "Closed-door sessions with government officials to navigate bilateral compliance and frameworks.") }
       ],
       buttonLink: "/initiatives/events"
     }
@@ -76,13 +78,13 @@ const Initiatives = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-white/60 dark:bg-[#A98842]/10 text-[#A98842] px-6 py-2 rounded-xl text-[12px] font-black uppercase tracking-widest shadow-sm border border-[#A98842]/10 inline-block mb-6 transition-colors">
-              Driving Growth
+              {t('init_badge', 'Driving Growth')}
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#A98842] mb-6 tracking-tight transition-colors">
-              Strategic Initiatives
+              {t('init_title', 'Strategic Initiatives')}
             </h1>
             <p className="text-gray-800 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium transition-colors">
-              MIBC is committed to transforming bilateral potential into tangible outcomes. Explore our flagship programs designed to provide structured market entry, foster startup growth, and create high-level engagements across the India-México corridor.
+              {t('init_desc', 'MIBC is committed to transforming bilateral potential into tangible outcomes. Explore our flagship programs designed to provide structured market entry, foster startup growth, and create high-level engagements across the India-México corridor.')}
             </p>
           </motion.div>
         </div>
@@ -154,7 +156,7 @@ const Initiatives = () => {
                       href={item.buttonLink} 
                       className="bg-[#A98842] hover:bg-[#b38e44] text-white px-8 py-3 rounded-lg font-bold text-[12px] uppercase tracking-widest transition-all shadow-md active:scale-95 inline-block"
                     >
-                      Learn More
+                      {t('init_btn_learn', 'Learn More')}
                     </a>
                     
                   </div>

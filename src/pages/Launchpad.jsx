@@ -1,44 +1,46 @@
 import React from 'react';
 import { Rocket, TrendingUp, Globe, Check } from 'lucide-react';
-import LaunchpadHero from '../assets/images/blog/connect.png'; // Path check kar lena bhai
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import LaunchpadHero from '../assets/images/blog/connect.png'; 
 
 const Launchpad = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
   
   const content = {
-    title: "India–México Launchpad",
-    subtitle: "A structured soft-landing program enabling startups and growth-stage companies to establish operations and scale in the counterpart market.",
+    title: t("lp_title", "India–México Launchpad"),
+    subtitle: t("lp_subtitle", "A structured soft-landing program enabling startups and growth-stage companies to establish operations and scale in the counterpart market."),
     overview: {
-      badge: "LAUNCHPAD OVERVIEW",
-      title: "India–México Launchpad",
-      desc: "India–México Launchpad is a structured soft-landing platform designed for startups and growth-stage companies seeking to establish operations in the other market. The program reduces market entry risk through validated market intelligence, operational infrastructure, and curated ecosystem introductions."
+      badge: t("lp_overview_badge", "LAUNCHPAD OVERVIEW"),
+      title: t("lp_overview_title", "India–México Launchpad"),
+      desc: t("lp_overview_desc", "India–México Launchpad is a structured soft-landing platform designed for startups and growth-stage companies seeking to establish operations in the other market. The program reduces market entry risk through validated market intelligence, operational infrastructure, and curated ecosystem introductions.")
     },
     sections: [
       {
-        type: "Entering India",
-        badge: "MEXICAN STARTUPS",
+        type: t("lp_s1_type", "Entering India"),
+        badge: t("lp_s1_badge", "MEXICAN STARTUPS"),
         icon: <TrendingUp size={24} />,
-        desc: "Unlock opportunities in one of the world's largest consumer and digital economies with our tailored soft-landing support.",
+        desc: t("lp_s1_desc", "Unlock opportunities in one of the world's largest consumer and digital economies with our tailored soft-landing support."),
         points: [
-          "Market validation and opportunity assessment",
-          "Virtual office facilities in Mumbai/Delhi",
-          "Regulatory and entity set-up advisory",
-          "Banking and payment infrastructure introductions",
-          "Investor and partner introductions",
-          "Ecosystem access to Indian incubators and accelerators"
+          t("lp_s1_p1", "Market validation and opportunity assessment"),
+          t("lp_s1_p2", "Virtual office facilities in Mumbai/Delhi"),
+          t("lp_s1_p3", "Regulatory and entity set-up advisory"),
+          t("lp_s1_p4", "Banking and payment infrastructure introductions"),
+          t("lp_s1_p5", "Investor and partner introductions"),
+          t("lp_s1_p6", "Ecosystem access to Indian incubators and accelerators")
         ]
       },
       {
-        type: "Entering México",
-        badge: "INDIAN STARTUPS",
+        type: t("lp_s2_type", "Entering México"),
+        badge: t("lp_s2_badge", "INDIAN STARTUPS"),
         icon: <Globe size={24} />,
-        desc: "Leverage México's strategic position as a gateway to the Americas and the USMCA market with institutional guidance.",
+        desc: t("lp_s2_desc", "Leverage México's strategic position as a gateway to the Americas and the USMCA market with institutional guidance."),
         points: [
-          "USMCA market access strategy development",
-          "Soft-landing infrastructure in México City/Guadalajara",
-          "Company incorporation and de-structuring",
-          "Talent acquisition advisory",
-          "Customer and partner introductions",
-          "Government liaison and incentive navigation"
+          t("lp_s2_p1", "USMCA market access strategy development"),
+          t("lp_s2_p2", "Soft-landing infrastructure in México City/Guadalajara"),
+          t("lp_s2_p3", "Company incorporation and de-structuring"),
+          t("lp_s2_p4", "Talent acquisition advisory"),
+          t("lp_s2_p5", "Customer and partner introductions"),
+          t("lp_s2_p6", "Government liaison and incentive navigation")
         ]
       }
     ]
@@ -51,7 +53,7 @@ const Launchpad = () => {
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
           <span className="text-[#A98842] font-bold text-[10px] tracking-[0.3em] uppercase mb-2 block transition-colors">
-            Soft Landing Program
+            {t("lp_header_badge", "Soft Landing Program")}
           </span>
           <h1 className="text-4xl md:text-6xl font-black text-[#A98842] mb-4 tracking-tight transition-colors">
             {content.title}
@@ -67,7 +69,7 @@ const Launchpad = () => {
         <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 max-w-7xl mx-auto transition-colors">
           <img 
             src={LaunchpadHero} 
-            alt="Economic Forum India Mexico" 
+            alt={t("lp_hero_img_alt", "Economic Forum India Mexico")} 
             className="w-full h-auto md:max-h-[600px] object-cover"
           />
         </div>

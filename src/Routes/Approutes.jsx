@@ -32,6 +32,7 @@ import Cohortdashboard from '../pages/Cohortdashboard';
 import TequilaLogin from '../pages/Tequila-login';
 import CohortRegister from '../pages/CohortRegister';
 
+
 function AppContent() {
   const location = useLocation();
 
@@ -50,6 +51,7 @@ function AppContent() {
 
   return (
     <>
+      
       <ScrollToTop />
       <Preloader />
 

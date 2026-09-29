@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Globe } from "lucide-react";
 import logo from "../assets/images/logo/logo-dark.png";
 
 const Header = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false); // Dropdown toggle state
   const location = useLocation();
+  
+  const { t, i18n } = useTranslation(); 
 
   // Theme Sync
   useEffect(() => {
@@ -37,6 +42,12 @@ const Header = () => {
     }`;
   };
 
+  // --- LANGUAGE SWITCHER LOGIC ---
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    setIsLangOpen(false); // Close dropdown after selection
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-white dark:bg-slate-950 border-b border-gray-100 dark:border-slate-800 transition-colors duration-500">
@@ -56,8 +67,8 @@ const Header = () => {
 
             {/* 2. DESKTOP NAVIGATION */}
             <nav className="hidden lg:flex items-center space-x-10">
-              <Link to="/" className={getLinkStyle("/")}>Home</Link>
-              <Link to="/about" className={getLinkStyle("/about")}>About</Link>
+              <Link to="/" className={getLinkStyle("/")}>{t('home', 'Home')}</Link>
+              <Link to="/about" className={getLinkStyle("/about")}>{t('about', 'About')}</Link>
 
               {/* Services Dropdown */}
               <div className="relative group">
@@ -65,7 +76,7 @@ const Header = () => {
                   to="/services" 
                   className={`${getLinkStyle("/services")} flex items-center gap-1`}
                 >
-                  Services
+                  {t('services', 'Services')}
                   <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -73,10 +84,10 @@ const Header = () => {
                 
                 <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-900 shadow-2xl rounded-sm border border-gray-100 dark:border-slate-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                   {[
-                    { to: "/services/investment-facilitation", label: "Investment Facilitation" },
-                    { to: "/services/trade-promotion", label: "Trade Promotion" },
-                    { to: "/services/delegation-facilitation", label: "Delegation Facilitation" },
-                    { to: "/services/intelligence-advocacy", label: "Intelligence & Advocacy" }
+                    { to: "/services/investment-facilitation", label: t('investment_facilitation', 'Investment Facilitation') },
+                    { to: "/services/trade-promotion", label: t('trade_promotion', 'Trade Promotion') },
+                    { to: "/services/delegation-facilitation", label: t('delegation_facilitation', 'Delegation Facilitation') },
+                    { to: "/services/intelligence-advocacy", label: t('intelligence_advocacy', 'Intelligence & Advocacy') }
                   ].map((item) => (
                     <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold text-slate-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-[#b38e44] dark:hover:text-[#b38e44] transition-colors">
                       {item.label}
@@ -91,7 +102,7 @@ const Header = () => {
                   to="/initiatives" 
                   className={`${getLinkStyle("/initiatives")} flex items-center gap-1`}
                 >
-                  Initiatives
+                  {t('initiatives', 'Initiatives')}
                   <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -99,9 +110,9 @@ const Header = () => {
                 
                 <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-900 shadow-2xl rounded-sm border border-gray-100 dark:border-slate-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
                   {[
-                    { to: "/tequila-accelerator", label: "Tequila Accelerator" },
-                    { to: "/initiatives/launchpad", label: "India–México Launchpad" },
-                    { to: "/initiatives/events", label: "Events" }
+                    { to: "/tequila-accelerator", label: t('tequila_accelerator', 'Tequila Accelerator') },
+                    { to: "/initiatives/launchpad", label: t('launchpad', 'India–México Launchpad') },
+                    { to: "/initiatives/events", label: t('events', 'Events') }
                   ].map((item) => (
                     <Link key={item.to} to={item.to} className="block px-6 py-3 text-[13px] font-bold text-slate-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-[#b38e44] dark:hover:text-[#b38e44] transition-colors">
                       {item.label}
@@ -110,33 +121,59 @@ const Header = () => {
                 </div>
               </div>
 
-              <Link to="/sectors" className={getLinkStyle("/sectors")}>Sectors</Link>
-              <Link to="/membership" className={getLinkStyle("/membership")}>Membership</Link>
-              <Link to="/contact" className={getLinkStyle("/contact")}>Contact</Link>
+              <Link to="/sectors" className={getLinkStyle("/sectors")}>{t('sectors', 'Sectors')}</Link>
+              <Link to="/membership" className={getLinkStyle("/membership")}>{t('membership', 'Membership')}</Link>
+              <Link to="/contact" className={getLinkStyle("/contact")}>{t('contact', 'Contact')}</Link>
             </nav>
 
             {/* 3. RIGHT ACTIONS */}
-            <div className="flex items-center gap-6">
-              <Link to="/membership" className="hidden md:block bg-[#b38e44] hover:bg-[#967635] text-white px-8 py-2.5 rounded-full text-[12px] font-bold tracking-wide transition-all shadow-md active:scale-95">
-                JOIN MIBC
-              </Link>
+            <div className="flex items-center gap-4 md:gap-6">
+              
+              {/* --- DROPDOWN LANGUAGE SWITCHER --- */}
+              <div className="relative">
+                <button 
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 dark:border-slate-700 text-slate-700 dark:text-gray-200 hover:text-[#b38e44] dark:hover:text-[#b38e44] hover:border-[#b38e44] dark:hover:border-[#b38e44] bg-gray-50 dark:bg-slate-900 hover:bg-[#b38e44]/10 transition-all shadow-sm"
+                  title="Select Language"
+                >
+                  <Globe size={16} />
+                  <span className="text-[12px] font-bold uppercase tracking-wider mt-[1px]">
+                    {i18n.language?.startsWith('en') ? 'EN' : 'ES'}
+                  </span>
+                  <svg className={`w-3 h-3 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
 
-              {/* THEME TOGGLE BUTTON */}
-              {/* <button 
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b38e44]/10 dark:bg-slate-800 text-[#b38e44] hover:bg-[#b38e44] hover:text-white transition-all duration-500"
-                title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-              >
-                {theme === "light" ? (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
+                {isLangOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-lg shadow-xl py-2 z-[100] animate-in fade-in slide-in-from-top-2">
+                    <button
+                      onClick={() => changeLanguage('en')}
+                      className={`w-full text-left px-4 py-2 text-sm font-semibold transition-colors ${
+                        i18n.language?.startsWith('en') 
+                          ? 'text-[#b38e44] bg-gray-50 dark:bg-slate-800' 
+                          : 'text-slate-700 dark:text-gray-300 hover:text-[#b38e44] hover:bg-gray-50 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('es')}
+                      className={`w-full text-left px-4 py-2 text-sm font-semibold transition-colors ${
+                        i18n.language?.startsWith('es') 
+                          ? 'text-[#b38e44] bg-gray-50 dark:bg-slate-800' 
+                          : 'text-slate-700 dark:text-gray-300 hover:text-[#b38e44] hover:bg-gray-50 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      Spanish
+                    </button>
+                  </div>
                 )}
-              </button> */}
+              </div>
+
+              <Link to="/membership" className="hidden md:block bg-[#b38e44] hover:bg-[#967635] text-white px-8 py-2.5 rounded-full text-[12px] font-bold tracking-wide transition-all shadow-md active:scale-95 uppercase">
+                {t('join_mibc', 'JOIN MIBC')}
+              </Link>
 
               {/* Burger Menu Button (Open) */}
               <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 text-slate-900 dark:text-white transition-colors">
@@ -151,7 +188,7 @@ const Header = () => {
 
       {/* --- MOBILE SIDEBAR MENU --- */}
       
-      {/* 1. Dark Overlay (Click outside to close) */}
+      {/* 1. Dark Overlay */}
       <div 
         className={`fixed inset-0 bg-black/60 z-[60] lg:hidden backdrop-blur-sm transition-opacity duration-300 ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -165,14 +202,13 @@ const Header = () => {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Drawer Header (Logo & Close Button) */}
+        {/* Drawer Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-slate-800">
           <img 
             className={`h-8 w-auto transition-all duration-500 ${theme === 'dark' ? 'brightness-200 invert' : ''}`} 
             src={logo} 
             alt="MIBC Logo" 
           />
-          {/* Beautiful Cross Symbol */}
           <button 
             onClick={() => setIsMobileMenuOpen(false)} 
             className="p-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-[#A98842] hover:text-white dark:hover:bg-[#A98842] dark:hover:text-white transition-all"
@@ -185,14 +221,22 @@ const Header = () => {
 
         {/* Drawer Navigation Links */}
         <div className="flex flex-col flex-grow overflow-y-auto px-6 py-8 space-y-2">
-          {["Home", "About", "Services", "Initiatives", "Sectors", "Membership", "Contact"].map((item) => (
+          {[
+            { name: "Home", key: "home", path: "/" },
+            { name: "About", key: "about", path: "/about" },
+            { name: "Services", key: "services", path: "/services" },
+            { name: "Initiatives", key: "initiatives", path: "/initiatives" },
+            { name: "Sectors", key: "sectors", path: "/sectors" },
+            { name: "Membership", key: "membership", path: "/membership" },
+            { name: "Contact", key: "contact", path: "/contact" }
+          ].map((item) => (
             <Link 
-              key={item} 
+              key={item.key} 
               onClick={() => setIsMobileMenuOpen(false)} 
-              to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
+              to={item.path} 
               className="text-lg font-bold text-slate-900 dark:text-gray-200 hover:text-[#A98842] dark:hover:text-[#A98842] py-3 border-b border-gray-50 dark:border-slate-800/50 transition-colors"
             >
-              {item}
+              {t(item.key, item.name)}
             </Link>
           ))}
         </div>
@@ -204,7 +248,7 @@ const Header = () => {
             to="/membership" 
             className="flex items-center justify-center w-full bg-[#A98842] text-white py-4 rounded-xl font-bold tracking-widest uppercase text-xs shadow-lg active:scale-95 transition-transform"
           >
-            JOIN MIBC
+            {t('join_mibc', 'JOIN MIBC')}
           </Link>
         </div>
       </div>

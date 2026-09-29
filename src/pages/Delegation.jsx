@@ -1,24 +1,25 @@
 import React from 'react';
 import { Users, Check } from 'lucide-react';
-import DelegationHero from '../assets/images/blog/Delegation.png'; // Path check kar lena bhai
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import DelegationHero from '../assets/images/blog/Delegation.png'; 
 
 const DelegationFacilitation = () => {
-  
-  // Saara content ek hi jagah
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const delegationContent = {
-    title: "Delegation Facilitation",
-    subtitle: "End-to-end program development for government and business delegations—both directions.",
+    title: t("del_fac_title", "Delegation Facilitation"),
+    subtitle: t("del_fac_subtitle", "End-to-end program development for government and business delegations—both directions."),
     services: {
-      badge: "HIGH-LEVEL MISSIONS",
-      title: "Delegation Facilitation Services",
-      desc: "MIBC provides end-to-end planning and execution for high-level government and business delegations traveling between México and India. From agenda curation to VIP protocol, our team ensures every mission delivers measurable outcomes.",
+      badge: t("del_fac_badge", "HIGH-LEVEL MISSIONS"),
+      title: t("del_fac_serv_title", "Delegation Facilitation Services"),
+      desc: t("del_fac_serv_desc", "MIBC provides end-to-end planning and execution for high-level government and business delegations traveling between México and India. From agenda curation to VIP protocol, our team ensures every mission delivers measurable outcomes."),
       items: [
-        "Mission program development and agenda design",
-        "High-level meeting coordination with ministries, agencies, and industry bodies",
-        "Site visits, factory tours, and investment zone briefings",
-        "B2B and B2G matchmaking sessions",
-        "Protocol management and VIP logistics",
-        "Post-mission follow-up and lead tracking"
+        t("del_fac_item_1", "Mission program development and agenda design"),
+        t("del_fac_item_2", "High-level meeting coordination with ministries, agencies, and industry bodies"),
+        t("del_fac_item_3", "Site visits, factory tours, and investment zone briefings"),
+        t("del_fac_item_4", "B2B and B2G matchmaking sessions"),
+        t("del_fac_item_5", "Protocol management and VIP logistics"),
+        t("del_fac_item_6", "Post-mission follow-up and lead tracking")
       ]
     }
   };

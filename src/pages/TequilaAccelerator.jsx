@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../api/api"; // <-- Aapka axios instance yahan import kiya hai
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import api from "../api/api";
 import logo from "../assets/images/logo/logo-dark.png";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   return (
     <nav className="bg-white w-full px-6 md:px-12 py-4 flex justify-between items-center z-50 relative shadow-sm">
       <div className="flex-shrink-0">
@@ -21,33 +23,33 @@ const Navbar = () => {
           to="/"
           className="text-[#a8813f] font-semibold text-sm hover:opacity-80 transition-opacity"
         >
-          Home
+          {t("ta_nav_home", "Home")}
         </Link>
 
         <Link
           to="/cohort-dashboard"
           className="text-gray-800 font-semibold text-sm hover:text-[#a8813f] transition-colors"
         >
-          Cohort
+          {t("ta_nav_cohort", "Cohort")}
         </Link>
 
         <Link
           to="/membership"
           className="text-gray-800 font-semibold text-sm hover:text-[#a8813f] transition-colors"
         >
-          Membership
+          {t("ta_nav_membership", "Membership")}
         </Link>
 
         <Link
           to="/contact"
           className="text-gray-800 font-semibold text-sm hover:text-[#a8813f] transition-colors"
         >
-          Contact
+          {t("ta_nav_contact", "Contact")}
         </Link>
       </div>
       <div className="hidden md:block">
         <button className="bg-[#a8813f] hover:bg-[#8f6d35] text-white px-8 py-2.5 rounded-full text-sm font-semibold transition-colors shadow-md">
-          JOIN MIBC
+          {t("ta_nav_join", "JOIN MIBC")}
         </button>
       </div>
       <button className="lg:hidden text-gray-900 p-2">
@@ -71,6 +73,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <main className="relative w-full h-[calc(100vh-84px)] min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -83,30 +86,27 @@ const Hero = () => {
         >
           <source src="/TEQUILA (1).mp4" type="video/mp4" />
         </video>
-
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-black/40" /> */}
       </div>
       <div className="absolute inset-0 bg-black/60 z-0" />
       <div className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-5xl mx-auto">
         <div className="border border-[#a8813f] text-[#a8813f] text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 bg-[#a8813f]/10 backdrop-blur-sm">
-          Flagship Program
+          {t("ta_hero_badge", "Flagship Program")}
         </div>
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#a8813f] mb-6 tracking-tight">
-          Tequila Accelerator
+          {t("ta_hero_title", "Tequila Accelerator")}
         </h2>
         <p className="text-gray-100 max-w-4xl text-base md:text-lg lg:text-xl leading-relaxed mb-12 font-medium drop-shadow-md">
-          Accelerate Your Entry into India's Premium Spirits Market.
-          Institutional-grade market access for authentic Mexican Tequila brands
-          through government relationships, regulatory expertise, and qualified
-          distribution partnerships.
+          {t(
+            "ta_hero_desc",
+            "Accelerate Your Entry into India's Premium Spirits Market. Institutional-grade market access for authentic Mexican Tequila brands through government relationships, regulatory expertise, and qualified distribution partnerships.",
+          )}
         </p>
         <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
           <button className="bg-[#a8813f] hover:bg-[#8f6d35] text-white px-10 py-3.5 rounded-md text-base font-semibold transition-all shadow-lg hover:shadow-xl w-full sm:w-auto">
-            Contact US
+            {t("ta_hero_btn_contact", "Contact US")}
           </button>
           <button className="border-2 border-[#a8813f] text-[#a8813f] hover:bg-[#a8813f]/10 px-10 py-3.5 rounded-md text-base font-semibold transition-all backdrop-blur-sm w-full sm:w-auto">
-            Download Brochure
+            {t("ta_hero_btn_brochure", "Download Brochure")}
           </button>
         </div>
       </div>
@@ -115,10 +115,12 @@ const Hero = () => {
 };
 
 const WhatWeDeliver = () => {
+  const { t } = useTranslation();
+
   const deliverData = [
     {
-      title: "Market Intelligence",
-      tag: "INSIGHTS",
+      title: t("ta_del_c1_title", "Market Intelligence"),
+      tag: t("ta_del_c1_tag", "INSIGHTS"),
       icon: (
         <svg
           className="w-6 h-6 text-white"
@@ -141,15 +143,21 @@ const WhatWeDeliver = () => {
         </svg>
       ),
       items: [
-        "Indian spirits market landscape and consumer segmentation",
-        "Competitive positioning analysis",
-        "Pricing strategy for Indian market",
-        "Target channel identification (HoReCa, retail, e-commerce)",
+        t(
+          "ta_del_c1_i1",
+          "Indian spirits market landscape and consumer segmentation",
+        ),
+        t("ta_del_c1_i2", "Competitive positioning analysis"),
+        t("ta_del_c1_i3", "Pricing strategy for Indian market"),
+        t(
+          "ta_del_c1_i4",
+          "Target channel identification (HoReCa, retail, e-commerce)",
+        ),
       ],
     },
     {
-      title: "Regulatory Navigation",
-      tag: "COMPLIANCE",
+      title: t("ta_del_c2_title", "Regulatory Navigation"),
+      tag: t("ta_del_c2_tag", "COMPLIANCE"),
       icon: (
         <svg
           className="w-6 h-6 text-white"
@@ -166,15 +174,18 @@ const WhatWeDeliver = () => {
         </svg>
       ),
       items: [
-        "State-by-state licensing (28 states with unique excise laws)",
-        "Import documentation and customs procedures",
-        "Labelling and packaging compliance",
-        "Excise registration and ongoing compliance",
+        t(
+          "ta_del_c2_i1",
+          "State-by-state licensing (28 states with unique excise laws)",
+        ),
+        t("ta_del_c2_i2", "Import documentation and customs procedures"),
+        t("ta_del_c2_i3", "Labelling and packaging compliance"),
+        t("ta_del_c2_i4", "Excise registration and ongoing compliance"),
       ],
     },
     {
-      title: "Distribution & Partners",
-      tag: "PARTNERS",
+      title: t("ta_del_c3_title", "Distribution & Partners"),
+      tag: t("ta_del_c3_tag", "PARTNERS"),
       icon: (
         <svg
           className="w-6 h-6 text-white"
@@ -191,15 +202,21 @@ const WhatWeDeliver = () => {
         </svg>
       ),
       items: [
-        "Curated introductions to leading importers and distributors",
-        "Hospitality partner connections (premium hotels, bars)",
-        "First-client facilitation and handholding",
-        "Contract negotiation support",
+        t(
+          "ta_del_c3_i1",
+          "Curated introductions to leading importers and distributors",
+        ),
+        t(
+          "ta_del_c3_i2",
+          "Hospitality partner connections (premium hotels, bars)",
+        ),
+        t("ta_del_c3_i3", "First-client facilitation and handholding"),
+        t("ta_del_c3_i4", "Contract negotiation support"),
       ],
     },
     {
-      title: "Brand Launch Support",
-      tag: "LAUNCH",
+      title: t("ta_del_c4_title", "Brand Launch Support"),
+      tag: t("ta_del_c4_tag", "LAUNCH"),
       icon: (
         <svg
           className="w-6 h-6 text-white"
@@ -216,10 +233,10 @@ const WhatWeDeliver = () => {
         </svg>
       ),
       items: [
-        "Launch event coordination in key metros",
-        "Trade and consumer outreach",
-        "Media and influencer connections",
-        "Ongoing market development support",
+        t("ta_del_c4_i1", "Launch event coordination in key metros"),
+        t("ta_del_c4_i2", "Trade and consumer outreach"),
+        t("ta_del_c4_i3", "Media and influencer connections"),
+        t("ta_del_c4_i4", "Ongoing market development support"),
       ],
     },
   ];
@@ -235,17 +252,21 @@ const WhatWeDeliver = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
-            What We Deliver
+            {t("ta_del_title", "What We Deliver")}
           </h2>
           <p className="text-gray-600 text-[17px] leading-relaxed">
-            The Tequila Accelerator collapses typical{" "}
-            <span className="text-[#a8813f] font-bold">18-24 month</span> market
-            entry timelines into a focused{" "}
-            <span className="text-[#a8813f] font-bold">2-3 month</span>{" "}
-            accelerated execution program. By leveraging MIBC's government
-            relationships, distributor networks, and operational expertise,
-            participating brands gain rapid market access with reduced risk and
-            investment.
+            {t("ta_del_desc_p1", "The Tequila Accelerator collapses typical")}{" "}
+            <span className="text-[#a8813f] font-bold">
+              {t("ta_del_desc_hl1", "18-24 month")}
+            </span>{" "}
+            {t("ta_del_desc_p2", "market entry timelines into a focused")}{" "}
+            <span className="text-[#a8813f] font-bold">
+              {t("ta_del_desc_hl2", "2-3 month")}
+            </span>{" "}
+            {t(
+              "ta_del_desc_p3",
+              "accelerated execution program. By leveraging MIBC's government relationships, distributor networks, and operational expertise, participating brands gain rapid market access with reduced risk and investment.",
+            )}
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -307,92 +328,148 @@ const WhatWeDeliver = () => {
 };
 
 const TimelineSection = () => {
+  const { t } = useTranslation();
+
   const timelineData = [
     {
-      phase: "Weeks 1–3: Market Assessment & Strategy",
+      phase: t("ta_time_p1_title", "Weeks 1–3: Market Assessment & Strategy"),
       align: "left",
       items: [
         {
-          title: "Comprehensive Market Report:",
-          desc: "India spirits market overview, tequila category analysis, competitive landscape, and consumer insights",
+          title: t("ta_time_p1_i1_t", "Comprehensive Market Report:"),
+          desc: t(
+            "ta_time_p1_i1_d",
+            "India spirits market overview, tequila category analysis, competitive landscape, and consumer insights",
+          ),
         },
         {
-          title: "State-Level Opportunity Matrix:",
-          desc: "Priority state identification based on market size, regulatory complexity, and entry barriers",
+          title: t("ta_time_p1_i2_t", "State-Level Opportunity Matrix:"),
+          desc: t(
+            "ta_time_p1_i2_d",
+            "Priority state identification based on market size, regulatory complexity, and entry barriers",
+          ),
         },
         {
-          title: "Pricing & Positioning Strategy:",
-          desc: "Recommended retail pricing, channel strategy, and competitive positioning framework",
+          title: t("ta_time_p1_i3_t", "Pricing & Positioning Strategy:"),
+          desc: t(
+            "ta_time_p1_i3_d",
+            "Recommended retail pricing, channel strategy, and competitive positioning framework",
+          ),
         },
         {
-          title: "Regulatory Compliance Roadmap:",
-          desc: "State-by-state licensing requirements, documentation checklists, and compliance timelines",
+          title: t("ta_time_p1_i4_t", "Regulatory Compliance Roadmap:"),
+          desc: t(
+            "ta_time_p1_i4_d",
+            "State-by-state licensing requirements, documentation checklists, and compliance timelines",
+          ),
         },
       ],
     },
     {
-      phase: "Weeks 4–6: Partner Identification & Engagement",
+      phase: t(
+        "ta_time_p2_title",
+        "Weeks 4–6: Partner Identification & Engagement",
+      ),
       align: "right",
       items: [
         {
-          title: "Distributor Shortlist:",
-          desc: "Curated list of 8-10 qualified importers/distributors with track records in premium spirits",
+          title: t("ta_time_p2_i1_t", "Distributor Shortlist:"),
+          desc: t(
+            "ta_time_p2_i1_d",
+            "Curated list of 8-10 qualified importers/distributors with track records in premium spirits",
+          ),
         },
         {
-          title: "Facilitated Introductions:",
-          desc: "Organized meetings with shortlisted partners, including MIBC-led presentations and due diligence support",
+          title: t("ta_time_p2_i2_t", "Facilitated Introductions:"),
+          desc: t(
+            "ta_time_p2_i2_d",
+            "Organized meetings with shortlisted partners, including MIBC-led presentations and due diligence support",
+          ),
         },
         {
-          title: "Partnership Negotiation:",
-          desc: "Contract review, commercial terms negotiation, and partnership structuring advisory",
+          title: t("ta_time_p2_i3_t", "Partnership Negotiation:"),
+          desc: t(
+            "ta_time_p2_i3_d",
+            "Contract review, commercial terms negotiation, and partnership structuring advisory",
+          ),
         },
         {
-          title: "Hospitality Partnerships:",
-          desc: "Introductions to premium hotels, restaurants, and bars for initial placement",
+          title: t("ta_time_p2_i4_t", "Hospitality Partnerships:"),
+          desc: t(
+            "ta_time_p2_i4_d",
+            "Introductions to premium hotels, restaurants, and bars for initial placement",
+          ),
         },
       ],
     },
     {
-      phase: "Weeks 7–10: Regulatory Execution & Launch Preparation",
+      phase: t(
+        "ta_time_p3_title",
+        "Weeks 7–10: Regulatory Execution & Launch Preparation",
+      ),
       align: "left",
       items: [
         {
-          title: "License Applications:",
-          desc: "FL-I license applications filed in priority states with MIBC liaison support",
+          title: t("ta_time_p3_i1_t", "License Applications:"),
+          desc: t(
+            "ta_time_p3_i1_d",
+            "FL-I license applications filed in priority states with MIBC liaison support",
+          ),
         },
         {
-          title: "Import Documentation:",
-          desc: "Complete import paperwork, customs clearance coordination, and first shipment facilitation",
+          title: t("ta_time_p3_i2_t", "Import Documentation:"),
+          desc: t(
+            "ta_time_p3_i2_d",
+            "Complete import paperwork, customs clearance coordination, and first shipment facilitation",
+          ),
         },
         {
-          title: "Label Approvals:",
-          desc: "State-specific label designs submitted and approved across target markets",
+          title: t("ta_time_p3_i3_t", "Label Approvals:"),
+          desc: t(
+            "ta_time_p3_i3_d",
+            "State-specific label designs submitted and approved across target markets",
+          ),
         },
         {
-          title: "Launch Event Planning:",
-          desc: "Brand launch event design, venue selection, guest list development, and media coordination",
+          title: t("ta_time_p3_i4_t", "Launch Event Planning:"),
+          desc: t(
+            "ta_time_p3_i4_d",
+            "Brand launch event design, venue selection, guest list development, and media coordination",
+          ),
         },
       ],
     },
     {
-      phase: "Weeks 11–12: Market Launch",
+      phase: t("ta_time_p4_title", "Weeks 11–12: Market Launch"),
       align: "right",
       items: [
         {
-          title: "Brand Launch Events:",
-          desc: "Execution of launch events in Mumbai, Delhi, and Bangalore with trade and media presence",
+          title: t("ta_time_p4_i1_t", "Brand Launch Events:"),
+          desc: t(
+            "ta_time_p4_i1_d",
+            "Execution of launch events in Mumbai, Delhi, and Bangalore with trade and media presence",
+          ),
         },
         {
-          title: "Channel Activation:",
-          desc: "Point-of-sale materials deployment, staff training coordination, and promotional campaign launch",
+          title: t("ta_time_p4_i2_t", "Channel Activation:"),
+          desc: t(
+            "ta_time_p4_i2_d",
+            "Point-of-sale materials deployment, staff training coordination, and promotional campaign launch",
+          ),
         },
         {
-          title: "Media & Influencer Engagement:",
-          desc: "Press releases, social media campaigns, and influencer partnerships",
+          title: t("ta_time_p4_i3_t", "Media & Influencer Engagement:"),
+          desc: t(
+            "ta_time_p4_i3_d",
+            "Press releases, social media campaigns, and influencer partnerships",
+          ),
         },
         {
-          title: "Post-Launch Advisory:",
-          desc: "3-month advisory support for performance optimization and market expansion planning",
+          title: t("ta_time_p4_i4_t", "Post-Launch Advisory:"),
+          desc: t(
+            "ta_time_p4_i4_d",
+            "3-month advisory support for performance optimization and market expansion planning",
+          ),
         },
       ],
     },
@@ -409,36 +486,28 @@ const TimelineSection = () => {
           className="text-center max-w-4xl mx-auto mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-            Timeline & Deliverables
+            {t("ta_time_main_title", "Timeline & Deliverables")}
           </h2>
           <h3 className="text-xl font-bold text-gray-900 mb-6">
-            Accelerated 2–3 Month Program Structure
+            {t("ta_time_sub_title", "Accelerated 2–3 Month Program Structure")}
           </h3>
           <p className="text-gray-500 text-base leading-relaxed max-w-3xl mx-auto">
-            Unlike traditional market entry consultancies that require 18–24
-            months, the Tequila Accelerator delivers focused, outcome-driven
-            execution in 2–3 months through MIBC's institutional networks and
-            pre-established relationships.
+            {t(
+              "ta_time_desc",
+              "Unlike traditional market entry consultancies that require 18–24 months, the Tequila Accelerator delivers focused, outcome-driven execution in 2–3 months through MIBC's institutional networks and pre-established relationships.",
+            )}
           </p>
         </motion.div>
 
         <div className="relative w-full">
-          {/* Center Vertical Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#d5c3a1] transform md:-translate-x-1/2 rounded-full"></div>
-
-          {/* Timeline Nodes & Cards */}
           <div className="space-y-12 md:space-y-24">
             {timelineData.map((item, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center justify-between w-full ${
-                  item.align === "left" ? "md:flex-row-reverse" : "md:flex-row"
-                }`}
+                className={`relative flex flex-col md:flex-row items-center justify-between w-full ${item.align === "left" ? "md:flex-row-reverse" : "md:flex-row"}`}
               >
-                {/* Empty space for desktop layout balancing */}
                 <div className="hidden md:block md:w-[45%]"></div>
-
-                {/* Timeline Circle */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -448,8 +517,6 @@ const TimelineSection = () => {
                 >
                   <div className="w-2.5 h-2.5 bg-[#a8813f] rounded-full"></div>
                 </motion.div>
-
-                {/* Content Card */}
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -462,19 +529,9 @@ const TimelineSection = () => {
                   className="w-full md:w-[45%] pl-20 md:pl-0"
                 >
                   <div className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 relative hover:shadow-md transition-shadow">
-                    {/* Directional Arrow (Triangle) */}
                     <div
-                      className={`absolute top-8 w-5 h-5 bg-white transform rotate-45 border-gray-100 
-                        -left-2.5 border-b border-l 
-                        md:top-1/2 md:-translate-y-1/2
-                        ${
-                          item.align === "left"
-                            ? "md:left-auto md:-right-2.5 md:border-t md:border-r md:border-b-0 md:border-l-0"
-                            : "md:-left-2.5"
-                        }
-                      `}
+                      className={`absolute top-8 w-5 h-5 bg-white transform rotate-45 border-gray-100 -left-2.5 border-b border-l md:top-1/2 md:-translate-y-1/2 ${item.align === "left" ? "md:left-auto md:-right-2.5 md:border-t md:border-r md:border-b-0 md:border-l-0" : "md:-left-2.5"}`}
                     ></div>
-
                     <h4 className="text-xl font-extrabold text-gray-900 mb-6">
                       {item.phase}
                     </h4>
@@ -503,11 +560,16 @@ const TimelineSection = () => {
 };
 
 const QuestionnairesSection = () => {
+  const { t } = useTranslation();
+
   const cards = [
     {
-      title: "Initial Questionnaire",
-      desc: "Basic company details, product categories, and export readiness check.",
-      linkText: "Start Assessment",
+      title: t("ta_q_c1_title", "Initial Questionnaire"),
+      desc: t(
+        "ta_q_c1_desc",
+        "Basic company details, product categories, and export readiness check.",
+      ),
+      linkText: t("ta_q_c1_btn", "Start Assessment"),
       highlighted: false,
       icon: (
         <svg
@@ -526,9 +588,12 @@ const QuestionnairesSection = () => {
       ),
     },
     {
-      title: "Phase 1 Questionnaire",
-      desc: "Detailed product SKUs, pricing, production capacity, and compliance.",
-      linkText: "Start Phase 1",
+      title: t("ta_q_c2_title", "Phase 1 Questionnaire"),
+      desc: t(
+        "ta_q_c2_desc",
+        "Detailed product SKUs, pricing, production capacity, and compliance.",
+      ),
+      linkText: t("ta_q_c2_btn", "Start Phase 1"),
       highlighted: true,
       icon: (
         <svg
@@ -547,9 +612,12 @@ const QuestionnairesSection = () => {
       ),
     },
     {
-      title: "Phase 2 Questionnaire",
-      desc: "Execution, distribution partnerships, and brand launch preparation.",
-      linkText: "Start Phase 2",
+      title: t("ta_q_c3_title", "Phase 2 Questionnaire"),
+      desc: t(
+        "ta_q_c3_desc",
+        "Execution, distribution partnerships, and brand launch preparation.",
+      ),
+      linkText: t("ta_q_c3_btn", "Start Phase 2"),
       highlighted: false,
       icon: (
         <svg
@@ -580,14 +648,16 @@ const QuestionnairesSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="bg-[#FAF4EB] text-[#a8813f] text-[10px] md:text-xs font-bold px-4 py-2 rounded-full uppercase tracking-[0.15em] mb-6 inline-block">
-            Program Enrollment
+            {t("ta_q_badge", "Program Enrollment")}
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight mt-2">
-            Application Questionnaires
+            {t("ta_q_title", "Application Questionnaires")}
           </h2>
           <p className="text-gray-500 text-base leading-relaxed">
-            Select the appropriate phase below. You will be redirected to the
-            dedicated portal to complete your application securely.
+            {t(
+              "ta_q_desc",
+              "Select the appropriate phase below. You will be redirected to the dedicated portal to complete your application securely.",
+            )}
           </p>
         </motion.div>
 
@@ -610,27 +680,18 @@ const QuestionnairesSection = () => {
               }`}
             >
               <div
-                className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 shadow-sm ${
-                  card.highlighted
-                    ? "bg-[#a8813f] text-white"
-                    : "bg-[#FAF4EB] text-[#a8813f]"
-                }`}
+                className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 shadow-sm ${card.highlighted ? "bg-[#a8813f] text-white" : "bg-[#FAF4EB] text-[#a8813f]"}`}
               >
                 {card.icon}
               </div>
-
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 {card.title}
               </h3>
-
               <p className="text-gray-500 text-sm leading-relaxed mb-10 flex-grow">
                 {card.desc}
               </p>
-
               <button
-                className={`text-sm font-bold flex items-center gap-2 group ${
-                  card.highlighted ? "text-gray-900" : "text-[#a8813f]"
-                }`}
+                className={`text-sm font-bold flex items-center gap-2 group ${card.highlighted ? "text-gray-900" : "text-[#a8813f]"}`}
               >
                 {card.linkText}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -646,51 +707,48 @@ const QuestionnairesSection = () => {
 };
 
 const StrategicConnectSection = () => {
+  const { t } = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Aap yahan apni 3-4 images ke URLs daal sakte hain
- const images = [
-  "/Tequila_img/rubi-martin-1.PNG",
-  "/Tequila_img/new-pic-1.PNG",
-  "/Tequila_img/dianaa.PNG",
-];
+  const images = [
+    "/Tequila_img/rubi-martin-1.PNG",
+    "/Tequila_img/new-pic-1.PNG",
+    "/Tequila_img/dianaa.PNG",
+  ];
 
-  // Auto-slide logic for 2 seconds (2000 ms)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 2000);
-
     return () => clearInterval(timer);
   }, [images.length]);
 
   const listItems = [
-    "Market Entry Strategy",
-    "Regulatory & Compliance Guidance",
-    "Distribution Partner Identification",
-    "Long-Term Growth & Expansion Plan",
+    t("ta_strat_li1", "Market Entry Strategy"),
+    t("ta_strat_li2", "Regulatory & Compliance Guidance"),
+    t("ta_strat_li3", "Distribution Partner Identification"),
+    t("ta_strat_li4", "Long-Term Growth & Expansion Plan"),
   ];
 
   return (
     <section className="bg-white py-20 px-4 md:px-8 font-sans">
       <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="bg-[#FAF4EB] text-[#a8813f] text-[10px] md:text-xs font-bold px-4 py-2 rounded-full uppercase tracking-[0.15em] mb-4 inline-block">
-            Engagements & Networking
+            {t("ta_strat_badge", "Engagements & Networking")}
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight mt-2">
-            Strategic Connect Programs
+            {t("ta_strat_title", "Strategic Connect Programs")}
           </h2>
           <p className="text-gray-500 text-base leading-relaxed">
-            Facilitating high-level bilateral trade through tailored
-            engagements.
+            {t(
+              "ta_strat_desc",
+              "Facilitating high-level bilateral trade through tailored engagements.",
+            )}
           </p>
         </div>
 
-        {/* Content Section - 2 Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -712,19 +770,15 @@ const StrategicConnectSection = () => {
                 />
               </svg>
             </div>
-
             <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 leading-snug">
-              Exclusive One-on-One <br /> Engagements
+              {t("ta_strat_h3", "Exclusive One-on-One Engagements")}
             </h3>
-
             <p className="text-gray-500 text-[15px] leading-relaxed mb-8">
-              Our one-on-one consultation focused on understanding the company's
-              vision and identifying the best pathway for entering the Indian
-              market. Together, we discussed market opportunities, regulatory
-              requirements, distribution strategies, and long-term business
-              growth to build a customised roadmap for success.
+              {t(
+                "ta_strat_p",
+                "Our one-on-one consultation focused on understanding the company's vision and identifying the best pathway for entering the Indian market. Together, we discussed market opportunities, regulatory requirements, distribution strategies, and long-term business growth to build a customised roadmap for success.",
+              )}
             </p>
-
             <ul className="space-y-4">
               {listItems.map((item, index) => (
                 <li
@@ -750,7 +804,6 @@ const StrategicConnectSection = () => {
             </ul>
           </motion.div>
 
-          {/* Right Column - Image Carousel */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -770,17 +823,11 @@ const StrategicConnectSection = () => {
                 transition={{ duration: 0.5 }}
               />
             </AnimatePresence>
-
-            {/* Simple Dots Indicator */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
               {images.map((_, idx) => (
                 <div
                   key={idx}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    idx === currentImageIndex
-                      ? "bg-[#a8813f] w-4"
-                      : "bg-white/70"
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentImageIndex ? "bg-[#a8813f] w-4" : "bg-white/70"}`}
                 />
               ))}
             </div>
@@ -792,16 +839,17 @@ const StrategicConnectSection = () => {
 };
 
 const InteractiveSessionsSection = () => {
+  const { t } = useTranslation();
+
   const listItems = [
-    "High-visibility brand presentations",
-    "Panel discussions with industry experts",
-    "Open networking and tasting events",
+    t("ta_int_li1", "High-visibility brand presentations"),
+    t("ta_int_li2", "Panel discussions with industry experts"),
+    t("ta_int_li3", "Open networking and tasting events"),
   ];
 
   return (
     <section className="bg-[#FAF9F6] py-20 px-4 md:px-8 font-sans">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left Column - Image with Hover Zoom */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -809,10 +857,7 @@ const InteractiveSessionsSection = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative w-full rounded-2xl overflow-hidden shadow-xl group cursor-pointer border-4 border-white"
         >
-          {/* Black overlay jo hover par hat jayegi, isse effect aur acha lagta hai */}
           <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
-
-          {/* Main image - group-hover:scale-110 se image badi hogi */}
           <img
             src="/Tequila_img/c5f6c971-7df3-418f-af50-79af8e979393.jpg"
             alt="Interactive Group Sessions"
@@ -820,14 +865,12 @@ const InteractiveSessionsSection = () => {
           />
         </motion.div>
 
-        {/* Right Column - Text Content */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {/* Dark Mic Icon Box */}
           <div className="w-12 h-12 bg-[#1C1F26] rounded-xl flex items-center justify-center mb-6 shadow-md">
             <svg
               className="w-6 h-6 text-[#a8813f]"
@@ -843,19 +886,15 @@ const InteractiveSessionsSection = () => {
               />
             </svg>
           </div>
-
           <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-5 leading-snug">
-            Interactive Group Sessions
+            {t("ta_int_title", "Interactive Group Sessions")}
           </h3>
-
           <p className="text-gray-500 text-[15px] leading-relaxed mb-8">
-            Large-scale seminars, brand showcases, and networking mixers
-            designed to connect you with a broader audience of distributors,
-            hospitality partners, and industry leaders. These high-energy
-            sessions are perfect for amplifying brand visibility and launching
-            new initiatives in the Indian market.
+            {t(
+              "ta_int_desc",
+              "Large-scale seminars, brand showcases, and networking mixers designed to connect you with a broader audience of distributors, hospitality partners, and industry leaders. These high-energy sessions are perfect for amplifying brand visibility and launching new initiatives in the Indian market.",
+            )}
           </p>
-
           <ul className="space-y-4">
             {listItems.map((item, index) => (
               <li
@@ -886,7 +925,7 @@ const InteractiveSessionsSection = () => {
 };
 
 const ContactFormSection = () => {
-  // Form ke inputs ka state
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -895,40 +934,43 @@ const ContactFormSection = () => {
     message: "",
   });
 
-  // Loading, Success, aur Error ka state
   const [status, setStatus] = useState({
     loading: false,
     success: "",
     error: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Form Submit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Reset status & set loading
     setStatus({ loading: true, success: "", error: "" });
 
     try {
-      // Axios instance ka use karke POST request
-      const response = await api.post('/api/Membership_Query', formData);
+      const response = await api.post("/api/Membership_Query", formData);
       const result = response.data;
 
       if (result.success) {
-        // Success state aur form clear karna
         setStatus({
           loading: false,
-          success: "✅ " + result.message,
+          success:
+            "✅ " +
+            (result.message ||
+              t(
+                "ta_contact_success",
+                "Application request submitted successfully!",
+              )),
           error: "",
         });
-        setFormData({ name: "", phone: "", email: "", company: "", message: "" });
-        
-        // 5 second baad success message hata dena
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          company: "",
+          message: "",
+        });
         setTimeout(() => {
           setStatus((prev) => ({ ...prev, success: "" }));
         }, 5000);
@@ -936,12 +978,17 @@ const ContactFormSection = () => {
         setStatus({
           loading: false,
           success: "",
-          error: "❌ " + (result.error || "Something went wrong."),
+          error:
+            "❌ " +
+            (result.error ||
+              t("ta_contact_err_default", "Something went wrong.")),
         });
       }
     } catch (err) {
       console.error("Submission Error:", err);
-      const errorMsg = err.response?.data?.error || "Network error. Please try again later.";
+      const errorMsg =
+        err.response?.data?.error ||
+        t("ta_contact_err_network", "Network error. Please try again later.");
       setStatus({
         loading: false,
         success: "",
@@ -953,8 +1000,6 @@ const ContactFormSection = () => {
   return (
     <section className="bg-white py-24 px-4 md:px-8 font-sans">
       <div className="max-w-3xl mx-auto">
-        
-        {/* Header Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -963,25 +1008,25 @@ const ContactFormSection = () => {
           className="text-center mb-12"
         >
           <span className="bg-[#FAF4EB] text-[#a8813f] text-[10px] md:text-xs font-bold px-4 py-2 rounded-full uppercase tracking-[0.15em] mb-6 inline-block">
-            CONTACT FORM
+            {t("ta_contact_badge", "CONTACT FORM")}
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight mt-2">
-            Application Request for the Accelerator.
+            {t("ta_contact_title", "Application Request for the Accelerator.")}
           </h2>
           <p className="text-gray-500 text-base leading-relaxed">
-            Fill out the form below to request program terms, investment
-            requirements, and start your enrollment process.
+            {t(
+              "ta_contact_desc",
+              "Fill out the form below to request program terms, investment requirements, and start your enrollment process.",
+            )}
           </p>
         </motion.div>
 
-        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
-          {/* Status Messages Show Karne Ke Liye */}
           {status.success && (
             <div className="mb-6 p-4 bg-green-50 text-green-700 text-sm font-semibold rounded-xl text-center border border-green-200">
               {status.success}
@@ -1000,7 +1045,7 @@ const ContactFormSection = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
+                placeholder={t("ta_contact_ph_name", "Your Name")}
                 required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
@@ -1011,7 +1056,7 @@ const ContactFormSection = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Phone Number"
+                placeholder={t("ta_contact_ph_phone", "Phone Number")}
                 required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
@@ -1022,7 +1067,7 @@ const ContactFormSection = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email"
+                placeholder={t("ta_contact_ph_email", "Your Email")}
                 required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
@@ -1033,7 +1078,7 @@ const ContactFormSection = () => {
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                placeholder="Brand / Company Name"
+                placeholder={t("ta_contact_ph_company", "Brand / Company Name")}
                 required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white"
               />
@@ -1044,24 +1089,25 @@ const ContactFormSection = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message"
+                placeholder={t("ta_contact_ph_message", "Your Message")}
                 required
                 className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-[#a8813f] focus:ring-1 focus:ring-[#a8813f] outline-none transition-all text-gray-700 placeholder-gray-400 bg-white resize-none"
               ></textarea>
             </div>
-            
+
             <div className="pt-2">
               <button
                 type="submit"
                 disabled={status.loading}
                 className="bg-[#A48655] hover:bg-[#8f6d35] text-white px-8 py-3.5 rounded-md text-base font-semibold transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {status.loading ? "Submitting... ⏳" : "Submit Now"}
+                {status.loading
+                  ? t("ta_contact_btn_loading", "Submitting... ⏳")
+                  : t("ta_contact_btn_submit", "Submit Now")}
               </button>
             </div>
           </form>
         </motion.div>
-        
       </div>
     </section>
   );

@@ -1,40 +1,42 @@
 import React from "react";
 import { TrendingUp, Globe, Check } from "lucide-react";
-import HeroImg from "../assets/images/blog/investment.png"; // Path check kar lena
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import HeroImg from "../assets/images/blog/investment.png"; 
 
 const InvestmentFacilitation = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const investmentContent = {
-    title: "Investment Facilitation",
-    subtitle:
-      "End-to-end support for companies establishing operations in México or India—from feasibility through operational launch.",
-    heroImage: "investment-hero.jpg", // Image path yahan daal dena
+    title: t("inv_fac_title", "Investment Facilitation"),
+    subtitle: t("inv_fac_subtitle", "End-to-end support for companies establishing operations in México or India—from feasibility through operational launch."),
+    heroImage: "investment-hero.jpg", 
     sections: [
       {
-        type: "Indian Companies",
-        badge: "ENTERING MÉXICO",
+        type: t("inv_fac_s1_type", "Indian Companies"),
+        badge: t("inv_fac_s1_badge", "ENTERING MÉXICO"),
         icon: "TrendingUp",
-        desc: "MIBC provides structured, institutional support to Indian companies evaluating expansion into México. Our investment facilitation services collapse typical 18-24 month market entry cycles into focused, strategic execution.",
+        desc: t("inv_fac_s1_desc", "MIBC provides structured, institutional support to Indian companies evaluating expansion into México. Our investment facilitation services collapse typical 18-24 month market entry cycles into focused, strategic execution."),
         points: [
-          "Market assessment and feasibility analysis",
-          "Location evaluation across Mexican states",
-          "Incentive mapping and landed-cost modelling",
-          "Regulatory navigation and entity structuring",
-          "Partner identification and due diligence",
-          "Government liaison and approval facilitation",
-          "Soft-launch support and 12-month operational handholding",
+          t("inv_fac_s1_p1", "Market assessment and feasibility analysis"),
+          t("inv_fac_s1_p2", "Location evaluation across Mexican states"),
+          t("inv_fac_s1_p3", "Incentive mapping and landed-cost modelling"),
+          t("inv_fac_s1_p4", "Regulatory navigation and entity structuring"),
+          t("inv_fac_s1_p5", "Partner identification and due diligence"),
+          t("inv_fac_s1_p6", "Government liaison and approval facilitation"),
+          t("inv_fac_s1_p7", "Soft-launch support and 12-month operational handholding"),
         ],
       },
       {
-        type: "Mexican Companies",
-        badge: "ENTERING INDIA",
+        type: t("inv_fac_s2_type", "Mexican Companies"),
+        badge: t("inv_fac_s2_badge", "ENTERING INDIA"),
         icon: "Globe",
-        desc: "India offers one of the world's fastest-growing consumer and industrial markets. MIBC supports Mexican firms with structured, on-ground execution to enter and scale in India.",
+        desc: t("inv_fac_s2_desc", "India offers one of the world's fastest-growing consumer and industrial markets. MIBC supports Mexican firms with structured, on-ground execution to enter and scale in India."),
         points: [
-          "Market assessment and entry strategy development",
-          "Partner and distributor identification",
-          "Regulatory navigation and entity structuring",
-          "State government liaison and incentive mapping",
-          "Soft-launch support and operational handholding",
+          t("inv_fac_s2_p1", "Market assessment and entry strategy development"),
+          t("inv_fac_s2_p2", "Partner and distributor identification"),
+          t("inv_fac_s2_p3", "Regulatory navigation and entity structuring"),
+          t("inv_fac_s2_p4", "State government liaison and incentive mapping"),
+          t("inv_fac_s2_p5", "Soft-launch support and operational handholding"),
         ],
       },
     ],
@@ -46,11 +48,10 @@ const InvestmentFacilitation = () => {
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 transition-colors">
-            Investment Facilitation
+            {investmentContent.title}
           </h1>
           <p className="max-w-3xl mx-auto text-gray-900 dark:text-gray-200 font-bold text-sm md:text-base leading-relaxed uppercase tracking-tighter transition-colors">
-            End-to-end support for companies establishing operations in México
-            or India—from feasibility through operational launch.
+            {investmentContent.subtitle}
           </p>
         </div>
       </section>
@@ -60,7 +61,7 @@ const InvestmentFacilitation = () => {
         <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 transition-colors">
           <img
             src={HeroImg}
-            alt="Business Meeting"
+            alt={t("inv_fac_img_alt", "Business Meeting")}
             className="w-full h-auto md:h-[600px] object-cover"
           />
         </div>
@@ -97,7 +98,7 @@ const InvestmentFacilitation = () => {
                 </div>
 
                 <h2 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-6 transition-colors">
-                  For {section.type}
+                  {t("inv_fac_for", "For")} {section.type}
                 </h2>
 
                 {/* Fixed Alignment */}

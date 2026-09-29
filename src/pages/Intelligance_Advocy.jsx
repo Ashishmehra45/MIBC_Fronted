@@ -1,22 +1,24 @@
 import React from 'react';
 import { BarChart3, Check } from 'lucide-react';
-import IntelligenceHero from '../assets/images/blog/advocacy.png'; // Path check kar lena bhai
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import IntelligenceHero from '../assets/images/blog/advocacy.png';
 
 const IntelligenceAdvocacy = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
   
   const content = {
-    title: "Intelligence & Advocacy",
-    subtitle: "Commercial intelligence and collective representation to both governments.",
+    title: t("int_adv_title", "Intelligence & Advocacy"),
+    subtitle: t("int_adv_subtitle", "Commercial intelligence and collective representation to both governments."),
     services: {
-      badge: "ACTIONABLE INSIGHTS",
-      title: "Intelligence & Advocacy Services",
-      desc: "MIBC provides commercially actionable intelligence and structured policy advocacy that strengthens the México-India business corridor. Our insights guide strategy, while our institutional engagement amplifies member interests across both governments.",
+      badge: t("int_adv_badge", "ACTIONABLE INSIGHTS"),
+      title: t("int_adv_serv_title", "Intelligence & Advocacy Services"),
+      desc: t("int_adv_serv_desc", "MIBC provides commercially actionable intelligence and structured policy advocacy that strengthens the México-India business corridor. Our insights guide strategy, while our institutional engagement amplifies member interests across both governments."),
       items: [
-        "Quarterly commercial intelligence reports on trade flows and sector opportunities",
-        "Regulatory monitoring and policy alerts",
-        "Tender notifications and government procurement opportunities",
-        "Policy advocacy and government submissions",
-        "Collective representation on market access and trade facilitation issues"
+        t("int_adv_item_1", "Quarterly commercial intelligence reports on trade flows and sector opportunities"),
+        t("int_adv_item_2", "Regulatory monitoring and policy alerts"),
+        t("int_adv_item_3", "Tender notifications and government procurement opportunities"),
+        t("int_adv_item_4", "Policy advocacy and government submissions"),
+        t("int_adv_item_5", "Collective representation on market access and trade facilitation issues")
       ]
     }
   };
@@ -41,7 +43,7 @@ const IntelligenceAdvocacy = () => {
         <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 max-w-7xl mx-auto transition-colors">
           <img 
             src={IntelligenceHero} 
-            alt="Intelligence and Advocacy Meeting" 
+            alt={t("int_adv_img_alt", "Intelligence and Advocacy Meeting")} 
             className="w-full h-auto md:h-[600px] object-cover"
           />
         </div>

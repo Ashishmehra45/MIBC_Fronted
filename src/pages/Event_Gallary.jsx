@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+
 import img1 from "../assets/images/Event_gallery/1st_img.jpeg"; 
 import img2 from "../assets/images/Event_gallery/2nd.jpeg";
 import img3 from "../assets/images/Event_gallery/3rd.jpeg";
@@ -12,19 +14,21 @@ import img8 from "../assets/images/Event_gallery/8th.jpeg";
 
 
 const EventsGallery = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   // State for Lightbox
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  // Sample Images Array using dummy image URLs
+  // Sample Images Array using translated alt texts
   const galleryImages = [
-    { id: 1, src: img1, alt: "MIBC Event Meeting 1" },
-    { id: 2, src: img2, alt: "MIBC Event Presentation" },
-    { id: 3, src: img3, alt: "MIBC Event Discussion" },
-    { id: 4, src: img4, alt: "MIBC Event Roundtable" },
-    { id: 5, src: img5, alt: "MIBC Event Networking" },
-    { id: 6, src: img6, alt: "MIBC Event Boardroom" },
-    { id: 7, src: img7, alt: "MIBC Event Team" },
-    { id: 8, src: img8, alt: "MIBC Event Conclusion" },
+    { id: 1, src: img1, alt: t('events_alt_1', "MIBC Event Meeting 1") },
+    { id: 2, src: img2, alt: t('events_alt_2', "MIBC Event Presentation") },
+    { id: 3, src: img3, alt: t('events_alt_3', "MIBC Event Discussion") },
+    { id: 4, src: img4, alt: t('events_alt_4', "MIBC Event Roundtable") },
+    { id: 5, src: img5, alt: t('events_alt_5', "MIBC Event Networking") },
+    { id: 6, src: img6, alt: t('events_alt_6', "MIBC Event Boardroom") },
+    { id: 7, src: img7, alt: t('events_alt_7', "MIBC Event Team") },
+    { id: 8, src: img8, alt: t('events_alt_8', "MIBC Event Conclusion") },
   ];
 
   // Disable body scroll when modal is open
@@ -64,10 +68,10 @@ const EventsGallery = () => {
         {/* --- HEADER SECTION --- */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 tracking-tight transition-colors">
-            Events Gallery
+            {t('events_main_title', 'Events Gallery')}
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed mb-8 transition-colors">
-            A visual journey through MIBC's dynamic events, showcasing moments of collaboration, innovation, and bilateral engagement between México and India.
+            {t('events_subtitle', "A visual journey through MIBC's dynamic events, showcasing moments of collaboration, innovation, and bilateral engagement between México and India.")}
           </p>
           
           <motion.span 
@@ -76,7 +80,7 @@ const EventsGallery = () => {
             viewport={{ once: true }}
             className="bg-gray-50 dark:bg-slate-900 text-[#A98842] px-6 py-1.5 rounded-lg text-[12px] font-bold tracking-widest uppercase mb-4 inline-block border border-gray-100 dark:border-slate-800 transition-colors"
           >
-            Events Gallery
+            {t('events_badge', 'Events Gallery')}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
@@ -85,7 +89,7 @@ const EventsGallery = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white tracking-tight transition-colors"
           >
-            Explore Our Event Highlights
+            {t('events_h2', 'Explore Our Event Highlights')}
           </motion.h2>
         </div>
 

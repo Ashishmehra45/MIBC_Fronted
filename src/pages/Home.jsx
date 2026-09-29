@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 import videoSrc from "../assets/images/services/BUSINESS cOUNCIL.mp4";
 import img1 from "../assets/images/services/End-To-End.jpeg";
 import img2 from "../assets/images/services/site.jpeg";
@@ -25,16 +26,14 @@ import memberImg3 from "../assets/images/services/Associate.jpeg";
 import MIBCpdf from "../assets/pdf/MIBC_Membership_plans.pdf";
 
 const Home = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
   const [activeTab, setActiveTab] = useState("investment");
-  // 🔄 Mobile Flip Handle karne ke liye State (Yahan add karo)
   const [flippedCard, setFlippedCard] = useState(null);
 
   const toggleFlip = (id) => {
-    // Agar mobile pe touch ho toh toggle flip kare
     setFlippedCard(flippedCard === id ? null : id);
   };
 
-  // --- Return ke Upar ye Counter Component daal do ---
   const Counter = ({ value, duration = 2 }) => {
     const [count, setCount] = useState(0);
     const countRef = useRef(null);
@@ -73,7 +72,6 @@ const Home = () => {
     <div className="w-full bg-[#f4faff] dark:bg-slate-950 min-h-screen font-sans transition-colors duration-500">
       {/* 1. HERO SECTION */}
       <section className="md:h-[40vw] w-full flex flex-col items-center overflow-hidden">
-        {/* Video Background */}
         <div className="relative w-full h-[25vh] md:h-[100%] z-0">
           <video
             autoPlay
@@ -85,24 +83,21 @@ const Home = () => {
             <source src={videoSrc} type="video/mp4" />
           </video>
 
-          {/* Buttons Overlay */}
           <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center">
             <div className="flex flex-row items-center justify-center gap-10 px-4 w-full md:mt-[60vh]">
-              {/* Explore Services */}
               <Link
                 to="/services"
                 className="flex-1 max-w-[150px] md:max-w-[240px] h-[38px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white text-[9px] md:text-[11px] font-bold tracking-tight uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
               >
-                <span className="text-[15px]">Explore Services</span>
+                <span className="text-[15px]">{t("home_explore_services")}</span>
                 <span className="ml-1 mb-1 text-xl leading-none">&rsaquo;</span>
               </Link>
 
-              {/* Contact Us */}
               <Link
                 to="/contact"
                 className="flex-1 max-w-[150px] md:max-w-[240px] h-[38px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white text-[9px] md:text-[11px] font-bold tracking-tight uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
               >
-                <span className="text-[15px]">Contact Us</span>
+                <span className="text-[15px]">{t("home_contact_us")}</span>
                 <span className="ml-1 mb-1 text-xl leading-none">&rsaquo;</span>
               </Link>
             </div>
@@ -113,100 +108,36 @@ const Home = () => {
       {/* OUR APPROACH SECTION */}
       <section className="py-20 bg-white dark:bg-slate-950 px-4 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 bg-gray-100 dark:bg-slate-900 text-[#b38e44] text-[10px] font-bold uppercase tracking-[0.2em] rounded mb-4 transition-colors">
-              Our Approach
+              {t("home_approach_badge")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white transition-colors">
-              What We Deliver
+              {t("home_approach_title")}
             </h2>
           </div>
 
-          {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center border-b border-gray-200 dark:border-slate-800 mb-12 transition-colors">
-            {["investment", "trade", "advocacy"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-8 py-5 text-sm font-bold transition-all relative ${
-                  activeTab === tab
-                    ? "text-black dark:text-white bg-white dark:bg-slate-900 border-t border-l border-r border-gray-200 dark:border-slate-800 rounded-t-lg -mb-[1px] z-10 shadow-sm"
-                    : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 bg-gray-50/50 dark:bg-slate-950"
-                }`}
-              >
-                {tab === "investment" && "Investment Facilitation"}
-                {tab === "trade" && "Trade Promotion"}
-                {tab === "advocacy" && "Intelligence & Advocacy"}
-              </button>
-            ))}
-          </div>
-
-          {/* Grid Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {(activeTab === "investment"
-              ? [
-                  {
-                    title: "End-to-End Investment Support",
-                    desc: "We help companies enter Mexico or India through a structured investment pathway. Our team manages everything from incorporation to Launch execution ensuring smooth market entry.",
-                    img: img1,
-                    path: "/services/investment",
-                  },
-                  {
-                    title: "Feasibility & Site Selection",
-                    desc: "We provide location analysis, incentive mapping, and cost modelling to help companies identify the most competitive   site and make confident investment decisions.",
-                    img: img2,
-                    path: "/services/investment",
-                  },
-                  {
-                    title: "Entity Setup & Launch",
-                    desc: "We support your regulatory compliance, talent acquisition & onboarding, and early operational setup to ensure a seamless and successful launch in the target market.",
-                    img: img3,
-                    path: "/services/investment",
-                  },
-                ]
-              : activeTab === "trade"
-                ? [
-                    {
-                      title: "Bilateral Trade Acceleration",
-                      desc: "We help exporters expand into Mexico and India by connecting them with qualified buyers and navigating regulatory requirements.",
-                      img: img4,
-                      path: "/services/trade",
-                    },
-                    {
-                      title: "Market Intelligence",
-                      desc: "We offer buyer identification, regulatory insights, and tariff analysis to help exporters understand demand.",
-                      img: img5,
-                      path: "/services/trade",
-                    },
-                    {
-                      title: "Matchmaking & Missions",
-                      desc: "We deliver curated B2B introductions, manage trade delegations, and support exhibitions to unlock opportunities.",
-                      img: img6,
-                      path: "/services/trade",
-                    },
-                  ]
-                : [
-                    {
-                      title: "Delegation Strategy & Facilitation",
-                      desc: "We design and execute government and business delegations with high-level meetings and impactful bilateral engagement.",
-                      img: img7,
-                      path: "/services/advocacy",
-                    },
-                    {
-                      title: "Policy Engagement & Representation",
-                      desc: "We represent member interests through policy submissions, consultations, and engagement with ministries.",
-                      img: img8,
-                      path: "/services/advocacy",
-                    },
-                    {
-                      title: "Commercial Intelligence & Insights",
-                      desc: "We deliver timely intelligence, tender alerts, and regulatory updates to help businesses act confidently.",
-                      img: img9,
-                      path: "/services/advocacy",
-                    },
-                  ]
-            ).map((card, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: t("home_approach_card1_title"),
+                desc: t("home_approach_card1_desc"),
+                img: img1, 
+                path: "/services",
+              },
+              {
+                title: t("home_approach_card2_title"),
+                desc: t("home_approach_card2_desc"),
+                img: img4, 
+                path: "/services",
+              },
+              {
+                title: t("home_approach_card3_title"),
+                desc: t("home_approach_card3_desc"),
+                img: img7, 
+                path: "/services",
+              },
+            ].map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-black/50 transition-all flex flex-col h-full"
@@ -218,19 +149,21 @@ const Home = () => {
                     alt={card.title}
                   />
                 </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <h4 className="text-xl font-extrabold text-black dark:text-white  leading-tight min-h-[56px] transition-colors">
+                
+                <div className="p-8 flex flex-col flex-grow items-start">
+                  <h4 className="text-xl font-extrabold text-black dark:text-white leading-tight mb-4 transition-colors">
                     {card.title}
                   </h4>
-                  <p className="text-gray-800 dark:text-gray-400 text-[16px] leading-relaxed mb-6 flex-grow transition-colors">
+                  <p className="text-gray-800 dark:text-gray-400 text-[16px] leading-relaxed mb-8 flex-grow transition-colors line-clamp-2">
                     {card.desc}
                   </p>
-                  <div>
+                  
+                  <div className="mt-auto">
                     <Link
                       to={card.path}
                       className="inline-block bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-sm text-[10px] font-bold uppercase tracking-widest transition-all"
                     >
-                      Learn More
+                      {t("home_learn_more")}
                     </Link>
                   </div>
                 </div>
@@ -244,7 +177,6 @@ const Home = () => {
       <section className="w-full py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            {/* Left: Meeting Image */}
             <div className="w-full lg:w-1/2">
               <div className="rounded-xl overflow-hidden shadow-2xl dark:shadow-black/50 transition-transform duration-500 hover:scale-[1.01]">
                 <img
@@ -255,32 +187,20 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right: Content */}
             <div className="w-full lg:w-1/2 space-y-8">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight transition-colors">
-                What is MIBC?
+                {t("home_what_is_title")}
               </h2>
               <div className="space-y-6">
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed text-justify transition-colors">
-                  The México–India Business Council is the first dedicated
-                  bilateral business council for the México–India corridor based
-                  in India. Established with the support of the Government of
-                  México & recognised by the Government of India, the Council
-                  serves as the institutional platform for commercial engagement
-                  between the two nations. MIBC operates at the intersection of
-                  government policy and private enterprise, providing
-                  intelligence, introductions, and institutional support to
-                  navigate cross-border transactions. Our mandate extends beyond
-                  trade promotion to encompass investment facilitation, market
-                  entry support, Intelligence & Advocacy, and delegation
-                  coordination.
+                  {t("home_what_is_desc")}
                 </p>
               </div>
               <Link
                 to="/about"
                 className="inline-block bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-10 py-4 rounded-md font-bold uppercase tracking-widest text-sm transition-all shadow-lg active:scale-95"
               >
-                About MIBC
+                {t("home_about_btn")}
               </Link>
             </div>
           </div>
@@ -291,31 +211,16 @@ const Home = () => {
       <section className="w-full py-24 bg-[#f8faff] dark:bg-slate-900 overflow-hidden transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            {/* Left: Text and Stats */}
             <div className="w-full lg:w-1/2 space-y-12">
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight transition-colors">
-                  The México–India Corridor.
+                  {t("home_corridor_title")}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed text-justify transition-colors">
-                  The México–India economic corridor currently stands at $12
-                  billion in bilateral trade, with over $4 billion in Indian FDI
-                  and 250+ Indian companies operating. Yet this represents a
-                  fraction of the corridor's potential, projected to cross $50
-                  billion by 2030. India brings scale, technology leadership,
-                  and a 1.4 billion-consumer domestic market growing at 6–7%
-                  annually. Despite 75+ years of diplomatic relations, no
-                  dedicated bilateral business council existed to provide
-                  institutional infrastructure, government coordination, and
-                  structured market access facilitation, until now. MIBC exists
-                  to transform this complementarity into commercial outcomes
-                  through intelligence-driven deal facilitation, regulatory
-                  navigation, and institutional credibility that traditional
-                  consultants and distributors cannot replicate.
+                  {t("home_corridor_desc")}
                 </p>
               </div>
 
-              {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-y-12 gap-x-8 pt-10 border-t border-gray-200 dark:border-slate-800 transition-colors">
                 <div className="space-y-2">
                   <h3 className="text-[#b38e44] text-3xl md:text-4xl font-bold">
@@ -323,16 +228,16 @@ const Home = () => {
                     B+
                   </h3>
                   <p className="text-slate-800 dark:text-gray-300 font-bold text-sm md:text-base uppercase tracking-wider transition-colors">
-                    Trade Potential by 2030
+                    {t("home_stat1_label")}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-[#b38e44] text-3xl md:text-4xl font-bold">
-                    <Counter value="30" />
-                    T+
+                    $<Counter value="30" />
+                    Trillion
                   </h3>
                   <p className="text-slate-800 dark:text-gray-300 font-bold text-sm md:text-base uppercase tracking-wider transition-colors">
-                    USMCA Market Access
+                    {t("home_stat2_label")}
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -340,7 +245,7 @@ const Home = () => {
                     <Counter value="75" />+
                   </h3>
                   <p className="text-slate-800 dark:text-gray-300 font-bold text-sm md:text-base uppercase tracking-wider transition-colors">
-                    Diplomatic Relations
+                    {t("home_stat3_label")}
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -349,13 +254,12 @@ const Home = () => {
                     B+
                   </h3>
                   <p className="text-slate-800 dark:text-gray-300 font-bold text-sm md:text-base uppercase tracking-wider transition-colors">
-                    Bilateral Trade
+                    {t("home_stat4_label")}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right: Port/Corridor Image */}
             <div className="w-full lg:w-1/2 relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl dark:shadow-black/50 h-[400px] md:h-[550px]">
                 <img
@@ -365,7 +269,6 @@ const Home = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
-              {/* Background Accent */}
               <div className="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-amber-100 dark:bg-amber-900/30 rounded-full blur-3xl opacity-60 transition-colors"></div>
             </div>
           </div>
@@ -375,33 +278,22 @@ const Home = () => {
       {/* --- OUR FOCUS SECTORS SECTION --- */}
       <section className="py-24 bg-white dark:bg-slate-950 px-4 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-4 bg-blue-50 dark:bg-[#A98842]/10 text-[#A98842] text-[12px] font-bold uppercase tracking-[0.2em] rounded mb-4 transition-colors">
-              Our Focus Sectors
+              {t("home_sectors_badge")}
             </span>
           </div>
 
-          {/* Puzzle Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[240px]">
             {[
               {
                 id: "it",
-                title: "Information Technology",
-                subtitle: "Indian Investment",
+                title: t("home_sec1_title"),
+                subtitle: t("home_sec1_sub"),
                 img: img10,
                 isLarge: true,
                 icon: (
-                  <svg
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect width="20" height="14" x="2" y="3" rx="2" />
                     <line x1="8" y1="21" x2="16" y2="21" />
                     <line x1="12" y1="17" x2="12" y2="21" />
@@ -410,19 +302,10 @@ const Home = () => {
               },
               {
                 id: "pharma",
-                title: "Pharmaceuticals",
+                title: t("home_sec2_title"),
                 img: img11,
                 icon: (
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                     <path d="m8.5 8.5 7 7" />
                   </svg>
@@ -430,19 +313,10 @@ const Home = () => {
               },
               {
                 id: "logistics",
-                title: "Logistics",
+                title: t("home_sec3_title"),
                 img: img12,
                 icon: (
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M10 17h4V2" />
                     <path d="M10 17v-5h4v5" />
                     <path d="M8 22h8" />
@@ -452,19 +326,10 @@ const Home = () => {
               },
               {
                 id: "manufacturing",
-                title: "Manufacturing",
+                title: t("home_sec4_title"),
                 img: img13,
                 icon: (
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8" />
                     <path d="M5 20h14" />
                     <path d="M15 7V4a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2v3" />
@@ -473,19 +338,10 @@ const Home = () => {
               },
               {
                 id: "food",
-                title: "Food & Agri",
+                title: t("home_sec5_title"),
                 img: img14,
                 icon: (
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
                     <line x1="6" y1="17" x2="18" y2="17" />
                   </svg>
@@ -494,7 +350,7 @@ const Home = () => {
             ].map((sector) => (
               <Link
                 key={sector.id}
-                to="/sectors" // ✅ Fixed: Sabhi cards ab sirf /sectors par navigate karenge
+                to="/sectors" 
                 className={`${
                   sector.isLarge ? "md:col-span-2 md:row-span-2" : ""
                 } relative group overflow-hidden rounded-xl shadow-md bg-slate-200 dark:bg-slate-800 transition-colors cursor-pointer`}
@@ -520,9 +376,8 @@ const Home = () => {
                       {sector.subtitle}
                     </p>
                   )}
-                  {/* Explore Button Indicator */}
                   <span className="mt-6 text-[10px] text-white/70 uppercase font-black tracking-widest border border-white/20 px-4 py-1.5 rounded-full group-hover:bg-[#b38e44] group-hover:text-white group-hover:border-[#b38e44] transition-all duration-300">
-                    Explore Sector
+                    {t("home_explore_sector")}
                   </span>
                 </div>
               </Link>
@@ -534,175 +389,168 @@ const Home = () => {
               to="/sectors"
               className="inline-block bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest text-sm transition-all shadow-lg active:scale-95"
             >
-              Learn More
+              {t("home_learn_more")}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* --- JOIN THE NETWORK SECTION --- */}
-
+      {/* MEMBERSHIP SECTION */}
       <section className="py-24 bg-white dark:bg-slate-950 px-4 overflow-hidden transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <span className="inline-block px-3 py-1 bg-[#fdf8ec] dark:bg-[#A98842]/10 text-[#b38e44] text-[10px] font-bold uppercase tracking-[0.2em] rounded mb-3 transition-colors">
-              Membership
+              {t("home_mem_badge")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors">
-              Join The Network
+              {t("home_mem_title")}
             </h2>
+            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              {t("home_mem_desc")}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                id: "corporate",
-                title: "Corporate Member",
-                img: memberImg1,
-                desc: "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions.",
-                buttonText: "Download Brochure",
-                pdfpath: MIBCpdf,
-                isDownload: true,
-                icon: (
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect width="20" height="14" x="2" y="7" rx="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                ),
-              },
-              {
-                id: "founding",
-                title: "Founding Member",
-                img: memberImg2,
-                isExclusive: true,
-                desc: "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders.",
-                buttonText: "Learn More",
-                isDownload: false,
-                pdfpath: "/contact", // "Learn More" ke liye contact ya about link
-                icon: (
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                ),
-              },
-              {
-                id: "associate",
-                title: "Associate Member",
-                img: memberImg3,
-                desc: "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory.",
-                buttonText: "Download Brochure",
-                pdfpath: MIBCpdf,
-                isDownload: true,
-                icon: (
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                  </svg>
-                ),
-              },
-            ].map((item) => (
-              <div
-                key={item.id}
-                onClick={() => toggleFlip(item.id)} // 👈 Mobile Touch Trigger
-                className={`group h-[480px] [perspective:1500px] cursor-pointer ${item.isExclusive ? "md:z-20" : "z-10"}`}
-              >
-                <div
-                  className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] transform-gpu 
-                  ${flippedCard === item.id ? "[transform:rotateY(180deg)]" : ""} 
-                  md:group-hover:[transform:rotateY(180deg)]`}
-                >
-                  {/* FRONT SIDE */}
-                  <div className="absolute inset-0 h-full w-full rounded-2xl overflow-hidden shadow-xl dark:shadow-black/50 border border-gray-100 dark:border-slate-800 transition-colors [backface-visibility:hidden]">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-6">
-                      {item.isExclusive && (
-                        <span className="mb-4 px-3 py-1 bg-[#b38e44] text-white text-[9px] font-black uppercase tracking-widest rounded-full">
-                          Exclusive
-                        </span>
-                      )}
-                      <div className="text-[#b38e44] mb-4">{item.icon}</div>
-                      <h3 className="text-white text-2xl font-bold uppercase tracking-wide">
-                        {item.title}
-                      </h3>
-                      <div className="mt-4 w-12 h-1 bg-[#b38e44]"></div>
-                      <p className="text-white/60 text-[10px] mt-4 uppercase font-black tracking-widest md:hidden animate-pulse">
-                        Tap to reveal
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* BACK SIDE */}
-                  <div
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-[#fdfaf5] dark:bg-slate-900 p-10 border border-[#b38e44]/20 shadow-2xl flex flex-col items-center justify-center text-center transition-colors duration-500 [backface-visibility:hidden]"
-                    style={{ transform: "rotateY(180deg)" }}
-                  >
-                    <div className="text-[#b38e44] mb-4 opacity-50">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-[#b38e44] text-2xl font-bold mb-6">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-800 dark:text-gray-200 font-bold leading-relaxed mb-8 text-[15px] md:text-[17px] transition-colors">
-                      {item.desc}
-                    </p>
-
-                    {/* Button Link: stopPropagation prevents double flip */}
-                    <div
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-full"
-                    >
-                      {item.isDownload ? (
-                        <a
-                          href={item.pdfpath}
-                          download="MIBC-Brochure.pdf"
-                          className="w-full bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg inline-block"
-                        >
-                          {item.buttonText}
-                        </a>
-                      ) : (
-                        <Link
-                          to={item.pdfpath}
-                          className="w-full bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-8 py-3 rounded-md font-bold uppercase tracking-widest text-[10px] transition-all active:scale-95 shadow-lg inline-block"
-                        >
-                          {item.buttonText}
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 items-stretch">
+            {/* Associate Member */}
+            <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow relative">
+              <div className="text-[#b38e44] mb-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
               </div>
-            ))}
-          </div>
-        </div>
-        
-      </section>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_assoc_title")}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
+                {t("home_mem_assoc_desc")}
+              </p>
+              <div className="mb-8">
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹25,000</span>
+                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+              </div>
+              <Link
+                to="/membership-plans"
+                className="w-full text-center bg-gray-100 dark:bg-slate-800 hover:bg-[#b38e44] hover:text-white text-slate-900 dark:text-white px-6 py-3 rounded-md font-bold uppercase tracking-widest text-[11px] transition-all"
+              >
+                {t("home_mem_apply")}
+              </Link>
+            </div>
 
-      
-    
+            {/* Corporate Member */}
+            <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow relative">
+              <div className="text-[#b38e44] mb-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect width="20" height="14" x="2" y="7" rx="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_corp_title")}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
+                {t("home_mem_corp_desc")}
+              </p>
+              <div className="mb-8">
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹1,00,000</span>
+                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+              </div>
+              <Link
+                to="/membership-plans"
+                className="w-full text-center bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-3 rounded-md font-bold uppercase tracking-widest text-[11px] transition-all shadow-lg"
+              >
+                {t("home_mem_apply")}
+              </Link>
+            </div>
+
+            {/* Founding Member */}
+            <div className="bg-[#fdfaf5] dark:bg-slate-800/50 border-2 border-[#b38e44] rounded-2xl p-8 flex flex-col shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-[#b38e44] text-white text-[9px] font-black uppercase tracking-widest px-4 py-1 rounded-bl-lg">
+                {t("home_mem_excl")}
+              </div>
+              <div className="text-[#b38e44] mb-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_found_title")}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                {t("home_mem_found_desc")}
+              </p>
+              
+              <div className="mb-4 inline-flex items-center gap-2 bg-[#b38e44]/10 text-[#b38e44] px-3 py-2 rounded text-xs font-semibold">
+                <svg className="w-4 h-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {t("home_mem_found_limit")}
+              </div>
+
+              <div className="mb-8">
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹5,00,000</span>
+                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+              </div>
+              <Link
+                to="/membership-plans"
+                className="w-full text-center bg-[#b38e44] hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-3 rounded-md font-bold uppercase tracking-widest text-[11px] transition-all shadow-lg"
+              >
+                {t("home_mem_apply")}
+              </Link>
+            </div>
+          </div>
+
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">{t("home_mem_comp_title")}</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[800px] border-collapse">
+                <thead>
+                  <tr className="border-b-2 border-gray-200 dark:border-slate-800">
+                    <th className="py-4 px-6 text-left text-sm font-bold text-slate-900 dark:text-white w-2/5">{t("home_mem_col1")}</th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">{t("home_mem_col2")}</th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">{t("home_mem_col3")}</th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-[#b38e44] w-1/5">{t("home_mem_col4")}</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  {[
+                    { feature: t("home_mem_f1"), a: true, c: true, f: true },
+                    { feature: t("home_mem_f2"), a: true, c: true, f: true },
+                    { feature: t("home_mem_f3"), a: true, c: true, f: true },
+                    { feature: t("home_mem_f4"), a: true, c: true, f: true },
+                    { feature: t("home_mem_f5"), a: false, c: true, f: true },
+                    { feature: t("home_mem_f6"), a: false, c: true, f: true },
+                    { feature: t("home_mem_f7"), a: false, c: true, f: t("home_mem_premium") },
+                    { feature: t("home_mem_f8"), a: false, c: true, f: true },
+                    { feature: t("home_mem_f9"), a: false, c: true, f: true },
+                    { feature: t("home_mem_f10"), a: false, c: false, f: true },
+                    { feature: t("home_mem_f11"), a: false, c: false, f: true },
+                    { feature: t("home_mem_f12"), a: false, c: false, f: true },
+                  ].map((row, idx) => (
+                    <tr key={idx} className="border-b border-gray-100 dark:border-slate-800/50 hover:bg-gray-50 dark:hover:bg-slate-900/50 transition-colors">
+                      <td className="py-4 px-6 text-gray-700 dark:text-gray-300">{row.feature}</td>
+                      <td className="py-4 px-6 text-center">
+                        {row.a === true ? <span className="text-green-500 inline-block">✔</span> : <span className="text-gray-300 dark:text-gray-700">-</span>}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {row.c === true ? <span className="text-green-500 inline-block">✔</span> : <span className="text-gray-300 dark:text-gray-700">-</span>}
+                      </td>
+                      <td className="py-4 px-6 text-center font-semibold text-[#b38e44]">
+                        {row.f === true ? "✔" : row.f}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center bg-gray-50 dark:bg-slate-900 p-10 rounded-2xl border border-gray-100 dark:border-slate-800">
+            <div className="text-[#b38e44] mb-4 flex justify-center">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+            </div>
+            <p className="text-xl md:text-2xl italic font-medium text-slate-800 dark:text-gray-200 leading-relaxed">
+              "{t("home_mem_quote")}"
+            </p>
+          </div>
+
+        </div>
+      </section>
     </div>
   );
 };

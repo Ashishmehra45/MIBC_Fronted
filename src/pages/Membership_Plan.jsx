@@ -1,23 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // IMPORT THIS
+import { Link } from "react-router-dom"; 
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 
 const MembershipPlans = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const plans = [
     {
-      title: "Corporate Membership",
-      desc: "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions.",
+      title: t("mem_p1_title", "Corporate Membership"),
+      desc: t("mem_p1_desc", "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions."),
       isHighlighted: false,
     },
     {
-      title: "Founding Member",
-      badge: "EXCLUSIVE",
-      desc: "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders.",
+      title: t("mem_p2_title", "Founding Member"),
+      badge: t("mem_p2_badge", "EXCLUSIVE"),
+      desc: t("mem_p2_desc", "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders."),
       isHighlighted: true,
     },
     {
-      title: "Associate Membership",
-      desc: "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory.",
+      title: t("mem_p3_title", "Associate Membership"),
+      desc: t("mem_p3_desc", "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory."),
       isHighlighted: false,
     },
   ];
@@ -54,7 +57,7 @@ const MembershipPlans = () => {
             viewport={{ once: true }}
             className="bg-white dark:bg-[#A98842]/10 text-[#A98842] px-6 py-2 rounded-lg text-[11px] font-black uppercase tracking-[0.15em] shadow-sm inline-block mb-6 border border-[#A98842]/20 transition-colors"
           >
-            Membership Plans
+            {t("mem_plans_badge", "Membership Plans")}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +66,7 @@ const MembershipPlans = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-950 dark:text-white tracking-tight transition-colors"
           >
-            Choose Your Membership Tier
+            {t("mem_plans_title", "Choose Your Membership Tier")}
           </motion.h2>
         </div>
 
@@ -144,7 +147,7 @@ const MembershipPlans = () => {
                             : "bg-transparent border border-gray-200 dark:border-slate-700 text-gray-950 dark:text-white hover:border-[#A98842] dark:hover:border-[#A98842] hover:text-[#A98842] dark:hover:text-[#A98842]"
                         }`}
                     >
-                      Apply Now
+                      {t("mem_btn_apply", "Apply Now")}
                     </motion.button>
                   </Link>
                 </div>

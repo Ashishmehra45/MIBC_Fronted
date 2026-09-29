@@ -1,61 +1,64 @@
 import React from "react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Link } from "react-router-dom";
 
 // Images import
 import Event1 from "../assets/images/banner/it-events.jpg";
 import Event2 from "../assets/images/banner/pharma-events.jpg";
 import Event3 from "../assets/images/banner/automotive-events.jpg";
 import CalendarImg from "../assets/images/banner/annualeventcalendar.jpg";
-import { Link } from "react-router-dom";
 
 const Events = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const eventsContent = {
-    title: "Events",
-    subtitle: "Explore our events designed to foster collaboration, share insights, and drive bilateral trade and investment between México and India.",
+    title: t("evt_title", "Events"),
+    subtitle: t("evt_subtitle", "Explore our events designed to foster collaboration, share insights, and drive bilateral trade and investment between México and India."),
     eventsList: [
       {
         id: 1,
-        title: "IT & Digital Services CEO Roundtable",
-        date: "December 15, 2025",
-        location: "Consulate of México, Mumbai, India",
+        title: t("evt_1_title", "IT & Digital Services CEO Roundtable"),
+        date: t("evt_1_date", "December 15, 2025"),
+        location: t("evt_1_loc", "Consulate of México, Mumbai, India"),
         image: Event1,
-        desc: "Organised with the Consulate General of México in Mumbai, this closed-door CEO Roundtable convenes senior technology leaders, digital services firms, and policy stakeholders to explore India-México collaboration in IT services, nearshoring, and digital transformation. The session features opening remarks from the Consul General, a moderated executive discussion, and curated peer exchange focused on market entry.",
+        desc: t("evt_1_desc", "Organised with the Consulate General of México in Mumbai, this closed-door CEO Roundtable convenes senior technology leaders, digital services firms, and policy stakeholders to explore India-México collaboration in IT services, nearshoring, and digital transformation. The session features opening remarks from the Consul General, a moderated executive discussion, and curated peer exchange focused on market entry."),
       },
       {
         id: 2,
-        title: "Pharmaceuticals & LATAM Market Access CEO Roundtable",
-        date: "December 15, 2025",
-        location: "Consulate of México, Mumbai, India",
+        title: t("evt_2_title", "Pharmaceuticals & LATAM Market Access CEO Roundtable"),
+        date: t("evt_2_date", "December 15, 2025"),
+        location: t("evt_2_loc", "Consulate of México, Mumbai, India"),
         image: Event2,
-        desc: "In partnership with the Consulate General of México in Mumbai, this closed-door discussion brings together senior pharmaceutical leaders to examine regulatory pathways, manufacturing collaboration, and market access opportunities in the India-México healthcare corridor.",
+        desc: t("evt_2_desc", "In partnership with the Consulate General of México in Mumbai, this closed-door discussion brings together senior pharmaceutical leaders to examine regulatory pathways, manufacturing collaboration, and market access opportunities in the India-México healthcare corridor."),
       },
       {
         id: 3,
-        title: "Automotive & Manufacturing CEO Roundtable",
-        date: "December 15, 2025",
-        location: "Consulate of México, Mumbai, India",
+        title: t("evt_3_title", "Automotive & Manufacturing CEO Roundtable"),
+        date: t("evt_3_date", "December 15, 2025"),
+        location: t("evt_3_loc", "Consulate of México, Mumbai, India"),
         image: Event3,
-        desc: "This invitation-only roundtable convenes automotive and manufacturing executives to discuss supply-chain integration, EV components, nearshoring, and bilateral investment opportunities across the India-México manufacturing ecosystem.",
+        desc: t("evt_3_desc", "This invitation-only roundtable convenes automotive and manufacturing executives to discuss supply-chain integration, EV components, nearshoring, and bilateral investment opportunities across the India-México manufacturing ecosystem."),
       },
       {
         id: 4,
-        title: "Food & Beverages CEO Roundtable",
-        date: "December 16, 2026",
-        location: "Consulate of México, Mumbai, India",
+        title: t("evt_4_title", "Food & Beverages CEO Roundtable"),
+        date: t("evt_4_date", "December 16, 2026"),
+        location: t("evt_4_loc", "Consulate of México, Mumbai, India"),
         image: Event1,
-        desc: "A focused executive dialogue bringing Mexico’s finest to India’s premium market, convening leaders from the food, beverages, and processing sectors to explore trade expansion, premium product access, and growth opportunities across India and Mexico’s consumer markets.",
+        desc: t("evt_4_desc", "A focused executive dialogue bringing Mexico’s finest to India’s premium market, convening leaders from the food, beverages, and processing sectors to explore trade expansion, premium product access, and growth opportunities across India and Mexico’s consumer markets."),
       },
       {
         id: 5,
-        title: "Annual Event Calendar",
-        date: "Updated Annually",
+        title: t("evt_5_title", "Annual Event Calendar"),
+        date: t("evt_5_date", "Updated Annually"),
         image: CalendarImg,
-        desc: "A structured annual cycle of high-level bilateral engagements curated by MIBC.",
+        desc: t("evt_5_desc", "A structured annual cycle of high-level bilateral engagements curated by MIBC."),
         isCalendar: true,
         calendarItems: [
-          { label: "Economic Partnership Forum", value: "Annual flagship summit" },
-          { label: "Sector Roundtables", value: "Quarterly deep dives" },
-          { label: "Trade Delegations", value: "Curated missions in both directions" },
-          { label: "CEO Dialogues", value: "Exclusive senior leadership forums" }
+          { label: t("evt_5_c1_label", "Economic Partnership Forum"), value: t("evt_5_c1_val", "Annual flagship summit") },
+          { label: t("evt_5_c2_label", "Sector Roundtables"), value: t("evt_5_c2_val", "Quarterly deep dives") },
+          { label: t("evt_5_c3_label", "Trade Delegations"), value: t("evt_5_c3_val", "Curated missions in both directions") },
+          { label: t("evt_5_c4_label", "CEO Dialogues"), value: t("evt_5_c4_val", "Exclusive senior leadership forums") }
         ]
       }
     ],
@@ -102,10 +105,10 @@ const Events = () => {
                   <>
                     <div className="space-y-1 mb-8">
                       <p className="text-[13px] font-black text-gray-950 dark:text-gray-200 tracking-tight uppercase transition-colors">
-                        Date: <span className="font-medium text-gray-600 dark:text-gray-400 ml-1">{event.date}</span>
+                        {t('evt_ui_date', 'Date:')} <span className="font-medium text-gray-600 dark:text-gray-400 ml-1">{event.date}</span>
                       </p>
                       <p className="text-[13px] font-black text-gray-950 dark:text-gray-200 tracking-tight uppercase transition-colors">
-                        Location: <span className="font-medium text-gray-600 dark:text-gray-400 ml-1">{event.location}</span>
+                        {t('evt_ui_location', 'Location:')} <span className="font-medium text-gray-600 dark:text-gray-400 ml-1">{event.location}</span>
                       </p>
                     </div>
 
@@ -114,7 +117,7 @@ const Events = () => {
                     </p>
 
                     <button className="bg-[#A98842]/90 hover:bg-[#A98842] text-white px-8 py-3 rounded-xl text-[11px] font-black tracking-widest uppercase transition-all w-fit shadow-lg active:scale-95">
-                      <Link to="/events-gallery">View Events Images</Link>
+                      <Link to="/events-gallery">{t('evt_ui_view_images', 'View Events Images')}</Link>
                     </button>
                   </>
                 ) : (

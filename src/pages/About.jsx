@@ -2,121 +2,116 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Activity, Tv, Map, Landmark, Users, BarChart3 } from "lucide-react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 
 import Bgimg from "../assets/images/bg/about.jpg";
 import CEOImg from "../assets/images/team/raviSir.png";
 import ndLeaderImg from "../assets/images/team/max.jpg";
+import PratikImg from "../assets/images/team/Pratik-navle.jpeg";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 const About = () => {
+  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
+
   const leadershipData = [
     {
       name: "Ravi K. Tiwari",
-      title: "CHIEF EXECUTIVE OFFICER",
-      quote:
-        "“The Indo-Mexican economic partnership continues to evolve as businesses from both countries explore new opportunities in trade, investment, and innovation.”",
+      title: t("about_ravi_title"),
+      quote: t("about_ravi_quote"),
       image: CEOImg,
     },
     {
       name: "Rodrigo Pérez",
-      title: "Director",
-      quote:
-        "“Our mission is to provide world-class business solutions and foster international collaboration to drive sustainable growth across diverse industries.”",
+      title: t("about_rodrigo_title"),
+      quote: t("about_rodrigo_quote"),
       image: ndLeaderImg,
+    },
+    {
+      name: "Pratik Navale",
+      title: t("about_pratik_title"),
+      quote: t("about_pratik_quote"),
+      image: PratikImg,
     },
   ];
 
   const features = [
     {
-      title: "VISION",
+      title: t("about_vision_title"),
       icon: <Activity className="w-12 h-12 stroke-[1.5px]" />,
-      desc: "To establish the México–India corridor as a strategic platform for bilateral trade and investment, enabling sustained commercial growth and institutional collaboration between two of the world's most dynamic emerging economies.",
+      desc: t("about_vision_desc"),
       delay: "0",
     },
     {
-      title: "MISSION",
+      title: t("about_mission_title"),
       icon: <Tv className="w-12 h-12 stroke-[1.5px]" />,
-      desc: "To serve as the institutional platform for México–India commercial engagement by providing intelligence-driven deal facilitation, government coordination, and market entry support to enterprises of both nations.",
+      desc: t("about_mission_desc"),
       isGold: true,
       delay: "100",
     },
     {
-      title: "OUR EDGE",
+      title: t("about_edge_title"),
       icon: <Map className="w-12 h-12 stroke-[1.5px]" />,
-      desc: "MIBC is the only dedicated business council headquartered in India. Led by a CEO with 15 years of bilateral trade and investment leadership across three governments, we provide institutional credibility and operational networks that traditional consultants cannot replicate.",
+      desc: t("about_edge_desc"),
       delay: "200",
     },
   ];
 
   const foundationData = {
-    badge: "What Sets Us Apart",
-    title: "Our Institutional Foundation",
-    desc: "MIBC operates through direct coordination with government stakeholders and institutional partners in both nations—delivering credibility, access, and execution that traditional consultants cannot replicate.",
+    badge: t("about_foundation_badge"),
+    title: t("about_foundation_title"),
+    desc: t("about_foundation_desc"),
     cards: [
       {
-        title: "Government Coordination",
+        title: t("about_gov_title"),
         icon: "Landmark",
-        points: [
-          "Established with support of the Consulate General of México in Mumbai",
-          "Recognized platform by Government of India ministries and state agencies",
-          "Direct liaison with Embassy of México in New Delhi",
-        ],
+        points: [t("about_gov_p1"), t("about_gov_p2"), t("about_gov_p3")],
       },
       {
-        title: "Strategic Partnerships",
+        title: t("about_part_title"),
         icon: "Users",
-        points: [
-          "Consejo Regulador del Tequila (CRT) — Tequila Accelerator Program",
-          "IndiaMexico Business Chamber (IMBC) — Joint program delivery",
-          "Industry associations: CANIFARMA, CANIETI, CII, FICCI",
-        ],
+        points: [t("about_part_p1"), t("about_part_p2"), t("about_part_p3")],
       },
       {
-        title: "Proven Track Record",
+        title: t("about_track_title"),
         icon: "BarChart3",
-        points: [
-          "Over USD 500M in facilitated investment leads (2011–2025)",
-          "1st India–México Economic Partnership Forum (Mumbai, Dec 2025)",
-          "Active programs across IT, Pharma, and Automotive",
-        ],
+        points: [t("about_track_p1"), t("about_track_p2"), t("about_track_p3")],
       },
     ],
   };
 
   const corridorData = {
-    title: "WHY THIS CORRIDOR MATTERS",
-    highlight: "NOW?",
-    subtext:
-      "Global supply chains are restructuring. India is pursuing China+1 diversification, while México captures nearshoring investments. The timing for México–India collaboration has never been stronger.",
+    title: t("about_corridor_title"),
+    highlight: t("about_corridor_highlight"),
+    subtext: t("about_corridor_subtext"),
     cards: [
       {
-        title: "Nearshoring Boom",
+        title: t("about_nearshoring_title"),
         icon: "🏗️",
-        desc: "Global manufacturers relocating to México for seamless USMCA market access.",
+        desc: t("about_nearshoring_desc"),
       },
       {
-        title: "India's Ambition",
+        title: t("about_india_title"),
         icon: "🚀",
-        desc: "Targeting the USD 30T North American market via México's strategic location.",
+        desc: t("about_india_desc"),
       },
       {
-        title: "Policy Alignment",
+        title: t("about_policy_title"),
         icon: "⚖️",
-        desc: "Both governments actively promoting and securing bilateral engagement",
+        desc: t("about_policy_desc"),
         isHighlighted: true,
       },
       {
-        title: "Untapped Potential",
+        title: t("about_potential_title"),
         icon: "📈",
-        desc: "Growing from USD 12B trade today to USD 50B+ potential by 2030.",
+        desc: t("about_potential_desc"),
       },
     ],
     footer: {
-      brand: "MIBC",
-      text: "exists to transform this moment into",
-      outcome: "SUSTAINED COMMERCIAL OUTCOMES.",
+      brand: t("about_footer_brand"),
+      text: t("about_footer_text"),
+      outcome: t("about_footer_outcome"),
     },
   };
 
@@ -136,11 +131,11 @@ const About = () => {
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <span className="bg-white text-[#A98842] px-4 py-1 rounded text-sm font-bold uppercase tracking-widest">
-            About The Council
+            {t("about_badge")}
           </span>
           <h1 className="text-white text-5xl md:text-7xl font-bold mt-4">
-            The México–India <br />
-            <span className="text-[#A98842]">Business Council</span>
+            {t("about_hero_line1")} <br />
+            <span className="text-[#A98842]">{t("about_hero_line2")}</span>
           </h1>
         </div>
       </section>
@@ -148,20 +143,9 @@ const About = () => {
       {/* INTRO TEXT SECTION */}
       <div className="pt-24 pb-10">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div
-            className="text-center max-w-5xl mx-auto "
-            data-sal="slide-up"
-          >
+          <div className="text-center max-w-5xl mx-auto " data-sal="slide-up">
             <p className="text-gray-800 dark:text-gray-200 text-xl md:text-2xl leading-relaxed font-medium transition-colors">
-              Established with the support of the Government of México and
-              recognised by the Government of India, MIBC serves as the
-              institutional platform for México–India commercial engagement.
-              Operating at the intersection of policy and enterprise, the
-              Council provides investment facilitation, market entry navigation,
-              trade promotion, and government-coordinated delegation
-              support—delivering the institutional infrastructure, commercial
-              intelligence, and stakeholder access that define success in the
-              bilateral corridor.
+              {t("about_intro")}
             </p>
           </div>
           <div className="border-t border-gray-200 dark:border-slate-800 w-24 mx-auto transition-colors"></div>
@@ -173,55 +157,78 @@ const About = () => {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight transition-colors">
-              Our Leadership
+              {t("about_leadership_title")}
             </h2>
           </div>
 
-          <div className="bg-[#f2f2f2] dark:bg-slate-900 rounded-[40px] p-10 md:p-10 relative shadow-sm leadership-slider-parent overflow-hidden transition-colors">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              autoplay={{ delay: 5000, disableOnInteraction: false }}
-              pagination={{ clickable: true }}
-              className="leadership-swiper"
-            >
+          <div className="bg-[#f2f2f2] dark:bg-slate-900 rounded-[40px] p-6 md:p-10 relative shadow-sm leadership-slider-parent overflow-hidden transition-colors">
+            <div className="space-y-16">
               {leadershipData.map((leader, index) => (
-                <SwiperSlide key={index}>
-                  <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20">
-                    {/* Image */}
-                    <div className="relative shrink-0">
-                      <div className="absolute -inset-2 bg-[#A98842]/20 rounded-3xl blur-xl"></div>
-                      <div className="relative w-[280px] h-[360px] bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-colors">
-                        <img
-                          src={leader.image}
-                          alt={leader.name}
-                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                        />
-                      </div>
-                    </div>
+                <div
+                  key={index}
+                  className="
+          flex flex-col md:flex-row items-center
+          gap-10 md:gap-20
+          opacity-0
+          animate-[fadeSlideUp_0.8s_ease-out_forwards]
+        "
+                  style={{
+                    animationDelay: `${index * 200}ms`,
+                  }}
+                >
+                  {/* Image */}
+                  <div className="relative shrink-0 group">
+                    <div className="absolute -inset-2 bg-[#A98842]/20 rounded-3xl blur-xl transition-all duration-700 group-hover:bg-[#A98842]/30"></div>
 
-                    {/* Quote */}
-                    <div className="flex-1 text-left pl-0 md:pl-10 border-l-0 md:border-l-[4px] md:border-l-[#A98842]">
-                      <p
-                        className="text-gray-900 dark:text-gray-300 text-2xl font-light italic leading-relaxed mb-10 transition-colors"
-                        style={{ fontFamily: "serif" }}
-                      >
-                        {leader.quote}
-                      </p>
-                      <div className="space-y-1">
-                        <h4 className="text-gray-950 dark:text-white text-2xl font-bold transition-colors">
-                          {leader.name}
-                        </h4>
-                        <p className="text-[#A98842] text-sm font-bold tracking-[0.2em] uppercase">
-                          {leader.title}
-                        </p>
-                      </div>
+                    <div className="relative w-[280px] h-[360px] bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(169,136,66,0.25)]">
+                      <img
+                        src={leader.image}
+                        alt={leader.name}
+                        className="
+                w-full h-full object-cover
+                transition-transform duration-700
+                group-hover:scale-105
+              "
+                      />
                     </div>
                   </div>
-                </SwiperSlide>
+
+                  {/* Quote */}
+                  <div
+                    className="
+            flex-1 text-left
+            pl-0 md:pl-10
+            border-l-0 md:border-l-[4px]
+            md:border-l-[#A98842]
+          "
+                  >
+                    <p
+                      className="
+              text-gray-900 dark:text-gray-300
+              text-xl md:text-2xl
+              font-light italic
+              leading-relaxed
+              mb-8
+              transition-colors duration-300
+            "
+                      style={{ fontFamily: "serif" }}
+                    >
+                      {leader.quote}
+                    </p>
+
+                    <div className="space-y-1">
+                      <h4 className="text-gray-950 dark:text-white text-2xl font-bold transition-colors duration-300">
+                        {leader.name}
+                      </h4>
+
+                      <p className="text-[#A98842] text-sm font-bold tracking-[0.2em] uppercase">
+                        {leader.title}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </Swiper>
+            </div>
           </div>
         </div>
       </div>
@@ -271,10 +278,10 @@ const About = () => {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
             <span className="bg-[#f2f2f2] dark:bg-slate-900 text-[#A98842] px-4 py-1 rounded text-[11px] font-bold uppercase tracking-[0.2em] mb-4 inline-block transition-colors">
-              What We Do
+              {t("about_what_we_do")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] dark:text-white tracking-tight transition-colors">
-              Our Vision, Mission & Edge
+              {t("about_vision_mission_title")}
             </h2>
           </div>
 
