@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// Isko apne i18n.js me resources ke andar 'en' aur 'es' me add kar lena
 const resources = {
   en: {
     translation: {
@@ -32,6 +31,7 @@ const resources = {
       terms_conditions: "Terms & Conditions",
       contact_us: "Contact Us",
       rights_reserved: "MÉXICO–INDIA BUSINESS COUNCIL. All Rights Reserved.",
+
       about_badge: "About The Council",
       about_hero_line1: "The México–India",
       about_hero_line2: "Business Council",
@@ -1172,627 +1172,618 @@ const resources = {
         "Visitas al sitio, recorridos por fábricas y sesiones informativas en zonas de inversión",
       del_fac_item_4: "Sesiones de emparejamiento (matchmaking) B2B y B2G",
       del_fac_item_5: "Gestión de protocolos y logística VIP",
-      del_fac_item_6: {
-        events_main_title: "Galería de Eventos",
-        events_subtitle:
-          "Un viaje visual a través de los dinámicos eventos del MIBC, mostrando momentos de colaboración, innovación y compromiso bilateral entre México y la India.",
-        events_badge: "Galería de Eventos",
-        events_h2: "Explore los Momentos Destacados de Nuestros Eventos",
-        events_alt_1: "Reunión de Evento MIBC 1",
-        events_alt_2: "Presentación de Evento MIBC",
-        events_alt_3: "Discusión de Evento MIBC",
-        events_alt_4: "Mesa Redonda de Evento MIBC",
-        events_alt_5: "Networking de Evento MIBC",
-        events_alt_6: "Sala de Juntas de Evento MIBC",
-        events_alt_7: "Equipo de Evento MIBC",
-        events_alt_8: "Conclusión de Evento MIBC",
 
-        evt_title: "Eventos",
-        evt_subtitle:
-          "Explore nuestros eventos diseñados para fomentar la colaboración, compartir conocimientos e impulsar el comercio y la inversión bilateral entre México y la India.",
-        evt_1_title: "Mesa Redonda de CEOs de TI y Servicios Digitales",
-        evt_1_date: "15 de diciembre de 2025",
-        evt_1_loc: "Consulado de México, Mumbai, India",
-        evt_1_desc:
-          "Organizada con el Consulado General de México en Mumbai, esta Mesa Redonda de CEOs a puerta cerrada reúne a altos líderes tecnológicos, empresas de servicios digitales y partes interesadas en políticas para explorar la colaboración México-India en servicios de TI, nearshoring y transformación digital. La sesión incluye palabras de apertura del Cónsul General, una discusión ejecutiva moderada y un intercambio de pares seleccionado centrado en la entrada al mercado.",
-        evt_2_title:
-          "Mesa Redonda de CEOs sobre Productos Farmacéuticos y Acceso al Mercado LATAM",
-        evt_2_date: "15 de diciembre de 2025",
-        evt_2_loc: "Consulado de México, Mumbai, India",
-        evt_2_desc:
-          "En asociación con el Consulado General de México en Mumbai, esta discusión a puerta cerrada reúne a altos líderes farmacéuticos para examinar las vías regulatorias, la colaboración en fabricación y las oportunidades de acceso al mercado en el corredor de salud India-México.",
-        evt_3_title: "Mesa Redonda de CEOs de Automoción y Manufactura",
-        evt_3_date: "15 de diciembre de 2025",
-        evt_3_loc: "Consulado de México, Mumbai, India",
-        evt_3_desc:
-          "Esta mesa redonda solo con invitación reúne a ejecutivos de automoción y manufactura para discutir la integración de la cadena de suministro, componentes de vehículos eléctricos (EV), nearshoring y oportunidades de inversión bilateral en todo el ecosistema de fabricación India-México.",
-        evt_4_title: "Mesa Redonda de CEOs de Alimentos y Bebidas",
-        evt_4_date: "16 de diciembre de 2026",
-        evt_4_loc: "Consulado de México, Mumbai, India",
-        evt_4_desc:
-          "Un diálogo ejecutivo enfocado que trae lo mejor de México al mercado premium de la India, reuniendo a líderes de los sectores de alimentos, bebidas y procesamiento para explorar la expansión comercial, el acceso a productos premium y las oportunidades de crecimiento en los mercados de consumo de la India y México.",
-        evt_5_title: "Calendario Anual de Eventos",
-        evt_5_date: "Actualizado Anualmente",
-        evt_5_desc:
-          "Un ciclo anual estructurado de compromisos bilaterales de alto nivel seleccionados por el MIBC.",
-        evt_5_c1_label: "Foro de Asociación Económica",
-        evt_5_c1_val: "Cumbre insignia anual",
-        evt_5_c2_label: "Mesas Redondas Sectoriales",
-        evt_5_c2_val: "Inmersiones profundas trimestrales",
-        evt_5_c3_label: "Delegaciones Comerciales",
-        evt_5_c3_val: "Misiones curadas en ambas direcciones",
-        evt_5_c4_label: "Diálogos de CEOs",
-        evt_5_c4_val: "Foros exclusivos de alto liderazgo",
-        evt_ui_date: "Fecha:",
-        evt_ui_location: "Ubicación:",
-        evt_ui_view_images: "Ver Imágenes de Eventos",
+      // ERROR YAHAN THA - Ab theek ho gaya hai 👇
+      del_fac_item_6:
+        "Seguimiento posterior a la misión y rastreo de prospectos",
 
-        init_badge: "Impulsando el Crecimiento",
-        init_title: "Iniciativas Estratégicas",
-        init_desc:
-          "El MIBC se compromete a transformar el potencial bilateral en resultados tangibles. Explore nuestros programas insignia diseñados para proporcionar una entrada estructurada al mercado, fomentar el crecimiento de las startups y crear compromisos de alto nivel en todo el corredor India-México.",
-        init_btn_learn: "Saber Más",
-        init_i1_step: "01. Programa Insignia",
-        init_i1_title: "Aceleradora de Tequila",
-        init_i1_desc:
-          "Un programa integral de entrada al mercado dedicado a ayudar a las marcas de tequila y licores mexicanos a establecer una presencia dominante en el mercado de bebidas premium de rápido crecimiento en la India.",
-        init_i1_f1_t: "Inteligencia de Mercado",
-        init_i1_f1_d:
-          "Segmentación detallada del consumidor, estrategia de precios y posicionamiento competitivo.",
-        init_i1_f2_t: "Navegación Regulatoria",
-        init_i1_f2_d:
-          "Licencias de impuestos especiales estado por estado, cumplimiento de FSSAI y manejo de aduanas de importación.",
-        init_i1_f3_t: "Desarrollo de Distribución",
-        init_i1_f3_d:
-          "Presentaciones directas a los principales importadores de licores y socios del sector HoReCa en la India.",
-        init_i1_f4_t: "Lanzamiento de Marca",
-        init_i1_f4_d:
-          "Coordinación de eventos de extremo a extremo, alcance comercial B2B y campañas con influencers.",
-        init_i2_step: "02. Plataforma de Aterrizaje Suave",
-        init_i2_title: "Plataforma India-México",
-        init_i2_desc:
-          "Un ecosistema estructurado de aterrizaje suave que permite a las startups y empresas en etapa de crecimiento establecer operaciones transfronterizas sin problemas, sin los riesgos típicos de entrada al mercado.",
-        init_i2_f1_t: "Para Startups Mexicanas",
-        init_i2_f1_d:
-          "Validación de mercado, configuración de oficina física/virtual en la India y presentaciones a redes bancarias y de capital de riesgo locales.",
-        init_i2_f2_t: "Para Startups Indias",
-        init_i2_f2_d:
-          "Estrategia de acceso al mercado T-MEC, infraestructura de aterrizaje suave en México y adquisición de talento local.",
-        init_i2_f3_t: "Estructuración Legal y Fiscal",
-        init_i2_f3_d:
-          "Soporte integral para la incorporación de entidades y cumplimiento normativo en ambas naciones.",
-        init_i2_f4_t: "Acceso al Ecosistema",
-        init_i2_f4_d:
-          "Integración directa con las principales incubadoras, subvenciones gubernamentales y redes de clientes B2B.",
-        init_i3_step: "03. Compromisos B2B y G2G",
-        init_i3_title: "Eventos y Mesas Redondas de Alto Impacto",
-        init_i3_desc:
-          "Nuestros eventos sirven como un puente crítico para la colaboración transfronteriza, enfocándose en el diálogo procesable y asegurando que cada interacción se traduzca en un resultado comercial tangible.",
-        init_i3_f1_t: "Diálogos de CEOs Específicos del Sector",
-        init_i3_f1_d:
-          "Mesas redondas enfocadas en TI, Farmacéutica, Automotriz y Alimentos y Bebidas.",
-        init_i3_f2_t: "Foro de Asociación Económica",
-        init_i3_f2_d:
-          "Nuestra cumbre insignia anual que celebra y avanza las relaciones comerciales entre India y México.",
-        init_i3_f3_t: "Delegaciones Comerciales Curadas",
-        init_i3_f3_d:
-          "Misiones estratégicas entrantes y salientes para emparejamiento B2B directo y visitas a sitios.",
-        init_i3_f4_t: "Sesiones Informativas sobre Políticas",
-        init_i3_f4_d:
-          "Sesiones a puerta cerrada con funcionarios gubernamentales para navegar el cumplimiento y los marcos bilaterales.",
+      events_main_title: "Galería de Eventos",
+      events_subtitle:
+        "Un viaje visual a través de los dinámicos eventos del MIBC, mostrando momentos de colaboración, innovación y compromiso bilateral entre México y la India.",
+      events_badge: "Galería de Eventos",
+      events_h2: "Explore los Momentos Destacados de Nuestros Eventos",
+      events_alt_1: "Reunión de Evento MIBC 1",
+      events_alt_2: "Presentación de Evento MIBC",
+      events_alt_3: "Discusión de Evento MIBC",
+      events_alt_4: "Mesa Redonda de Evento MIBC",
+      events_alt_5: "Networking de Evento MIBC",
+      events_alt_6: "Sala de Juntas de Evento MIBC",
+      events_alt_7: "Equipo de Evento MIBC",
+      events_alt_8: "Conclusión de Evento MIBC",
 
-        int_adv_title: "Inteligencia y Defensa",
-        int_adv_subtitle:
-          "Inteligencia comercial y representación colectiva ante ambos gobiernos.",
-        int_adv_badge: "PERSPECTIVAS ACCIONABLES",
-        int_adv_serv_title: "Servicios de Inteligencia y Defensa",
-        int_adv_serv_desc:
-          "El MIBC proporciona inteligencia comercialmente procesable y una defensa de políticas estructurada que fortalece el corredor comercial México-India. Nuestras perspectivas guían la estrategia, mientras que nuestro compromiso institucional amplifica los intereses de los miembros en ambos gobiernos.",
-        int_adv_item_1:
-          "Informes trimestrales de inteligencia comercial sobre flujos comerciales y oportunidades sectoriales",
-        int_adv_item_2: "Monitoreo regulatorio y alertas de políticas",
-        int_adv_item_3:
-          "Notificaciones de licitaciones y oportunidades de contratación pública",
-        int_adv_item_4: "Defensa de políticas y presentaciones gubernamentales",
-        int_adv_item_5:
-          "Representación colectiva sobre temas de acceso al mercado y facilitación del comercio",
-        int_adv_img_alt: "Reunión de Inteligencia y Defensa Institucional",
-        inv_fac_title: "Facilitación de Inversiones",
-        inv_fac_subtitle:
-          "Soporte de extremo a extremo para empresas que establecen operaciones en México o la India, desde la viabilidad hasta el lanzamiento operativo.",
-        inv_fac_for: "Para",
-        inv_fac_img_alt: "Reunión de Negocios",
-        inv_fac_s1_type: "Empresas Indias",
-        inv_fac_s1_badge: "INGRESANDO A MÉXICO",
-        inv_fac_s1_desc:
-          "El MIBC proporciona apoyo institucional estructurado a las empresas indias que evalúan su expansión a México. Nuestros servicios de facilitación de inversiones reducen los ciclos típicos de entrada al mercado de 18-24 meses a una ejecución estratégica enfocada.",
-        inv_fac_s1_p1: "Evaluación de mercado y análisis de viabilidad",
-        inv_fac_s1_p2: "Evaluación de ubicaciones en los estados mexicanos",
-        inv_fac_s1_p3:
-          "Mapeo de incentivos y modelado de costos de desembarque",
-        inv_fac_s1_p4: "Navegación regulatoria y estructuración de entidades",
-        inv_fac_s1_p5: "Identificación de socios y debida diligencia",
-        inv_fac_s1_p6: "Enlace gubernamental y facilitación de aprobaciones",
-        inv_fac_s1_p7:
-          "Apoyo en el lanzamiento suave y acompañamiento operativo de 12 meses",
-        inv_fac_s2_type: "Empresas Mexicanas",
-        inv_fac_s2_badge: "INGRESANDO A LA INDIA",
-        inv_fac_s2_desc:
-          "La India ofrece uno de los mercados industriales y de consumo de más rápido crecimiento del mundo. El MIBC apoya a las firmas mexicanas con una ejecución estructurada en el terreno para ingresar y escalar en la India.",
-        inv_fac_s2_p1:
-          "Evaluación de mercado y desarrollo de estrategias de entrada",
-        inv_fac_s2_p2: "Identificación de socios y distribuidores",
-        inv_fac_s2_p3: "Navegación regulatoria y estructuración de entidades",
-        inv_fac_s2_p4: "Enlace con el gobierno estatal y mapeo de incentivos",
-        inv_fac_s2_p5:
-          "Apoyo en el lanzamiento suave y acompañamiento operativo",
-        lp_header_badge: "Programa de Aterrizaje Suave",
-        lp_title: "Plataforma India-México",
-        lp_subtitle:
-          "Un programa estructurado de aterrizaje suave que permite a las startups y empresas en etapa de crecimiento establecer operaciones y escalar en el mercado contraparte.",
-        lp_hero_img_alt: "Foro Económico India México",
-        lp_overview_badge: "RESUMEN DE LA PLATAFORMA",
-        lp_overview_title: "Plataforma India-México",
-        lp_overview_desc:
-          "La Plataforma India-México es un ecosistema estructurado de aterrizaje suave diseñado para startups y empresas en etapa de crecimiento que buscan establecer operaciones en el otro mercado. El programa reduce el riesgo de entrada al mercado a través de inteligencia de mercado validada, infraestructura operativa y presentaciones selectas en el ecosistema.",
-        lp_s1_type: "Ingresando a la India",
-        lp_s1_badge: "STARTUPS MEXICANAS",
-        lp_s1_desc:
-          "Desbloquee oportunidades en una de las economías digitales y de consumo más grandes del mundo con nuestro apoyo personalizado de aterrizaje suave.",
-        lp_s1_p1: "Validación de mercado y evaluación de oportunidades",
-        lp_s1_p2: "Instalaciones de oficina virtual en Mumbai/Delhi",
-        lp_s1_p3: "Asesoría regulatoria y de establecimiento de entidades",
-        lp_s1_p4: "Presentaciones a infraestructura bancaria y de pagos",
-        lp_s1_p5: "Presentaciones a inversionistas y socios",
-        lp_s1_p6: "Acceso al ecosistema de incubadoras y aceleradoras indias",
-        lp_s2_type: "Ingresando a México",
-        lp_s2_badge: "STARTUPS INDIAS",
-        lp_s2_desc:
-          "Aproveche la posición estratégica de México como puerta de entrada a las Américas y al mercado del T-MEC con orientación institucional.",
-        lp_s2_p1: "Desarrollo de estrategia de acceso al mercado T-MEC",
-        lp_s2_p2:
-          "Infraestructura de aterrizaje suave en Ciudad de México/Guadalajara",
-        lp_s2_p3: "Constitución de empresas y estructuración legal",
-        lp_s2_p4: "Asesoría en adquisición de talento",
-        lp_s2_p5: "Presentaciones a clientes y socios",
-        lp_s2_p6: "Enlace gubernamental y navegación de incentivos",
-        mem_plans_badge: "Planes de Membresía",
-        mem_plans_title: "Elija su Nivel de Membresía",
-        mem_btn_apply: "Aplicar Ahora",
-        mem_p1_title: "Membresía Corporativa",
-        mem_p1_desc:
-          "Ideal para empresas que buscan expandir el comercio y la inversión entre México e India. Los miembros obtienen acceso a mesas redondas sectoriales, inteligencia de mercado, foros de networking y presentaciones institucionales y comerciales estructuradas.",
-        mem_p2_title: "Miembro Fundador",
-        mem_p2_badge: "EXCLUSIVO",
-        mem_p2_desc:
-          "Diseñado para líderes de la industria que buscan influencia estratégica y acceso prioritario. Los Miembros Fundadores reciben facilitación de primer nivel, que incluye soporte exclusivo para la selección de sitios, emparejamiento de alto nivel seleccionado y compromiso directo con altos funcionarios del gobierno y partes interesadas en políticas.",
-        mem_p3_title: "Membresía Asociada",
-        mem_p3_desc:
-          "Creada para pymes y empresas emergentes que exploran oportunidades bilaterales. Los miembros se benefician de la orientación de entrada al mercado, alertas de oportunidades, programas abiertos e inclusión en la red de negocios y el directorio de miembros del MIBC.",
-        mem_page_hero_badge: "Membresía",
-        mem_page_hero_title: "Únase a la Red",
-        mem_page_hero_desc:
-          "La membresía del MIBC lo conecta con la infraestructura institucional, la inteligencia comercial y las relaciones gubernamentales que definen el éxito en el corredor México-India.",
-        mem_page_hero_btn: "Solicitar Membresía →",
-        mem_page_aud_badge: "Quién Debería Unirse",
-        mem_page_aud_title: "Esta Membresía Está Diseñada Para",
-        mem_page_aud1_title: "Empresas Indias",
-        mem_page_aud1_desc: "Con operaciones en México o interés de expansión",
-        mem_page_aud2_title: "Empresas Mexicanas",
-        mem_page_aud2_desc: "Con operaciones en la India o planes de expansión",
-        mem_page_aud3_title: "Exportadores e Importadores",
-        mem_page_aud3_desc: "Activamente involucrados en el comercio bilateral",
-        mem_page_aud4_title: "Firmas Profesionales",
-        mem_page_aud4_desc:
-          "Legal, contabilidad, logística, banca y cumplimiento",
-        mem_page_aud5_title: "Actores del Ecosistema Comercial",
-        mem_page_aud5_desc:
-          "Organizaciones que apoyan el comercio del corredor",
-        mem_page_ben_badge: "Beneficios para Miembros",
-        mem_page_ben_title: "Lo Que Usted Gana",
-        mem_page_ben1_title: "Inteligencia",
-        mem_page_ben1_desc:
-          "Investigación de mercado, análisis comercial, reuniones trimestrales, actualizaciones regulatorias",
-        mem_page_ben2_title: "Acceso",
-        mem_page_ben2_desc:
-          "Mesas redondas de CEOs, reuniones ministeriales y delegaciones comerciales",
-        mem_page_ben3_title: "Influencia",
-        mem_page_ben3_desc:
-          "Defensa de políticas y representación gubernamental",
-        mem_page_ben4_title: "Soporte",
-        mem_page_ben4_desc:
-          "Emparejamiento, presentaciones, documentación comercial y descuentos",
-        mem_page_jou_badge: "Cómo Solicitar",
-        mem_page_jou_title: "Su Viaje de Membresía",
-        mem_page_jou1_title: "Enviar Consulta",
-        mem_page_jou1_desc: "Complete el formulario de consulta de membresía",
-        mem_page_jou2_title: "Llamada de Introducción",
-        mem_page_jou2_desc: "Llamada introductoria con el equipo del MIBC",
-        mem_page_jou3_title: "Revisión del Comité",
-        mem_page_jou3_desc: "Evaluación del comité de membresía",
-        mem_page_jou4_title: "Bienvenida",
-        mem_page_jou4_desc: "Incorporación y activación",
-        mem_page_jou_btn: "Solicitar Membresía →",
-        mem_form_swal_success_title: "¡Solicitud Enviada!",
-        mem_form_swal_success_text:
-          "Su solicitud de membresía ha sido enviada. Por favor, revise su correo electrónico para ver el mensaje de confirmación.",
-        mem_form_swal_error_default:
-          "Error de red. Por favor, inténtelo de nuevo más tarde.",
-        mem_form_swal_error_title: "Fallo en el Envío",
-        mem_form_badge: "Solicitud de Membresía",
-        mem_form_title: "Solicitar Membresía del MIBC",
-        mem_form_c1_title: "Elija su Nivel de Membresía",
-        mem_form_c1_desc:
-          "Seleccione su plan en la página anterior; se autocompletará aquí.",
-        mem_form_c2_title: "Requisitos de la Solicitud",
-        mem_form_c2_desc:
-          "Proporcione información básica de la empresa, datos de contacto y el compromiso previsto.",
-        mem_form_c3_title: "Después de Enviar",
-        mem_form_c3_desc:
-          "Su solicitud será revisada en un plazo de 3 a 5 días hábiles.",
-        mem_form_ph_tier: "Seleccionar Nivel de Membresía",
-        mem_form_ph_name: "Su Nombre",
-        mem_form_ph_phone: "Número de Teléfono (ej. +52...)",
-        mem_form_ph_email: "Su Correo Electrónico",
-        mem_form_ph_company: "Nombre de la Empresa",
-        mem_form_ph_obj: "Cuéntenos sobre sus objetivos comerciales",
-        mem_form_btn_loading: "Enviando...",
-        mem_form_btn_submit: "Enviar Solicitud",
-        mem_form_img_alt: "Reunión del MIBC",
-        sec_hero_badge: "Sectores",
-        sec_hero_title: "Sectores de Enfoque",
-        sec_hero_desc:
-          "El MIBC ofrece apoyo estratégico en sectores donde el comercio bilateral está creciendo, la inversión se está acelerando y la colaboración está lista para escalar.",
-        sec_c1_badge: "Categoría 1",
-        sec_c1_title: "Inversión India en México",
-        sec_lbl_opp: "OPORTUNIDAD",
-        sec_lbl_act: "ACTIVIDADES CLAVE",
-        sec_lbl_why: "POR QUÉ MÉXICO",
-        sec_lbl_ind: "ACTORES INDIOS",
-        sec_lbl_prod: "PRODUCTOS",
-        sec_lbl_trade: "VALOR COMERCIAL",
-        sec_lbl_focus: "ENFOQUE",
-        sec_c1_card1_title: "Tecnología de la Información",
-        sec_c1_card1_opp: "Entrega nearshore para Norteamérica vía T-MEC",
-        sec_c1_card1_act: "Software, Servicios de TI, BPO, I+D de Ingeniería",
-        sec_c1_card1_why:
-          "Zonas horarias de EE. UU., menores costos, acceso T-MEC",
-        sec_c1_card1_ind: "TCS, Infosys, Wipro, HCL, Tech Mahindra",
-        sec_c1_card2_title: "Productos Farmacéuticos",
-        sec_c1_card2_opp: "Fabricación de genéricos y acceso a LATAM",
-        sec_c1_card2_act: "API, genéricos, investigación clínica, vacunas",
-        sec_c1_card2_why:
-          "Puerta a LATAM, regulación sólida, salud en crecimiento",
-        sec_c1_card2_ind: "Sun Pharma, Dr. Reddy’s, Lupin, Cipla",
-        sec_c1_card3_title: "Automoción y Componentes",
-        sec_c1_card3_opp:
-          "Cadena de suministro de vehículos eléctricos y operaciones Tier-1",
-        sec_c1_card3_act: "Piezas de EV, arneses de cables, piezas fundidas",
-        sec_c1_card3_why:
-          "Acceso a OEM de Detroit, clúster automotriz, reglas del T-MEC",
-        sec_c1_card3_ind: "Motherson Sumi, Tata AutoComp, Bharat Forge",
-        sec_c2_badge: "Categoría 2",
-        sec_c2_title: "Exportaciones Mexicanas a la India",
-        sec_c2_card1_title: "Energía y Minerales",
-        sec_c2_card1_prod:
-          "Petróleo crudo, combustibles refinados, minerales críticos",
-        sec_c2_card1_trade: "Mayor segmento de exportación de México → India",
-        sec_c2_card1_opp: "Diversificación energética y manufactura",
-        sec_c2_card2_title: "Aeroespacial y Defensa",
-        sec_c2_card2_prod: "Piezas de aviones, aviónica, equipo de defensa",
-        sec_c2_card2_trade: "Segmento de exportación de más rápido crecimiento",
-        sec_c2_card2_opp: "Make in India, compensaciones, expansión MRO",
-        sec_c2_card3_title: "Electrónica y Telecomunicaciones",
-        sec_c2_card3_prod:
-          "Hardware de telecomunicaciones, componentes, semiconductores",
-        sec_c2_card3_opp: "Impulso manufacturero de la India, despliegue de 5G",
-        sec_c2_card3_focus: "Misión de semiconductores y cadenas de suministro",
-        sec_c2_card4_title: "Agroalimentos y Bebidas",
-        sec_c2_card4_prod: "Tequila, mezcal, cerveza, alimentos procesados",
-        sec_c2_card4_trade: "Categoría premium de alto crecimiento",
-        sec_c2_card4_opp: "Licores premium de la India y expansión minorista",
-        srv_hero_badge: "Lo Que Hacemos",
-        srv_hero_title1: "Nuestros",
-        srv_hero_title2: "Servicios",
-        srv_hero_desc1: "El MIBC ofrece",
-        srv_hero_desc2: "soporte de nivel institucional",
-        srv_hero_desc3:
-          "que las cámaras y consultores tradicionales no pueden replicar, combinando la coordinación gubernamental, redes operativas y experiencia sectorial construida durante",
-        srv_hero_desc4: "15 años de liderazgo comercial bilateral",
-        srv_hero_btn: "Explorar Soluciones",
-        srv_deliver_title: "Lo Que Entregamos",
-        srv_deliver_desc:
-          "El MIBC va más allá de los servicios de una cámara tradicional. Brindamos promoción comercial de nivel institucional, facilitación de inversiones y soporte de entrada al mercado, desde la evaluación inicial hasta el lanzamiento operativo.",
-        srv_hover_explore: "Pase el ratón para explorar",
-        srv_card1_title: "Facilitación de Inversiones",
-        srv_card1_p1: "Estrategia de Entrada al Mercado",
-        srv_card1_p2: "Selección de Sitios y Bienes Raíces",
-        srv_card1_p3: "Constitución de Entidades",
-        srv_card1_p4: "Cumplimiento Normativo",
-        srv_card2_title: "Promoción Comercial",
-        srv_card2_p1: "Emparejamiento Comprador-Vendedor",
-        srv_card2_p2: "Documentación de Exportación",
-        srv_card2_p3: "Informes de Inteligencia de Mercado",
-        srv_card2_p4: "Asesoría Aduanera y Logística",
-        srv_card3_title: "Facilitación de Delegaciones",
-        srv_card3_p1: "Reuniones B2B de Alto Nivel",
-        srv_card3_p2: "Protocolo VIP y Logística",
-        srv_card3_p3: "Enlace Gubernamental",
-        srv_card3_p4: "Visitas a Sitios y Fábricas",
-        srv_card4_title: "Inteligencia y Defensa",
-        srv_card4_p1: "Análisis Profundos de Sectores",
-        srv_card4_p2: "Representación de Políticas",
-        srv_card4_p3: "Inteligencia Comercial",
-        srv_card4_p4: "Defensa de Acceso al Mercado",
-        srv_process_badge: "Nuestro Proceso",
-        srv_process_title1: "Cómo",
-        srv_process_title2: "Trabajamos",
-        srv_process_desc:
-          "Un modelo de compromiso estructurado diseñado para el éxito transfronterizo, desde la evaluación hasta la escalabilidad.",
-        srv_step1_title: "Descubrimiento y Evaluación",
-        srv_step1_desc:
-          "Consulta inicial, evaluación de oportunidades de mercado, revisión del panorama regulatorio, análisis de competidores y entrega de informes de viabilidad.",
-        srv_step2_title: "Estrategia y Planificación",
-        srv_step2_desc:
-          "Desarrollo de estrategia de entrada al mercado, selección de estado/ciudad, criterios de identificación de socios, hoja de ruta regulatoria y recomendaciones de estructura de inversión.",
-        srv_step3_title: "Ejecución y Facilitación",
-        srv_step3_desc:
-          "Presentaciones gubernamentales, reuniones con socios, soporte de debida diligencia, solicitudes de licencias, visitas a sitios y asistencia en negociación de contratos.",
-        srv_step4_title: "Lanzamiento y Escalamiento",
-        srv_step4_desc:
-          "Coordinación de lanzamiento operativo, activación comercial, monitoreo de desempeño, planificación de expansión y soporte de asesoría continua.",
-        srv_diff_badge: "Diferenciación Competitiva",
-        srv_diff_title: "Por qué el MIBC vs. Otros",
-        srv_diff_desc:
-          "Lo que nos diferencia de las cámaras y consultores tradicionales.",
-        srv_tbl_col1: "Capacidad",
-        srv_tbl_col2: "Cámaras Tradicionales",
-        srv_tbl_col3: "Consultores",
-        srv_tbl_col4: "MIBC",
-        srv_tbl_r1_c1: "Enfoque Principal",
-        srv_tbl_r1_c2: "Eventos de networking",
-        srv_tbl_r1_c3: "Asesoría genérica",
-        srv_tbl_r1_c4: "Facilitación coordinada con el gobierno",
-        srv_tbl_r2_c1: "Modelo de Compromiso",
-        srv_tbl_r2_c2: "Directorios de membresía",
-        srv_tbl_r2_c3: "Proyectos únicos",
-        srv_tbl_r2_c4: "Alianzas institucionales a largo plazo",
-        srv_tbl_r3_c1: "Acceso al Gobierno",
-        srv_tbl_r3_c2: "Sin acceso directo",
-        srv_tbl_r3_c3: "Redes limitadas",
-        srv_tbl_r3_c4: "Canales directos a actores políticos",
-        srv_tbl_r4_c1: "Cobertura Sectorial",
-        srv_tbl_r4_c2: "Generalista",
-        srv_tbl_r4_c3: "Agnóstico de sector",
-        srv_tbl_r4_c4: "Profunda experiencia: TI, Farmacéutica, Auto, A&B",
-        srv_tbl_r5_c1: "Métricas de Éxito",
-        srv_tbl_r5_c2: "Asistencia a eventos",
-        srv_tbl_r5_c3: "Informes entregados",
-        srv_tbl_r5_c4: "Transacciones facilitadas, asociaciones establecidas",
-        srv_adv_title: "Nuestras Ventajas Institucionales",
-        srv_adv_1:
-          "El CEO dirigió oficinas comerciales de México (ProMéxico) y Canadá (Ontario) en India",
-        srv_adv_2:
-          "Más de $500 millones de USD en oportunidades de inversión facilitadas (2011-2025)",
-        srv_adv_3:
-          "Coordinación directa con Consulados, Embajadas y Gobiernos Estatales",
-        srv_adv_4:
-          "Asociaciones activas: CRT, IMBC, CANIFARMA, CANIETI, CII, FICCI",
-        srv_adv_5:
-          "Enfocado en resultados: Éxito = tratos cerrados, no eventos organizados",
-        srv_adv_6:
-          "15 años de liderazgo en comercio bilateral a través de tres gobiernos",
-        login_access_denied:
-          "¡Acceso denegado! Redirigiendo al inicio de sesión...",
-        login_err_invalid: "Credenciales inválidas.",
-        login_err_network: "Error de red. Por favor, inténtelo de nuevo.",
-        login_nav_home: "Inicio",
-        login_nav_cohort: "Cohorte",
-        login_nav_membership: "Membresía",
-        login_nav_contact: "Contacto",
-        login_nav_join: "ÚNETE AL MIBC",
-        login_title: "Bienvenido de nuevo",
-        login_subtitle:
-          "Inicie sesión para acceder al portal de aprendizaje de la Aceleradora de Tequila.",
-        login_label_email: "Correo Electrónico",
-        login_ph_email: "nombre@empresa.com",
-        login_label_password: "Contraseña",
-        login_forgot: "¿Olvidó su contraseña?",
-        login_ph_password: "Ingrese su contraseña",
-        login_btn_loading: "Autenticando... ⏳",
-        login_btn_submit: "Ingresar a la Bóveda",
-        login_footer_text: "¿No tienes una cuenta?",
-        login_footer_link: "Regístrate aquí",
+      evt_title: "Eventos",
+      evt_subtitle:
+        "Explore nuestros eventos diseñados para fomentar la colaboración, compartir conocimientos e impulsar el comercio y la inversión bilateral entre México y la India.",
+      evt_1_title: "Mesa Redonda de CEOs de TI y Servicios Digitales",
+      evt_1_date: "15 de diciembre de 2025",
+      evt_1_loc: "Consulado de México, Mumbai, India",
+      evt_1_desc:
+        "Organizada con el Consulado General de México en Mumbai, esta Mesa Redonda de CEOs a puerta cerrada reúne a altos líderes tecnológicos, empresas de servicios digitales y partes interesadas en políticas para explorar la colaboración México-India en servicios de TI, nearshoring y transformación digital. La sesión incluye palabras de apertura del Cónsul General, una discusión ejecutiva moderada y un intercambio de pares seleccionado centrado en la entrada al mercado.",
+      evt_2_title:
+        "Mesa Redonda de CEOs sobre Productos Farmacéuticos y Acceso al Mercado LATAM",
+      evt_2_date: "15 de diciembre de 2025",
+      evt_2_loc: "Consulado de México, Mumbai, India",
+      evt_2_desc:
+        "En asociación con el Consulado General de México en Mumbai, esta discusión a puerta cerrada reúne a altos líderes farmacéuticos para examinar las vías regulatorias, la colaboración en fabricación y las oportunidades de acceso al mercado en el corredor de salud India-México.",
+      evt_3_title: "Mesa Redonda de CEOs de Automoción y Manufactura",
+      evt_3_date: "15 de diciembre de 2025",
+      evt_3_loc: "Consulado de México, Mumbai, India",
+      evt_3_desc:
+        "Esta mesa redonda solo con invitación reúne a ejecutivos de automoción y manufactura para discutir la integración de la cadena de suministro, componentes de vehículos eléctricos (EV), nearshoring y oportunidades de inversión bilateral en todo el ecosistema de fabricación India-México.",
+      evt_4_title: "Mesa Redonda de CEOs de Alimentos y Bebidas",
+      evt_4_date: "16 de diciembre de 2026",
+      evt_4_loc: "Consulado de México, Mumbai, India",
+      evt_4_desc:
+        "Un diálogo ejecutivo enfocado que trae lo mejor de México al mercado premium de la India, reuniendo a líderes de los sectores de alimentos, bebidas y procesamiento para explorar la expansión comercial, el acceso a productos premium y las oportunidades de crecimiento en los mercados de consumo de la India y México.",
+      evt_5_title: "Calendario Anual de Eventos",
+      evt_5_date: "Actualizado Anualmente",
+      evt_5_desc:
+        "Un ciclo anual estructurado de compromisos bilaterales de alto nivel seleccionados por el MIBC.",
+      evt_5_c1_label: "Foro de Asociación Económica",
+      evt_5_c1_val: "Cumbre insignia anual",
+      evt_5_c2_label: "Mesas Redondas Sectoriales",
+      evt_5_c2_val: "Inmersiones profundas trimestrales",
+      evt_5_c3_label: "Delegaciones Comerciales",
+      evt_5_c3_val: "Misiones curadas en ambas direcciones",
+      evt_5_c4_label: "Diálogos de CEOs",
+      evt_5_c4_val: "Foros exclusivos de alto liderazgo",
+      evt_ui_date: "Fecha:",
+      evt_ui_location: "Ubicación:",
+      evt_ui_view_images: "Ver Imágenes de Eventos",
 
-        ta_nav_home: "Inicio",
-        ta_nav_cohort: "Cohorte",
-        ta_nav_membership: "Membresía",
-        ta_nav_contact: "Contacto",
-        ta_nav_join: "ÚNETE AL MIBC",
+      init_badge: "Impulsando el Crecimiento",
+      init_title: "Iniciativas Estratégicas",
+      init_desc:
+        "El MIBC se compromete a transformar el potencial bilateral en resultados tangibles. Explore nuestros programas insignia diseñados para proporcionar una entrada estructurada al mercado, fomentar el crecimiento de las startups y crear compromisos de alto nivel en todo el corredor India-México.",
+      init_btn_learn: "Saber Más",
+      init_i1_step: "01. Programa Insignia",
+      init_i1_title: "Aceleradora de Tequila",
+      init_i1_desc:
+        "Un programa integral de entrada al mercado dedicado a ayudar a las marcas de tequila y licores mexicanos a establecer una presencia dominante en el mercado de bebidas premium de rápido crecimiento en la India.",
+      init_i1_f1_t: "Inteligencia de Mercado",
+      init_i1_f1_d:
+        "Segmentación detallada del consumidor, estrategia de precios y posicionamiento competitivo.",
+      init_i1_f2_t: "Navegación Regulatoria",
+      init_i1_f2_d:
+        "Licencias de impuestos especiales estado por estado, cumplimiento de FSSAI y manejo de aduanas de importación.",
+      init_i1_f3_t: "Desarrollo de Distribución",
+      init_i1_f3_d:
+        "Presentaciones directas a los principales importadores de licores y socios del sector HoReCa en la India.",
+      init_i1_f4_t: "Lanzamiento de Marca",
+      init_i1_f4_d:
+        "Coordinación de eventos de extremo a extremo, alcance comercial B2B y campañas con influencers.",
+      init_i2_step: "02. Plataforma de Aterrizaje Suave",
+      init_i2_title: "Plataforma India-México",
+      init_i2_desc:
+        "Un ecosistema estructurado de aterrizaje suave que permite a las startups y empresas en etapa de crecimiento establecer operaciones transfronterizas sin problemas, sin los riesgos típicos de entrada al mercado.",
+      init_i2_f1_t: "Para Startups Mexicanas",
+      init_i2_f1_d:
+        "Validación de mercado, configuración de oficina física/virtual en la India y presentaciones a redes bancarias y de capital de riesgo locales.",
+      init_i2_f2_t: "Para Startups Indias",
+      init_i2_f2_d:
+        "Estrategia de acceso al mercado T-MEC, infraestructura de aterrizaje suave en México y adquisición de talento local.",
+      init_i2_f3_t: "Estructuración Legal y Fiscal",
+      init_i2_f3_d:
+        "Soporte integral para la incorporación de entidades y cumplimiento normativo en ambas naciones.",
+      init_i2_f4_t: "Acceso al Ecosistema",
+      init_i2_f4_d:
+        "Integración directa con las principales incubadoras, subvenciones gubernamentales y redes de clientes B2B.",
+      init_i3_step: "03. Compromisos B2B y G2G",
+      init_i3_title: "Eventos y Mesas Redondas de Alto Impacto",
+      init_i3_desc:
+        "Nuestros eventos sirven como un puente crítico para la colaboración transfronteriza, enfocándose en el diálogo procesable y asegurando que cada interacción se traduzca en un resultado comercial tangible.",
+      init_i3_f1_t: "Diálogos de CEOs Específicos del Sector",
+      init_i3_f1_d:
+        "Mesas redondas enfocadas en TI, Farmacéutica, Automotriz y Alimentos y Bebidas.",
+      init_i3_f2_t: "Foro de Asociación Económica",
+      init_i3_f2_d:
+        "Nuestra cumbre insignia anual que celebra y avanza las relaciones comerciales entre India y México.",
+      init_i3_f3_t: "Delegaciones Comerciales Curadas",
+      init_i3_f3_d:
+        "Misiones estratégicas entrantes y salientes para emparejamiento B2B directo y visitas a sitios.",
+      init_i3_f4_t: "Sesiones Informativas sobre Políticas",
+      init_i3_f4_d:
+        "Sesiones a puerta cerrada con funcionarios gubernamentales para navegar el cumplimiento y los marcos bilaterales.",
 
-        ta_hero_badge: "Programa Insignia",
-        ta_hero_title: "Aceleradora de Tequila",
-        ta_hero_desc:
-          "Acelere su entrada al mercado de licores premium de la India. Acceso al mercado de nivel institucional para marcas auténticas de tequila mexicano a través de relaciones gubernamentales, experiencia regulatoria y asociaciones de distribución calificadas.",
-        ta_hero_btn_contact: "Contáctenos",
-        ta_hero_btn_brochure: "Descargar Folleto",
-
-        ta_del_title: "Lo Que Entregamos",
-        ta_del_desc_p1:
-          "La Aceleradora de Tequila reduce los típicos plazos de entrada al mercado de",
-        ta_del_desc_hl1: "18-24 meses",
-        ta_del_desc_p2: "a un programa de ejecución acelerada y enfocada de",
-        ta_del_desc_hl2: "2-3 meses",
-        ta_del_desc_p3:
-          ". Al aprovechar las relaciones gubernamentales, las redes de distribuidores y la experiencia operativa del MIBC, las marcas participantes obtienen un rápido acceso al mercado con menor riesgo e inversión.",
-        ta_del_c1_title: "Inteligencia de Mercado",
-        ta_del_c1_tag: "PERSPECTIVAS",
-        ta_del_c1_i1:
-          "Panorama del mercado de licores de la India y segmentación de consumidores",
-        ta_del_c1_i2: "Análisis de posicionamiento competitivo",
-        ta_del_c1_i3: "Estrategia de precios para el mercado indio",
-        ta_del_c1_i4:
-          "Identificación de canales objetivo (HoReCa, retail, comercio electrónico)",
-        ta_del_c2_title: "Navegación Regulatoria",
-        ta_del_c2_tag: "CUMPLIMIENTO",
-        ta_del_c2_i1:
-          "Licencias estado por estado (28 estados con leyes de impuestos especiales únicas)",
-        ta_del_c2_i2: "Documentación de importación y procedimientos aduaneros",
-        ta_del_c2_i3: "Cumplimiento de etiquetado y embalaje",
-        ta_del_c2_i4:
-          "Registro de impuestos especiales y cumplimiento continuo",
-        ta_del_c3_title: "Distribución y Socios",
-        ta_del_c3_tag: "SOCIOS",
-        ta_del_c3_i1:
-          "Presentaciones seleccionadas a los principales importadores y distribuidores",
-        ta_del_c3_i2:
-          "Conexiones con socios de hospitalidad (hoteles premium, bares)",
-        ta_del_c3_i3: "Facilitación y acompañamiento del primer cliente",
-        ta_del_c3_i4: "Apoyo en la negociación de contratos",
-        ta_del_c4_title: "Soporte para Lanzamiento de Marca",
-        ta_del_c4_tag: "LANZAMIENTO",
-        ta_del_c4_i1: "Coordinación de eventos de lanzamiento en metros clave",
-        ta_del_c4_i2: "Alcance comercial y al consumidor",
-        ta_del_c4_i3: "Conexiones con medios e influencers",
-        ta_del_c4_i4: "Soporte continuo para el desarrollo del mercado",
-
-        ta_time_main_title: "Cronograma y Entregables",
-        ta_time_sub_title: "Estructura de Programa Acelerado de 2 a 3 Meses",
-        ta_time_desc:
-          "A diferencia de las consultorías tradicionales de entrada al mercado que requieren de 18 a 24 meses, la Aceleradora de Tequila ofrece una ejecución enfocada y orientada a resultados en 2 a 3 meses a través de las redes institucionales del MIBC y relaciones preestablecidas.",
-        ta_time_p1_title: "Semanas 1-3: Evaluación y Estrategia de Mercado",
-        ta_time_p1_i1_t: "Informe de Mercado Completo:",
-        ta_time_p1_i1_d:
-          "Resumen del mercado de licores de la India, análisis de la categoría de tequila, panorama competitivo y perspectivas del consumidor",
-        ta_time_p1_i2_t: "Matriz de Oportunidades a Nivel Estatal:",
-        ta_time_p1_i2_d:
-          "Identificación de estados prioritarios basados en el tamaño del mercado, la complejidad regulatoria y las barreras de entrada",
-        ta_time_p1_i3_t: "Estrategia de Precios y Posicionamiento:",
-        ta_time_p1_i3_d:
-          "Precios minoristas recomendados, estrategia de canales y marco de posicionamiento competitivo",
-        ta_time_p1_i4_t: "Hoja de Ruta de Cumplimiento Normativo:",
-        ta_time_p1_i4_d:
-          "Requisitos de licencias estado por estado, listas de verificación de documentación y plazos de cumplimiento",
-        ta_time_p2_title: "Semanas 4-6: Identificación y Compromiso de Socios",
-        ta_time_p2_i1_t: "Lista Restringida de Distribuidores:",
-        ta_time_p2_i1_d:
-          "Lista curada de 8-10 importadores/distribuidores calificados con historial en licores premium",
-        ta_time_p2_i2_t: "Presentaciones Facilitadas:",
-        ta_time_p2_i2_d:
-          "Reuniones organizadas con socios preseleccionados, incluidas presentaciones dirigidas por MIBC y apoyo de debida diligencia",
-        ta_time_p2_i3_t: "Negociación de Asociaciones:",
-        ta_time_p2_i3_d:
-          "Revisión de contratos, negociación de términos comerciales y asesoría en la estructuración de asociaciones",
-        ta_time_p2_i4_t: "Asociaciones de Hospitalidad:",
-        ta_time_p2_i4_d:
-          "Presentaciones a hoteles premium, restaurantes y bares para la colocación inicial",
-        ta_time_p3_title:
-          "Semanas 7-10: Ejecución Regulatoria y Preparación de Lanzamiento",
-        ta_time_p3_i1_t: "Solicitudes de Licencias:",
-        ta_time_p3_i1_d:
-          "Solicitudes de licencia FL-I presentadas en estados prioritarios con apoyo de enlace del MIBC",
-        ta_time_p3_i2_t: "Documentación de Importación:",
-        ta_time_p3_i2_d:
-          "Trámites de importación completos, coordinación de despacho de aduanas y facilitación del primer envío",
-        ta_time_p3_i3_t: "Aprobaciones de Etiquetas:",
-        ta_time_p3_i3_d:
-          "Diseños de etiquetas específicos del estado presentados y aprobados en los mercados objetivo",
-        ta_time_p3_i4_t: "Planificación del Evento de Lanzamiento:",
-        ta_time_p3_i4_d:
-          "Diseño del evento de lanzamiento de la marca, selección del lugar, desarrollo de la lista de invitados y coordinación de medios",
-        ta_time_p4_title: "Semanas 11-12: Lanzamiento al Mercado",
-        ta_time_p4_i1_t: "Eventos de Lanzamiento de Marca:",
-        ta_time_p4_i1_d:
-          "Ejecución de eventos de lanzamiento en Mumbai, Delhi y Bangalore con presencia comercial y de medios",
-        ta_time_p4_i2_t: "Activación de Canales:",
-        ta_time_p4_i2_d:
-          "Despliegue de materiales de punto de venta, coordinación de capacitación del personal y lanzamiento de campaña promocional",
-        ta_time_p4_i3_t: "Compromiso de Medios e Influencers:",
-        ta_time_p4_i3_d:
-          "Comunicados de prensa, campañas en redes sociales y asociaciones con influencers",
-        ta_time_p4_i4_t: "Asesoría Post-Lanzamiento:",
-        ta_time_p4_i4_d:
-          "Soporte de asesoría de 3 meses para optimización del rendimiento y planificación de expansión del mercado",
-
-        ta_q_badge: "Inscripción al Programa",
-        ta_q_title: "Cuestionarios de Aplicación",
-        ta_q_desc:
-          "Seleccione la fase adecuada a continuación. Será redirigido al portal dedicado para completar su solicitud de manera segura.",
-        ta_q_c1_title: "Cuestionario Inicial",
-        ta_q_c1_desc:
-          "Detalles básicos de la empresa, categorías de productos y verificación de preparación para la exportación.",
-        ta_q_c1_btn: "Iniciar Evaluación",
-        ta_q_c2_title: "Cuestionario Fase 1",
-        ta_q_c2_desc:
-          "SKUs de productos detallados, precios, capacidad de producción y cumplimiento.",
-        ta_q_c2_btn: "Iniciar Fase 1",
-        ta_q_c3_title: "Cuestionario Fase 2",
-        ta_q_c3_desc:
-          "Ejecución, asociaciones de distribución y preparación para el lanzamiento de la marca.",
-        ta_q_c3_btn: "Iniciar Fase 2",
-
-        ta_strat_badge: "Compromisos y Redes",
-        ta_strat_title: "Programas de Conexión Estratégica",
-        ta_strat_desc:
-          "Facilitando el comercio bilateral de alto nivel a través de compromisos a medida.",
-        ta_strat_h3: "Compromisos Exclusivos Uno a Uno",
-        ta_strat_p:
-          "Nuestra consulta individualizada se centró en comprender la visión de la empresa e identificar el mejor camino para ingresar al mercado indio. Juntos, discutimos oportunidades de mercado, requisitos regulatorios, estrategias de distribución y crecimiento comercial a largo plazo para construir una hoja de ruta personalizada para el éxito.",
-        ta_strat_li1: "Estrategia de Entrada al Mercado",
-        ta_strat_li2: "Orientación Regulatoria y de Cumplimiento",
-        ta_strat_li3: "Identificación de Socios de Distribución",
-        ta_strat_li4: "Plan de Crecimiento y Expansión a Largo Plazo",
-
-        ta_int_title: "Sesiones Grupales Interactivas",
-        ta_int_desc:
-          "Seminarios a gran escala, exhibiciones de marcas y reuniones de networking diseñadas para conectarlo con una audiencia más amplia de distribuidores, socios de hospitalidad y líderes de la industria. Estas sesiones de alta energía son perfectas para amplificar la visibilidad de la marca y lanzar nuevas iniciativas en el mercado indio.",
-        ta_int_li1: "Presentaciones de marca de alta visibilidad",
-        ta_int_li2: "Paneles de discusión con expertos de la industria",
-        ta_int_li3: "Eventos abiertos de networking y degustación",
-
-        ta_contact_badge: "FORMULARIO DE CONTACTO",
-        ta_contact_title: "Solicitud de Aplicación para la Aceleradora.",
-        ta_contact_desc:
-          "Complete el formulario a continuación para solicitar los términos del programa, los requisitos de inversión y comenzar su proceso de inscripción.",
-        ta_contact_ph_name: "Su Nombre",
-        ta_contact_ph_phone: "Número de Teléfono",
-        ta_contact_ph_email: "Su Correo Electrónico",
-        ta_contact_ph_company: "Marca / Nombre de la Empresa",
-        ta_contact_ph_message: "Su Mensaje",
-        ta_contact_btn_loading: "Enviando... ⏳",
-        ta_contact_btn_submit: "Enviar Ahora",
-        ta_contact_success: "¡Solicitud enviada con éxito!",
-        ta_contact_err_default: "Algo salió mal.",
-        ta_contact_err_network:
-          "Error de red. Por favor, inténtelo de nuevo más tarde.",
-        trade_pro_title: "Promoción Comercial",
-        trade_pro_subtitle:
-          "Conectando a exportadores con compradores, navegando regulaciones y coordinando misiones que brindan resultados.",
-        trade_pro_for: "Para",
-        trade_pro_img_alt: "Promoción Comercial Bilateral",
-        trade_pro_s1_type: "Exportaciones Mexicanas a la India",
-        trade_pro_s1_badge: "EXPORTACIONES A LA INDIA",
-        trade_pro_s1_desc:
-          "El MIBC apoya a los exportadores mexicanos con inteligencia a medida, emparejamiento (matchmaking) y ejecución en el terreno para desbloquear oportunidades en los mercados de alto crecimiento de la India.",
-        trade_pro_s1_p1:
-          "Identificación de compradores e inteligencia de mercado",
-        trade_pro_s1_p2:
-          "Coordinación de misiones comerciales y emparejamiento B2B",
-        trade_pro_s1_p3: "Soporte de participación para exposiciones indias",
-        trade_pro_s1_p4: "Orientación sobre certificaciones y regulaciones",
-        trade_pro_s1_p5: "Mapeo de distribuidores y socios de canal",
-        trade_pro_s2_type: "Exportaciones Indias a México",
-        trade_pro_s2_badge: "EXPORTACIONES A MÉXICO",
-        trade_pro_s2_desc:
-          "El MIBC permite a los exportadores indios navegar por los requisitos del mercado mexicano y construir relaciones de confianza con los importadores.",
-        trade_pro_s2_p1: "Asesoría de acceso al mercado y análisis de tarifas",
-        trade_pro_s2_p2: "Identificación y presentaciones de importadores",
-        trade_pro_s2_p3: "Soporte de cumplimiento y documentación",
-        trade_pro_s2_p4: "Navegación de aduanas y logística",
-      },
+      int_adv_title: "Inteligencia y Defensa",
+      int_adv_subtitle:
+        "Inteligencia comercial y representación colectiva ante ambos gobiernos.",
+      int_adv_badge: "PERSPECTIVAS ACCIONABLES",
+      int_adv_serv_title: "Servicios de Inteligencia y Defensa",
+      int_adv_serv_desc:
+        "El MIBC proporciona inteligencia comercialmente procesable y una defensa de políticas estructurada que fortalece el corredor comercial México-India. Nuestras perspectivas guían la estrategia, mientras que nuestro compromiso institucional amplifica los intereses de los miembros en ambos gobiernos.",
+      int_adv_item_1:
+        "Informes trimestrales de inteligencia comercial sobre flujos comerciales y oportunidades sectoriales",
+      int_adv_item_2: "Monitoreo regulatorio y alertas de políticas",
+      int_adv_item_3:
+        "Notificaciones de licitaciones y oportunidades de contratación pública",
+      int_adv_item_4: "Defensa de políticas y presentaciones gubernamentales",
+      int_adv_item_5:
+        "Representación colectiva sobre temas de acceso al mercado y facilitación del comercio",
+      int_adv_img_alt: "Reunión de Inteligencia y Defensa Institucional",
+      inv_fac_title: "Facilitación de Inversiones",
+      inv_fac_subtitle:
+        "Soporte de extremo a extremo para empresas que establecen operaciones en México o la India, desde la viabilidad hasta el lanzamiento operativo.",
+      inv_fac_for: "Para",
+      inv_fac_img_alt: "Reunión de Negocios",
+      inv_fac_s1_type: "Empresas Indias",
+      inv_fac_s1_badge: "INGRESANDO A MÉXICO",
+      inv_fac_s1_desc:
+        "El MIBC proporciona apoyo institucional estructurado a las empresas indias que evalúan su expansión a México. Nuestros servicios de facilitación de inversiones reducen los ciclos típicos de entrada al mercado de 18-24 meses a una ejecución estratégica enfocada.",
+      inv_fac_s1_p1: "Evaluación de mercado y análisis de viabilidad",
+      inv_fac_s1_p2: "Evaluación de ubicaciones en los estados mexicanos",
+      inv_fac_s1_p3: "Mapeo de incentivos y modelado de costos de desembarque",
+      inv_fac_s1_p4: "Navegación regulatoria y estructuración de entidades",
+      inv_fac_s1_p5: "Identificación de socios y debida diligencia",
+      inv_fac_s1_p6: "Enlace gubernamental y facilitación de aprobaciones",
+      inv_fac_s1_p7:
+        "Apoyo en el lanzamiento suave y acompañamiento operativo de 12 meses",
+      inv_fac_s2_type: "Empresas Mexicanas",
+      inv_fac_s2_badge: "INGRESANDO A LA INDIA",
+      inv_fac_s2_desc:
+        "La India ofrece uno de los mercados industriales y de consumo de más rápido crecimiento del mundo. El MIBC apoya a las firmas mexicanas con una ejecución estructurada en el terreno para ingresar y escalar en la India.",
+      inv_fac_s2_p1:
+        "Evaluación de mercado y desarrollo de estrategias de entrada",
+      inv_fac_s2_p2: "Identificación de socios y distribuidores",
+      inv_fac_s2_p3: "Navegación regulatoria y estructuración de entidades",
+      inv_fac_s2_p4: "Enlace con el gobierno estatal y mapeo de incentivos",
+      inv_fac_s2_p5: "Apoyo en el lanzamiento suave y acompañamiento operativo",
+      lp_header_badge: "Programa de Aterrizaje Suave",
+      lp_title: "Plataforma India-México",
+      lp_subtitle:
+        "Un programa estructurado de aterrizaje suave que permite a las startups y empresas en etapa de crecimiento establecer operaciones y escalar en el mercado contraparte.",
+      lp_hero_img_alt: "Foro Económico India México",
+      lp_overview_badge: "RESUMEN DE LA PLATAFORMA",
+      lp_overview_title: "Plataforma India-México",
+      lp_overview_desc:
+        "La Plataforma India-México es un ecosistema estructurado de aterrizaje suave diseñado para startups y empresas en etapa de crecimiento que buscan establecer operaciones en el otro mercado. El programa reduce el riesgo de entrada al mercado a través de inteligencia de mercado validada, infraestructura operativa y presentaciones selectas en el ecosistema.",
+      lp_s1_type: "Ingresando a la India",
+      lp_s1_badge: "STARTUPS MEXICANAS",
+      lp_s1_desc:
+        "Desbloquee oportunidades en una de las economías digitales y de consumo más grandes del mundo con nuestro apoyo personalizado de aterrizaje suave.",
+      lp_s1_p1: "Validación de mercado y evaluación de oportunidades",
+      lp_s1_p2: "Instalaciones de oficina virtual en Mumbai/Delhi",
+      lp_s1_p3: "Asesoría regulatoria y de establecimiento de entidades",
+      lp_s1_p4: "Presentaciones a infraestructura bancaria y de pagos",
+      lp_s1_p5: "Presentaciones a inversionistas y socios",
+      lp_s1_p6: "Acceso al ecosistema de incubadoras y aceleradoras indias",
+      lp_s2_type: "Ingresando a México",
+      lp_s2_badge: "STARTUPS INDIAS",
+      lp_s2_desc:
+        "Aproveche la posición estratégica de México como puerta de entrada a las Américas y al mercado del T-MEC con orientación institucional.",
+      lp_s2_p1: "Desarrollo de estrategia de acceso al mercado T-MEC",
+      lp_s2_p2:
+        "Infraestructura de aterrizaje suave en Ciudad de México/Guadalajara",
+      lp_s2_p3: "Constitución de empresas y estructuración legal",
+      lp_s2_p4: "Asesoría en adquisición de talento",
+      lp_s2_p5: "Presentaciones a clientes y socios",
+      lp_s2_p6: "Enlace gubernamental y navegación de incentivos",
+      mem_plans_badge: "Planes de Membresía",
+      mem_plans_title: "Elija su Nivel de Membresía",
+      mem_btn_apply: "Aplicar Ahora",
+      mem_p1_title: "Membresía Corporativa",
+      mem_p1_desc:
+        "Ideal para empresas que buscan expandir el comercio y la inversión entre México e India. Los miembros obtienen acceso a mesas redondas sectoriales, inteligencia de mercado, foros de networking y presentaciones institucionales y comerciales estructuradas.",
+      mem_p2_title: "Miembro Fundador",
+      mem_p2_badge: "EXCLUSIVO",
+      mem_p2_desc:
+        "Diseñado para líderes de la industria que buscan influencia estratégica y acceso prioritario. Los Miembros Fundadores reciben facilitación de primer nivel, que incluye soporte exclusivo para la selección de sitios, emparejamiento de alto nivel seleccionado y compromiso directo con altos funcionarios del gobierno y partes interesadas en políticas.",
+      mem_p3_title: "Membresía Asociada",
+      mem_p3_desc:
+        "Creada para pymes y empresas emergentes que exploran oportunidades bilaterales. Los miembros se benefician de la orientación de entrada al mercado, alertas de oportunidades, programas abiertos e inclusión en la red de negocios y el directorio de miembros del MIBC.",
+      mem_page_hero_badge: "Membresía",
+      mem_page_hero_title: "Únase a la Red",
+      mem_page_hero_desc:
+        "La membresía del MIBC lo conecta con la infraestructura institucional, la inteligencia comercial y las relaciones gubernamentales que definen el éxito en el corredor México-India.",
+      mem_page_hero_btn: "Solicitar Membresía →",
+      mem_page_aud_badge: "Quién Debería Unirse",
+      mem_page_aud_title: "Esta Membresía Está Diseñada Para",
+      mem_page_aud1_title: "Empresas Indias",
+      mem_page_aud1_desc: "Con operaciones en México o interés de expansión",
+      mem_page_aud2_title: "Empresas Mexicanas",
+      mem_page_aud2_desc: "Con operaciones en la India o planes de expansión",
+      mem_page_aud3_title: "Exportadores e Importadores",
+      mem_page_aud3_desc: "Activamente involucrados en el comercio bilateral",
+      mem_page_aud4_title: "Firmas Profesionales",
+      mem_page_aud4_desc:
+        "Legal, contabilidad, logística, banca y cumplimiento",
+      mem_page_aud5_title: "Actores del Ecosistema Comercial",
+      mem_page_aud5_desc: "Organizaciones que apoyan el comercio del corredor",
+      mem_page_ben_badge: "Beneficios para Miembros",
+      mem_page_ben_title: "Lo Que Usted Gana",
+      mem_page_ben1_title: "Inteligencia",
+      mem_page_ben1_desc:
+        "Investigación de mercado, análisis comercial, reuniones trimestrales, actualizaciones regulatorias",
+      mem_page_ben2_title: "Acceso",
+      mem_page_ben2_desc:
+        "Mesas redondas de CEOs, reuniones ministeriales y delegaciones comerciales",
+      mem_page_ben3_title: "Influencia",
+      mem_page_ben3_desc: "Defensa de políticas y representación gubernamental",
+      mem_page_ben4_title: "Soporte",
+      mem_page_ben4_desc:
+        "Emparejamiento, presentaciones, documentación comercial y descuentos",
+      mem_page_jou_badge: "Cómo Solicitar",
+      mem_page_jou_title: "Su Viaje de Membresía",
+      mem_page_jou1_title: "Enviar Consulta",
+      mem_page_jou1_desc: "Complete el formulario de consulta de membresía",
+      mem_page_jou2_title: "Llamada de Introducción",
+      mem_page_jou2_desc: "Llamada introductoria con el equipo del MIBC",
+      mem_page_jou3_title: "Revisión del Comité",
+      mem_page_jou3_desc: "Evaluación del comité de membresía",
+      mem_page_jou4_title: "Bienvenida",
+      mem_page_jou4_desc: "Incorporación y activación",
+      mem_page_jou_btn: "Solicitar Membresía →",
+      mem_form_swal_success_title: "¡Solicitud Enviada!",
+      mem_form_swal_success_text:
+        "Su solicitud de membresía ha sido enviada. Por favor, revise su correo electrónico para ver el mensaje de confirmación.",
+      mem_form_swal_error_default:
+        "Error de red. Por favor, inténtelo de nuevo más tarde.",
+      mem_form_swal_error_title: "Fallo en el Envío",
+      mem_form_badge: "Solicitud de Membresía",
+      mem_form_title: "Solicitar Membresía del MIBC",
+      mem_form_c1_title: "Elija su Nivel de Membresía",
+      mem_form_c1_desc:
+        "Seleccione su plan en la página anterior; se autocompletará aquí.",
+      mem_form_c2_title: "Requisitos de la Solicitud",
+      mem_form_c2_desc:
+        "Proporcione información básica de la empresa, datos de contacto y el compromiso previsto.",
+      mem_form_c3_title: "Después de Enviar",
+      mem_form_c3_desc:
+        "Su solicitud será revisada en un plazo de 3 a 5 días hábiles.",
+      mem_form_ph_tier: "Seleccionar Nivel de Membresía",
+      mem_form_ph_name: "Su Nombre",
+      mem_form_ph_phone: "Número de Teléfono (ej. +52...)",
+      mem_form_ph_email: "Su Correo Electrónico",
+      mem_form_ph_company: "Nombre de la Empresa",
+      mem_form_ph_obj: "Cuéntenos sobre sus objetivos comerciales",
+      mem_form_btn_loading: "Enviando...",
+      mem_form_btn_submit: "Enviar Solicitud",
+      mem_form_img_alt: "Reunión del MIBC",
+      sec_hero_badge: "Sectores",
+      sec_hero_title: "Sectores de Enfoque",
+      sec_hero_desc:
+        "El MIBC ofrece apoyo estratégico en sectores donde el comercio bilateral está creciendo, la inversión se está acelerando y la colaboración está lista para escalar.",
+      sec_c1_badge: "Categoría 1",
+      sec_c1_title: "Inversión India en México",
+      sec_lbl_opp: "OPORTUNIDAD",
+      sec_lbl_act: "ACTIVIDADES CLAVE",
+      sec_lbl_why: "POR QUÉ MÉXICO",
+      sec_lbl_ind: "ACTORES INDIOS",
+      sec_lbl_prod: "PRODUCTOS",
+      sec_lbl_trade: "VALOR COMERCIAL",
+      sec_lbl_focus: "ENFOQUE",
+      sec_c1_card1_title: "Tecnología de la Información",
+      sec_c1_card1_opp: "Entrega nearshore para Norteamérica vía T-MEC",
+      sec_c1_card1_act: "Software, Servicios de TI, BPO, I+D de Ingeniería",
+      sec_c1_card1_why:
+        "Zonas horarias de EE. UU., menores costos, acceso T-MEC",
+      sec_c1_card1_ind: "TCS, Infosys, Wipro, HCL, Tech Mahindra",
+      sec_c1_card2_title: "Productos Farmacéuticos",
+      sec_c1_card2_opp: "Fabricación de genéricos y acceso a LATAM",
+      sec_c1_card2_act: "API, genéricos, investigación clínica, vacunas",
+      sec_c1_card2_why:
+        "Puerta a LATAM, regulación sólida, salud en crecimiento",
+      sec_c1_card2_ind: "Sun Pharma, Dr. Reddy’s, Lupin, Cipla",
+      sec_c1_card3_title: "Automoción y Componentes",
+      sec_c1_card3_opp:
+        "Cadena de suministro de vehículos eléctricos y operaciones Tier-1",
+      sec_c1_card3_act: "Piezas de EV, arneses de cables, piezas fundidas",
+      sec_c1_card3_why:
+        "Acceso a OEM de Detroit, clúster automotriz, reglas del T-MEC",
+      sec_c1_card3_ind: "Motherson Sumi, Tata AutoComp, Bharat Forge",
+      sec_c2_badge: "Categoría 2",
+      sec_c2_title: "Exportaciones Mexicanas a la India",
+      sec_c2_card1_title: "Energía y Minerales",
+      sec_c2_card1_prod:
+        "Petróleo crudo, combustibles refinados, minerales críticos",
+      sec_c2_card1_trade: "Mayor segmento de exportación de México → India",
+      sec_c2_card1_opp: "Diversificación energética y manufactura",
+      sec_c2_card2_title: "Aeroespacial y Defensa",
+      sec_c2_card2_prod: "Piezas de aviones, aviónica, equipo de defensa",
+      sec_c2_card2_trade: "Segmento de exportación de más rápido crecimiento",
+      sec_c2_card2_opp: "Make in India, compensaciones, expansión MRO",
+      sec_c2_card3_title: "Electrónica y Telecomunicaciones",
+      sec_c2_card3_prod:
+        "Hardware de telecomunicaciones, componentes, semiconductores",
+      sec_c2_card3_opp: "Impulso manufacturero de la India, despliegue de 5G",
+      sec_c2_card3_focus: "Misión de semiconductores y cadenas de suministro",
+      sec_c2_card4_title: "Agroalimentos y Bebidas",
+      sec_c2_card4_prod: "Tequila, mezcal, cerveza, alimentos procesados",
+      sec_c2_card4_trade: "Categoría premium de alto crecimiento",
+      sec_c2_card4_opp: "Licores premium de la India y expansión minorista",
+      srv_hero_badge: "Lo Que Hacemos",
+      srv_hero_title1: "Nuestros",
+      srv_hero_title2: "Servicios",
+      srv_hero_desc1: "El MIBC ofrece",
+      srv_hero_desc2: "soporte de nivel institucional",
+      srv_hero_desc3:
+        "que las cámaras y consultores tradicionales no pueden replicar, combinando la coordinación gubernamental, redes operativas y experiencia sectorial construida durante",
+      srv_hero_desc4: "15 años de liderazgo comercial bilateral",
+      srv_hero_btn: "Explorar Soluciones",
+      srv_deliver_title: "Lo Que Entregamos",
+      srv_deliver_desc:
+        "El MIBC va más allá de los servicios de una cámara tradicional. Brindamos promoción comercial de nivel institucional, facilitación de inversiones y soporte de entrada al mercado, desde la evaluación inicial hasta el lanzamiento operativo.",
+      srv_hover_explore: "Pase el ratón para explorar",
+      srv_card1_title: "Facilitación de Inversiones",
+      srv_card1_p1: "Estrategia de Entrada al Mercado",
+      srv_card1_p2: "Selección de Sitios y Bienes Raíces",
+      srv_card1_p3: "Constitución de Entidades",
+      srv_card1_p4: "Cumplimiento Normativo",
+      srv_card2_title: "Promoción Comercial",
+      srv_card2_p1: "Emparejamiento Comprador-Vendedor",
+      srv_card2_p2: "Documentación de Exportación",
+      srv_card2_p3: "Informes de Inteligencia de Mercado",
+      srv_card2_p4: "Asesoría Aduanera y Logística",
+      srv_card3_title: "Facilitación de Delegaciones",
+      srv_card3_p1: "Reuniones B2B de Alto Nivel",
+      srv_card3_p2: "Protocolo VIP y Logística",
+      srv_card3_p3: "Enlace Gubernamental",
+      srv_card3_p4: "Visitas a Sitios y Fábricas",
+      srv_card4_title: "Inteligencia y Defensa",
+      srv_card4_p1: "Análisis Profundos de Sectores",
+      srv_card4_p2: "Representación de Políticas",
+      srv_card4_p3: "Inteligencia Comercial",
+      srv_card4_p4: "Defensa de Acceso al Mercado",
+      srv_process_badge: "Nuestro Proceso",
+      srv_process_title1: "Cómo",
+      srv_process_title2: "Trabajamos",
+      srv_process_desc:
+        "Un modelo de compromiso estructurado diseñado para el éxito transfronterizo, desde la evaluación hasta la escalabilidad.",
+      srv_step1_title: "Descubrimiento y Evaluación",
+      srv_step1_desc:
+        "Consulta inicial, evaluación de oportunidades de mercado, revisión del panorama regulatorio, análisis de competidores y entrega de informes de viabilidad.",
+      srv_step2_title: "Estrategia y Planificación",
+      srv_step2_desc:
+        "Desarrollo de estrategia de entrada al mercado, selección de estado/ciudad, criterios de identificación de socios, hoja de ruta regulatoria y recomendaciones de estructura de inversión.",
+      srv_step3_title: "Ejecución y Facilitación",
+      srv_step3_desc:
+        "Presentaciones gubernamentales, reuniones con socios, soporte de debida diligencia, solicitudes de licencias, visitas a sitios y asistencia en negociación de contratos.",
+      srv_step4_title: "Lanzamiento y Escalamiento",
+      srv_step4_desc:
+        "Coordinación de lanzamiento operativo, activación comercial, monitoreo de desempeño, planificación de expansión y soporte de asesoría continua.",
+      srv_diff_badge: "Diferenciación Competitiva",
+      srv_diff_title: "Por qué el MIBC vs. Otros",
+      srv_diff_desc:
+        "Lo que nos diferencia de las cámaras y consultores tradicionales.",
+      srv_tbl_col1: "Capacidad",
+      srv_tbl_col2: "Cámaras Tradicionales",
+      srv_tbl_col3: "Consultores",
+      srv_tbl_col4: "MIBC",
+      srv_tbl_r1_c1: "Enfoque Principal",
+      srv_tbl_r1_c2: "Eventos de networking",
+      srv_tbl_r1_c3: "Asesoría genérica",
+      srv_tbl_r1_c4: "Facilitación coordinada con el gobierno",
+      srv_tbl_r2_c1: "Modelo de Compromiso",
+      srv_tbl_r2_c2: "Directorios de membresía",
+      srv_tbl_r2_c3: "Proyectos únicos",
+      srv_tbl_r2_c4: "Alianzas institucionales a largo plazo",
+      srv_tbl_r3_c1: "Acceso al Gobierno",
+      srv_tbl_r3_c2: "Sin acceso directo",
+      srv_tbl_r3_c3: "Redes limitadas",
+      srv_tbl_r3_c4: "Canales directos a actores políticos",
+      srv_tbl_r4_c1: "Cobertura Sectorial",
+      srv_tbl_r4_c2: "Generalista",
+      srv_tbl_r4_c3: "Agnóstico de sector",
+      srv_tbl_r4_c4: "Profunda experiencia: TI, Farmacéutica, Auto, A&B",
+      srv_tbl_r5_c1: "Métricas de Éxito",
+      srv_tbl_r5_c2: "Asistencia a eventos",
+      srv_tbl_r5_c3: "Informes entregados",
+      srv_tbl_r5_c4: "Transacciones facilitadas, asociaciones establecidas",
+      srv_adv_title: "Nuestras Ventajas Institucionales",
+      srv_adv_1:
+        "El CEO dirigió oficinas comerciales de México (ProMéxico) y Canadá (Ontario) en India",
+      srv_adv_2:
+        "Más de $500 millones de USD en oportunidades de inversión facilitadas (2011-2025)",
+      srv_adv_3:
+        "Coordinación directa con Consulados, Embajadas y Gobiernos Estatales",
+      srv_adv_4:
+        "Asociaciones activas: CRT, IMBC, CANIFARMA, CANIETI, CII, FICCI",
+      srv_adv_5:
+        "Enfocado en resultados: Éxito = tratos cerrados, no eventos organizados",
+      srv_adv_6:
+        "15 años de liderazgo en comercio bilateral a través de tres gobiernos",
+      login_access_denied:
+        "¡Acceso denegado! Redirigiendo al inicio de sesión...",
+      login_err_invalid: "Credenciales inválidas.",
+      login_err_network: "Error de red. Por favor, inténtelo de nuevo.",
+      login_nav_home: "Inicio",
+      login_nav_cohort: "Cohorte",
+      login_nav_membership: "Membresía",
+      login_nav_contact: "Contacto",
+      login_nav_join: "ÚNETE AL MIBC",
+      login_title: "Bienvenido de nuevo",
+      login_subtitle:
+        "Inicie sesión para acceder al portal de aprendizaje de la Aceleradora de Tequila.",
+      login_label_email: "Correo Electrónico",
+      login_ph_email: "nombre@empresa.com",
+      login_label_password: "Contraseña",
+      login_forgot: "¿Olvidó su contraseña?",
+      login_ph_password: "Ingrese su contraseña",
+      login_btn_loading: "Autenticando... ⏳",
+      login_btn_submit: "Ingresar a la Bóveda",
+      login_footer_text: "¿No tienes una cuenta?",
+      login_footer_link: "Regístrate aquí",
+      ta_nav_home: "Inicio",
+      ta_nav_cohort: "Cohorte",
+      ta_nav_membership: "Membresía",
+      ta_nav_contact: "Contacto",
+      ta_nav_join: "ÚNETE AL MIBC",
+      ta_hero_badge: "Programa Insignia",
+      ta_hero_title: "Aceleradora de Tequila",
+      ta_hero_desc:
+        "Acelere su entrada al mercado de licores premium de la India. Acceso al mercado de nivel institucional para marcas auténticas de tequila mexicano a través de relaciones gubernamentales, experiencia regulatoria y asociaciones de distribución calificadas.",
+      ta_hero_btn_contact: "Contáctenos",
+      ta_hero_btn_brochure: "Descargar Folleto",
+      ta_del_title: "Lo Que Entregamos",
+      ta_del_desc_p1:
+        "La Aceleradora de Tequila reduce los típicos plazos de entrada al mercado de",
+      ta_del_desc_hl1: "18-24 meses",
+      ta_del_desc_p2: "a un programa de ejecución acelerada y enfocada de",
+      ta_del_desc_hl2: "2-3 meses",
+      ta_del_desc_p3:
+        ". Al aprovechar las relaciones gubernamentales, las redes de distribuidores y la experiencia operativa del MIBC, las marcas participantes obtienen un rápido acceso al mercado con menor riesgo e inversión.",
+      ta_del_c1_title: "Inteligencia de Mercado",
+      ta_del_c1_tag: "PERSPECTIVAS",
+      ta_del_c1_i1:
+        "Panorama del mercado de licores de la India y segmentación de consumidores",
+      ta_del_c1_i2: "Análisis de posicionamiento competitivo",
+      ta_del_c1_i3: "Estrategia de precios para el mercado indio",
+      ta_del_c1_i4:
+        "Identificación de canales objetivo (HoReCa, retail, comercio electrónico)",
+      ta_del_c2_title: "Navegación Regulatoria",
+      ta_del_c2_tag: "CUMPLIMIENTO",
+      ta_del_c2_i1:
+        "Licencias estado por estado (28 estados con leyes de impuestos especiales únicas)",
+      ta_del_c2_i2: "Documentación de importación y procedimientos aduaneros",
+      ta_del_c2_i3: "Cumplimiento de etiquetado y embalaje",
+      ta_del_c2_i4: "Registro de impuestos especiales y cumplimiento continuo",
+      ta_del_c3_title: "Distribución y Socios",
+      ta_del_c3_tag: "SOCIOS",
+      ta_del_c3_i1:
+        "Presentaciones seleccionadas a los principales importadores y distribuidores",
+      ta_del_c3_i2:
+        "Conexiones con socios de hospitalidad (hoteles premium, bares)",
+      ta_del_c3_i3: "Facilitación y acompañamiento del primer cliente",
+      ta_del_c3_i4: "Apoyo en la negociación de contratos",
+      ta_del_c4_title: "Soporte para Lanzamiento de Marca",
+      ta_del_c4_tag: "LANZAMIENTO",
+      ta_del_c4_i1: "Coordinación de eventos de lanzamiento en metros clave",
+      ta_del_c4_i2: "Alcance comercial y al consumidor",
+      ta_del_c4_i3: "Conexiones con medios e influencers",
+      ta_del_c4_i4: "Soporte continuo para el desarrollo del mercado",
+      ta_time_main_title: "Cronograma y Entregables",
+      ta_time_sub_title: "Estructura de Programa Acelerado de 2 a 3 Meses",
+      ta_time_desc:
+        "A diferencia de las consultorías tradicionales de entrada al mercado que requieren de 18 a 24 meses, la Aceleradora de Tequila ofrece una ejecución enfocada y orientada a resultados en 2 a 3 meses a través de las redes institucionales del MIBC y relaciones preestablecidas.",
+      ta_time_p1_title: "Semanas 1-3: Evaluación y Estrategia de Mercado",
+      ta_time_p1_i1_t: "Informe de Mercado Completo:",
+      ta_time_p1_i1_d:
+        "Resumen del mercado de licores de la India, análisis de la categoría de tequila, panorama competitivo y perspectivas del consumidor",
+      ta_time_p1_i2_t: "Matriz de Oportunidades a Nivel Estatal:",
+      ta_time_p1_i2_d:
+        "Identificación de estados prioritarios basados en el tamaño del mercado, la complejidad regulatoria y las barreras de entrada",
+      ta_time_p1_i3_t: "Estrategia de Precios y Posicionamiento:",
+      ta_time_p1_i3_d:
+        "Precios minoristas recomendados, estrategia de canales y marco de posicionamiento competitivo",
+      ta_time_p1_i4_t: "Hoja de Ruta de Cumplimiento Normativo:",
+      ta_time_p1_i4_d:
+        "Requisitos de licencias estado por estado, listas de verificación de documentación y plazos de cumplimiento",
+      ta_time_p2_title: "Semanas 4-6: Identificación y Compromiso de Socios",
+      ta_time_p2_i1_t: "Lista Restringida de Distribuidores:",
+      ta_time_p2_i1_d:
+        "Lista curada de 8-10 importadores/distribuidores calificados con historial en licores premium",
+      ta_time_p2_i2_t: "Presentaciones Facilitadas:",
+      ta_time_p2_i2_d:
+        "Reuniones organizadas con socios preseleccionados, incluidas presentaciones dirigidas por MIBC y apoyo de debida diligencia",
+      ta_time_p2_i3_t: "Negociación de Asociaciones:",
+      ta_time_p2_i3_d:
+        "Revisión de contratos, negociación de términos comerciales y asesoría en la estructuración de asociaciones",
+      ta_time_p2_i4_t: "Asociaciones de Hospitalidad:",
+      ta_time_p2_i4_d:
+        "Presentaciones a hoteles premium, restaurantes y bares para la colocación inicial",
+      ta_time_p3_title:
+        "Semanas 7-10: Ejecución Regulatoria y Preparación de Lanzamiento",
+      ta_time_p3_i1_t: "Solicitudes de Licencias:",
+      ta_time_p3_i1_d:
+        "Solicitudes de licencia FL-I presentadas en estados prioritarios con apoyo de enlace del MIBC",
+      ta_time_p3_i2_t: "Documentación de Importación:",
+      ta_time_p3_i2_d:
+        "Trámites de importación completos, coordinación de despacho de aduanas y facilitación del primer envío",
+      ta_time_p3_i3_t: "Aprobaciones de Etiquetas:",
+      ta_time_p3_i3_d:
+        "Diseños de etiquetas específicos del estado presentados y aprobados en los mercados objetivo",
+      ta_time_p3_i4_t: "Planificación del Evento de Lanzamiento:",
+      ta_time_p3_i4_d:
+        "Diseño del evento de lanzamiento de la marca, selección del lugar, desarrollo de la lista de invitados y coordinación de medios",
+      ta_time_p4_title: "Semanas 11-12: Lanzamiento al Mercado",
+      ta_time_p4_i1_t: "Eventos de Lanzamiento de Marca:",
+      ta_time_p4_i1_d:
+        "Ejecución de eventos de lanzamiento en Mumbai, Delhi y Bangalore con presencia comercial y de medios",
+      ta_time_p4_i2_t: "Activación de Canales:",
+      ta_time_p4_i2_d:
+        "Despliegue de materiales de punto de venta, coordinación de capacitación del personal y lanzamiento de campaña promocional",
+      ta_time_p4_i3_t: "Compromiso de Medios e Influencers:",
+      ta_time_p4_i3_d:
+        "Comunicados de prensa, campañas en redes sociales y asociaciones con influencers",
+      ta_time_p4_i4_t: "Asesoría Post-Lanzamiento:",
+      ta_time_p4_i4_d:
+        "Soporte de asesoría de 3 meses para optimización del rendimiento y planificación de expansión del mercado",
+      ta_q_badge: "Inscripción al Programa",
+      ta_q_title: "Cuestionarios de Aplicación",
+      ta_q_desc:
+        "Seleccione la fase adecuada a continuación. Será redirigido al portal dedicado para completar su solicitud de manera segura.",
+      ta_q_c1_title: "Cuestionario Inicial",
+      ta_q_c1_desc:
+        "Detalles básicos de la empresa, categorías de productos y verificación de preparación para la exportación.",
+      ta_q_c1_btn: "Iniciar Evaluación",
+      ta_q_c2_title: "Cuestionario Fase 1",
+      ta_q_c2_desc:
+        "SKUs de productos detallados, precios, capacidad de producción y cumplimiento.",
+      ta_q_c2_btn: "Iniciar Fase 1",
+      ta_q_c3_title: "Cuestionario Fase 2",
+      ta_q_c3_desc:
+        "Ejecución, asociaciones de distribución y preparación para el lanzamiento de la marca.",
+      ta_q_c3_btn: "Iniciar Fase 2",
+      ta_strat_badge: "Compromisos y Redes",
+      ta_strat_title: "Programas de Conexión Estratégica",
+      ta_strat_desc:
+        "Facilitando el comercio bilateral de alto nivel a través de compromisos a medida.",
+      ta_strat_h3: "Compromisos Exclusivos Uno a Uno",
+      ta_strat_p:
+        "Nuestra consulta individualizada se centró en comprender la visión de la empresa e identificar el mejor camino para ingresar al mercado indio. Juntos, discutimos oportunidades de mercado, requisitos regulatorios, estrategias de distribución y crecimiento comercial a largo plazo para construir una hoja de ruta personalizada para el éxito.",
+      ta_strat_li1: "Estrategia de Entrada al Mercado",
+      ta_strat_li2: "Orientación Regulatoria y de Cumplimiento",
+      ta_strat_li3: "Identificación de Socios de Distribución",
+      ta_strat_li4: "Plan de Crecimiento y Expansión a Largo Plazo",
+      ta_int_title: "Sesiones Grupales Interactivas",
+      ta_int_desc:
+        "Seminarios a gran escala, exhibiciones de marcas y reuniones de networking diseñadas para conectarlo con una audiencia más amplia de distribuidores, socios de hospitalidad y líderes de la industria. Estas sesiones de alta energía son perfectas para amplificar la visibilidad de la marca y lanzar nuevas iniciativas en el mercado indio.",
+      ta_int_li1: "Presentaciones de marca de alta visibilidad",
+      ta_int_li2: "Paneles de discusión con expertos de la industria",
+      ta_int_li3: "Eventos abiertos de networking y degustación",
+      ta_contact_badge: "FORMULARIO DE CONTACTO",
+      ta_contact_title: "Solicitud de Aplicación para la Aceleradora.",
+      ta_contact_desc:
+        "Complete el formulario a continuación para solicitar los términos del programa, los requisitos de inversión y comenzar su proceso de inscripción.",
+      ta_contact_ph_name: "Su Nombre",
+      ta_contact_ph_phone: "Número de Teléfono",
+      ta_contact_ph_email: "Su Correo Electrónico",
+      ta_contact_ph_company: "Marca / Nombre de la Empresa",
+      ta_contact_ph_message: "Su Mensaje",
+      ta_contact_btn_loading: "Enviando... ⏳",
+      ta_contact_btn_submit: "Enviar Ahora",
+      ta_contact_success: "¡Solicitud enviada con éxito!",
+      ta_contact_err_default: "Algo salió mal.",
+      ta_contact_err_network:
+        "Error de red. Por favor, inténtelo de nuevo más tarde.",
+      trade_pro_title: "Promoción Comercial",
+      trade_pro_subtitle:
+        "Conectando a exportadores con compradores, navegando regulaciones y coordinando misiones que brindan resultados.",
+      trade_pro_for: "Para",
+      trade_pro_img_alt: "Promoción Comercial Bilateral",
+      trade_pro_s1_type: "Exportaciones Mexicanas a la India",
+      trade_pro_s1_badge: "EXPORTACIONES A LA INDIA",
+      trade_pro_s1_desc:
+        "El MIBC apoya a los exportadores mexicanos con inteligencia a medida, emparejamiento (matchmaking) y ejecución en el terreno para desbloquear oportunidades en los mercados de alto crecimiento de la India.",
+      trade_pro_s1_p1:
+        "Identificación de compradores e inteligencia de mercado",
+      trade_pro_s1_p2:
+        "Coordinación de misiones comerciales y emparejamiento B2B",
+      trade_pro_s1_p3: "Soporte de participación para exposiciones indias",
+      trade_pro_s1_p4: "Orientación sobre certificaciones y regulaciones",
+      trade_pro_s1_p5: "Mapeo de distribuidores y socios de canal",
+      trade_pro_s2_type: "Exportaciones Indias a México",
+      trade_pro_s2_badge: "EXPORTACIONES A MÉXICO",
+      trade_pro_s2_desc:
+        "El MIBC permite a los exportadores indios navegar por los requisitos del mercado mexicano y construir relaciones de confianza con los importadores.",
+      trade_pro_s2_p1: "Asesoría de acceso al mercado y análisis de tarifas",
+      trade_pro_s2_p2: "Identificación y presentaciones de importadores",
+      trade_pro_s2_p3: "Soporte de cumplimiento y documentación",
+      trade_pro_s2_p4: "Navegación de aduanas y logística",
     },
   },
 };
+
 i18n.use(initReactI18next).init({
   resources,
   lng: "en", // default language
