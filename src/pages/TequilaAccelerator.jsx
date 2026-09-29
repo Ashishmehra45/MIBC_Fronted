@@ -650,8 +650,8 @@ const StrategicConnectSection = () => {
 
   // Aap yahan apni 3-4 images ke URLs daal sakte hain
  const images = [
-  "/Tequila_img/rubi martin 1.PNG",
-  "/Tequila_img/new pic 1.PNG",
+  "/Tequila_img/rubi-martin-1.PNG",
+  "/Tequila_img/new-pic-1.PNG",
   "/Tequila_img/dianaa.PNG",
 ];
 
