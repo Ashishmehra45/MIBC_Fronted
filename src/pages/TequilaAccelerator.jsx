@@ -649,11 +649,11 @@ const StrategicConnectSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Aap yahan apni 3-4 images ke URLs daal sakte hain
-  const images = [
-    "public/Tequila_img/rubi martin 1.PNG", // Placeholder 2
-    "public/Tequila_img/new pic 1.PNG", // Placeholder 1
-    "public/Tequila_img/dianaa.PNG", // Placeholder 3
-  ];
+ const images = [
+  "/Tequila_img/rubi martin 1.PNG",
+  "/Tequila_img/new pic 1.PNG",
+  "/Tequila_img/dianaa.PNG",
+];
 
   // Auto-slide logic for 2 seconds (2000 ms)
   useEffect(() => {
