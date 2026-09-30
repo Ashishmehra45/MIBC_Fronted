@@ -24,6 +24,10 @@ import memberImg2 from "../assets/images/services/Founding.jpeg";
 import memberImg3 from "../assets/images/services/Associate.jpeg";
 
 import MIBCpdf from "../assets/pdf/MIBC_Membership_plans.pdf";
+import TequilaEventsPopup from '../components/TequilaEventsPopup';
+
+import investment from "/investment.jpg"
+import trade from "/trade.png"
 
 const Home = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
@@ -126,13 +130,13 @@ const Home = () => {
               {
                 title: t("home_approach_card1_title"),
                 desc: t("home_approach_card1_desc"),
-                img: img1, 
+                img: investment, 
                 path: "/services/investment-facilitation",
               },
               {
                 title: t("home_approach_card2_title"),
                 desc: t("home_approach_card2_desc"),
-                img: img4, 
+                img: trade, 
                 path: "/services/trade-promotion",
               },
               {
@@ -555,6 +559,7 @@ const Home = () => {
 
         </div>
       </section>
+      <TequilaEventsPopup />  
     </div>
   );
 };
