@@ -198,7 +198,7 @@ const Home = ({ videoSrc }) => {
             {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
           </button>
 
-          <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center pointer-events-none">
+          {/* <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center pointer-events-none">
             <div className="flex flex-row items-center justify-center gap-4 md:gap-10 px-3 w-full md:mt-[60vh] pointer-events-auto">
               <Link
                 to="/services"
@@ -217,7 +217,7 @@ const Home = ({ videoSrc }) => {
                 </span>
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
