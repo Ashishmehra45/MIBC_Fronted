@@ -137,7 +137,7 @@ const TequilaEventsPopup = () => {
                         {event.desc}
                       </p>
                       <Link 
-                        to="//tequila-accelerator" 
+                        to="/tequila-accelerator" 
                         onClick={handleClose}
                         className="inline-block bg-[#1a1a1a] dark:bg-white text-white dark:text-black hover:bg-[#A98842] dark:hover:bg-[#A98842] hover:text-white px-10 py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors shadow-md"
                       >
