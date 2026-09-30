@@ -14,18 +14,19 @@ const TequilaEventsPopup = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
-  // 🔴 YAHAN CHANGE KIYA HAI: Bina kisi delay ke turant open hoga
+  // 🔴 PRODUCTION MODE: Session storage check karega.
+  // Agar user ne cut (X) kar diya hai, toh wapas nahi khulega current session me.
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem("mibc_tequila_popup_seen");
     
     if (!hasSeenPopup) {
-      setIsOpen(true); // Instant open, koi timer nahi
+      setIsOpen(true); // Instant open on first visit
     }
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem("mibc_tequila_popup_seen", "true"); // Ek baar close karne pe wapas nahi aayega
+    sessionStorage.setItem("mibc_tequila_popup_seen", "true"); // Cut karte hi session memory me save ho jayega
   };
 
   // Tequila Specific Event Data
@@ -34,24 +35,24 @@ const TequilaEventsPopup = () => {
       id: 1,
       image: "/Tequila_img/rubi-martin-1.PNG",
       title: t("teq_pop_e1_title", "Premium Tequila Tasting & Networking"),
-      date: t("teq_pop_e1_date", "Nov 28, 2025"),
       location: t("teq_pop_e1_loc", "Mumbai, India"),
+      date: t("teq_pop_e1_date", "Nov 28, 2025"),
       desc: t("teq_pop_e1_desc", "An exclusive evening introducing authentic Mexican Tequila to India's top hospitality leaders, mixologists, and F&B directors."),
     },
     {
       id: 2,
       image: "/Tequila_img/new-pic-1.PNG",
       title: t("teq_pop_e2_title", "B2B Matchmaking with Importers"),
+      location: t("teq_pop_e2_loc", "Mumbai, India"),
       date: t("teq_pop_e2_date", "Dec 10, 2025"),
-      location: t("teq_pop_e2_loc", "New Delhi, India"),
       desc: t("teq_pop_e2_desc", "Dedicated B2B sessions connecting premium Mexican Tequila brands with India's leading spirits distributors and importers."),
     },
     {
       id: 3,
       image: "/Tequila_img/dianaa.PNG",
       title: t("teq_pop_e3_title", "Agave Masterclass & Education"),
+      location: t("teq_pop_e3_loc", "Bhopal, India"),
       date: t("teq_pop_e3_date", "Jan 15, 2026"),
-      location: t("teq_pop_e3_loc", "Bangalore, India"),
       desc: t("teq_pop_e3_desc", "A deep-dive educational session on the heritage, production processes, and tasting profiles of 100% Blue Agave Tequila."),
     },
     {
@@ -71,22 +72,26 @@ const TequilaEventsPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          // Background overlay: Ispe click karne se bhi band ho jayega
-          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md"
           onClick={handleClose} 
         >
           <motion.div
-            initial={{ scale: 0.9, y: 20, opacity: 0 }}
+            initial={{ scale: 0.95, y: 30, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
-            exit={{ scale: 0.9, y: 20, opacity: 0 }}
+            exit={{ scale: 0.95, y: 30, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            onClick={(e) => e.stopPropagation()} // Popup ke content pe click karne se band nahi hoga
-            className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-[24px] overflow-hidden shadow-2xl relative border border-gray-100 dark:border-slate-800"
+            onClick={(e) => e.stopPropagation()} 
+            className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-[24px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] relative border border-gray-100 dark:border-slate-800"
           >
-            {/* 🔴 CROSS (X) BUTTON YAHAN HAI */}
+            {/* RECENT EVENTS HEADING BAR */}
+            <div className="bg-[#eae9e3] text-[#A98842] text-center py-3 font-black text-sm uppercase tracking-[0.3em] border-b border-[#A98842]/20">
+              {t("teq_pop_recent_heading", "Recently Hosted Events")}
+            </div>
+
+            {/* CROSS (X) BUTTON */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-[#A98842] text-white p-2 rounded-full backdrop-blur-md transition-colors shadow-lg"
+              className="absolute top-14 right-4 z-50 bg-black/50 hover:bg-[#A98842] text-white p-2 rounded-full backdrop-blur-md transition-colors shadow-lg"
               title="Close"
             >
               <X size={24} strokeWidth={2.5} />
@@ -103,8 +108,8 @@ const TequilaEventsPopup = () => {
               {tequilaEvents.map((event) => (
                 <SwiperSlide key={event.id}>
                   <div className="flex flex-col h-full">
-                    {/* Image Section */}
-                    <div className="relative h-64 w-full">
+                    {/* Image Section - Height kept at h-72 */}
+                    <div className="relative h-72 w-full">
                       <img
                         src={event.image}
                         alt={event.title}
@@ -112,38 +117,33 @@ const TequilaEventsPopup = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                       
-                      {/* Top Badge */}
-                      <div className="absolute top-4 left-4 bg-[#A98842] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-md">
-                        {t("teq_pop_badge", "Tequila Accelerator")}
-                      </div>
-                      
                       {/* Date & Location Over Image */}
-                      <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center text-white text-xs font-medium">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar size={14} className="text-[#A98842]" />
+                      <div className="absolute bottom-5 left-5 right-5 flex justify-between items-center text-white text-sm font-medium">
+                        <div className="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-md backdrop-blur-sm">
+                          <Calendar size={16} className="text-[#A98842]" />
                           <span>{event.date}</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <MapPin size={14} className="text-[#A98842]" />
+                        <div className="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-md backdrop-blur-sm">
+                          <MapPin size={16} className="text-[#A98842]" />
                           <span>{event.location}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Content Section */}
-                    <div className="p-6 md:p-8 text-center bg-white dark:bg-slate-900">
-                      <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">
+                    <div className="p-8 md:p-10 text-center bg-white dark:bg-slate-900">
+                      <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
                         {event.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 font-medium h-[60px] flex items-center justify-center">
+                      <p className="text-gray-600 dark:text-gray-400 text-[15px] md:text-base leading-relaxed mb-8 font-medium h-[60px] flex items-center justify-center">
                         {event.desc}
                       </p>
                       <Link 
                         to="/events-gallery" 
                         onClick={handleClose}
-                        className="inline-block bg-[#1a1a1a] dark:bg-white text-white dark:text-black hover:bg-[#A98842] dark:hover:bg-[#A98842] hover:text-white px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors shadow-md"
+                        className="inline-block bg-[#1a1a1a] dark:bg-white text-white dark:text-black hover:bg-[#A98842] dark:hover:bg-[#A98842] hover:text-white px-10 py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors shadow-md"
                       >
-                        {t("teq_pop_btn", "View All Events")}
+                        {t("teq_pop_btn", "View Gallery")}
                       </Link>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ const TequilaEventsPopup = () => {
               __html: `
                 .popup-swiper .swiper-pagination-bullet { background: #ffffff; opacity: 0.5; }
                 .popup-swiper .swiper-pagination-bullet-active { background: #A98842; opacity: 1; width: 20px; border-radius: 10px; }
-                .popup-swiper .swiper-pagination { bottom: 38% !important; }
+                .popup-swiper .swiper-pagination { bottom: 42% !important; }
               `
             }} />
           </motion.div>
