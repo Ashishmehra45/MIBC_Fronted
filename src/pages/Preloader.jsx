@@ -52,7 +52,7 @@ const Preloader = () => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="fixed top-0 left-0 w-screen h-[100dvh] z-[9999] bg-[#111111] flex flex-col items-center justify-center overflow-hidden"
+         className="fixed inset-0 w-screen h-[100dvh] z-[2147483647] bg-[#111111] flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Background Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#A98842]/10 rounded-full blur-[100px]" />
