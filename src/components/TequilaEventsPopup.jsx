@@ -35,32 +35,30 @@ const TequilaEventsPopup = () => {
       id: 1,
       image: "/Tequila_img/rubi-martin-1.PNG",
       title: t("teq_pop_e1_title", "Premium Tequila Tasting & Networking"),
-      location: t("teq_pop_e1_loc", "Mumbai, India"),
-      date: t("teq_pop_e1_date", "Nov 28, 2025"),
+      
+     
       desc: t("teq_pop_e1_desc", "An exclusive evening introducing authentic Mexican Tequila to India's top hospitality leaders, mixologists, and F&B directors."),
     },
     {
       id: 2,
       image: "/Tequila_img/new-pic-1.PNG",
       title: t("teq_pop_e2_title", "B2B Matchmaking with Importers"),
-      location: t("teq_pop_e2_loc", "Mumbai, India"),
-      date: t("teq_pop_e2_date", "Dec 10, 2025"),
+     
+     
       desc: t("teq_pop_e2_desc", "Dedicated B2B sessions connecting premium Mexican Tequila brands with India's leading spirits distributors and importers."),
     },
     {
       id: 3,
       image: "/Tequila_img/dianaa.PNG",
       title: t("teq_pop_e3_title", "Agave Masterclass & Education"),
-      location: t("teq_pop_e3_loc", "Bhopal, India"),
-      date: t("teq_pop_e3_date", "Jan 15, 2026"),
+     
       desc: t("teq_pop_e3_desc", "A deep-dive educational session on the heritage, production processes, and tasting profiles of 100% Blue Agave Tequila."),
     },
     {
       id: 4,
       image: "/Tequila_img/c5f6c971-7df3-418f-af50-79af8e979393.jpg",
       title: t("teq_pop_e4_title", "Tequila Accelerator Launch Gala"),
-      date: t("teq_pop_e4_date", "Feb 05, 2026"),
-      location: t("teq_pop_e4_loc", "Mumbai, India"),
+     
       desc: t("teq_pop_e4_desc", "The official launch of the MIBC Tequila Accelerator, celebrating bilateral trade expansion in the premium beverage sector."),
     }
   ];
@@ -139,11 +137,11 @@ const TequilaEventsPopup = () => {
                         {event.desc}
                       </p>
                       <Link 
-                        to="/events-gallery" 
+                        to="//tequila-accelerator" 
                         onClick={handleClose}
                         className="inline-block bg-[#1a1a1a] dark:bg-white text-white dark:text-black hover:bg-[#A98842] dark:hover:bg-[#A98842] hover:text-white px-10 py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors shadow-md"
                       >
-                        {t("teq_pop_btn", "View Gallery")}
+                        {t("teq_pop_btn", "View Events")}
                       </Link>
                     </div>
                   </div>
