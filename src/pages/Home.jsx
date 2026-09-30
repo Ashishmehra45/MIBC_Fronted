@@ -37,7 +37,7 @@ import TequilaEventsPopup from "../components/TequilaEventsPopup";
 
 // 🔴 Fix 2: Agar video public folder me hai, to ise import mat kar, direct string path use kar.
 // Agar src folder me hai to isko import importedVideoSrc from ... karde
-import importedVideoSrc from "/MIBC Final.mp4";
+import importedVideoSrc from "/MIBC-hero.mp4";
 
 import investment from "/investment.jpg";
 import trade from "/trade.png";
