@@ -1,7 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
+import {
+  ArrowRight,
+  Building2,
+  Globe2,
+  Landmark,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
-import videoSrc from "../assets/images/services/BUSINESS cOUNCIL.mp4";
+import { useTranslation } from "react-i18next";
+
 import img1 from "../assets/images/services/End-To-End.jpeg";
 import img2 from "../assets/images/services/site.jpeg";
 import img3 from "../assets/images/services/Entity setup & launch.jpeg";
@@ -24,92 +33,191 @@ import memberImg2 from "../assets/images/services/Founding.jpeg";
 import memberImg3 from "../assets/images/services/Associate.jpeg";
 
 import MIBCpdf from "../assets/pdf/MIBC_Membership_plans.pdf";
-import TequilaEventsPopup from '../components/TequilaEventsPopup';
+import TequilaEventsPopup from "../components/TequilaEventsPopup";
 
-import investment from "/investment.jpg"
-import trade from "/trade.png"
+// 🔴 Fix 2: Agar video public folder me hai, to ise import mat kar, direct string path use kar.
+// Agar src folder me hai to isko import importedVideoSrc from ... karde
+import importedVideoSrc from "/MIBC Final.mp4";
 
-const Home = () => {
-  const { t } = useTranslation(); // <-- 2. Hook initialize kiya
-  const [activeTab, setActiveTab] = useState("investment");
-  const [flippedCard, setFlippedCard] = useState(null);
+import investment from "/investment.jpg";
+import trade from "/trade.png";
 
-  const toggleFlip = (id) => {
-    setFlippedCard(flippedCard === id ? null : id);
+// Real project assets
+import IndianCompaniesImg from "../assets/images/blog/investment.png";
+import MexicanExportersImg from "../assets/images/blog/trade.png";
+import GovInstitutionsImg from "../assets/images/blog/advocacy.png";
+
+// 🔴 Fix 1: Counter component ko Home ke bahar nikal diya!
+const Counter = ({ value, duration = 2 }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          let start = 0;
+          const end = parseInt(value);
+          if (start === end) return;
+
+          let totalMilisekondsCount = duration * 1000;
+          let incrementTime = totalMilisekondsCount / end;
+
+          let timer = setInterval(() => {
+            start += 1;
+            setCount(start);
+            if (start === end) clearInterval(timer);
+          }, incrementTime);
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (countRef.current) observer.observe(countRef.current);
+    return () => observer.disconnect();
+  }, [value, hasStarted, duration]);
+
+  return <span ref={countRef}>{count}</span>;
+};
+
+// Main Home Component
+const Home = ({ videoSrc }) => {
+  const { t } = useTranslation();
+
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  // Use prop if passed, else fallback to imported video
+  const finalVideoSrc = videoSrc || importedVideoSrc;
+
+  // Intersection Observer logic for Video (Scroll detection)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoRef.current
+              ?.play()
+              .catch((error) => console.log("Play interrupted", error));
+          } else {
+            videoRef.current?.pause();
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
   };
 
-  const Counter = ({ value, duration = 2 }) => {
-    const [count, setCount] = useState(0);
-    const countRef = useRef(null);
-    const [hasStarted, setHasStarted] = useState(false);
+  const personas = [
+    {
+      id: 1,
+      title: t("who_c1_title", "For Indian Companies"),
+      desc: t(
+        "who_c1_desc",
+        "You're looking to nearshore into the USMCA market, set up manufacturing in Mexico, or access North America's $30T economy.",
+      ),
+      btnText: t("who_c1_btn", "Explore India to Mexico"),
+      link: "/services",
+      image: IndianCompaniesImg,
+      icon: <Building2 size={24} className="text-[#A98842]" />,
+    },
+    {
+      id: 2,
+      title: t("who_c2_title", "For Mexican Exporters"),
+      desc: t(
+        "who_c2_desc",
+        "You want to enter India's 1.4 billion-consumer market with tequila, agri-food, minerals, or manufactured goods.",
+      ),
+      btnText: t("who_c2_btn", "Explore Mexico to India"),
+      link: "/services",
+      image: MexicanExportersImg,
+      icon: <Globe2 size={24} className="text-[#A98842]" />,
+    },
+    {
+      id: 3,
+      title: t("who_c3_title", "For Gov. & Institutions"),
+      desc: t(
+        "who_c3_desc",
+        "You need a structured bilateral delegation, policy representation, or commercial intelligence on the corridor.",
+      ),
+      btnText: t("who_c3_btn", "Talk to Us"),
+      link: "/contact",
+      image: GovInstitutionsImg,
+      icon: <Landmark size={24} className="text-[#A98842]" />,
+    },
+  ];
 
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && !hasStarted) {
-            setHasStarted(true);
-            let start = 0;
-            const end = parseInt(value);
-            if (start === end) return;
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.7, ease: "easeOut" },
+  };
 
-            let totalMilisekondsCount = duration * 1000;
-            let incrementTime = totalMilisekondsCount / end;
-
-            let timer = setInterval(() => {
-              start += 1;
-              setCount(start);
-              if (start === end) clearInterval(timer);
-            }, incrementTime);
-          }
-        },
-        { threshold: 0.5 },
-      );
-
-      if (countRef.current) observer.observe(countRef.current);
-      return () => observer.disconnect();
-    }, [value, hasStarted, duration]);
-
-    return <span ref={countRef}>{count}</span>;
+  const staggerContainer = {
+    initial: {},
+    whileInView: { transition: { staggerChildren: 0.2 } },
   };
 
   return (
     <div className="w-full bg-[#f4faff] dark:bg-slate-950 min-h-screen font-sans transition-colors duration-500">
-      {/* 1. HERO SECTION */}
-      <section className="md:h-[40vw] w-full flex flex-col items-center overflow-hidden">
-        <div className="relative w-full h-[25vh] md:h-[100%] z-0">
+      {/* VIDEO SECTION */}
+      <section className="md:h-[42vw] w-full flex flex-col items-center overflow-hidden">
+        <div className="relative w-full h-[25vh] md:h-[100%] object-contain z-0">
           <video
-            autoPlay
-            muted
+            ref={videoRef}
+            muted={isMuted}
             loop
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={finalVideoSrc} type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center">
-  <div className="flex flex-row items-center justify-center gap-4 md:gap-10 px-3 w-full md:mt-[60vh]">
+          <button
+            onClick={toggleMute}
+            className="absolute top-4 right-4 md:top-8 md:right-8 z-[60] bg-black/40 hover:bg-[#A98842] text-white p-2 md:p-3 rounded-full backdrop-blur-md transition-colors shadow-lg border border-white/20"
+            title={isMuted ? "Unmute Video" : "Mute Video"}
+          >
+            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+          </button>
 
-    <Link
-      to="/services"
-      className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
-    >
-      <span className="text-[11px] md:text-[15px]">
-        {t("home_explore_services")}
-      </span>
-    </Link>
-
-    <Link
-      to="/contact"
-      className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
-    >
-      <span className="text-[11px] md:text-[15px]">
-        {t("home_contact_us")}
-      </span>
-    </Link>
-
-  </div>
-</div>
+          <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center pointer-events-none">
+            <div className="flex flex-row items-center justify-center gap-4 md:gap-10 px-3 w-full md:mt-[60vh] pointer-events-auto">
+              <Link
+                to="/services"
+                className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
+              >
+                <span className="text-[11px] md:text-[15px]">
+                  {t("home_explore_services")}
+                </span>
+              </Link>
+              <Link
+                to="/contact"
+                className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
+              >
+                <span className="text-[11px] md:text-[15px]">
+                  {t("home_contact_us")}
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -130,19 +238,19 @@ const Home = () => {
               {
                 title: t("home_approach_card1_title"),
                 desc: t("home_approach_card1_desc"),
-                img: investment, 
+                img: investment,
                 path: "/services/investment-facilitation",
               },
               {
                 title: t("home_approach_card2_title"),
                 desc: t("home_approach_card2_desc"),
-                img: trade, 
+                img: trade,
                 path: "/services/trade-promotion",
               },
               {
                 title: t("home_approach_card3_title"),
                 desc: t("home_approach_card3_desc"),
-                img: img7, 
+                img: img7,
                 path: "/services/intelligence-advocacy",
               },
             ].map((card, idx) => (
@@ -157,7 +265,6 @@ const Home = () => {
                     alt={card.title}
                   />
                 </div>
-                
                 <div className="p-8 flex flex-col flex-grow items-start">
                   <h4 className="text-xl font-extrabold text-black dark:text-white leading-tight mb-4 transition-colors">
                     {card.title}
@@ -165,7 +272,6 @@ const Home = () => {
                   <p className="text-gray-800 dark:text-gray-400 text-[16px] leading-relaxed mb-8 flex-grow transition-colors line-clamp-2">
                     {card.desc}
                   </p>
-                  
                   <div className="mt-auto">
                     <Link
                       to={card.path}
@@ -194,7 +300,6 @@ const Home = () => {
                 />
               </div>
             </div>
-
             <div className="w-full lg:w-1/2 space-y-8">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight transition-colors">
                 {t("home_what_is_title")}
@@ -241,8 +346,7 @@ const Home = () => {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-[#b38e44] text-3xl md:text-4xl font-bold">
-                    $<Counter value="30" />
-                    Trillion
+                    $<Counter value="30" /> Trillion
                   </h3>
                   <p className="text-slate-800 dark:text-gray-300 font-bold text-sm md:text-base uppercase tracking-wider transition-colors">
                     {t("home_stat2_label")}
@@ -301,7 +405,16 @@ const Home = () => {
                 img: img10,
                 isLarge: true,
                 icon: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <rect width="20" height="14" x="2" y="3" rx="2" />
                     <line x1="8" y1="21" x2="16" y2="21" />
                     <line x1="12" y1="17" x2="12" y2="21" />
@@ -313,7 +426,16 @@ const Home = () => {
                 title: t("home_sec2_title"),
                 img: img11,
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
                     <path d="m8.5 8.5 7 7" />
                   </svg>
@@ -324,7 +446,16 @@ const Home = () => {
                 title: t("home_sec3_title"),
                 img: img12,
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M10 17h4V2" />
                     <path d="M10 17v-5h4v5" />
                     <path d="M8 22h8" />
@@ -337,7 +468,16 @@ const Home = () => {
                 title: t("home_sec4_title"),
                 img: img13,
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8" />
                     <path d="M5 20h14" />
                     <path d="M15 7V4a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2v3" />
@@ -349,7 +489,16 @@ const Home = () => {
                 title: t("home_sec5_title"),
                 img: img14,
                 icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
                     <line x1="6" y1="17" x2="18" y2="17" />
                   </svg>
@@ -358,10 +507,8 @@ const Home = () => {
             ].map((sector) => (
               <Link
                 key={sector.id}
-                to="/sectors" 
-                className={`${
-                  sector.isLarge ? "md:col-span-2 md:row-span-2" : ""
-                } relative group overflow-hidden rounded-xl shadow-md bg-slate-200 dark:bg-slate-800 transition-colors cursor-pointer`}
+                to="/sectors"
+                className={`${sector.isLarge ? "md:col-span-2 md:row-span-2" : ""} relative group overflow-hidden rounded-xl shadow-md bg-slate-200 dark:bg-slate-800 transition-colors cursor-pointer`}
               >
                 <img
                   src={sector.img}
@@ -422,17 +569,31 @@ const Home = () => {
             {/* Associate Member */}
             <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow relative">
               <div className="text-[#b38e44] mb-4">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_assoc_title")}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                {t("home_mem_assoc_title")}
+              </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
                 {t("home_mem_assoc_desc")}
               </p>
               <div className="mb-8">
-                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹25,000</span>
-                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">
+                  ₹25,000
+                </span>
+                <span className="text-gray-500 dark:text-gray-400">
+                  {" "}
+                  {t("home_mem_year")}
+                </span>
               </div>
               <Link
                 to="/membership-plans"
@@ -445,18 +606,32 @@ const Home = () => {
             {/* Corporate Member */}
             <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md transition-shadow relative">
               <div className="text-[#b38e44] mb-4">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <rect width="20" height="14" x="2" y="7" rx="2" />
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_corp_title")}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                {t("home_mem_corp_title")}
+              </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
                 {t("home_mem_corp_desc")}
               </p>
               <div className="mb-8">
-                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹1,00,000</span>
-                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">
+                  ₹1,00,000
+                </span>
+                <span className="text-gray-500 dark:text-gray-400">
+                  {" "}
+                  {t("home_mem_year")}
+                </span>
               </div>
               <Link
                 to="/membership-plans"
@@ -472,25 +647,49 @@ const Home = () => {
                 {t("home_mem_excl")}
               </div>
               <div className="text-[#b38e44] mb-4">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t("home_mem_found_title")}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                {t("home_mem_found_title")}
+              </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                 {t("home_mem_found_desc")}
               </p>
-              
+
               <div className="mb-4 inline-flex items-center gap-2 bg-[#b38e44]/10 text-[#b38e44] px-3 py-2 rounded text-xs font-semibold">
-                <svg className="w-4 h-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-4 h-4 animate-pulse"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 {t("home_mem_found_limit")}
               </div>
 
               <div className="mb-8">
-                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">₹5,00,000</span>
-                <span className="text-gray-500 dark:text-gray-400"> {t("home_mem_year")}</span>
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white">
+                  ₹5,00,000
+                </span>
+                <span className="text-gray-500 dark:text-gray-400">
+                  {" "}
+                  {t("home_mem_year")}
+                </span>
               </div>
               <Link
                 to="/membership-plans"
@@ -502,15 +701,25 @@ const Home = () => {
           </div>
 
           <div className="mb-20">
-            <h3 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">{t("home_mem_comp_title")}</h3>
+            <h3 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">
+              {t("home_mem_comp_title")}
+            </h3>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[800px] border-collapse">
                 <thead>
                   <tr className="border-b-2 border-gray-200 dark:border-slate-800">
-                    <th className="py-4 px-6 text-left text-sm font-bold text-slate-900 dark:text-white w-2/5">{t("home_mem_col1")}</th>
-                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">{t("home_mem_col2")}</th>
-                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">{t("home_mem_col3")}</th>
-                    <th className="py-4 px-6 text-center text-sm font-bold text-[#b38e44] w-1/5">{t("home_mem_col4")}</th>
+                    <th className="py-4 px-6 text-left text-sm font-bold text-slate-900 dark:text-white w-2/5">
+                      {t("home_mem_col1")}
+                    </th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">
+                      {t("home_mem_col2")}
+                    </th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-slate-900 dark:text-white w-1/5">
+                      {t("home_mem_col3")}
+                    </th>
+                    <th className="py-4 px-6 text-center text-sm font-bold text-[#b38e44] w-1/5">
+                      {t("home_mem_col4")}
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
@@ -521,20 +730,42 @@ const Home = () => {
                     { feature: t("home_mem_f4"), a: true, c: true, f: true },
                     { feature: t("home_mem_f5"), a: false, c: true, f: true },
                     { feature: t("home_mem_f6"), a: false, c: true, f: true },
-                    { feature: t("home_mem_f7"), a: false, c: true, f: t("home_mem_premium") },
+                    {
+                      feature: t("home_mem_f7"),
+                      a: false,
+                      c: true,
+                      f: t("home_mem_premium"),
+                    },
                     { feature: t("home_mem_f8"), a: false, c: true, f: true },
                     { feature: t("home_mem_f9"), a: false, c: true, f: true },
                     { feature: t("home_mem_f10"), a: false, c: false, f: true },
                     { feature: t("home_mem_f11"), a: false, c: false, f: true },
                     { feature: t("home_mem_f12"), a: false, c: false, f: true },
                   ].map((row, idx) => (
-                    <tr key={idx} className="border-b border-gray-100 dark:border-slate-800/50 hover:bg-gray-50 dark:hover:bg-slate-900/50 transition-colors">
-                      <td className="py-4 px-6 text-gray-700 dark:text-gray-300">{row.feature}</td>
-                      <td className="py-4 px-6 text-center">
-                        {row.a === true ? <span className="text-green-500 inline-block">✔</span> : <span className="text-gray-300 dark:text-gray-700">-</span>}
+                    <tr
+                      key={idx}
+                      className="border-b border-gray-100 dark:border-slate-800/50 hover:bg-gray-50 dark:hover:bg-slate-900/50 transition-colors"
+                    >
+                      <td className="py-4 px-6 text-gray-700 dark:text-gray-300">
+                        {row.feature}
                       </td>
                       <td className="py-4 px-6 text-center">
-                        {row.c === true ? <span className="text-green-500 inline-block">✔</span> : <span className="text-gray-300 dark:text-gray-700">-</span>}
+                        {row.a === true ? (
+                          <span className="text-green-500 inline-block">✔</span>
+                        ) : (
+                          <span className="text-gray-300 dark:text-gray-700">
+                            -
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {row.c === true ? (
+                          <span className="text-green-500 inline-block">✔</span>
+                        ) : (
+                          <span className="text-gray-300 dark:text-gray-700">
+                            -
+                          </span>
+                        )}
                       </td>
                       <td className="py-4 px-6 text-center font-semibold text-[#b38e44]">
                         {row.f === true ? "✔" : row.f}
@@ -548,7 +779,12 @@ const Home = () => {
 
           <div className="max-w-4xl mx-auto text-center bg-gray-50 dark:bg-slate-900 p-10 rounded-2xl border border-gray-100 dark:border-slate-800">
             <div className="text-[#b38e44] mb-4 flex justify-center">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
@@ -556,10 +792,85 @@ const Home = () => {
               "{t("home_mem_quote")}"
             </p>
           </div>
-
         </div>
       </section>
-      <TequilaEventsPopup />  
+
+      {/* --- WHO IS THIS FOR SECTION --- */}
+      <section className="py-24 bg-[#faf9f6] dark:bg-slate-950 font-sans transition-colors duration-500 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            {...fadeInUp}
+            className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
+          >
+            <span className="bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842] px-5 py-2 rounded-full text-[11px] font-black tracking-[0.2em] uppercase mb-6 inline-block shadow-sm">
+              {t("who_badge", "Who We Serve")}
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-6 transition-colors">
+              {t("who_title", "Who Is This For?")}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed transition-colors">
+              {t(
+                "who_subtitle",
+                "Select your profile below to see how MIBC provides the exact institutional bridge and execution support you need.",
+              )}
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
+          >
+            {personas.map((persona) => (
+              <motion.div
+                key={persona.id}
+                variants={fadeInUp}
+                className="group bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-slate-800 hover:shadow-2xl hover:border-[#A98842]/30 transition-all duration-500 flex flex-col hover:-translate-y-2"
+              >
+                <div className="relative h-56 w-full overflow-hidden">
+                  <img
+                    src={persona.image}
+                    alt={persona.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-5 left-6 bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-lg transition-colors">
+                    {persona.icon}
+                  </div>
+                </div>
+
+                <div className="p-8 md:p-10 flex flex-col flex-grow relative bg-white dark:bg-slate-900 transition-colors">
+                  <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4 tracking-tight transition-colors">
+                    {persona.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-[15px] leading-relaxed mb-10 font-medium flex-grow transition-colors">
+                    {persona.desc}
+                  </p>
+                  <div className="mt-auto pt-6 border-t border-gray-100 dark:border-slate-800 transition-colors">
+                    <Link
+                      to={persona.link}
+                      className="inline-flex items-center gap-3 text-[#A98842] font-black text-[13px] uppercase tracking-widest group/btn"
+                    >
+                      {persona.btnText}
+                      <div className="bg-[#FFF9E6] dark:bg-[#A98842]/20 p-2 rounded-full group-hover/btn:bg-[#A98842] group-hover/btn:text-white transition-colors duration-300">
+                        <ArrowRight
+                          size={16}
+                          strokeWidth={3}
+                          className="group-hover/btn:translate-x-1 transition-transform"
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <TequilaEventsPopup />
     </div>
   );
 };
