@@ -42,7 +42,7 @@ const TequilaEventsPopup = () => {
     {
       id: 2,
       image: "/Tequila_img/new-pic-1.PNG",
-      title: t("teq_pop_e2_title", "B2B Matchmaking with Importers"),
+      title: t("teq_pop_e2_title", "B2B Matchmaking with Exporters"),
      
      
       desc: t("teq_pop_e2_desc", "Dedicated B2B sessions connecting premium Mexican Tequila brands with India's leading spirits distributors and importers."),
