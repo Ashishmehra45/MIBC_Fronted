@@ -84,24 +84,28 @@ const Home = () => {
           </video>
 
           <div className="absolute inset-0 z-50 flex items-end pb-4 md:pb-0 md:items-center justify-center">
-            <div className="flex flex-row items-center justify-center gap-10 px-4 w-full md:mt-[60vh]">
-              <Link
-                to="/services"
-                className="flex-1 max-w-[150px] md:max-w-[240px] h-[38px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white text-[9px] md:text-[11px] font-bold tracking-tight uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
-              >
-                <span className="text-[15px]">{t("home_explore_services")}</span>
-                <span className="ml-1 mb-1 text-xl leading-none">&rsaquo;</span>
-              </Link>
+  <div className="flex flex-row items-center justify-center gap-4 md:gap-10 px-3 w-full md:mt-[60vh]">
 
-              <Link
-                to="/contact"
-                className="flex-1 max-w-[150px] md:max-w-[240px] h-[38px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white text-[9px] md:text-[11px] font-bold tracking-tight uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
-              >
-                <span className="text-[15px]">{t("home_contact_us")}</span>
-                <span className="ml-1 mb-1 text-xl leading-none">&rsaquo;</span>
-              </Link>
-            </div>
-          </div>
+    <Link
+      to="/services"
+      className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
+    >
+      <span className="text-[11px] md:text-[15px]">
+        {t("home_explore_services")}
+      </span>
+    </Link>
+
+    <Link
+      to="/contact"
+      className="flex-1 max-w-[125px] md:max-w-[240px] h-[32px] md:h-[55px] bg-black/40 backdrop-blur-md border border-white/30 text-white font-bold uppercase hover:bg-white hover:text-black transition-all rounded-sm flex items-center justify-center"
+    >
+      <span className="text-[11px] md:text-[15px]">
+        {t("home_contact_us")}
+      </span>
+    </Link>
+
+  </div>
+</div>
         </div>
       </section>
 
@@ -123,19 +127,19 @@ const Home = () => {
                 title: t("home_approach_card1_title"),
                 desc: t("home_approach_card1_desc"),
                 img: img1, 
-                path: "/services",
+                path: "/services/investment-facilitation",
               },
               {
                 title: t("home_approach_card2_title"),
                 desc: t("home_approach_card2_desc"),
                 img: img4, 
-                path: "/services",
+                path: "/services/trade-promotion",
               },
               {
                 title: t("home_approach_card3_title"),
                 desc: t("home_approach_card3_desc"),
                 img: img7, 
-                path: "/services",
+                path: "/services/intelligence-advocacy",
               },
             ].map((card, idx) => (
               <div
