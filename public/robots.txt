@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Private aur Form wale pages ko Google se hide karne ke liye
+Disallow: /cohort-register
+Disallow: /membership-form
+Disallow: /tequila-login
+Disallow: /terms-conditions
+
+# Apni website ka asli domain yahan daal dena
+Sitemap: https://www.mexicoindia.org/sitemap.xml
