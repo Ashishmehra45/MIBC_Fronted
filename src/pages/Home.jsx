@@ -7,6 +7,7 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -177,6 +178,12 @@ const Home = ({ videoSrc }) => {
 
   return (
     <div className="w-full bg-[#f4faff] dark:bg-slate-950 min-h-screen font-sans transition-colors duration-500">
+      <Helmet>
+        <title>MIBC | México–India Business Council</title>
+        <meta name="description" content="The official institutional platform for bilateral trade, investment facilitation, and Tequila export between México and India." />
+        <meta name="keywords" content="México-India Business Council, MIBC, India Mexico Trade, Tequila Accelerator, USMCA nearshoring" />
+      </Helmet>
+
       {/* VIDEO SECTION */}
       <section className="md:h-[42vw] w-full flex flex-col items-center overflow-hidden">
         <div className="relative w-full h-[25vh] md:h-[100%] object-contain z-0">

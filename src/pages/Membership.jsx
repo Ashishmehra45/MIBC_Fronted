@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Assets Import
 import MembershipHero from "../assets/videos/membership_video.mp4";
@@ -31,18 +32,27 @@ const Membership = () => {
   const content = {
     hero: {
       title: t("mem_page_hero_title", "Join The Network"),
-      desc: t("mem_page_hero_desc", "MIBC membership connects you with institutional infrastructure, commercial intelligence, and government relationships that define success in the México–India corridor."),
+      desc: t(
+        "mem_page_hero_desc",
+        "MIBC membership connects you with institutional infrastructure, commercial intelligence, and government relationships that define success in the México–India corridor.",
+      ),
     },
     targetAudience: [
       {
         title: t("mem_page_aud1_title", "Indian Companies"),
-        desc: t("mem_page_aud1_desc", "With México operations or expansion interest"),
+        desc: t(
+          "mem_page_aud1_desc",
+          "With México operations or expansion interest",
+        ),
         img: IndianCo,
         icon: <Briefcase size={32} />,
       },
       {
         title: t("mem_page_aud2_title", "Mexican Companies"),
-        desc: t("mem_page_aud2_desc", "With India operations or expansion plans"),
+        desc: t(
+          "mem_page_aud2_desc",
+          "With India operations or expansion plans",
+        ),
         img: MexicanCo,
         icon: <Globe size={32} />,
       },
@@ -54,13 +64,19 @@ const Membership = () => {
       },
       {
         title: t("mem_page_aud4_title", "Professional Firms"),
-        desc: t("mem_page_aud4_desc", "Legal, accounting, logistics, banking & compliance"),
+        desc: t(
+          "mem_page_aud4_desc",
+          "Legal, accounting, logistics, banking & compliance",
+        ),
         img: ProfFirms,
         icon: <Scale size={32} />,
       },
       {
         title: t("mem_page_aud5_title", "Trade Ecosystem Players"),
-        desc: t("mem_page_aud5_desc", "Organizations supporting corridor commerce"),
+        desc: t(
+          "mem_page_aud5_desc",
+          "Organizations supporting corridor commerce",
+        ),
         img: EcoPlayers,
         icon: <Users size={32} />,
       },
@@ -68,25 +84,37 @@ const Membership = () => {
     benefits: [
       {
         title: t("mem_page_ben1_title", "Intelligence"),
-        desc: t("mem_page_ben1_desc", "Market research, trade analysis, quarterly briefings, regulatory updates"),
+        desc: t(
+          "mem_page_ben1_desc",
+          "Market research, trade analysis, quarterly briefings, regulatory updates",
+        ),
         img: IntelImg,
         icon: <LineChart size={36} />,
       },
       {
         title: t("mem_page_ben2_title", "Access"),
-        desc: t("mem_page_ben2_desc", "CEO roundtables, ministerial meetings & trade delegations"),
+        desc: t(
+          "mem_page_ben2_desc",
+          "CEO roundtables, ministerial meetings & trade delegations",
+        ),
         img: AccessImg,
         icon: <Award size={36} />,
       },
       {
         title: t("mem_page_ben3_title", "Influence"),
-        desc: t("mem_page_ben3_desc", "Policy advocacy & government representation"),
+        desc: t(
+          "mem_page_ben3_desc",
+          "Policy advocacy & government representation",
+        ),
         img: InfluenceImg,
         icon: <Flag size={36} />,
       },
       {
         title: t("mem_page_ben4_title", "Support"),
-        desc: t("mem_page_ben4_desc", "Matchmaking, introductions, trade documentation & discounts"),
+        desc: t(
+          "mem_page_ben4_desc",
+          "Matchmaking, introductions, trade documentation & discounts",
+        ),
         img: SupportImg,
         icon: <LinkIcon size={36} />,
       },
@@ -121,6 +149,17 @@ const Membership = () => {
 
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans transition-colors duration-500">
+      <Helmet>
+        <title>Join MIBC | Membership Plans & Benefits</title>
+        <meta
+          name="description"
+          content="Become a member of the México-India Business Council. Choose from Associate, Corporate, or Founding memberships to unlock exclusive bilateral trade benefits."
+        />
+        <meta
+          name="keywords"
+          content="MIBC membership, join Mexico India Business Council, corporate membership, trade association India"
+        />
+      </Helmet>
       {/* --- SECTION 1: VIDEO HERO --- */}
       <section className="relative h-[600px] md:h-[750px] flex items-center justify-center text-center overflow-hidden">
         {/* Background Video */}
@@ -322,9 +361,9 @@ const Membership = () => {
       </section>
 
       {/* Scroll to Top placeholder style */}
-      <div 
+      <div
         className="fixed bottom-10 right-10 w-12 h-12 bg-white/80 dark:bg-slate-800/80 backdrop-blur shadow-xl rounded-full flex items-center justify-center cursor-pointer border border-gray-100 dark:border-slate-700 text-[#A98842] hover:bg-[#A98842] hover:text-white transition-all z-50"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <span className="text-xl font-bold">↑</span>
       </div>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 import api from "../api/api";
 import logo from "../assets/images/logo/logo-dark.png";
+import { Helmet } from "react-helmet-async";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -477,6 +478,18 @@ const TimelineSection = () => {
 
   return (
     <section className="bg-[#FAF9F6] py-24 px-4 md:px-8 font-sans overflow-hidden">
+      <Helmet>
+        <title>Tequila Accelerator | Enter the Indian Market - MIBC</title>
+        <meta
+          name="description"
+          content="The official MIBC Tequila Accelerator connects premium Mexican Agave spirits with India's top importers, distributors, and F&B hospitality networks."
+        />
+        <meta
+          name="keywords"
+          content="MIBC Tequila Accelerator, export Tequila to India, agave masterclass, B2B matchmaking Tequila, Mexican spirits in India"
+        />
+      </Helmet>
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

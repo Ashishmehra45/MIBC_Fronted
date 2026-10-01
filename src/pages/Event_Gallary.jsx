@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Search } from 'lucide-react';
-import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Helmet } from "react-helmet-async";
 
-import img1 from "../assets/images/Event_gallery/1st_img.jpeg"; 
+import img1 from "../assets/images/Event_gallery/1st_img.jpeg";
 import img2 from "../assets/images/Event_gallery/2nd.jpeg";
 import img3 from "../assets/images/Event_gallery/3rd.jpeg";
 import img4 from "../assets/images/Event_gallery/4th.jpeg";
@@ -11,7 +12,6 @@ import img5 from "../assets/images/Event_gallery/5th.jpeg";
 import img6 from "../assets/images/Event_gallery/6th.jpeg";
 import img7 from "../assets/images/Event_gallery/7th.jpeg";
 import img8 from "../assets/images/Event_gallery/8th.jpeg";
-
 
 const EventsGallery = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
@@ -21,75 +21,89 @@ const EventsGallery = () => {
 
   // Sample Images Array using translated alt texts
   const galleryImages = [
-    { id: 1, src: img1, alt: t('events_alt_1', "MIBC Event Meeting 1") },
-    { id: 2, src: img2, alt: t('events_alt_2', "MIBC Event Presentation") },
-    { id: 3, src: img3, alt: t('events_alt_3', "MIBC Event Discussion") },
-    { id: 4, src: img4, alt: t('events_alt_4', "MIBC Event Roundtable") },
-    { id: 5, src: img5, alt: t('events_alt_5', "MIBC Event Networking") },
-    { id: 6, src: img6, alt: t('events_alt_6', "MIBC Event Boardroom") },
-    { id: 7, src: img7, alt: t('events_alt_7', "MIBC Event Team") },
-    { id: 8, src: img8, alt: t('events_alt_8', "MIBC Event Conclusion") },
+    { id: 1, src: img1, alt: t("events_alt_1", "MIBC Event Meeting 1") },
+    { id: 2, src: img2, alt: t("events_alt_2", "MIBC Event Presentation") },
+    { id: 3, src: img3, alt: t("events_alt_3", "MIBC Event Discussion") },
+    { id: 4, src: img4, alt: t("events_alt_4", "MIBC Event Roundtable") },
+    { id: 5, src: img5, alt: t("events_alt_5", "MIBC Event Networking") },
+    { id: 6, src: img6, alt: t("events_alt_6", "MIBC Event Boardroom") },
+    { id: 7, src: img7, alt: t("events_alt_7", "MIBC Event Team") },
+    { id: 8, src: img8, alt: t("events_alt_8", "MIBC Event Conclusion") },
   ];
 
   // Disable body scroll when modal is open
   useEffect(() => {
     if (selectedImageIndex !== null) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [selectedImageIndex]);
 
   // Handlers for Modal
   const openModal = (index) => setSelectedImageIndex(index);
   const closeModal = () => setSelectedImageIndex(null);
-  
+
   const goToPrevious = (e) => {
     e.stopPropagation(); // Click ko piche modal pe jane se rokne ke liye
-    setSelectedImageIndex((prevIndex) => 
-      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNext = (e) => {
     e.stopPropagation();
-    setSelectedImageIndex((prevIndex) => 
-      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   return (
     <section className="py-24 bg-white dark:bg-slate-950 font-sans min-h-screen relative transition-colors duration-500">
+      <Helmet>
+        <title>Events & Forums Gallery | MIBC</title>
+        <meta
+          name="description"
+          content="View upcoming bilateral forums, B2B matchmaking sessions, and the event gallery hosted by the México-India Business Council."
+        />
+        <meta
+          name="keywords"
+          content="MIBC events, Mexico India business forum, trade networking events, bilateral gallery"
+        />
+      </Helmet>
+
       <div className="container mx-auto px-4 max-w-7xl">
-        
         {/* --- HEADER SECTION --- */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black text-[#A98842] mb-4 tracking-tight transition-colors">
-            {t('events_main_title', 'Events Gallery')}
+            {t("events_main_title", "Events Gallery")}
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-[14px] leading-relaxed mb-8 transition-colors">
-            {t('events_subtitle', "A visual journey through MIBC's dynamic events, showcasing moments of collaboration, innovation, and bilateral engagement between México and India.")}
+            {t(
+              "events_subtitle",
+              "A visual journey through MIBC's dynamic events, showcasing moments of collaboration, innovation, and bilateral engagement between México and India.",
+            )}
           </p>
-          
-          <motion.span 
+
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="bg-gray-50 dark:bg-slate-900 text-[#A98842] px-6 py-1.5 rounded-lg text-[12px] font-bold tracking-widest uppercase mb-4 inline-block border border-gray-100 dark:border-slate-800 transition-colors"
           >
-            {t('events_badge', 'Events Gallery')}
+            {t("events_badge", "Events Gallery")}
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-black text-gray-950 dark:text-white tracking-tight transition-colors"
           >
-            {t('events_h2', 'Explore Our Event Highlights')}
+            {t("events_h2", "Explore Our Event Highlights")}
           </motion.h2>
         </div>
 
@@ -106,16 +120,16 @@ const EventsGallery = () => {
               className="relative group rounded-[16px] overflow-hidden cursor-pointer aspect-[4/3] bg-gray-100 dark:bg-slate-800 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:shadow-black/50 transition-all duration-300"
             >
               {/* Image */}
-              <img 
-                src={image.src} 
-                alt={image.alt} 
+              <img
+                src={image.src}
+                alt={image.alt}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              
+
               {/* Hover Overlay with Magnifying Glass */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.1 }}
                   className="w-12 h-12 bg-[#A98842] rounded-full flex items-center justify-center text-white shadow-lg"
                 >
@@ -125,7 +139,6 @@ const EventsGallery = () => {
             </motion.div>
           ))}
         </div>
-
       </div>
 
       {/* --- LIGHTBOX / MODAL --- */}
@@ -139,9 +152,8 @@ const EventsGallery = () => {
             onClick={closeModal} // Click outside to close
             className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
           >
-            
             {/* Close Button */}
-            <button 
+            <button
               onClick={closeModal}
               className="absolute top-6 right-6 md:top-10 md:right-10 text-white/70 hover:text-white transition-colors p-2 z-50"
             >
@@ -149,7 +161,7 @@ const EventsGallery = () => {
             </button>
 
             {/* Main Image Container */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -157,15 +169,15 @@ const EventsGallery = () => {
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image itself
               className="relative max-w-5xl w-full max-h-[85vh] flex items-center justify-center outline-none"
             >
-              <img 
-                src={galleryImages[selectedImageIndex].src} 
+              <img
+                src={galleryImages[selectedImageIndex].src}
                 alt={galleryImages[selectedImageIndex].alt}
                 className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl select-none"
               />
             </motion.div>
 
             {/* Previous Button */}
-            <button 
+            <button
               onClick={goToPrevious}
               className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all hover:scale-110 p-2 z-50"
             >
@@ -173,17 +185,15 @@ const EventsGallery = () => {
             </button>
 
             {/* Next Button */}
-            <button 
+            <button
               onClick={goToNext}
               className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all hover:scale-110 p-2 z-50"
             >
               <ChevronRight size={48} strokeWidth={1.5} />
             </button>
-
           </motion.div>
         )}
       </AnimatePresence>
-
     </section>
   );
 };

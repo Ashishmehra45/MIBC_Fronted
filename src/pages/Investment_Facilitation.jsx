@@ -1,21 +1,28 @@
 import React from "react";
 import { TrendingUp, Globe, Check } from "lucide-react";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
-import HeroImg from "../assets/images/blog/investment.png"; 
+import HeroImg from "../assets/images/blog/investment.png";
+import { Helmet } from "react-helmet-async"; // <-- 1. Helmet import kiya
 
 const InvestmentFacilitation = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
 
   const investmentContent = {
     title: t("inv_fac_title", "Investment Facilitation"),
-    subtitle: t("inv_fac_subtitle", "End-to-end support for companies establishing operations in México or India—from feasibility through operational launch."),
-    heroImage: "investment-hero.jpg", 
+    subtitle: t(
+      "inv_fac_subtitle",
+      "End-to-end support for companies establishing operations in México or India—from feasibility through operational launch.",
+    ),
+    heroImage: "investment-hero.jpg",
     sections: [
       {
         type: t("inv_fac_s1_type", "Indian Companies"),
         badge: t("inv_fac_s1_badge", "ENTERING MÉXICO"),
         icon: "TrendingUp",
-        desc: t("inv_fac_s1_desc", "MIBC provides structured, institutional support to Indian companies evaluating expansion into México. Our investment facilitation services collapse typical 18-24 month market entry cycles into focused, strategic execution."),
+        desc: t(
+          "inv_fac_s1_desc",
+          "MIBC provides structured, institutional support to Indian companies evaluating expansion into México. Our investment facilitation services collapse typical 18-24 month market entry cycles into focused, strategic execution.",
+        ),
         points: [
           t("inv_fac_s1_p1", "Market assessment and feasibility analysis"),
           t("inv_fac_s1_p2", "Location evaluation across Mexican states"),
@@ -23,16 +30,25 @@ const InvestmentFacilitation = () => {
           t("inv_fac_s1_p4", "Regulatory navigation and entity structuring"),
           t("inv_fac_s1_p5", "Partner identification and due diligence"),
           t("inv_fac_s1_p6", "Government liaison and approval facilitation"),
-          t("inv_fac_s1_p7", "Soft-launch support and 12-month operational handholding"),
+          t(
+            "inv_fac_s1_p7",
+            "Soft-launch support and 12-month operational handholding",
+          ),
         ],
       },
       {
         type: t("inv_fac_s2_type", "Mexican Companies"),
         badge: t("inv_fac_s2_badge", "ENTERING INDIA"),
         icon: "Globe",
-        desc: t("inv_fac_s2_desc", "India offers one of the world's fastest-growing consumer and industrial markets. MIBC supports Mexican firms with structured, on-ground execution to enter and scale in India."),
+        desc: t(
+          "inv_fac_s2_desc",
+          "India offers one of the world's fastest-growing consumer and industrial markets. MIBC supports Mexican firms with structured, on-ground execution to enter and scale in India.",
+        ),
         points: [
-          t("inv_fac_s2_p1", "Market assessment and entry strategy development"),
+          t(
+            "inv_fac_s2_p1",
+            "Market assessment and entry strategy development",
+          ),
           t("inv_fac_s2_p2", "Partner and distributor identification"),
           t("inv_fac_s2_p3", "Regulatory navigation and entity structuring"),
           t("inv_fac_s2_p4", "State government liaison and incentive mapping"),
@@ -44,6 +60,17 @@ const InvestmentFacilitation = () => {
 
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans transition-colors duration-500">
+      <Helmet>
+        <title>Investment & Nearshoring Facilitation | MIBC</title>
+        <meta
+          name="description"
+          content="Navigate cross-border investments with MIBC. We help Indian companies nearshore into the USMCA market and Mexican firms enter India's $30T economy."
+        />
+        <meta
+          name="keywords"
+          content="USMCA nearshoring, India investment in Mexico, set up manufacturing in Mexico, FDI India Mexico"
+        />
+      </Helmet>
       {/* --- HEADER SECTION --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">

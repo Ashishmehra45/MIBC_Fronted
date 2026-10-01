@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Activity, Tv, Map, Landmark, Users, BarChart3 } from "lucide-react";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Helmet } from "react-helmet-async"; // <-- 1. Helmet import kiya
 
 import Bgimg from "../assets/images/bg/about.jpg";
 import CEOImg from "../assets/images/team/raviSir.png";
@@ -120,6 +121,17 @@ const About = () => {
       className="page-wrapper bg-[#faf9f6] dark:bg-slate-950 transition-colors duration-500"
       style={{ overflow: "hidden" }}
     >
+      <Helmet>
+        <title>About Us | MIBC - México–India Business Council</title>
+        <meta
+          name="description"
+          content="Discover the México-India Business Council (MIBC), the first dedicated bilateral business council for the México-India corridor headquartered in India, driving trade and investments."
+        />
+        <meta
+          name="keywords"
+          content="About MIBC, México-India Business Council, bilateral trade council, Mexico India relations, institutional platform, Ravi K Tiwari, cross-border investments"
+        />
+      </Helmet>
       {/* HERO SECTION */}
       <section className="relative h-[600px] flex items-center justify-center text-center bg-black">
         <div className="absolute inset-0 opacity-50">

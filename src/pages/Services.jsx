@@ -10,6 +10,7 @@ import {
   Check,
 } from "lucide-react";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Helmet } from "react-helmet-async"; // <-- 1. Helmet import kiya
 
 // Images Import
 import ServicesHeroBg from "../assets/images/services/empty-office-workplace-with-table-chair.jpg (1).jpeg";
@@ -71,25 +72,37 @@ const Services = () => {
   const processSteps = [
     {
       title: t("srv_step1_title", "Discovery & Assessment"),
-      desc: t("srv_step1_desc", "Initial consultation, market opportunity assessment, regulatory landscape review, competitor analysis, and feasibility report delivery."),
+      desc: t(
+        "srv_step1_desc",
+        "Initial consultation, market opportunity assessment, regulatory landscape review, competitor analysis, and feasibility report delivery.",
+      ),
       align: "left",
       step: "01",
     },
     {
       title: t("srv_step2_title", "Strategy & Planning"),
-      desc: t("srv_step2_desc", "Market entry strategy development, state/city selection, partner identification criteria, regulatory roadmap, and investment structure recommendations."),
+      desc: t(
+        "srv_step2_desc",
+        "Market entry strategy development, state/city selection, partner identification criteria, regulatory roadmap, and investment structure recommendations.",
+      ),
       align: "right",
       step: "02",
     },
     {
       title: t("srv_step3_title", "Execution & Facilitation"),
-      desc: t("srv_step3_desc", "Government introductions, partner meetings, due diligence support, license applications, site visits, and contract negotiation assistance."),
+      desc: t(
+        "srv_step3_desc",
+        "Government introductions, partner meetings, due diligence support, license applications, site visits, and contract negotiation assistance.",
+      ),
       align: "left",
       step: "03",
     },
     {
       title: t("srv_step4_title", "Launch & Scale"),
-      desc: t("srv_step4_desc", "Operational launch coordination, trade activation, performance monitoring, expansion planning, and ongoing advisory support."),
+      desc: t(
+        "srv_step4_desc",
+        "Operational launch coordination, trade activation, performance monitoring, expansion planning, and ongoing advisory support.",
+      ),
       align: "right",
       step: "04",
     },
@@ -110,6 +123,18 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans overflow-x-hidden transition-colors duration-500">
+      <Helmet>
+        <title>Our Services | Bilateral Trade & Market Entry - MIBC</title>
+        <meta
+          name="description"
+          content="Explore MIBC's specialized services including Investment Facilitation, Trade Promotion, Delegation Management, and Commercial Intelligence for the India-México corridor."
+        />
+        <meta
+          name="keywords"
+          content="MIBC services, Mexico India trade promotion, investment facilitation, USMCA nearshoring, market entry India"
+        />
+      </Helmet>
+
       {/* --- SECTION 1: HERO --- */}
       <section className="relative h-[600px] flex items-center justify-center text-center overflow-hidden">
         <motion.div
@@ -139,18 +164,24 @@ const Services = () => {
             {...fadeInUp}
             className="text-white text-5xl md:text-8xl font-black mb-8 tracking-tighter"
           >
-            {t("srv_hero_title1", "Our")} <span className="text-[#A98842]">{t("srv_hero_title2", "Services")}</span>
+            {t("srv_hero_title1", "Our")}{" "}
+            <span className="text-[#A98842]">
+              {t("srv_hero_title2", "Services")}
+            </span>
           </motion.h1>
           <motion.p
             {...fadeInUp}
             transition={{ delay: 0.3 }}
             className="max-w-4xl mx-auto text-gray-200 text-lg md:text-xl font-medium leading-relaxed mb-12 opacity-90"
           >
-            {t("srv_hero_desc1", "MIBC delivers")} {" "}
+            {t("srv_hero_desc1", "MIBC delivers")}{" "}
             <span className="text-white font-bold italic">
               {t("srv_hero_desc2", "institutional-grade support")}
             </span>{" "}
-            {t("srv_hero_desc3", "that traditional chambers and consultants cannot replicate—combining government coordination, operational networks, and sector expertise built over")}{" "}
+            {t(
+              "srv_hero_desc3",
+              "that traditional chambers and consultants cannot replicate—combining government coordination, operational networks, and sector expertise built over",
+            )}{" "}
             <span className="text-[#A98842] font-bold">
               {t("srv_hero_desc4", "15 years of bilateral trade leadership")}
             </span>
@@ -174,7 +205,10 @@ const Services = () => {
               {t("srv_deliver_title", "What We Deliver")}
             </h2>
             <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 font-medium leading-relaxed transition-colors">
-              {t("srv_deliver_desc", "MIBC goes beyond traditional chamber services. We provide institutional-grade trade promotion, investment facilitation, and market entry support—from initial assessment through operational launch.")}
+              {t(
+                "srv_deliver_desc",
+                "MIBC goes beyond traditional chamber services. We provide institutional-grade trade promotion, investment facilitation, and market entry support—from initial assessment through operational launch.",
+              )}
             </p>
           </motion.div>
 
@@ -247,10 +281,16 @@ const Services = () => {
               {t("srv_process_badge", "Our Process")}
             </span>
             <h2 className="text-4xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tighter mb-6 md:mb-8 leading-tight transition-colors">
-              {t("srv_process_title1", "How We")} <span className="text-[#A98842]">{t("srv_process_title2", "Work")}</span>
+              {t("srv_process_title1", "How We")}{" "}
+              <span className="text-[#A98842]">
+                {t("srv_process_title2", "Work")}
+              </span>
             </h2>
             <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 font-medium text-base md:text-lg opacity-80 leading-relaxed transition-colors">
-              {t("srv_process_desc", "A structured engagement model designed for cross-border success—from assessment through scale.")}
+              {t(
+                "srv_process_desc",
+                "A structured engagement model designed for cross-border success—from assessment through scale.",
+              )}
             </p>
           </motion.div>
 
@@ -341,7 +381,10 @@ const Services = () => {
               {t("srv_diff_title", "Why MIBC vs. Others")}
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mt-4 font-medium transition-colors">
-              {t("srv_diff_desc", "What sets us apart from traditional chambers and consultants.")}
+              {t(
+                "srv_diff_desc",
+                "What sets us apart from traditional chambers and consultants.",
+              )}
             </p>
           </motion.div>
 
@@ -387,7 +430,10 @@ const Services = () => {
                     t("srv_tbl_r3_c1", "Government Access"),
                     t("srv_tbl_r3_c2", "No direct access"),
                     t("srv_tbl_r3_c3", "Limited networks"),
-                    t("srv_tbl_r3_c4", "Direct channels to policy stakeholders"),
+                    t(
+                      "srv_tbl_r3_c4",
+                      "Direct channels to policy stakeholders",
+                    ),
                   ],
                   [
                     t("srv_tbl_r4_c1", "Sector Coverage"),
@@ -399,7 +445,10 @@ const Services = () => {
                     t("srv_tbl_r5_c1", "Success Metrics"),
                     t("srv_tbl_r5_c2", "Event attendance"),
                     t("srv_tbl_r5_c3", "Reports delivered"),
-                    t("srv_tbl_r5_c4", "Transactions facilitated, partnerships established"),
+                    t(
+                      "srv_tbl_r5_c4",
+                      "Transactions facilitated, partnerships established",
+                    ),
                   ],
                 ].map((row, i) => (
                   <motion.tr
@@ -436,12 +485,30 @@ const Services = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              t("srv_adv_1", "CEO led both México (ProMéxico) & Canada (Ontario) trade offices in India"),
-              t("srv_adv_2", "USD 500M+ in facilitated investment leads (2011-2025)"),
-              t("srv_adv_3", "Direct coordination with Consulates, Embassies, State Governments"),
-              t("srv_adv_4", "Active partnerships: CRT, IMBC, CANIFARMA, CANIETI, CII, FICCI"),
-              t("srv_adv_5", "Outcome-focused: Success = deals closed, not events hosted"),
-              t("srv_adv_6", "15 years of bilateral trade leadership across three governments"),
+              t(
+                "srv_adv_1",
+                "CEO led both México (ProMéxico) & Canada (Ontario) trade offices in India",
+              ),
+              t(
+                "srv_adv_2",
+                "USD 500M+ in facilitated investment leads (2011-2025)",
+              ),
+              t(
+                "srv_adv_3",
+                "Direct coordination with Consulates, Embassies, State Governments",
+              ),
+              t(
+                "srv_adv_4",
+                "Active partnerships: CRT, IMBC, CANIFARMA, CANIETI, CII, FICCI",
+              ),
+              t(
+                "srv_adv_5",
+                "Outcome-focused: Success = deals closed, not events hosted",
+              ),
+              t(
+                "srv_adv_6",
+                "15 years of bilateral trade leadership across three governments",
+              ),
             ].map((text, idx) => (
               <motion.div
                 key={idx}

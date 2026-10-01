@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import { Helmet } from "react-helmet-async"; // <-- 2. Helmet import kiya
 
 const MembershipPlans = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
@@ -9,18 +10,27 @@ const MembershipPlans = () => {
   const plans = [
     {
       title: t("mem_p1_title", "Corporate Membership"),
-      desc: t("mem_p1_desc", "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions."),
+      desc: t(
+        "mem_p1_desc",
+        "Ideal for companies looking to expand trade and investment engagement between Mexico and India. Members gain access to sectoral roundtables, market intelligence, networking forums, and structured business and institutional introductions.",
+      ),
       isHighlighted: false,
     },
     {
       title: t("mem_p2_title", "Founding Member"),
       badge: t("mem_p2_badge", "EXCLUSIVE"),
-      desc: t("mem_p2_desc", "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders."),
+      desc: t(
+        "mem_p2_desc",
+        "Designed for industry leaders seeking strategic influence and priority access. Founding Members receive white-glove facilitation, including exclusive site selection support, curated high-level matchmaking, and direct engagement with senior government and policy stakeholders.",
+      ),
       isHighlighted: true,
     },
     {
       title: t("mem_p3_title", "Associate Membership"),
-      desc: t("mem_p3_desc", "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory."),
+      desc: t(
+        "mem_p3_desc",
+        "Created for SMEs and emerging enterprises exploring bilateral opportunities. Members benefit from market-entry guidance, opportunity alerts, open programs, and inclusion in the MIBC business network and member directory.",
+      ),
       isHighlighted: false,
     },
   ];
@@ -45,6 +55,17 @@ const MembershipPlans = () => {
 
   return (
     <section className="py-24 bg-[#faf9f6] dark:bg-slate-950 relative font-sans overflow-hidden transition-colors duration-500 min-h-screen">
+      <Helmet>
+        <title>Join MIBC | Membership Plans & Benefits</title>
+        <meta
+          name="description"
+          content="Become a member of the México-India Business Council. Choose from Associate, Corporate, or Founding memberships to unlock exclusive bilateral trade benefits."
+        />
+        <meta
+          name="keywords"
+          content="MIBC membership, join Mexico India Business Council, corporate membership, trade association India"
+        />
+      </Helmet>
       {/* Soft Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#A98842]/5 dark:bg-[#A98842]/10 rounded-full blur-[120px] -z-10 transition-colors"></div>
 
@@ -115,8 +136,8 @@ const MembershipPlans = () => {
                   {/* Description */}
                   <p
                     className={`text-[14px] leading-relaxed font-semibold mt-2 transition-colors ${
-                      plan.isHighlighted 
-                        ? "text-gray-100" 
+                      plan.isHighlighted
+                        ? "text-gray-100"
                         : "text-gray-900 dark:text-gray-300"
                     }`}
                   >

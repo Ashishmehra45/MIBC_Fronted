@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import
 import logo from "../assets/images/logo/logo-dark.png";
+import { Helmet } from "react-helmet-async";
 
 // Helper to extract YouTube ID
 const extractVideoID = (url) => {
@@ -234,6 +235,23 @@ const Dashboard = () => {
 
   return (
     <div className="font-sans min-h-screen bg-[#faf9f6] flex text-[#333] overflow-hidden">
+      <Helmet>
+        <title>Cohort Dashboard | MIBC - México–India Business Council</title>
+        <meta
+          name="description"
+          content="Access your MIBC Cohort Dashboard. Manage your market entry program, track progress, and access exclusive bilateral trade resources for the México-India corridor."
+        />
+        <meta
+          name="keywords"
+          content="MIBC dashboard, cohort portal, Mexico India Business Council login, market entry program, Tequila Accelerator portal, bilateral trade tools"
+        />
+
+        {/* 🔴 PRO TIP: Agar ye page login ke baad ka PRIVATE page hai, toh niche wali line ka comment hata dena. 
+      Ye Google ko batayega ki is page ko search result me mat dikhao (kyunki user data private hota hai). 
+      Agar ye public page hai, toh is line ko delete maar de. */}
+        {/* <meta name="robots" content="noindex, nofollow" /> */}
+      </Helmet>
+
       {/* ================= SIDEBAR ================= */}
       {isSidebarOpen && (
         <div
@@ -248,10 +266,10 @@ const Dashboard = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/" className="flex items-center">
-            <img 
-              className={`h-10 md:h-12 w-auto transition-all duration-500 `} 
-              src={logo} 
-              alt="MIBC Logo" 
+            <img
+              className={`h-10 md:h-12 w-auto transition-all duration-500 `}
+              src={logo}
+              alt="MIBC Logo"
             />
           </Link>
         </div>
@@ -417,7 +435,10 @@ const Dashboard = () => {
                     {t("dash_hi", "Hi,")} {userFirstName}! 👋
                   </h1>
                   <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-xl">
-                    {t("dash_welcome_desc", "Ready to uplift your export journey with MIBC Tequila Accelerator? Discover modules, complete compliance, and achieve your global goals seamlessly.")}
+                    {t(
+                      "dash_welcome_desc",
+                      "Ready to uplift your export journey with MIBC Tequila Accelerator? Discover modules, complete compliance, and achieve your global goals seamlessly.",
+                    )}
                   </p>
                   <button className="bg-[#A98842] hover:bg-[#8E7134] text-white px-6 py-3 rounded-md text-sm font-semibold transition-transform hover:-translate-y-0.5 shadow-md">
                     {t("dash_explore_modules", "Explore Modules")}
@@ -492,7 +513,8 @@ const Dashboard = () => {
               key={activeTab}
             >
               <h3 className="text-xl font-bold text-[#121321] mb-6 flex items-center gap-2">
-                {navItems.find((item) => item.id === activeTab)?.label} {t("dash_modules_suffix", "Modules")}
+                {navItems.find((item) => item.id === activeTab)?.label}{" "}
+                {t("dash_modules_suffix", "Modules")}
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
@@ -549,7 +571,10 @@ const Dashboard = () => {
                   {t("dash_phasewise_docs", "Phase-Wise Documents")}
                 </h3>
                 <p className="text-gray-500">
-                  {t("dash_docs_desc", "Access and download all your phase-wise templates, questionnaires, and guidelines here.")}
+                  {t(
+                    "dash_docs_desc",
+                    "Access and download all your phase-wise templates, questionnaires, and guidelines here.",
+                  )}
                 </p>
               </div>
 
@@ -566,7 +591,10 @@ const Dashboard = () => {
                     }`}
                   >
                     {/* Yahan dynamically index pass kar rahe hain phase number ke liye */}
-                    {t("dash_phase_tab", { num: idx + 1, defaultValue: `Phase ${idx + 1} Docs` })}
+                    {t("dash_phase_tab", {
+                      num: idx + 1,
+                      defaultValue: `Phase ${idx + 1} Docs`,
+                    })}
                   </button>
                 ))}
               </div>

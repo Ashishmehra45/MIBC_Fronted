@@ -1,112 +1,269 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import React from "react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
 
 // Images Import (Apne folder ke hisaab se path check kar lena)
-import SectorHeroBg from '../assets/images/bg/sector-bg.jpeg';
-import ITImg from '../assets/images/blog-grid/IT.jpg';
-import PharmaImg from '../assets/images/blog-grid/pharma-Picsart-AiImageEnhancer.jpg';
-import AutoImg from '../assets/images/blog-grid/automotive.jpg';
-import EnergyImg from '../assets/images/blog-grid/E&M.png';
-import AeroImg from '../assets/images/blog-grid/defence.png';
-import ElectroImg from '../assets/images/blog-grid/electronic.jpg';
-import AgriImg from '../assets/images/blog-grid/F&B.jpg';
+import SectorHeroBg from "../assets/images/bg/sector-bg.jpeg";
+import ITImg from "../assets/images/blog-grid/IT.jpg";
+import PharmaImg from "../assets/images/blog-grid/pharma-Picsart-AiImageEnhancer.jpg";
+import AutoImg from "../assets/images/blog-grid/automotive.jpg";
+import EnergyImg from "../assets/images/blog-grid/E&M.png";
+import AeroImg from "../assets/images/blog-grid/defence.png";
+import ElectroImg from "../assets/images/blog-grid/electronic.jpg";
+import AgriImg from "../assets/images/blog-grid/F&B.jpg";
+import { Helmet } from "react-helmet-async"; // <-- 1. Helmet import kiya
 
 const Sectors = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
 
   const sectorsData = {
     hero: {
-      badge: t('sec_hero_badge', "Sectors"),
-      title: t('sec_hero_title', "Focus Sectors"),
-      desc: t('sec_hero_desc', "MIBC delivers strategic support in sectors where bilateral trade is growing, investment is accelerating, and collaboration is poised to scale.")
+      badge: t("sec_hero_badge", "Sectors"),
+      title: t("sec_hero_title", "Focus Sectors"),
+      desc: t(
+        "sec_hero_desc",
+        "MIBC delivers strategic support in sectors where bilateral trade is growing, investment is accelerating, and collaboration is poised to scale.",
+      ),
     },
     category1: {
-      badge: t('sec_c1_badge', "Category 1"),
-      title: t('sec_c1_title', "Indian Investment into México"),
+      badge: t("sec_c1_badge", "Category 1"),
+      title: t("sec_c1_title", "Indian Investment into México"),
       cards: [
         {
-          title: t('sec_c1_card1_title', "Information Technology"),
+          title: t("sec_c1_card1_title", "Information Technology"),
           image: ITImg,
           details: [
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card1_opp', "Nearshore delivery for North America via USMCA") },
-            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card1_act', "Software, IT Services, BPO, Engineering R&D") },
-            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card1_why', "US time zones, lower costs, USMCA access") },
-            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card1_ind', "TCS, Infosys, Wipro, HCL, Tech Mahindra") }
-          ]
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c1_card1_opp",
+                "Nearshore delivery for North America via USMCA",
+              ),
+            },
+            {
+              label: t("sec_lbl_act", "KEY ACTIVITIES"),
+              value: t(
+                "sec_c1_card1_act",
+                "Software, IT Services, BPO, Engineering R&D",
+              ),
+            },
+            {
+              label: t("sec_lbl_why", "WHY MÉXICO"),
+              value: t(
+                "sec_c1_card1_why",
+                "US time zones, lower costs, USMCA access",
+              ),
+            },
+            {
+              label: t("sec_lbl_ind", "INDIAN PLAYERS"),
+              value: t(
+                "sec_c1_card1_ind",
+                "TCS, Infosys, Wipro, HCL, Tech Mahindra",
+              ),
+            },
+          ],
         },
         {
-          title: t('sec_c1_card2_title', "Pharmaceuticals"),
+          title: t("sec_c1_card2_title", "Pharmaceuticals"),
           image: PharmaImg,
           details: [
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card2_opp', "Generic manufacturing & LATAM access") },
-            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card2_act', "APIs, generics, clinical research, vaccines") },
-            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card2_why', "LATAM gateway, strong regulation, rising healthcare") },
-            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card2_ind', "Sun Pharma, Dr. Reddy’s, Lupin, Cipla") }
-          ]
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c1_card2_opp",
+                "Generic manufacturing & LATAM access",
+              ),
+            },
+            {
+              label: t("sec_lbl_act", "KEY ACTIVITIES"),
+              value: t(
+                "sec_c1_card2_act",
+                "APIs, generics, clinical research, vaccines",
+              ),
+            },
+            {
+              label: t("sec_lbl_why", "WHY MÉXICO"),
+              value: t(
+                "sec_c1_card2_why",
+                "LATAM gateway, strong regulation, rising healthcare",
+              ),
+            },
+            {
+              label: t("sec_lbl_ind", "INDIAN PLAYERS"),
+              value: t(
+                "sec_c1_card2_ind",
+                "Sun Pharma, Dr. Reddy’s, Lupin, Cipla",
+              ),
+            },
+          ],
         },
         {
-          title: t('sec_c1_card3_title', "Automotive & Components"),
+          title: t("sec_c1_card3_title", "Automotive & Components"),
           image: AutoImg,
           details: [
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c1_card3_opp', "EV supply chain & Tier-1 operations") },
-            { label: t('sec_lbl_act', "KEY ACTIVITIES"), value: t('sec_c1_card3_act', "EV parts, wiring harnesses, castings") },
-            { label: t('sec_lbl_why', "WHY MÉXICO"), value: t('sec_c1_card3_why', "Detroit OEM access, auto cluster, USMCA rules") },
-            { label: t('sec_lbl_ind', "INDIAN PLAYERS"), value: t('sec_c1_card3_ind', "Motherson Sumi, Tata AutoComp, Bharat Forge") }
-          ]
-        }
-      ]
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c1_card3_opp",
+                "EV supply chain & Tier-1 operations",
+              ),
+            },
+            {
+              label: t("sec_lbl_act", "KEY ACTIVITIES"),
+              value: t(
+                "sec_c1_card3_act",
+                "EV parts, wiring harnesses, castings",
+              ),
+            },
+            {
+              label: t("sec_lbl_why", "WHY MÉXICO"),
+              value: t(
+                "sec_c1_card3_why",
+                "Detroit OEM access, auto cluster, USMCA rules",
+              ),
+            },
+            {
+              label: t("sec_lbl_ind", "INDIAN PLAYERS"),
+              value: t(
+                "sec_c1_card3_ind",
+                "Motherson Sumi, Tata AutoComp, Bharat Forge",
+              ),
+            },
+          ],
+        },
+      ],
     },
     category2: {
-      badge: t('sec_c2_badge', "Category 2"),
-      title: t('sec_c2_title', "Mexican Exports to India"),
+      badge: t("sec_c2_badge", "Category 2"),
+      title: t("sec_c2_title", "Mexican Exports to India"),
       cards: [
         {
-          title: t('sec_c2_card1_title', "Energy & Minerals"),
+          title: t("sec_c2_card1_title", "Energy & Minerals"),
           image: EnergyImg,
           details: [
-            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card1_prod', "Crude oil, refined fuels, critical minerals") },
-            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card1_trade', "Largest México → India export segment") },
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card1_opp', "Energy diversification & manufacturing") }
-          ]
+            {
+              label: t("sec_lbl_prod", "PRODUCTS"),
+              value: t(
+                "sec_c2_card1_prod",
+                "Crude oil, refined fuels, critical minerals",
+              ),
+            },
+            {
+              label: t("sec_lbl_trade", "TRADE VALUE"),
+              value: t(
+                "sec_c2_card1_trade",
+                "Largest México → India export segment",
+              ),
+            },
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c2_card1_opp",
+                "Energy diversification & manufacturing",
+              ),
+            },
+          ],
         },
         {
-          title: t('sec_c2_card2_title', "Aerospace & Defense"),
+          title: t("sec_c2_card2_title", "Aerospace & Defense"),
           image: AeroImg,
           details: [
-            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card2_prod', "Aircraft parts, avionics, defense equipment") },
-            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card2_trade', "Fastest growing export segment") },
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card2_opp', "Make in India, offsets, MRO expansion") }
-          ]
+            {
+              label: t("sec_lbl_prod", "PRODUCTS"),
+              value: t(
+                "sec_c2_card2_prod",
+                "Aircraft parts, avionics, defense equipment",
+              ),
+            },
+            {
+              label: t("sec_lbl_trade", "TRADE VALUE"),
+              value: t("sec_c2_card2_trade", "Fastest growing export segment"),
+            },
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c2_card2_opp",
+                "Make in India, offsets, MRO expansion",
+              ),
+            },
+          ],
         },
         {
-          title: t('sec_c2_card3_title', "Electronics & Telecom"),
+          title: t("sec_c2_card3_title", "Electronics & Telecom"),
           image: ElectroImg,
           details: [
-            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card3_prod', "Telecom hardware, components, semiconductors") },
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card3_opp', "India manufacturing push, 5G rollout") },
-            { label: t('sec_lbl_focus', "FOCUS"), value: t('sec_c2_card3_focus', "Semiconductor mission & supply chains") }
-          ]
+            {
+              label: t("sec_lbl_prod", "PRODUCTS"),
+              value: t(
+                "sec_c2_card3_prod",
+                "Telecom hardware, components, semiconductors",
+              ),
+            },
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c2_card3_opp",
+                "India manufacturing push, 5G rollout",
+              ),
+            },
+            {
+              label: t("sec_lbl_focus", "FOCUS"),
+              value: t(
+                "sec_c2_card3_focus",
+                "Semiconductor mission & supply chains",
+              ),
+            },
+          ],
         },
         {
-          title: t('sec_c2_card4_title', "Agri-Food & Beverages"),
+          title: t("sec_c2_card4_title", "Agri-Food & Beverages"),
           image: AgriImg,
           details: [
-            { label: t('sec_lbl_prod', "PRODUCTS"), value: t('sec_c2_card4_prod', "Tequila, mezcal, beer, processed foods") },
-            { label: t('sec_lbl_trade', "TRADE VALUE"), value: t('sec_c2_card4_trade', "High-growth premium category") },
-            { label: t('sec_lbl_opp', "OPPORTUNITY"), value: t('sec_c2_card4_opp', "India's premium spirits & retail expansion") }
-          ]
-        }
-      ]
-    }
+            {
+              label: t("sec_lbl_prod", "PRODUCTS"),
+              value: t(
+                "sec_c2_card4_prod",
+                "Tequila, mezcal, beer, processed foods",
+              ),
+            },
+            {
+              label: t("sec_lbl_trade", "TRADE VALUE"),
+              value: t("sec_c2_card4_trade", "High-growth premium category"),
+            },
+            {
+              label: t("sec_lbl_opp", "OPPORTUNITY"),
+              value: t(
+                "sec_c2_card4_opp",
+                "India's premium spirits & retail expansion",
+              ),
+            },
+          ],
+        },
+      ],
+    },
   };
 
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans transition-colors duration-500">
-      
+      <Helmet>
+        <title>Focus Sectors | Key Industries for Bilateral Trade - MIBC</title>
+        <meta
+          name="description"
+          content="Discover high-growth sectors bridging México and India, including IT, Pharmaceuticals, Logistics, Manufacturing, and Agri-Food exports like Tequila."
+        />
+        <meta
+          name="keywords"
+          content="India Mexico trade sectors, pharma export Mexico, IT nearshoring USMCA, Tequila export India, automotive manufacturing"
+        />
+      </Helmet>
+
       {/* --- HERO SECTION --- */}
       <section className="relative h-[650px] flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={SectorHeroBg} alt="Hero" className="w-full h-full object-cover" />
+          <img
+            src={SectorHeroBg}
+            alt="Hero"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4">
@@ -169,7 +326,11 @@ const Sectors = () => {
 const SectorCard = ({ card }) => (
   <div className="bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] dark:shadow-none border border-gray-100 dark:border-slate-800 hover:shadow-2xl dark:hover:border-[#A98842]/30 transition-all duration-500 hover:-translate-y-2 group">
     <div className="h-56 overflow-hidden">
-      <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <img
+        src={card.image}
+        alt={card.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
     </div>
     <div className="p-8">
       <h3 className="text-xl font-black text-[#1a1a1a] dark:text-white mb-4 tracking-tight border-b-2 border-[#A98842]/20 pb-4 transition-colors">
@@ -179,10 +340,10 @@ const SectorCard = ({ card }) => (
         {card.details.map((detail, i) => (
           <div key={i} className="flex flex-col">
             <div className="flex items-center gap-2 mb-1">
-               <span className="text-[#A98842] font-black text-[10px]">→</span>
-               <span className="text-[#A98842] font-black text-[9px] uppercase tracking-widest leading-none">
-                 {detail.label}:
-               </span>
+              <span className="text-[#A98842] font-black text-[10px]">→</span>
+              <span className="text-[#A98842] font-black text-[9px] uppercase tracking-widest leading-none">
+                {detail.label}:
+              </span>
             </div>
             <p className="text-gray-700 dark:text-gray-300 text-[13px] font-bold leading-relaxed pl-4 transition-colors">
               {detail.value}

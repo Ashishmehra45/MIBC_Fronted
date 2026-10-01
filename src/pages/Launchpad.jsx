@@ -1,54 +1,84 @@
-import React from 'react';
-import { Rocket, TrendingUp, Globe, Check } from 'lucide-react';
-import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
-import LaunchpadHero from '../assets/images/blog/connect.png'; 
+import React from "react";
+import { Rocket, TrendingUp, Globe, Check } from "lucide-react";
+import { useTranslation } from "react-i18next"; // <-- 1. i18n Hook import kiya
+import LaunchpadHero from "../assets/images/blog/connect.png";
+import { Helmet } from "react-helmet-async";
 
 const Launchpad = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
-  
+
   const content = {
     title: t("lp_title", "India–México Launchpad"),
-    subtitle: t("lp_subtitle", "A structured soft-landing program enabling startups and growth-stage companies to establish operations and scale in the counterpart market."),
+    subtitle: t(
+      "lp_subtitle",
+      "A structured soft-landing program enabling startups and growth-stage companies to establish operations and scale in the counterpart market.",
+    ),
     overview: {
       badge: t("lp_overview_badge", "LAUNCHPAD OVERVIEW"),
       title: t("lp_overview_title", "India–México Launchpad"),
-      desc: t("lp_overview_desc", "India–México Launchpad is a structured soft-landing platform designed for startups and growth-stage companies seeking to establish operations in the other market. The program reduces market entry risk through validated market intelligence, operational infrastructure, and curated ecosystem introductions.")
+      desc: t(
+        "lp_overview_desc",
+        "India–México Launchpad is a structured soft-landing platform designed for startups and growth-stage companies seeking to establish operations in the other market. The program reduces market entry risk through validated market intelligence, operational infrastructure, and curated ecosystem introductions.",
+      ),
     },
     sections: [
       {
         type: t("lp_s1_type", "Entering India"),
         badge: t("lp_s1_badge", "MEXICAN STARTUPS"),
         icon: <TrendingUp size={24} />,
-        desc: t("lp_s1_desc", "Unlock opportunities in one of the world's largest consumer and digital economies with our tailored soft-landing support."),
+        desc: t(
+          "lp_s1_desc",
+          "Unlock opportunities in one of the world's largest consumer and digital economies with our tailored soft-landing support.",
+        ),
         points: [
           t("lp_s1_p1", "Market validation and opportunity assessment"),
           t("lp_s1_p2", "Virtual office facilities in Mumbai/Delhi"),
           t("lp_s1_p3", "Regulatory and entity set-up advisory"),
           t("lp_s1_p4", "Banking and payment infrastructure introductions"),
           t("lp_s1_p5", "Investor and partner introductions"),
-          t("lp_s1_p6", "Ecosystem access to Indian incubators and accelerators")
-        ]
+          t(
+            "lp_s1_p6",
+            "Ecosystem access to Indian incubators and accelerators",
+          ),
+        ],
       },
       {
         type: t("lp_s2_type", "Entering México"),
         badge: t("lp_s2_badge", "INDIAN STARTUPS"),
         icon: <Globe size={24} />,
-        desc: t("lp_s2_desc", "Leverage México's strategic position as a gateway to the Americas and the USMCA market with institutional guidance."),
+        desc: t(
+          "lp_s2_desc",
+          "Leverage México's strategic position as a gateway to the Americas and the USMCA market with institutional guidance.",
+        ),
         points: [
           t("lp_s2_p1", "USMCA market access strategy development"),
-          t("lp_s2_p2", "Soft-landing infrastructure in México City/Guadalajara"),
+          t(
+            "lp_s2_p2",
+            "Soft-landing infrastructure in México City/Guadalajara",
+          ),
           t("lp_s2_p3", "Company incorporation and de-structuring"),
           t("lp_s2_p4", "Talent acquisition advisory"),
           t("lp_s2_p5", "Customer and partner introductions"),
-          t("lp_s2_p6", "Government liaison and incentive navigation")
-        ]
-      }
-    ]
+          t("lp_s2_p6", "Government liaison and incentive navigation"),
+        ],
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans pb-24 transition-colors duration-500">
-      
+      <Helmet>
+        <title>India–México Launchpad & Initiatives | MIBC</title>
+        <meta
+          name="description"
+          content="Explore MIBC's strategic initiatives, including the India-México Launchpad designed to accelerate market entry and bilateral business growth."
+        />
+        <meta
+          name="keywords"
+          content="India Mexico launchpad, MIBC initiatives, business accelerator, market entry program"
+        />
+      </Helmet>
+
       {/* --- HEADER SECTION --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
@@ -67,9 +97,9 @@ const Launchpad = () => {
       {/* --- HERO IMAGE --- */}
       <section className="container mx-auto px-4 mb-16">
         <div className="rounded-[30px] overflow-hidden shadow-2xl dark:shadow-black/50 border-4 border-white dark:border-slate-800 max-w-7xl mx-auto transition-colors">
-          <img 
-            src={LaunchpadHero} 
-            alt={t("lp_hero_img_alt", "Economic Forum India Mexico")} 
+          <img
+            src={LaunchpadHero}
+            alt={t("lp_hero_img_alt", "Economic Forum India Mexico")}
             className="w-full h-auto md:max-h-[600px] object-cover"
           />
         </div>
@@ -103,21 +133,20 @@ const Launchpad = () => {
       <section className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {content.sections.map((section, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="bg-white dark:bg-slate-900 rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-50 dark:border-slate-800 transition-all duration-500 hover:shadow-xl dark:hover:shadow-lg dark:hover:border-[#A98842]/30 flex flex-col group"
             >
-              
               {/* Card Header */}
               <div className="flex justify-between items-start mb-8">
                 <div className="w-12 h-12 bg-[#A98842] text-white rounded-xl flex items-center justify-center shadow-md dark:shadow-none transition-colors">
                   {section.icon}
                 </div>
-                <span 
+                <span
                   className={`px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest transition-colors ${
-                    idx === 1 
-                      ? 'bg-[#1a1a1a] dark:bg-slate-800 text-white dark:text-gray-200' 
-                      : 'bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842]'
+                    idx === 1
+                      ? "bg-[#1a1a1a] dark:bg-slate-800 text-white dark:text-gray-200"
+                      : "bg-[#FFF9E6] dark:bg-[#A98842]/20 text-[#A98842]"
                   }`}
                 >
                   {section.badge}
@@ -127,7 +156,7 @@ const Launchpad = () => {
               <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-6 tracking-tight transition-colors">
                 {section.type}
               </h3>
-              
+
               <p className="text-gray-600 dark:text-gray-400 text-[15px] leading-relaxed mb-10 font-medium min-h-[60px] transition-colors">
                 {section.desc}
               </p>
@@ -135,11 +164,15 @@ const Launchpad = () => {
               {/* Checklist Points */}
               <div className="space-y-3 flex-grow">
                 {section.points.map((point, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="flex items-center gap-4 bg-[#faf9f6]/60 dark:bg-slate-800/50 p-4 rounded-2xl border border-gray-50 dark:border-slate-700/50 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-300"
                   >
-                    <Check size={16} className="text-[#A98842] mt-1 shrink-0" strokeWidth={3} />
+                    <Check
+                      size={16}
+                      className="text-[#A98842] mt-1 shrink-0"
+                      strokeWidth={3}
+                    />
                     <span className="text-gray-700 dark:text-gray-200 text-sm font-bold tracking-tight leading-snug transition-colors">
                       {point}
                     </span>

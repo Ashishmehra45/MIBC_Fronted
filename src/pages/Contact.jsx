@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import axios from 'axios';
 import Swal from 'sweetalert2'; 
 import { useTranslation } from 'react-i18next'; // <-- 1. i18n Hook import kiya
+import { Helmet } from "react-helmet-async"; // <-- 1. Helmet import kiya
 
 const Contact = () => {
   const { t } = useTranslation(); // <-- 2. Hook initialize kiya
@@ -87,6 +88,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 font-sans pb-24 transition-colors duration-500">
       
+      <Helmet>
+  <title>Contact Us | MIBC - México–India Business Council</title>
+  <meta name="description" content="Get in touch with the México-India Business Council. We provide institutional support, market intelligence, and bilateral trade execution for businesses." />
+  <meta name="keywords" content="Contact MIBC, Mexico India Business Council contact, bilateral trade support, India Mexico relations" />
+</Helmet>
       {/* --- HEADER SECTION --- */}
       <section className="pt-20 pb-12 text-center">
         <div className="container mx-auto px-4">
