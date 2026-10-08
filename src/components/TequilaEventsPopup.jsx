@@ -34,7 +34,7 @@ const TequilaEventsPopup = () => {
     {
       id: 1,
       image: "/Tequila_img/rubi-martin-1.PNG",
-      title: t("teq_pop_e1_title", "Premium Tequila Tasting & Networking"),
+      title: t("teq_pop_e1_title", "Exclusive One-on-One Engagements"),
       
      
       desc: t("teq_pop_e1_desc", "An exclusive evening introducing authentic Mexican Tequila to India's top hospitality leaders, mixologists, and F&B directors."),
