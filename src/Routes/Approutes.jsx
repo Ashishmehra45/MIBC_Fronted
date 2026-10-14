@@ -31,6 +31,8 @@ import TermsAndConditions from '../pages/Terms&conditions';
 import Cohortdashboard from '../pages/Cohortdashboard';
 import TequilaLogin from '../pages/Tequila-login';
 import CohortRegister from '../pages/CohortRegister';
+import InitialQuestionnaire from '../pages/InitialQuestionnaire';
+import Phase1Questionnaire from '../pages/Phase_1';
 
 
 
@@ -63,6 +65,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/initial-questionnaire" element={<InitialQuestionnaire />} />
+          <Route path="/phase-1" element={<Phase1Questionnaire />} />
 
           <Route
             path="/services/investment-facilitation"
