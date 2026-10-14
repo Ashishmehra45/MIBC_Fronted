@@ -34,7 +34,9 @@ import CohortRegister from '../pages/CohortRegister';
 import InitialQuestionnaire from '../pages/InitialQuestionnaire';
 import Phase1Questionnaire from '../pages/Phase_1';
 
-
+// YAHAN PAR FIX KIYA HAI: 'pahse' ko 'Phase' kar diya hai
+import Phase2Questionnaire from '../pages/Phase2Questionnaire';
+import Phase3Questionnaire from '../pages/Phase3Questionnaire';
 
 function AppContent() {
   const location = useLocation();
@@ -54,7 +56,6 @@ function AppContent() {
 
   return (
     <>
-      
       <ScrollToTop />
       <Preloader />
 
@@ -67,6 +68,10 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/initial-questionnaire" element={<InitialQuestionnaire />} />
           <Route path="/phase-1" element={<Phase1Questionnaire />} />
+          
+          {/* AB YEH PERFECTLY KAAM KAREGA */}
+          <Route path="/phase-2" element={<Phase2Questionnaire />} />
+          <Route path="/phase-3" element={<Phase3Questionnaire />} />
 
           <Route
             path="/services/investment-facilitation"

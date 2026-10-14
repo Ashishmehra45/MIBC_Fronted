@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/images/logo/logo-dark.png';
 
 const Phase2Questionnaire = () => {
   const [userName, setUserName] = useState("Partner");
@@ -88,7 +89,7 @@ const Phase2Questionnaire = () => {
       
       {/* Header Logo */}
       <div className="w-full max-w-[760px] text-center mt-10 mb-5">
-        <img src="/assets/images/logo/logo-dark.png" alt="MIBC Logo" className="w-full max-w-[200px] mx-auto" />
+        <img src={logo} alt="MIBC Logo" className="w-full max-w-[200px] mx-auto" />
       </div>
 
       <div className="w-full max-w-[760px] pb-24">

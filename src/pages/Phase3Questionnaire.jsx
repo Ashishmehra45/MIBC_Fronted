@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/images/logo/logo-dark.png';
 
 const Phase3Questionnaire = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
