@@ -580,9 +580,10 @@ const QuestionnairesSection = () => {
       title: t("ta_q_c1_title", "Initial Questionnaire"),
       desc: t(
         "ta_q_c1_desc",
-        "Basic company details, product categories, and export readiness check.",
+        "Basic company details, product categories, and export readiness check."
       ),
       linkText: t("ta_q_c1_btn", "Start Assessment"),
+      link: "/initial-questionnaire",
       highlighted: false,
       icon: (
         <svg
@@ -604,9 +605,10 @@ const QuestionnairesSection = () => {
       title: t("ta_q_c2_title", "Phase 1 Questionnaire"),
       desc: t(
         "ta_q_c2_desc",
-        "Detailed product SKUs, pricing, production capacity, and compliance.",
+        "Detailed product SKUs, pricing, production capacity, and compliance."
       ),
       linkText: t("ta_q_c2_btn", "Start Phase 1"),
+      link: "/phase-1",
       highlighted: true,
       icon: (
         <svg
@@ -628,9 +630,10 @@ const QuestionnairesSection = () => {
       title: t("ta_q_c3_title", "Phase 2 Questionnaire"),
       desc: t(
         "ta_q_c3_desc",
-        "Execution, distribution partnerships, and brand launch preparation.",
+        "Submit your IMPI trademark, export files, and current label artwork."
       ),
       linkText: t("ta_q_c3_btn", "Start Phase 2"),
+      link: "/phase-2",
       highlighted: false,
       icon: (
         <svg
@@ -648,11 +651,37 @@ const QuestionnairesSection = () => {
         </svg>
       ),
     },
+    {
+      title: t("ta_q_c4_title", "Phase 3 Questionnaire"),
+      desc: t(
+        "ta_q_c4_desc",
+        "Finalize your FOB pricing, credit terms, and market-building budget."
+      ),
+      linkText: t("ta_q_c4_btn", "Start Phase 3"),
+      link: "/phase-3",
+      highlighted: false,
+      icon: (
+        <svg
+          className="w-7 h-7"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M9 17v-2m4 2v-4m4 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
+      ),
+    },
   ];
 
   return (
     <section className="bg-[#FAF9F6] py-24 px-4 md:px-8 font-sans">
-      <div className="max-w-6xl mx-auto">
+      {/* Container ki width badha di taaki 4 cards ache se fit ho */}
+      <div className="max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -669,12 +698,13 @@ const QuestionnairesSection = () => {
           <p className="text-gray-500 text-base leading-relaxed">
             {t(
               "ta_q_desc",
-              "Select the appropriate phase below. You will be redirected to the dedicated portal to complete your application securely.",
+              "Select the appropriate phase below. You will be redirected to the dedicated portal to complete your application securely."
             )}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        {/* Grid ko lg:grid-cols-4 kar diya */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -686,14 +716,18 @@ const QuestionnairesSection = () => {
                 delay: index * 0.15,
                 ease: "easeOut",
               }}
-              className={`bg-white rounded-2xl p-10 flex flex-col items-center text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
+              className={`bg-white rounded-2xl p-8 flex flex-col items-center text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                 card.highlighted
-                  ? "shadow-xl border-t-4 border-t-[#a8813f] scale-[1.02] z-10"
+                  ? "shadow-xl border-t-4 border-t-[#a8813f] lg:scale-[1.02] z-10"
                   : "shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-lg"
               }`}
             >
               <div
-                className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 shadow-sm ${card.highlighted ? "bg-[#a8813f] text-white" : "bg-[#FAF4EB] text-[#a8813f]"}`}
+                className={`w-16 h-16 rounded-full flex items-center justify-center mb-8 shadow-sm ${
+                  card.highlighted
+                    ? "bg-[#a8813f] text-white"
+                    : "bg-[#FAF4EB] text-[#a8813f]"
+                }`}
               >
                 {card.icon}
               </div>
@@ -703,14 +737,19 @@ const QuestionnairesSection = () => {
               <p className="text-gray-500 text-sm leading-relaxed mb-10 flex-grow">
                 {card.desc}
               </p>
-              <button
-                className={`text-sm font-bold flex items-center gap-2 group ${card.highlighted ? "text-gray-900" : "text-[#a8813f]"}`}
+              
+              {/* Button ki jagah React Router ka <Link> laga diya hai */}
+              <Link
+                to={card.link}
+                className={`text-sm font-bold flex items-center gap-2 group ${
+                  card.highlighted ? "text-gray-900" : "text-[#a8813f]"
+                }`}
               >
                 {card.linkText}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>
